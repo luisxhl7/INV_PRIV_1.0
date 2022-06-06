@@ -1,0 +1,49 @@
+.Interfaz-login{                   /*Interfaz de inicio de sesion*/
+    background-image: url(../img/fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0px;
+    min-height: 100vh;
+    /*posicion*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.interfazGeneral{                  /*Interfaz general*/
+    background-image: url(../IMG/fondo_de_interfacez.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body::before{                      /*Colores del fondo*/
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-image: linear-gradient(90deg,#31c6e7,#10dd2b);
+    opacity: 0.5;
+    z-index: -1;
+}
+.interfazSoporte{                  /*Interfaz soporte*/
+    background-image: url(../IMG/fondosupport2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0px;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
