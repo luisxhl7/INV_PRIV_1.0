@@ -21,7 +21,6 @@
             $this-> correo = $objUsuario -> getCorreo();
             $this-> pass = $objUsuario -> getPass();
         }
-
         public function mdlCrearUsuario(){
             $sql = "CALL spCrearUsuario (?,?,?,?,?,?,?,?)"; //Procedimiento almacenado
             $this-> estado = false;
@@ -46,26 +45,19 @@
             return $this -> estado;
         }
         public function mdlConsultarUsuario(){
-            $resultSet = NULL;
-            
-            $sql = "SELECT * FROM usuario WHERE USUARIO = ? limit 1";
+            $sql = "CALL spMostrarUsuario()";  //Procedimiento almacenado
 
             try {
                 $con = new Conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this -> nombre, PDO::PARAM_STR);
                 $stmt -> execute();
-
-                $resultSet = $stmt;                
+                $resulset = $stmt;
                 
             } catch (PDOException $e) {
-                echo "Error en el metodo consultar usuario " . $e->getMessage();
+                echo "Error en el metodo consultar usuario " . $e -> getMessage();
             }
-            return $resultSet;
+            return $resulset;
         }
-
-
-
 
         /*----------------------------------- MODIFICAR A PARTIR DE AQUI --------------------------------------*/
         public function mdlModificarUsuario(){
@@ -91,20 +83,7 @@
             }
             return $this -> estado;
         }
-        public function mdlEliminarUsuario(){
-            $sql = "DELETE FROM VEHICULO WHERE PLACA = ?";
-            $this -> estado = false;
-            try {
-                $con = new Conexion();
-                $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this -> placa, PDO::PARAM_STR);
-                $stmt -> execute();
-                $this -> estado = true;
-            } catch (PDOException $e) {
-                echo "Error en el metodo ELIMINAR vehiculo " . $e->getMessage();
-            }
-            return $this -> estado;
-        }
+
     }
 
 ?>

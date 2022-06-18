@@ -44,45 +44,29 @@
                             <th style="width: 170px;">CORREO</th>
                             <th style="width: 150px;">ROL</th>
                         </tr>
-                        <tr>
-                            <?php          /* CAPTURA DE DATOS PARA VALIDAR Y DEVOLVER UNA VISTA*/
-                                if (isset($_POST["buscador1"]) and $_POST["buscador1"] != NULL) {
-                                    $objCtrUsuario = new UsuarioController();
-                                    $datos =  $objCtrUsuario -> ctrConsultarUsuario();
-                                    ?>
-                                    <td><?php echo $datos[0];?></td>
-                                    <td><?php echo $datos[1];?></td>
-                                    <td><?php echo $datos[2];?></td>
-                                    <td><?php echo $datos[3];?></td>
-                                    <td><?php echo $datos[4];?></td>
-                                    <td><?php echo $datos[5];?></td>
-                                    <td><?php echo $datos[6];?></td>
-                                    <td><?php echo $datos[7];?></td>
-                                    <?php
-                                }else {
-                                    echo "<script> 
-                                        Swal.fire({
-                                            icon: 'error',
-                                            iconColor: 'red',
-                                            title: 'ERROR AL BUSCAR USUARIO',
-                                            text: 'EL USUARIO NO EXISTE',
-                                            background: 'url(view/img/fondo_de_interfacez.png) no-repeat',
-                                            confirmButtonText: 'ACEPTAR',
-                                            confirmButtonColor: 'rgb(139, 248, 50)',
-                                            timer: '7000',            //programar tiempo de visualizacion de la alerta
-                                            timerProgressBar: 'true', //visualizar tiempo de la alerta
-                                            showCloseButton: 'true',  //boton para cerrar alerta ubi (derecha superior)
-                                            customClass: {
-                                                popup: 'popup-class'
-                                            }
-                                        }) 
-                                    </script>";
-                                }
-                            ?>
-                        </tr>
+                        <?php
+                            if (isset($_POST["buscador1"])) {
+                                $objCtrUsuario = new UsuarioController();
+                                $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
+                                foreach($listaUsuario as $dato){
+                                    echo"
+                                        <tr>
+                                            <td>".$dato["CODIGO"]."</td>
+                                            <td>".$dato["USUARIO"]."</td>
+                                            <td>".$dato["APELLIDO"]."</td>
+                                            <td>".$dato["DOCUMENTO"]."</td>
+                                            <td>".$dato["NACIMIENTO"]."</td>
+                                            <td>".$dato["TELEFONO"]."</td>
+                                            <td>".$dato["CORREO"]."</td>
+                                            <td>".$dato["ROL"]."</td>
+                                        </tr>
+                                    ";
+                                }                   
+                            } 
+                        ?>
                     </table>
                 </div>
-            </div> 
+            </div>
     
             <div class="conBtns">           <!-- MENU DE NAVEGACION -->
                 <a href="index.php?ruta=registrarUsuario" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>

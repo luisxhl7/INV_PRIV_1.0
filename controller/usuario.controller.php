@@ -56,31 +56,18 @@
                 echo "Error en el controlador insertar: ".$e->getMessage();
             }
         }
-        
+
         public function ctrConsultarUsuario(){
-            $respuesta = null;
-            $name = $_POST["buscador1"];
+            $lista = false;
             try {
                 $objDtoUsuario = new Usuario();
-                $objDtoUsuario -> setNombre($name);
+                $objDaoUsuario = new ModeloUsuario( $objDtoUsuario );
+                $lista = $objDaoUsuario -> mdlConsultarUsuario() -> fetchAll();
 
-                $objDaoUsuario = new ModeloUsuario($objDtoUsuario);
-                $respuesta = $objDaoUsuario -> mdlConsultarUsuario() -> fetch();
-                $datos[0] = $respuesta ["codigo"];
-                $datos[1] = $respuesta ["USUARIO"];
-                $datos[2] = $respuesta ["APELLIDO"];
-                $datos[3] = $respuesta ["DOCUMENTO"];
-                $datos[4] = $respuesta ["NACIMIENTO"];
-                $datos[5] = $respuesta ["TELEFONO"];
-                $datos[6] = $respuesta ["CORREO"];
-                $datos[7] = $respuesta ["ROL"];
-
-            } catch (exception $e) {
-                echo "Error en el controlador consultar: ".$e->getMessage();
+            } catch (PDOException $e) {
+                echo "error en consular usuario" . $e -> getMessage();
             }
-            return $datos;
-
+            return $lista;
         }
-
     }        
 ?>
