@@ -21,11 +21,11 @@
                     <input type="text" name="buscador1" id="buscador1" class="buscador1" placeholder="Buscar usuario" title="buscador">
                     <div class ="Confiltros">
                         <label for="radioCodigo" class="shearchRadio">
-                            <input type="radio" name="filtro" id="radioCodigo" class="filtro1">
+                            <input type="radio" name="filtro" id="radioCodigo" class="filtro1" value="1" checked="">
                             ID USUARIO
                         </label>
                         <label for="radioNombre" class="shearchRadio">
-                            <input type="radio" name="filtro" id="radioNombre" class="filtro2">
+                            <input type="radio" name="filtro" id="radioNombre" class="filtro2" value="2">
                             NOMBRE
                         </label>
                     </div>
@@ -45,7 +45,7 @@
                             <th style="width: 150px;">ROL</th>
                         </tr>
                         <?php
-                            if (isset($_POST["buscador1"])) {
+                            if (isset($_POST["buscador1"])) {   //SE REQUIERE ORGANIZAR LA CONDICION Y CREAR UNA NUEVA 
                                 $objCtrUsuario = new UsuarioController();
                                 $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
                                 foreach($listaUsuario as $dato){
@@ -62,7 +62,28 @@
                                         </tr>
                                     ";
                                 }                   
-                            } 
+                            }
+                            else { //si no se a buscasdo nada en especifico enseñe a todos los usuarios
+                                $objCtrUsuario = new UsuarioController();
+                                $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
+                                foreach($listaUsuario as $dato){
+                                    echo"
+                                        <label for='aquifue'>
+                                            <tr>
+                                                <td><input type='radio' name='selectUser' id='aquifue' value=".$dato["CODIGO"]."></td>
+                                                <td>".$dato["CODIGO"]."</td>
+                                                <td>".$dato["USUARIO"]."</td>
+                                                <td>".$dato["APELLIDO"]."</td>
+                                                <td>".$dato["DOCUMENTO"]."</td>
+                                                <td>".$dato["NACIMIENTO"]."</td>
+                                                <td>".$dato["TELEFONO"]."</td>
+                                                <td>".$dato["CORREO"]."</td>
+                                                <td>".$dato["ROL"]."</td>
+                                            </tr>
+                                        </label>
+                                    ";
+                                }  
+                            }
                         ?>
                     </table>
                 </div>
