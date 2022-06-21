@@ -56,6 +56,18 @@
             }
                 
         }
+        public function ctrConsultarProducto(){
+            $lista = false;
+            try {
+                $objDtoProducto = new Producto();
+                $objDaoProducto = new ModeloProducto( $objDtoProducto );
+                $lista = $objDaoProducto -> mdlConsultarProducto() -> fetchAll();
+
+            } catch (PDOException $e) {
+                echo "error al consultar producto" . $e -> getMessage();
+            }
+            return $lista;
+        }
 
     }
 ?>

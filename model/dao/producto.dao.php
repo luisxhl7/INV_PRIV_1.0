@@ -41,7 +41,21 @@
             }
             return $this -> estado;
         }
-}
+        public function mdlConsultarProducto(){
+            $sql = "CALL spMostrarProducto()";  //Procedimiento almacenado
+
+            try {
+                $con = new Conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> execute();
+                $resulset = $stmt;
+                
+            } catch (PDOException $e) {
+                echo "Error en el metodo consultar Producto " . $e -> getMessage();
+            }
+            return $resulset;
+        }
+}       
 
 
 ?>

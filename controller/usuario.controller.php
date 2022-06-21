@@ -65,7 +65,7 @@
                 $lista = $objDaoUsuario -> mdlConsultarUsuario() -> fetchAll();
 
             } catch (PDOException $e) {
-                echo "error en consular usuario" . $e -> getMessage();
+                echo "error en consultar usuario" . $e -> getMessage();
             }
             return $lista;
         }

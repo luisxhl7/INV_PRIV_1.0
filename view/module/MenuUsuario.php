@@ -68,19 +68,16 @@
                                 $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
                                 foreach($listaUsuario as $dato){
                                     echo"
-                                        <label for='aquifue'>
-                                            <tr>
-                                                <td><input type='radio' name='selectUser' id='aquifue' value=".$dato["CODIGO"]."></td>
-                                                <td>".$dato["CODIGO"]."</td>
-                                                <td>".$dato["USUARIO"]."</td>
-                                                <td>".$dato["APELLIDO"]."</td>
-                                                <td>".$dato["DOCUMENTO"]."</td>
-                                                <td>".$dato["NACIMIENTO"]."</td>
-                                                <td>".$dato["TELEFONO"]."</td>
-                                                <td>".$dato["CORREO"]."</td>
-                                                <td>".$dato["ROL"]."</td>
-                                            </tr>
-                                        </label>
+                                        <tr>
+                                            <td>".$dato["CODIGO"]."</td>
+                                            <td>".$dato["USUARIO"]."</td>
+                                            <td>".$dato["APELLIDO"]."</td>
+                                            <td>".$dato["DOCUMENTO"]."</td>
+                                            <td>".$dato["NACIMIENTO"]."</td>
+                                            <td>".$dato["TELEFONO"]."</td>
+                                            <td>".$dato["CORREO"]."</td>
+                                            <td>".$dato["ROL"]."</td>
+                                        </tr>
                                     ";
                                 }  
                             }
