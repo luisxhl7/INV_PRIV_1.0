@@ -45,6 +45,7 @@
                             <th style="width: 150px;">ROL</th>
                         </tr>
                         <?php
+                            /*
                             if (isset($_POST["buscador1"])) {   //SE REQUIERE ORGANIZAR LA CONDICION Y CREAR UNA NUEVA 
                                 $objCtrUsuario = new UsuarioController();
                                 $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
@@ -81,6 +82,7 @@
                                     ";
                                 }  
                             }
+                            */
                         ?>
                     </table>
                 </div>

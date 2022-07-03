@@ -1,9 +1,10 @@
 <?php
     class UsuarioController{
-        public function ctrCrearUsuario($rol,$nombre,$apellido,$documento,$nacimiento,$telefono,$correo,$pass){
+        public function ctrCrearUsuario($userName,$rol,$nombre,$apellido,$documento,$nacimiento,$telefono,$correo,$pass){
             try {
                 //objeto DTO
                 $objDtoUsuario = new Usuario();
+                $objDtoUsuario->setUserName($userName);
                 $objDtoUsuario->setRol($rol);
                 $objDtoUsuario->setNombre($nombre);
                 $objDtoUsuario->setApellido($apellido);

@@ -19,15 +19,15 @@
             </div>
             <form method="post" autocomplete="off">
                 <div class="ContUser">
-                    <label for="" class ="txt">ID:</label>
-                    <input type="text" name="" id="" placeholder= "ID USUARIO" class ="campT ID">
+                    <label for="" class ="txt">USERNAME:</label>
+                    <input type="text" name="userName" id="" placeholder= "Ingrese Username" class ="campT ID">
                     
                     <label for="" class ="txt">ROL:</label>
                     <select name="txtRol" id="" class="BarraRoles">
                         <option value="">Seleccione Rol</option>
-                        <option value="Administrador">ADMINISTRADOR</option>
-                        <option value="Usuario">USUARIO</option>
-                        <option value="Invitado">INVITADO</option>
+                        <option value="1">ADMINISTRADOR</option>
+                        <option value="2">USUARIO</option>
+                        <option value="3">INVITADO</option>
                     </select>
                 </div>
                 <div class="ContData">
@@ -44,7 +44,10 @@
                         <input type="text" name="txtDocumento" id="" placeholder= "Ingrese documento" class ="campT documento">
                         
                         <label for="" class ="txt">NACIMIENTO:</label>
+                        <input type="date" name="txtNacimiento" id="" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento">
+                        <!--
                         <input type="text" name="txtNacimiento" id="" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento">
+                        -->
                     </div>
                     <div>
                         <label for="" class ="txt">TELEFONO:</label>
@@ -55,9 +58,9 @@
                     </div>
                     <div>
                         <label for="" class ="txt">CONTRASEÑA:</label>
-                        <input type="password" name="txtpass" id="" class="campT password" placeholder="Ingrese contraseña">
+                        <input type="password" name="txtPass" id="" class="campT password" placeholder="Ingrese contraseña">
                         <label for="" class ="txt">CONTRASEÑA:</label>
-                        <input type="password" name="txtpass2" id="" class="campT password" placeholder="Ingrese nuevamente contraseña">
+                        <input type="password" name="txtPass2" id="" class="campT password" placeholder="Ingrese nuevamente contraseña">
                     </div>
                 </div>
                 <div class="contBtn">
@@ -67,17 +70,23 @@
         </div>
         <?php                              /* CAPTURA DE DATOS PARA VALIDAR */
             if (isset($_POST["txtNombre"]) and $_POST["txtNombre"] != NULL) {
-                $objCon = new UsuarioController();
-                $objCon -> ctrCrearUsuario(
-                    $_POST["txtRol"],
-                    $_POST["txtNombre"],
-                    $_POST["txtApellido"],
-                    $_POST["txtDocumento"],
-                    $_POST["txtNacimiento"],
-                    $_POST["txtTelefono"],
-                    $_POST["txtCorreo"],
-                    $_POST["txtpass"]
-                );
+                if ($_POST["txtPass"] == $_POST["txtPass2"]) {
+                    $objCon = new UsuarioController();
+                    $objCon -> ctrCrearUsuario(
+                        $_POST["userName"],
+                        $_POST["txtRol"],
+                        $_POST["txtNombre"],
+                        $_POST["txtApellido"],
+                        $_POST["txtDocumento"],
+                        $_POST["txtNacimiento"],
+                        $_POST["txtTelefono"],
+                        $_POST["txtCorreo"],
+                        $_POST["txtPass"]
+                    );
+                }else{
+                echo"las contraseñas son diferentes";
+                }
+
             }
         ?>
     </body>

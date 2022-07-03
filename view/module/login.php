@@ -39,9 +39,9 @@
         <div>                            <!-- BARRA DESPLEGABLE -->
           <select name="txtRol" id="txtRol" class="btn btn-outline3" required>
             <option value=""> Seleccione Rol </option>
-            <option value="Administrador"> Administrador </option>
-            <option value="Usuario"> Usuario </option>
-            <option value="Invitado"> Invitado </option>
+            <option value="1"> Administrador </option>
+            <option value="2"> Usuario </option>
+            <option value="3"> Invitado </option>
           </select>
         </div>
 
