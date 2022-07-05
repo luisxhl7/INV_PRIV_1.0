@@ -20,13 +20,13 @@
                     <label for="buscador1" class ="busqueda">BUSQUEDA</label>
                     <input type="text" name="buscador1" id="buscador1" class="buscador1" placeholder="Buscar usuario" title="buscador">
                     <div class ="Confiltros">
-                        <label for="radioCodigo" class="shearchRadio">
-                            <input type="radio" name="filtro" id="radioCodigo" class="filtro1" value="1" checked="">
-                            ID USUARIO
+                        <label for="radioDocumento" class="shearchRadio">
+                            <input type="radio" name="filtro" id="radioDocumento" class="filtro1" value="1" checked="">
+                            DOCUMENTO
                         </label>
-                        <label for="radioNombre" class="shearchRadio">
-                            <input type="radio" name="filtro" id="radioNombre" class="filtro2" value="2">
-                            NOMBRE
+                        <label for="radioUserName" class="shearchRadio">
+                            <input type="radio" name="filtro" id="radioUserName" class="filtro2" value="2">
+                            USUARIO
                         </label>
                     </div>
                 </div>
@@ -45,21 +45,20 @@
                             <th style="width: 150px;">ROL</th>
                         </tr>
                         <?php
-                            /*
                             if (isset($_POST["buscador1"])) {   //SE REQUIERE ORGANIZAR LA CONDICION Y CREAR UNA NUEVA 
                                 $objCtrUsuario = new UsuarioController();
                                 $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
                                 foreach($listaUsuario as $dato){
                                     echo"
                                         <tr>
-                                            <td>".$dato["CODIGO"]."</td>
-                                            <td>".$dato["USUARIO"]."</td>
-                                            <td>".$dato["APELLIDO"]."</td>
-                                            <td>".$dato["DOCUMENTO"]."</td>
-                                            <td>".$dato["NACIMIENTO"]."</td>
-                                            <td>".$dato["TELEFONO"]."</td>
-                                            <td>".$dato["CORREO"]."</td>
-                                            <td>".$dato["ROL"]."</td>
+                                            <td>".$dato["Id_Usuario"]."</td>
+                                            <td>".$dato["Nombre"]."</td>
+                                            <td>".$dato["Apellido"]."</td>
+                                            <td>".$dato["Documento"]."</td>
+                                            <td>".$dato["Fecha_N"]."</td>
+                                            <td>".$dato["Telefono"]."</td>
+                                            <td>".$dato["Correo"]."</td>
+                                            <td>".$dato["Descripcion"]."</td>
                                         </tr>
                                     ";
                                 }                   
@@ -70,19 +69,18 @@
                                 foreach($listaUsuario as $dato){
                                     echo"
                                         <tr>
-                                            <td>".$dato["CODIGO"]."</td>
-                                            <td>".$dato["USUARIO"]."</td>
-                                            <td>".$dato["APELLIDO"]."</td>
-                                            <td>".$dato["DOCUMENTO"]."</td>
-                                            <td>".$dato["NACIMIENTO"]."</td>
-                                            <td>".$dato["TELEFONO"]."</td>
-                                            <td>".$dato["CORREO"]."</td>
-                                            <td>".$dato["ROL"]."</td>
+                                            <td>".$dato["Id_Usuario"]."</td>
+                                            <td>".$dato["Nombre"]."</td>
+                                            <td>".$dato["Apellido"]."</td>
+                                            <td>".$dato["Documento"]."</td>
+                                            <td>".$dato["Fecha_N"]."</td>
+                                            <td>".$dato["Telefono"]."</td>
+                                            <td>".$dato["Correo"]."</td>
+                                            <td>".$dato["Descripcion"]."</td>
                                         </tr>
                                     ";
                                 }  
                             }
-                            */
                         ?>
                     </table>
                 </div>

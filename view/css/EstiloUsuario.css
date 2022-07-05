@@ -39,8 +39,8 @@ nav{
 }
 .filtro1, .filtro2{                         /*Filtros de buscador*/
     display: inline-block;
-    margin: 10px auto 0px auto;
-    width: 40px;
+    margin: 9px auto 0px auto;
+    width: 30px;
     cursor: pointer;
 }
 .shearchRadio{                              /*Respuesta del texto de los filtros*/

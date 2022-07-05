@@ -56,7 +56,7 @@
             return $this -> estado;
         }
         public function mdlConsultarUsuario(){
-            $sql = "CALL spMostrarUsuario()";  //Procedimiento almacenado
+            $sql = "CALL SpMostrarUsuario()";  //Procedimiento almacenado
 
             try {
                 $con = new Conexion();

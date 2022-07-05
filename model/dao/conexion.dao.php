@@ -14,14 +14,14 @@
         public function getLogin(){
             $resultSet = false;
 
-            $sql = " SELECT CONTRASENA FROM USUARIO WHERE USERNAME = ? AND CONTRASENA = ? ";
+            $sql = " CALL SpIniciarSesion(?,?,?);";
 
             try {
                 $con = new Conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
                 $stmt -> bindParam(1, $this -> user, PDO::PARAM_STR);
                 $stmt -> bindParam(2, $this -> pass, PDO::PARAM_STR);
-                /*$stmt -> bindParam(3, $this -> rol, PDO::PARAM_STR);*/
+                $stmt -> bindParam(3, $this -> rol, PDO::PARAM_STR);
 
                 $stmt -> execute();
                 $resultSet = $stmt;

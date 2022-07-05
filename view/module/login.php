@@ -39,9 +39,15 @@
         <div>                            <!-- BARRA DESPLEGABLE -->
           <select name="txtRol" id="txtRol" class="btn btn-outline3" required>
             <option value=""> Seleccione Rol </option>
-            <option value="1"> Administrador </option>
-            <option value="2"> Usuario </option>
-            <option value="3"> Invitado </option>
+            <?php
+              $objCtrUsuario = new UsuarioController();
+              $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
+              foreach($listaUsuario as $dato){
+                echo'
+                  <option value="'.$dato["Cod_Rol"].'"> '.$dato["Descripcion"].' </option>
+                ';
+              }
+            ?>
           </select>
         </div>
 
