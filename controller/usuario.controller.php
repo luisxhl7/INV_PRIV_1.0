@@ -70,6 +70,19 @@
             }
             return $lista;
         }
+
+        public function ctrMostrarRol(){
+            $lista = false;
+            try {
+                $objDtoUsuario = new Usuario();
+                $objDaoUsuario = new ModeloUsuario( $objDtoUsuario );
+                $lista = $objDaoUsuario -> mdlMostrarRol() -> fetchAll();
+
+            } catch (PDOException $e) {
+                echo "error al mostrar los Roles de usuarios" . $e -> getMessage();
+            }
+            return $lista;
+        }
     }
     
 ?>

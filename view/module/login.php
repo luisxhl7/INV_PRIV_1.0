@@ -41,11 +41,9 @@
             <option value=""> Seleccione Rol </option>
             <?php
               $objCtrUsuario = new UsuarioController();
-              $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
+              $listaUsuario = $objCtrUsuario -> ctrMostrarRol();  
               foreach($listaUsuario as $dato){
-                echo'
-                  <option value="'.$dato["Cod_Rol"].'"> '.$dato["Descripcion"].' </option>
-                ';
+                echo'<option value="'.$dato["Cod_Rol"].'"> '.$dato["Descripcion"].' </option>';
               }
             ?>
           </select>

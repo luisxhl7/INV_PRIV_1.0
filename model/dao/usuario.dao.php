@@ -69,6 +69,20 @@
             }
             return $resulset;
         }
+        public function mdlMostrarRol(){
+            $sql = "CALL SpMostrarRol()";  //Procedimiento almacenado
+
+            try {
+                $con = new Conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> execute();
+                $resulset = $stmt;
+                
+            } catch (PDOException $e) {
+                echo "Error en el metodo consultar usuario " . $e -> getMessage();
+            }
+            return $resulset;
+        }
 
         /*----------------------------------- MODIFICAR A PARTIR DE AQUI --------------------------------------*/
         public function mdlModificarUsuario(){
