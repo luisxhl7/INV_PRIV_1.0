@@ -3,21 +3,23 @@
     padding: 0px;
 }
 .container{
-    position: relative;
+    display: flex;
     margin: auto;
     width: 1560px;
     height: 720px;
 }
+.contMenu{
+    height: 780px;
+    width: 400px;
+}
 .menu{                    /* Diseño del contenedor del menu */
     background-color: rgba(0, 0, 0, 0.637);
-    margin: 20px 0px 20px 20px ;
+    margin: 50px 20px 50px 20px ;
     padding-top: 10px;
     height: 680px;
-    width: 359px;
+    width: 360px;
     border-radius: 3cm;
-    position: absolute;
     display: block;
-    left: 0px;    
 }
 a{                        /* Diseño de los links */
     text-decoration: none;
@@ -43,13 +45,12 @@ a{                        /* Diseño de los links */
 .divLogo{                 /* Contenedor del logo */
     display: block;
     right: 0px;
-    height: 720px;
-    width: 1180px;
-    position: absolute;
+    height: 780px;
+    width: 1160px;
 }
 .logo{                    /* Ajustes del logo */
     display: block;
-    margin: 20px auto 0px auto;
+    margin: 100px auto 0px auto;
     height: 300px;
     width: 300px;
 }
@@ -71,12 +72,13 @@ h1{                       /* Diseño de los titulos */
     text-align: center;
 }
 .icono3{                  /* Diseño boton de cerrar sesion */
-    position: absolute;
     width: 50px;
     height: 50px;
     right: 36px;
     bottom: 19px;
     cursor: pointer;
+    margin: 10px 40px 0px;
+    display: block;
 }
 p{                        /* Diseño de los textos */
     margin-top: -15px;
@@ -87,10 +89,15 @@ p{                        /* Diseño de los textos */
     background-color: transparent;
     border: none;
     font-size: 25px;
-    position: absolute;
-    right: 10px;
-    bottom: 20px;
     cursor: pointer;
+    margin: 0px 10px;
+    display: block;
+}
+.contExit{
+    margin: 288px 0px 0px 1010px;
+    width: 150px;
+    height: 100px;
+    display: flex;
 }
 
 

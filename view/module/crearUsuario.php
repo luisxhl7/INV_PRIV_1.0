@@ -23,11 +23,15 @@
                     <input type="text" name="userName" id="" placeholder= "Ingrese Username" class ="campT ID">
                     
                     <label for="" class ="txt">ROL:</label>
-                    <select name="txtRol" id="" class="BarraRoles">
-                        <option value="">Seleccione Rol</option>
-                        <option value="1">ADMINISTRADOR</option>
-                        <option value="2">USUARIO</option>
-                        <option value="3">INVITADO</option>
+                    <select name="txtRol" id="" class="BarraRoles" required>
+                        <option value=""> Seleccione Rol </option>
+                        <?php
+                            $objCtrUsuario = new UsuarioController();
+                            $listaUsuario = $objCtrUsuario -> ctrMostrarRol();  
+                            foreach($listaUsuario as $dato){
+                                echo'<option value="'.$dato["Cod_Rol"].'"> '.$dato["Descripcion"].' </option>';
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="ContData">

@@ -24,8 +24,8 @@
             $this-> pass = $objUsuario -> getPass();
         }
         public function mdlCrearUsuario(){
-            $sql1 = "CALL SpInsertarDatos_P (?,?,?,?,?,?,?)"; //Procedimiento almacenado
-            $sql2 = "CALL SpInsertarUsuario (?,?,?)"; //Procedimiento almacenado
+            $sql1 = "CALL SpInsertarDatos_P  (?,?,?,?,?,?)"; //Procedimiento almacenado
+            $sql2 = "CALL SpInsertarUsuario (?,?,?,?)"; //Procedimiento almacenado
             $this-> estado = false;
 
             try {
@@ -37,14 +37,14 @@
                 $stmt -> bindParam(4, $this->nacimiento, PDO::PARAM_STR);
                 $stmt -> bindParam(5, $this->telefono, PDO::PARAM_STR);
                 $stmt -> bindParam(6, $this->correo, PDO::PARAM_STR);
-                $stmt -> bindParam(7, $this->rol, PDO::PARAM_INT);
                 
                 $stmt -> execute();
-
+                
                 $stmt = $con -> conexion() -> prepare($sql2);
-                $stmt -> bindParam(1, $this->documento, PDO::PARAM_INT);
+                $stmt -> bindParam(1, $this->username, PDO::PARAM_STR);
                 $stmt -> bindParam(2, $this->pass, PDO::PARAM_STR);
-                $stmt -> bindParam(3, $this->username, PDO::PARAM_STR);
+                $stmt -> bindParam(3, $this->documento, PDO::PARAM_INT);
+                $stmt -> bindParam(4, $this->rol, PDO::PARAM_INT);
 
                 $stmt -> execute();
 
@@ -100,6 +100,24 @@
                 $stmt -> bindParam(6, $this->telefono, PDO::PARAM_STR);
                 $stmt -> bindParam(7, $this->correo, PDO::PARAM_STR);
                 $stmt -> bindParam(8, $this->pass, PDO::PARAM_STR);
+                $stmt -> execute();
+                $this-> estado = true;
+
+            } catch (PDOException $e) {
+                echo "Error al ejecutar la moificacion de datos " . $e->getMessage();
+            }
+            return $this -> estado;
+        }
+
+        public function mdlModificarPass(){
+            $sql = "CALL SpValidarUsuario (?,?)";  //MODIFICAR
+            $this -> estado = false;
+            
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this->userName, PDO::PARAM_STR);
+                $stmt -> bindParam(2, $this->pass, PDO::PARAM_STR);
                 $stmt -> execute();
                 $this-> estado = true;
 

@@ -13,38 +13,40 @@
     <body class="interfazGeneral">
 
         <div class = "container">
-            <div class = "menu">        <!-- Contenedor del menu -->
-                <div>  <!-- Boton modulo producto -->
-                    <a href="index.php?ruta=producto">
-                        <input type="button" value="PRODUCTO" class = "boton">
-                    </a>
-                </div>
-                <div>  <!-- Boton modulo inventario -->
-                    <a href="index.php?ruta=inventario">
-                        <input type="button" value="INVENTARIO" class="boton">
-                    </a>
-                </div>
-                <div>  <!-- Boton modulo movimientos -->
-                    <a href="index.php?ruta=movimiento">
-                        <input type="button" value="MOVIMIENTOS" class="boton">
-                    </a>
-                </div>
-                <div>  <!-- Boton modulo ADM usuario -->
-                    <a href="index.php?ruta=admUsuario">
-                        <input type="button" value="ADM USUARIO" class="boton">
-                    </a>
-                </div>
-                <div>
-                    <label for="support">  <!-- Boton con icono de soporte -->
-                        <a href="index.php?ruta=soporte"><img src="view/IMG/support.png" class="icono1" id= "support"></a>
-                        <br>
-                        <p>SOPORTE</p>
-                    </label>
-                    <label for="help">     <!-- Boton con icono de ayuda -->
-                        <a href="index.php?ruta=ayuda"><img src="view/img/help.png" class="icono2" id= "help"></a>
-                        <br>
-                        <p>AYUDA</p>
-                    </label>
+            <div class="contMenu">
+                <div class = "menu">        <!-- Contenedor del menu -->
+                    <div>  <!-- Boton modulo producto -->
+                        <a href="index.php?ruta=producto">
+                            <input type="button" value="PRODUCTO" class = "boton">
+                        </a>
+                    </div>
+                    <div>  <!-- Boton modulo inventario -->
+                        <a href="index.php?ruta=inventario">
+                            <input type="button" value="INVENTARIO" class="boton">
+                        </a>
+                    </div>
+                    <div>  <!-- Boton modulo movimientos -->
+                        <a href="index.php?ruta=movimiento">
+                            <input type="button" value="MOVIMIENTOS" class="boton">
+                        </a>
+                    </div>
+                    <div>  <!-- Boton modulo ADM usuario -->
+                        <a href="index.php?ruta=admUsuario">
+                            <input type="button" value="ADM USUARIO" class="boton">
+                        </a>
+                    </div>
+                    <div>
+                        <label for="support">  <!-- Boton con icono de soporte -->
+                            <a href="index.php?ruta=soporte"><img src="view/IMG/support.png" class="icono1" id= "support"></a>
+                            <br>
+                            <p>SOPORTE</p>
+                        </label>
+                        <label for="help">     <!-- Boton con icono de ayuda -->
+                            <a href="index.php?ruta=ayuda"><img src="view/img/help.png" class="icono2" id= "help"></a>
+                            <br>
+                            <p>AYUDA</p>
+                        </label>
+                    </div>
                 </div>
             </div>
 
@@ -57,7 +59,7 @@
                     Sistema para la gestión y control de inventario
                 </b></em></h1>
 
-                <div>
+                <div class="contExit">
                     <label for="exit">
                         <a href="view/module/cerrarSesion.php" class="exit" name ="exit" id ="exit">
                         <img src="view/IMG/exit.png" class="icono3">cerrar sesion</a>

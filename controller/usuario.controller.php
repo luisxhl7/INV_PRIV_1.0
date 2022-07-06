@@ -83,6 +83,48 @@
             }
             return $lista;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public function ctrModificarPass($userName, $pass){
+            $objDtoUsuario = new Usuario();
+            $objDtoUsuario->setUserName($userName);
+            $objDtoUsuario->setPass($pass);
+
+            $objDaoUsuario = new ModeloUsuario( $objDtoUsuario );
+            if ($objDaoUsuario -> mdlModificarPass() == true) {
+                echo "<script> 
+                    Swal.fire({
+                        icon: 'success',
+                        iconColor: 'green',
+                        title: 'EXITO AL REGISTRAR',
+                        text: 'SI SE PUDO HP :P.',
+                        background: 'url(view/img/fondo_de_interfacez.png) no-repeat',
+                        confirmButtonText: 'ACEPTAR',
+                        confirmButtonColor: 'rgb(139, 248, 50)',
+                        timer: '7000',            //programar tiempo de visualizacion de la alerta
+                        timerProgressBar: 'true', //visualizar tiempo de la alerta
+                        showCloseButton: 'true',  //boton para cerrar alerta ubi (derecha superior)
+                        customClass: {
+                            popup: 'popup-class'
+                        }
+                    }) 
+                </script>";
+            }
+
+        }
     }
     
 ?>

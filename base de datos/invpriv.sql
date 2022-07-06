@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2022 a las 22:21:05
+-- Tiempo de generación: 06-07-2022 a las 04:09:18
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -39,23 +39,29 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpEliminarProducto` (IN `_Cod_Produ
     
 END$$
 
-DROP PROCEDURE IF EXISTS `SpInsertarDatos_P`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SpInsertarDatos_P` (IN `_Documento` INT(11), IN `_Nombre` VARCHAR(50), IN `_Apellido` VARCHAR(50), IN `_Fecha_N` DATE, IN `_Telefono` VARCHAR(20), IN `_Correo` VARCHAR(80), IN `_Cod_Rol` INT(10))   BEGIN
+DROP PROCEDURE IF EXISTS `SpIniciarSesion`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpIniciarSesion` (IN `_Username` VARCHAR(20), IN `_Contrasena` VARCHAR(20), IN `_Cod_Rol` INT(10))   BEGIN
 
-	INSERT INTO datos_p (DOCUMENTO,
-                         NOMBRE,
-                         APELLIDO,
-                         FECHA_N,
-                         TELEFONO,
-                         CORREO,
-                         COD_ROL)
-                 VALUES (_Documento,
-                         _Nombre, 
-                         _Apellido, 
-                         _Fecha_N, 
-                         _Telefono, 
-                         _Correo,
-                         _Cod_Rol);
+	SELECT CONTRASENA FROM USUARIO WHERE USERNAME = _Username 
+    								 AND CONTRASENA = _Contrasena 
+                                     AND COD_ROL = Cod_Rol;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `SpInsertarDatos_P`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpInsertarDatos_P` (IN `_Documento` INT(11), IN `_Nombre` VARCHAR(50), IN `_Apellido` VARCHAR(50), IN `_Fecha_N` DATE, IN `_Telefono` VARCHAR(20), IN `_Correo` VARCHAR(80))   BEGIN
+	INSERT INTO datos_p (Documento,
+                         Nombre,
+                         Apellido,
+                         Fecha_N,
+                         Telefono,
+                         Correo)
+                  VALUES(_Documento,
+                         _Nombre,
+                         _Apellido,
+                         _Fecha_N,
+                         _Telefono,
+                         _Correo);
 END$$
 
 DROP PROCEDURE IF EXISTS `SpInsertarProducto`$$
@@ -81,13 +87,15 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpInsertarProducto` (IN `_Cod_Produ
 END$$
 
 DROP PROCEDURE IF EXISTS `SpInsertarUsuario`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SpInsertarUsuario` (IN `_Documento` INT(11), IN `_Contrasena` VARCHAR(20), IN `_Username` VARCHAR(20))   BEGIN
-	INSERT INTO usuario (Documento, 
-                         Contrasena, 
-                         Username) 
-                  VALUES(_Documento, 
-                         _Contrasena, 
-                         _Username);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpInsertarUsuario` (IN `_Username` VARCHAR(20), IN `_Contrasena` VARCHAR(20), IN `_Documento` INT(11), IN `_Cod_Rol` INT(10))   BEGIN
+	INSERT INTO usuario (Username,
+                         Contrasena,
+                         Documento,
+                         Cod_Rol) 
+                  VALUES(_Username,
+                         _Contrasena,
+                         _Documento,
+                         _Cod_Rol) ;
 
 END$$
 
@@ -103,6 +111,15 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarDatos_P` (IN `_Documento
                        COD_ROL=_Cod_Rol
                 WHERE Documento=_Documento;
                 
+END$$
+
+DROP PROCEDURE IF EXISTS `SpModificarPass`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarPass` (IN `_UserName` VARCHAR(20), IN `_Contrasena` VARCHAR(20))   BEGIN
+
+        UPDATE usuario SET
+                             Contrasena = _Contrasena
+                      WHERE  username = _UserName;
+
 END$$
 
 DROP PROCEDURE IF EXISTS `SpModificarProducto`$$
@@ -133,6 +150,29 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarProducto` (IN `_Cod_Produc
     
 END$$
 
+DROP PROCEDURE IF EXISTS `SpMostrarRol`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarRol` ()   BEGIN
+	SELECT Cod_Rol, Descripcion FROM rol;
+END$$
+
+DROP PROCEDURE IF EXISTS `SpMostrarUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarUsuario` ()   BEGIN
+	SELECT *
+    FROM usuario
+    INNER JOIN datos_p
+    ON usuario.Documento = datos_p.Documento
+    INNER JOIN rol
+    ON usuario.Cod_Rol = rol.Cod_Rol;
+END$$
+
+DROP PROCEDURE IF EXISTS `SpValidarUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpValidarUsuario` (IN `_Username` VARCHAR(20), IN `_Contrasena` VARCHAR(20))   BEGIN
+
+	SELECT CONTRASENA FROM USUARIO WHERE USERNAME = _Username 
+    								 AND CONTRASENA = _Contrasena;
+
+END$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -142,9 +182,10 @@ DELIMITER ;
 --
 
 DROP TABLE IF EXISTS `categoria`;
-CREATE TABLE `categoria` (
+CREATE TABLE IF NOT EXISTS `categoria` (
   `Cod_categoria` int(10) NOT NULL,
-  `Descripcion` varchar(20) NOT NULL
+  `Descripcion` varchar(20) NOT NULL,
+  PRIMARY KEY (`Cod_categoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -165,24 +206,25 @@ INSERT INTO `categoria` (`Cod_categoria`, `Descripcion`) VALUES
 --
 
 DROP TABLE IF EXISTS `datos_p`;
-CREATE TABLE `datos_p` (
+CREATE TABLE IF NOT EXISTS `datos_p` (
   `Documento` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Apellido` varchar(50) NOT NULL,
   `Fecha_N` date NOT NULL,
   `Telefono` varchar(20) NOT NULL,
   `Correo` varchar(80) NOT NULL,
-  `Cod_Rol` int(10) NOT NULL
+  PRIMARY KEY (`Documento`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `datos_p`
 --
 
-INSERT INTO `datos_p` (`Documento`, `Nombre`, `Apellido`, `Fecha_N`, `Telefono`, `Correo`, `Cod_Rol`) VALUES
-(1022036498, 'luis carlos', 'hernandez lopez', '1998-10-06', '3043290842', 'luichernandez1111111@misena.edu.co', 1),
-(1042767596, 'Farley Felipe', 'Orrego Villa', '1989-12-03', '3128633688', 'fforrego@misena.edu.co', 1),
-(1111111111, 'Sara Melisa', 'Perez Ortega', '2000-12-12', '3023458998', 'meli@gmail.com', 2);
+INSERT INTO `datos_p` (`Documento`, `Nombre`, `Apellido`, `Fecha_N`, `Telefono`, `Correo`) VALUES
+(123123, 'AKJS4EGkjha', 'lajksdajk', '2021-11-30', '12312', 'asdasd'),
+(9999999, 'Luis Alfonso', 'Becerra', '1984-03-01', '3333333', 'luisalfonso@misena.edu.co'),
+(1022036498, 'Luis Carlos', 'Hernandez Lopez', '1998-10-06', '3043290842', 'luichernandez1111111@gmail.com'),
+(1042767596, 'Farley Felipe', 'Orrego Villa', '1989-12-03', '3128633688', 'fforrego@misena.edu.co');
 
 -- --------------------------------------------------------
 
@@ -191,9 +233,10 @@ INSERT INTO `datos_p` (`Documento`, `Nombre`, `Apellido`, `Fecha_N`, `Telefono`,
 --
 
 DROP TABLE IF EXISTS `grupo`;
-CREATE TABLE `grupo` (
+CREATE TABLE IF NOT EXISTS `grupo` (
   `Cod_Grupo` int(10) NOT NULL,
-  `Descripcion` varchar(20) NOT NULL
+  `Descripcion` varchar(20) NOT NULL,
+  PRIMARY KEY (`Cod_Grupo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -211,7 +254,7 @@ INSERT INTO `grupo` (`Cod_Grupo`, `Descripcion`) VALUES
 --
 
 DROP TABLE IF EXISTS `movimiento`;
-CREATE TABLE `movimiento` (
+CREATE TABLE IF NOT EXISTS `movimiento` (
   `Cod_Consecutivo` int(10) NOT NULL,
   `F_Movimiento` date NOT NULL,
   `Hora` datetime NOT NULL,
@@ -227,7 +270,7 @@ CREATE TABLE `movimiento` (
 --
 
 DROP TABLE IF EXISTS `producto`;
-CREATE TABLE `producto` (
+CREATE TABLE IF NOT EXISTS `producto` (
   `Cod_Producto` int(10) NOT NULL,
   `Nombre` varchar(100) NOT NULL,
   `Existencia` int(6) NOT NULL,
@@ -256,7 +299,7 @@ INSERT INTO `producto` (`Cod_Producto`, `Nombre`, `Existencia`, `Precio`, `Descr
 --
 
 DROP TABLE IF EXISTS `registro_detallado`;
-CREATE TABLE `registro_detallado` (
+CREATE TABLE IF NOT EXISTS `registro_detallado` (
   `Id_Mov_Detallado` int(10) NOT NULL,
   `Cantidad` int(6) NOT NULL,
   `Cod_Consecutivo` int(10) NOT NULL,
@@ -270,10 +313,11 @@ CREATE TABLE `registro_detallado` (
 --
 
 DROP TABLE IF EXISTS `rol`;
-CREATE TABLE `rol` (
-  `Cod_Rol` int(10) NOT NULL,
-  `Descripcion` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS `rol` (
+  `Cod_Rol` int(10) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(20) NOT NULL,
+  PRIMARY KEY (`Cod_Rol`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -291,7 +335,7 @@ INSERT INTO `rol` (`Cod_Rol`, `Descripcion`) VALUES
 --
 
 DROP TABLE IF EXISTS `tipo_movimiento`;
-CREATE TABLE `tipo_movimiento` (
+CREATE TABLE IF NOT EXISTS `tipo_movimiento` (
   `Cod_Mov` int(10) NOT NULL,
   `Descripcion` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -313,146 +357,36 @@ INSERT INTO `tipo_movimiento` (`Cod_Mov`, `Descripcion`) VALUES
 --
 
 DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE `usuario` (
-  `Id_Usuario` int(10) NOT NULL,
-  `Documento` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `Id_Usuario` int(10) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
   `Contrasena` varchar(20) NOT NULL,
-  `username` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Documento` int(11) NOT NULL,
+  `Cod_Rol` int(10) NOT NULL,
+  PRIMARY KEY (`Id_Usuario`),
+  KEY `Documento` (`Documento`),
+  KEY `Cod_Rol` (`Cod_Rol`)
+) ENGINE=InnoDB AUTO_INCREMENT=4436 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`Id_Usuario`, `Documento`, `Contrasena`, `username`) VALUES
-(2847, 1022036498, 'luis123', 'luisxhl7'),
-(2848, 1042767596, 'Pipe12', 'Felo'),
-(2849, 1111111111, 'sara777', 'sara777');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`Cod_categoria`);
-
---
--- Indices de la tabla `datos_p`
---
-ALTER TABLE `datos_p`
-  ADD PRIMARY KEY (`Documento`) USING BTREE,
-  ADD KEY `Cod_Rol` (`Cod_Rol`);
-
---
--- Indices de la tabla `grupo`
---
-ALTER TABLE `grupo`
-  ADD PRIMARY KEY (`Cod_Grupo`);
-
---
--- Indices de la tabla `movimiento`
---
-ALTER TABLE `movimiento`
-  ADD PRIMARY KEY (`Cod_Consecutivo`),
-  ADD KEY `Documento` (`Documento`),
-  ADD KEY `Cod_Mov` (`Cod_Mov`);
-
---
--- Indices de la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`Cod_Producto`),
-  ADD KEY `Cod_Categoria` (`Cod_Categoria`),
-  ADD KEY `Cod_Grupo` (`Cod_Grupo`);
-
---
--- Indices de la tabla `registro_detallado`
---
-ALTER TABLE `registro_detallado`
-  ADD PRIMARY KEY (`Id_Mov_Detallado`),
-  ADD KEY `Cod_Consecutivo` (`Cod_Consecutivo`),
-  ADD KEY `Cod_Producto` (`Cod_Producto`);
-
---
--- Indices de la tabla `rol`
---
-ALTER TABLE `rol`
-  ADD PRIMARY KEY (`Cod_Rol`);
-
---
--- Indices de la tabla `tipo_movimiento`
---
-ALTER TABLE `tipo_movimiento`
-  ADD PRIMARY KEY (`Cod_Mov`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`Id_Usuario`),
-  ADD KEY `Documento` (`Documento`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `registro_detallado`
---
-ALTER TABLE `registro_detallado`
-  MODIFY `Id_Mov_Detallado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20002;
-
---
--- AUTO_INCREMENT de la tabla `rol`
---
-ALTER TABLE `rol`
-  MODIFY `Cod_Rol` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `Id_Usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2851;
+INSERT INTO `usuario` (`Id_Usuario`, `username`, `Contrasena`, `Documento`, `Cod_Rol`) VALUES
+(4433, 'luisxhl7', '123', 1022036498, 1),
+(4434, 'Pipe12', 'Felo', 1042767596, 1),
+(4435, 'El inge', 'alfonso123', 9999999, 3);
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `datos_p`
---
-ALTER TABLE `datos_p`
-  ADD CONSTRAINT `datos_p_ibfk_1` FOREIGN KEY (`Cod_Rol`) REFERENCES `rol` (`Cod_Rol`) ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `movimiento`
---
-ALTER TABLE `movimiento`
-  ADD CONSTRAINT `movimiento_ibfk_1` FOREIGN KEY (`Documento`) REFERENCES `datos_p` (`Documento`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `movimiento_ibfk_2` FOREIGN KEY (`Cod_Mov`) REFERENCES `tipo_movimiento` (`Cod_Mov`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`Cod_Grupo`) REFERENCES `grupo` (`Cod_Grupo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`Cod_Categoria`) REFERENCES `categoria` (`Cod_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `registro_detallado`
---
-ALTER TABLE `registro_detallado`
-  ADD CONSTRAINT `registro_detallado_ibfk_1` FOREIGN KEY (`Cod_Consecutivo`) REFERENCES `movimiento` (`Cod_Consecutivo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `registro_detallado_ibfk_2` FOREIGN KEY (`Cod_Producto`) REFERENCES `producto` (`Cod_Producto`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`Documento`) REFERENCES `datos_p` (`Documento`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`Cod_Rol`) REFERENCES `rol` (`Cod_Rol`) ON DELETE CASCADE,
+  ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`Documento`) REFERENCES `datos_p` (`Documento`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

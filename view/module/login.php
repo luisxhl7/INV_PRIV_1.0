@@ -126,16 +126,16 @@
               <legend class ="titulos">DATOS DE USUARIO</legend>
               <div class = "conDato">
                 <label for="" > 
-                  <p class = "txtCamp">ID DE USUARIO:</p><br>
+                  <p class = "txtCamp">USER NAME:</p><br>
                   <span class= "icono-CC"><i class="fa-solid fa-user-shield"></i></span>
-                  <input type="text" name="idUser" id="" class = "campTxt2">
+                  <input type="text" name="txtUserName" id="" class = "campTxt2" required>
                 </label>    
               </div>
               <div class = "conDato">
                 <label for="contrasenaAct">
                   <p class = "txtCamp">CONTRASEÑA ACTUAL:</p><br>
                   <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="passOrg" id="contrasenaAct" class = "campTxt2">
+                  <input type="password" name="txtPassOrg" id="contrasenaAct" class = "campTxt2" required>
                 </label>
               </div> 
             </fieldset>
@@ -148,14 +148,14 @@
                 <label for="">
                   <p class = "txtCamp">NUEVA CONTRASEÑA:</p><br>
                   <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="pass1" id="" class = "campTxt2">    
+                  <input type="password" name="txtPass1" id="" class = "campTxt2" required>    
                 </label>
               </div>
               <div class = "conDato">
                 <label for="">
                   <p class = "txtCamp">NUEVA CONTRASEÑA:</p><br>
                   <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="pass2" id="" class = "campTxt2">
+                  <input type="password" name="txtPass2" id="" class = "campTxt2" required>
                 </label>
               </div> 
             </fieldset>
@@ -168,6 +168,14 @@
             <input type="button" value="CANCELAR" class = "btnCancel" id="Btn-Cancel2">
           </div>
         </form>
+        <?php
+          if (isset($_POST["txtUserName"]) and $_POST["txtUserName"] != NULL) {
+              $userName = $_POST["txtUserName"];
+              $pass = $_POST["txtPass"];
+              $objCon = new UsuarioController();
+              $objCon -> ctrModificarPass($userName, $pass); 
+            }
+        ?>
       </div>
 
       <?php
