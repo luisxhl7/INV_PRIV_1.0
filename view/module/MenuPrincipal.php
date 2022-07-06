@@ -8,6 +8,8 @@
         <!--               DIRECCIONES DE CSS               -->
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
         <link rel="stylesheet" href="view/css/MenuPrincipal.css">
+        <!--                    DIRECCION PARA LOGOS EN CLOUDFLARE                    -->
+        <script src="https://kit.fontawesome.com/57868abadd.js" crossorigin="anonymous"></script>
     </head>
     
     <body class="interfazGeneral">
@@ -35,16 +37,12 @@
                             <input type="button" value="ADM USUARIO" class="boton">
                         </a>
                     </div>
-                    <div>
+                    <div class="contInfo">
                         <label for="support">  <!-- Boton con icono de soporte -->
-                            <a href="index.php?ruta=soporte"><img src="view/IMG/support.png" class="icono1" id= "support"></a>
-                            <br>
-                            <p>SOPORTE</p>
+                            <a href="index.php?ruta=soporte"><i class="fa-solid fa-headset" id= "support"><p>SOPORTE</p></i></a>
                         </label>
                         <label for="help">     <!-- Boton con icono de ayuda -->
-                            <a href="index.php?ruta=ayuda"><img src="view/img/help.png" class="icono2" id= "help"></a>
-                            <br>
-                            <p>AYUDA</p>
+                            <a href="index.php?ruta=ayuda"><i class="fa-solid fa-circle-question" id= "help"><p>AYUDA</p></i></a>
                         </label>
                     </div>
                 </div>
@@ -61,8 +59,7 @@
 
                 <div class="contExit">
                     <label for="exit">
-                        <a href="view/module/cerrarSesion.php" class="exit" name ="exit" id ="exit">
-                        <img src="view/IMG/exit.png" class="icono3">cerrar sesion</a>
+                        <a href="view/module/cerrarSesion.php" class="exit" name ="exit" id ="exit"><i class="fa-solid fa-right-from-bracket"><p>cerrar sesion</p></i>   </a>                                        
                     </label>
                 </div>
             </div>
