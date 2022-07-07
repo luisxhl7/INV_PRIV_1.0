@@ -24,7 +24,6 @@
             $this-> telefono = $objUsuario -> getTelefono();
             $this-> correo = $objUsuario -> getCorreo();
             $this-> pass = $objUsuario -> getPass();
-            $this-> idUsuario = $objUsuario -> getIdUsuario();
 
         }
         public function mdlCrearUsuario(){
@@ -94,7 +93,7 @@
             try {
                 $con = new conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this->idUsuario, PDO::PARAM_INT);
+                $stmt -> bindParam(1, $this->Documento, PDO::PARAM_INT);
 
                 $stmt -> execute();
                 $this-> estado = true;

@@ -56,7 +56,7 @@
                                     echo'
                                         <tr>
                                             <td>
-                                                <input type="radio" name="selectUser" id="radioDocumento" class="filtro1" value="'.$dato['Id_Usuario'].'">
+                                                <input type="radio" name="selectUser" id="radioDocumento" class="filtro1" value="'.$dato['Documento'].'">
                                             </td>
                                             <td>'.$dato['Id_Usuario'].'</td>
                                             <td>'.$dato['Nombre'].'</td>
@@ -77,7 +77,7 @@
                                     echo'
                                         <tr>
                                             <td>
-                                                <input type="radio" name="selectUser" id="radioDocumento" class="filtro1" value="'.$dato['Id_Usuario'].'">
+                                                <input type="radio" name="selectUser" id="radioDocumento" class="filtro1" value="'.$dato['Documento'].'">
                                             </td>
                                             <td>'.$dato['Id_Usuario'].'</td>
                                             <td>'.$dato['Nombre'].'</td>
