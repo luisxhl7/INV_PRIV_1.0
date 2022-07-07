@@ -11,6 +11,8 @@
         private $telefono;
         private $correo;
         private $pass;
+        private $idUsuario;
+
 
         public function __construct( $objUsuario ){
             $this-> username = $objUsuario -> getUserName();
@@ -22,6 +24,8 @@
             $this-> telefono = $objUsuario -> getTelefono();
             $this-> correo = $objUsuario -> getCorreo();
             $this-> pass = $objUsuario -> getPass();
+            $this-> idUsuario = $objUsuario -> getIdUsuario();
+
         }
         public function mdlCrearUsuario(){
             $sql1 = "CALL SpInsertarDatos_P  (?,?,?,?,?,?)"; //Procedimiento almacenado
@@ -83,6 +87,32 @@
             }
             return $resulset;
         }
+        public function mdlEliminarUsuario(){
+            $sql = "CALL SpEliminarUsuario (?);";  //ELIMINAR
+            $this -> estado = false;
+            
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this->idUsuario, PDO::PARAM_INT);
+
+                $stmt -> execute();
+                $this-> estado = true;
+
+            } catch (PDOException $e) {
+                echo "Error al ejecutar mdlEliminarUsuario " . $e->getMessage();
+            }
+            return $this -> estado;
+        }
+
+
+
+
+
+
+
+
+
 
         /*----------------------------------- MODIFICAR A PARTIR DE AQUI --------------------------------------*/
         public function mdlModificarUsuario(){

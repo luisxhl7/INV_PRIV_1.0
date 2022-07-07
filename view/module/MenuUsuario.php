@@ -11,6 +11,9 @@
         <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
         <link rel="stylesheet" href="view/css/sweetalert2.min.css">
         <script src="view/js/sweetalert2.all.min.js"></script>
+        <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
+        <link rel="stylesheet" href="view/css/sweetalert2.min.css">
+        <script src="view/js/sweetalert2.all.min.js"></script>
     </head>
 
     <body class="interfazGeneral">
@@ -35,6 +38,7 @@
                 <div>
                     <table border="1" class="tablaProdt">
                         <tr style="width: 200px;">
+                            <th style="width: 20px;"></th>
                             <th style="width: 150px;">ID USUARIO</th>
                             <th style="width: 150px;">NOMBRE</th>
                             <th style="width: 150px;">APELLIDOS</th>
@@ -49,36 +53,42 @@
                                 $objCtrUsuario = new UsuarioController();
                                 $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
                                 foreach($listaUsuario as $dato){
-                                    echo"
+                                    echo'
                                         <tr>
-                                            <td>".$dato["Id_Usuario"]."</td>
-                                            <td>".$dato["Nombre"]."</td>
-                                            <td>".$dato["Apellido"]."</td>
-                                            <td>".$dato["Documento"]."</td>
-                                            <td>".$dato["Fecha_N"]."</td>
-                                            <td>".$dato["Telefono"]."</td>
-                                            <td>".$dato["Correo"]."</td>
-                                            <td>".$dato["Descripcion"]."</td>
+                                            <td>
+                                                <input type="radio" name="selectUser" id="radioDocumento" class="filtro1" value="'.$dato['Id_Usuario'].'">
+                                            </td>
+                                            <td>'.$dato['Id_Usuario'].'</td>
+                                            <td>'.$dato['Nombre'].'</td>
+                                            <td>'.$dato['Apellido'].'</td>
+                                            <td>'.$dato['Documento'].'</td>
+                                            <td>'.$dato['Fecha_N'].'</td>
+                                            <td>'.$dato['Telefono'].'</td>
+                                            <td>'.$dato['Correo'].'</td>
+                                            <td>'.$dato['Descripcion'].'</td>
                                         </tr>
-                                    ";
+                                    ';
                                 }                   
                             }
                             else { //si no se a buscasdo nada en especifico enseñe a todos los usuarios
                                 $objCtrUsuario = new UsuarioController();
                                 $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
                                 foreach($listaUsuario as $dato){
-                                    echo"
+                                    echo'
                                         <tr>
-                                            <td>".$dato["Id_Usuario"]."</td>
-                                            <td>".$dato["Nombre"]."</td>
-                                            <td>".$dato["Apellido"]."</td>
-                                            <td>".$dato["Documento"]."</td>
-                                            <td>".$dato["Fecha_N"]."</td>
-                                            <td>".$dato["Telefono"]."</td>
-                                            <td>".$dato["Correo"]."</td>
-                                            <td>".$dato["Descripcion"]."</td>
+                                            <td>
+                                                <input type="radio" name="selectUser" id="radioDocumento" class="filtro1" value="'.$dato['Id_Usuario'].'">
+                                            </td>
+                                            <td>'.$dato['Id_Usuario'].'</td>
+                                            <td>'.$dato['Nombre'].'</td>
+                                            <td>'.$dato['Apellido'].'</td>
+                                            <td>'.$dato['Documento'].'</td>
+                                            <td>'.$dato['Fecha_N'].'</td>
+                                            <td>'.$dato['Telefono'].'</td>
+                                            <td>'.$dato['Correo'].'</td>
+                                            <td>'.$dato['Descripcion'].'</td>
                                         </tr>
-                                    ";
+                                    ';
                                 }  
                             }
                         ?>
@@ -93,6 +103,5 @@
                 <a href="index.php?ruta=editarUsuario" class="btnprdt" title="Editar producto"><b> EDITAR</b></a>           
             </div>
         </form>
-        
     </body>
 </html>
