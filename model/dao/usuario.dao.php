@@ -93,7 +93,7 @@
             try {
                 $con = new conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this->Documento, PDO::PARAM_INT);
+                $stmt -> bindParam(1, $this->documento, PDO::PARAM_INT);
 
                 $stmt -> execute();
                 $this-> estado = true;

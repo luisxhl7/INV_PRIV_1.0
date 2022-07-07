@@ -38,7 +38,7 @@
                 <div>
                     <table border="1" class="tablaProdt">
                         <tr style="width: 200px;">
-                            <th style="width: 20px;"></th>
+                            <th style="width: 20px;"><input type="radio" name="selectUser" id="selectDocument" class="filtro1" value="0" checked=""></th>
                             <th style="width: 150px;">ID USUARIO</th>
                             <th style="width: 150px;">NOMBRE</th>
                             <th style="width: 150px;">APELLIDOS</th>
@@ -55,9 +55,7 @@
                                 foreach($listaUsuario as $dato){
                                     echo'
                                         <tr>
-                                            <td>
-                                                <input type="radio" name="selectUser" id="radioDocumento" class="filtro1" value="'.$dato['Documento'].'">
-                                            </td>
+                                            <td><input type="radio" name="selectUser" id="selectDocument" class="filtro1" value="'.$dato['Documento'].'"></td>
                                             <td>'.$dato['Id_Usuario'].'</td>
                                             <td>'.$dato['Nombre'].'</td>
                                             <td>'.$dato['Apellido'].'</td>
@@ -76,9 +74,7 @@
                                 foreach($listaUsuario as $dato){
                                     echo'
                                         <tr>
-                                            <td>
-                                                <input type="radio" name="selectUser" id="radioDocumento" class="filtro1" value="'.$dato['Documento'].'">
-                                            </td>
+                                            <td><input type="radio" name="selectUser" id="selectDocument" class="filtro1" value="'.$dato['Documento'].'"></td>
                                             <td>'.$dato['Id_Usuario'].'</td>
                                             <td>'.$dato['Nombre'].'</td>
                                             <td>'.$dato['Apellido'].'</td>
@@ -95,13 +91,20 @@
                     </table>
                 </div>
             </div>
-    
+
             <div class="conBtns">           <!-- MENU DE NAVEGACION -->
                 <a href="index.php?ruta=registrarUsuario" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
                 <a href="                      " class="btnprdt" title="Inhabilitar producto"><b>INHABILITAR</b></a>
-                <a href="                      " class="btnprdt" title="Eliminar producto"><b>ELIMINAR</b></a>
+                <button type="button" onclick="eliminar(selectDocument)" class="btnprdt" title="Eliminar producto">ELIMINAR</button>
                 <a href="index.php?ruta=editarUsuario" class="btnprdt" title="Editar producto"><b> EDITAR</b></a>           
             </div>
         </form>
+        <?php
+            if (isset($_GET['documento'])) {
+                $objCtrUsuario = new UsuarioController();
+                $objCtrUsuario -> ctrEliminarUsuario($_GET['documento']);  
+            }
+        ?>
+        <script src="./view/js/menuUsuarios.js"></script>
     </body>
 </html>

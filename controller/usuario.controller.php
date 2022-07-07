@@ -83,7 +83,18 @@
             }
             return $lista;
         }
+        public function ctrEliminarUsuario($documento){
+            $objDtoUsuario = new Usuario();
+            $objDtoUsuario->setDocumento($documento);
 
+            $objDaoUsuario = new ModeloUsuario($objDtoUsuario);
+            $objDaoUsuario -> mdlEliminarUsuario();
+            #El siguiente echo le que hace es refrescar la interfaz.
+            echo "<script> 
+                window.location='index.php?ruta=admUsuario';
+            </script>";
+
+        }
 
 
 
