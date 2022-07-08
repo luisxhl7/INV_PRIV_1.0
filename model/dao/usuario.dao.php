@@ -11,10 +11,9 @@
         private $telefono;
         private $correo;
         private $pass;
-        private $idUsuario;
 
 
-        public function __construct( $objUsuario ){
+        public function __construct( $objUsuario ){ #Funcion para inicializar los atributos del modelo en variables
             $this-> username = $objUsuario -> getUserName();
             $this-> rol = $objUsuario -> getRol();
             $this-> nombre = $objUsuario -> getNombre();
@@ -26,7 +25,7 @@
             $this-> pass = $objUsuario -> getPass();
 
         }
-        public function mdlCrearUsuario(){
+        public function mdlCrearUsuario(){ #Funcion utilizada para registrar a un usuario
             $sql1 = "CALL SpInsertarDatos_P  (?,?,?,?,?,?)"; //Procedimiento almacenado
             $sql2 = "CALL SpInsertarUsuario (?,?,?,?)"; //Procedimiento almacenado
             $this-> estado = false;
@@ -58,7 +57,7 @@
             }
             return $this -> estado;
         }
-        public function mdlConsultarUsuario(){
+        public function mdlConsultarUsuario(){ #Funcion utilizada para visualizar a todos los usuarios y algunos de sus datos
             $sql = "CALL SpMostrarUsuario()";  //Procedimiento almacenado
 
             try {
@@ -72,7 +71,7 @@
             }
             return $resulset;
         }
-        public function mdlMostrarRol(){
+        public function mdlMostrarRol(){ #Funcion utilizada para visualizar a todos los tipos de rol registrados
             $sql = "CALL SpMostrarRol()";  //Procedimiento almacenado
 
             try {
@@ -86,7 +85,7 @@
             }
             return $resulset;
         }
-        public function mdlEliminarUsuario(){
+        public function mdlEliminarUsuario(){ #Funcion utilizada para eliminar a un usuario puntual
             $sql = "CALL SpEliminarUsuario (?);";  //ELIMINAR
             $this -> estado = false;
             
@@ -103,6 +102,38 @@
             }
             return $this -> estado;
         }
+        public function mdlMostrarDatosPModificar(){ #Funcion utilizada para visualizar los datos personales del usuario al momento de modificar
+            $sql = "CALL SpMostrarDatos_P (?)";  //Pocedimiento almacenado
+            
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this->documento, PDO::PARAM_INT);
+
+                $stmt -> execute();
+                $resulset = $stmt;
+
+            } catch (PDOException $e) {
+                echo "Error al ejecutar mdlEliminarUsuario " . $e->getMessage();
+            }
+            return $resulset;
+        }
+        public function mdlMostrarDatosUModificar(){ #Funcion utilizada para vizualizar los datos del usuario(ID/USERNAME/PASS/ROL)
+            $sql = "CALL SpmostrarDatos_U (?)";  //Procedimiento almacenado
+            
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this->documento, PDO::PARAM_INT);
+
+                $stmt -> execute();
+                $resulset = $stmt;
+
+            } catch (PDOException $e) {
+                echo "Error al ejecutar mdlEliminarUsuario " . $e->getMessage();
+            }
+            return $resulset;
+        }
 
 
 
@@ -115,20 +146,18 @@
 
         /*----------------------------------- MODIFICAR A PARTIR DE AQUI --------------------------------------*/
         public function mdlModificarUsuario(){
-            $sql = "CALL spModificarUsuario (?,?,?,?,?,?,?,?)";  //MODIFICAR
+            $sql = "CALL SpModificarDatos_P (?,?,?,?,?,?)";  //MODIFICAR
             $this -> estado = false;
             
             try {
                 $con = new conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this->rol, PDO::PARAM_STR);
-                $stmt -> bindParam(2, $this->nombre, PDO::PARAM_STR);
-                $stmt -> bindParam(3, $this->apellido, PDO::PARAM_STR);
-                $stmt -> bindParam(4, $this->documento, PDO::PARAM_STR);
-                $stmt -> bindParam(5, $this->nacimiento, PDO::PARAM_STR);
-                $stmt -> bindParam(6, $this->telefono, PDO::PARAM_STR);
-                $stmt -> bindParam(7, $this->correo, PDO::PARAM_STR);
-                $stmt -> bindParam(8, $this->pass, PDO::PARAM_STR);
+                $stmt -> bindParam(1, $this->nombre, PDO::PARAM_STR);
+                $stmt -> bindParam(2, $this->apellido, PDO::PARAM_STR);
+                $stmt -> bindParam(3, $this->nacimiento, PDO::PARAM_STR);
+                $stmt -> bindParam(4, $this->telefono, PDO::PARAM_STR);
+                $stmt -> bindParam(5, $this->correo, PDO::PARAM_STR);
+                $stmt -> bindParam(6, $this->documento, PDO::PARAM_INT);
                 $stmt -> execute();
                 $this-> estado = true;
 

@@ -70,7 +70,7 @@
                             }
                             else { //si no se a buscasdo nada en especifico enseñe a todos los usuarios
                                 $objCtrUsuario = new UsuarioController();
-                                $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();  
+                                $listaUsuario = $objCtrUsuario -> ctrConsultarUsuario();
                                 foreach($listaUsuario as $dato){
                                     echo'
                                         <tr>
@@ -96,7 +96,8 @@
                 <a href="index.php?ruta=registrarUsuario" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
                 <a href="                      " class="btnprdt" title="Inhabilitar producto"><b>INHABILITAR</b></a>
                 <button type="button" onclick="eliminar(selectDocument)" class="btnprdt" title="Eliminar producto">ELIMINAR</button>
-                <a href="index.php?ruta=editarUsuario" class="btnprdt" title="Editar producto"><b> EDITAR</b></a>           
+                <button type="button" onclick="editar(selectDocument)" class="btnprdt" title="Editar producto">EDITAR</button>
+                <!--<a href="" class="btnprdt" <b> EDITAR</b></a>-->           
             </div>
         </form>
         <?php
