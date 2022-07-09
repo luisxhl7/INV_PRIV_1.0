@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-07-2022 a las 04:47:31
+-- Tiempo de generación: 09-07-2022 a las 05:07:03
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -100,16 +100,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpInsertarUsuario` (IN `_Username` 
 END$$
 
 DROP PROCEDURE IF EXISTS `SpModificarDatos_P`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarDatos_P` (IN `_Documento` INT(11), IN `_Nombre` VARCHAR(50), IN `_Apellido` VARCHAR(50), IN `_Fecha_N` DATE, IN `_Telefono` VARCHAR(20), IN `_Correo` VARCHAR(80), IN `_Cod_Rol` INT(10))   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarDatos_P` (IN `_Nombre` VARCHAR(50), IN `_Apellido` VARCHAR(50), IN `_Fecha_N` DATE, IN `_Telefono` VARCHAR(20), IN `_Correo` VARCHAR(80), IN `_Documento` INT(11))   BEGIN
 
-	UPDATE datos_p SET 
-                       NOMBRE=_Nombre,
+	UPDATE datos_p SET NOMBRE=_Nombre,
                        APELLIDO=_Apellido,
                        FECHA_N=_Fecha_N,
                        TELEFONO=_Telefono,
-                       CORREO=_Correo,
-                       COD_ROL=_Cod_Rol
-                WHERE Documento=_Documento;
+                       CORREO=_Correo
+                 WHERE Documento=_Documento;
                 
 END$$
 
@@ -137,11 +135,27 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarProducto` (IN `_Cod_Prod
 
 END$$
 
+DROP PROCEDURE IF EXISTS `SpModificarUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarUsuario` (IN `_username` VARCHAR(20), IN `_Contrasena` VARCHAR(20), IN `_Cod_Rol` INT(10), IN `_Documento` INT(11))   BEGIN
+
+	UPDATE usuario SET USERNAME = _username,
+    					CONTRASENA = _Contrasena,
+                        Cod_Rol = _Cod_Rol
+                 WHERE Documento= _Documento;
+                
+END$$
+
 DROP PROCEDURE IF EXISTS `SpMostrarDatos_P`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarDatos_P` (IN `_Documento` INT(11))   BEGIN
+	SELECT *
+    FROM datos_p
+    WHERE Documento = _Documento;
+END$$
 
-	SELECT * FROM datos_p WHERE Documento=_Documento;
-    
+DROP PROCEDURE IF EXISTS `SpmostrarDatos_U`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpmostrarDatos_U` (IN `_Documento` INT(11))   BEGIN
+	SELECT * FROM usuario
+    WHERE Documento = _Documento;
 END$$
 
 DROP PROCEDURE IF EXISTS `SpMostrarProducto`$$
@@ -221,9 +235,10 @@ CREATE TABLE IF NOT EXISTS `datos_p` (
 --
 
 INSERT INTO `datos_p` (`Documento`, `Nombre`, `Apellido`, `Fecha_N`, `Telefono`, `Correo`) VALUES
+(1001, 'LEONEL ANDRES', 'MESSI', '2023-11-29', '10', 'MESSI@GMAIL.COM'),
 (9944, 'pamela', 'pamelo', '2026-05-03', '302', '@@'),
 (9999999, 'Luis Alfonso', 'Becerra', '1984-03-01', '3333333', 'luisalfonso@misena.edu.co'),
-(1022036498, 'Luis Carlos', 'Hernandez Lopez', '1998-10-06', '3043290842', 'luichernandez1111111@gmail.com'),
+(1022036498, 'Luis Carlos', 'Hernandez Lopez', '1998-10-06', '3043290842', 'luisxhl7@gmail.com'),
 (1042767596, 'Farley Felipe', 'Orrego Villa', '1989-12-03', '3128633688', 'fforrego@misena.edu.co');
 
 -- --------------------------------------------------------
@@ -365,14 +380,18 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`Id_Usuario`),
   KEY `Documento` (`Documento`),
   KEY `Cod_Rol` (`Cod_Rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=4447 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4467 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`Id_Usuario`, `username`, `Contrasena`, `Documento`, `Cod_Rol`) VALUES
-(4433, 'luisxhl7', '123', 1022036498, 1);
+(4449, 'luisxhl7', '123', 1022036498, 1),
+(4450, 'Pipe12', 'Felo', 1042767596, 1),
+(4451, 'IngAlfonso', 'ing123', 9999999, 3),
+(4452, 'pame1212', 'pame123', 9944, 2),
+(4466, 'MESSI', '123', 1001, 1);
 
 --
 -- Restricciones para tablas volcadas
