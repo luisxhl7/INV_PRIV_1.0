@@ -19,31 +19,31 @@
             <div class="contMenu">
                 <div class = "menu">        <!-- Contenedor del menu -->
                     <div>  <!-- Boton modulo producto -->
-                        <a href="index.php?ruta=producto">
+                        <a href="producto">
                             <input type="button" value="PRODUCTO" class = "boton">
                         </a>
                     </div>
                     <div>  <!-- Boton modulo inventario -->
-                        <a href="index.php?ruta=inventario">
+                        <a href="inventario">
                             <input type="button" value="INVENTARIO" class="boton">
                         </a>
                     </div>
                     <div>  <!-- Boton modulo movimientos -->
-                        <a href="index.php?ruta=movimiento">
+                        <a href="movimiento">
                             <input type="button" value="MOVIMIENTOS" class="boton">
                         </a>
                     </div>
                     <div>  <!-- Boton modulo ADM usuario -->
-                        <a href="index.php?ruta=admUsuario">
+                        <a href="admUsuario">
                             <input type="button" value="ADM USUARIO" class="boton">
                         </a>
                     </div>
                     <div class="contInfo">
                         <label for="support">  <!-- Boton con icono de soporte -->
-                            <a href="index.php?ruta=soporte"><i class="fa-solid fa-headset" id= "support"><p>SOPORTE</p></i></a>
+                            <a href="soporte"><i class="fa-solid fa-headset" id= "support"><p>SOPORTE</p></i></a>
                         </label>
                         <label for="help">     <!-- Boton con icono de ayuda -->
-                            <a href="index.php?ruta=ayuda"><i class="fa-solid fa-circle-question" id= "help"><p>AYUDA</p></i></a>
+                            <a href="ayuda"><i class="fa-solid fa-circle-question" id= "help"><p>AYUDA</p></i></a>
                         </label>
                     </div>
                 </div>

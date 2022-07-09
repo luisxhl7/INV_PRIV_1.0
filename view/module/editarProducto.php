@@ -26,7 +26,7 @@
 
             <nav>                           <!-- MENU DE NAVEGACION -->
                 <div class= "menu1">
-                    <a href="index.php?ruta=salirMenuProducto" class ="botonMenu" title="Menu de productos">MENU DE BUSQUEDA</a>
+                    <a href="salirMenuProducto" class ="botonMenu" title="Menu de productos">MENU DE BUSQUEDA</a>
                     <a href="" class ="botonMenu" title="Editar etiqueta">EDITAR  ETIQUETA</a>
                     <a href="" class ="botonMenu" title="Editar codigo de barras">EDITAR CODIGO DE BARRAS</a>
                     <a href="" class ="botonMenu" title="Editar imagen">EDITAR IMAGEN</a>

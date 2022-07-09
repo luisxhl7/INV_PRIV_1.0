@@ -15,7 +15,7 @@
 
         <div>                      <!--Contenedor de boton menu principal-->        
             <label for="exit">
-                <a href="index.php?ruta=salida"><img src="view/img/home2.png" class="icono3" id= "exit"></a>
+                <a href="menuPrincipal"><img src="view/img/home2.png" class="icono3" id= "exit"></a>
                 <p class="TxtMenu">MENU</p>
             </label>
         </div>

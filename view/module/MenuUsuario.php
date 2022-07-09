@@ -94,7 +94,7 @@
             </div>
 
             <div class="conBtns">           <!-- MENU DE NAVEGACION -->
-                <a href="index.php?ruta=registrarUsuario" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
+                <a href="registrarUsuario" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
                 <a href="                      " class="btnprdt" title="Inhabilitar producto"><b>INHABILITAR</b></a>
                 <button type="button" onclick="eliminar(selectDocument)" class="btnprdt" title="Eliminar producto">ELIMINAR</button>
                 <button type="button" onclick="editar(selectDocument)" class="btnprdt" title="Editar producto">EDITAR</button>

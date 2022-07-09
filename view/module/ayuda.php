@@ -15,7 +15,7 @@
 
             <div class = "ContIcono">
                 <label for="home" class="home">MENU</label>
-            <a href="index.php?ruta=salida"><img src="view/img/home2.png" class="icono1" id= "home"></a>
+            <a href="menuPrincipal"><img src="view/img/home2.png" class="icono1" id= "home"></a>
             </div>
 
             <div class="menu">

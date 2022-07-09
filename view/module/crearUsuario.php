@@ -70,7 +70,7 @@
                 </div>
                 <div class="contBtn">
                     <input type="submit" value="GUARDAR" class="btnGuardar">
-                    <a href="index.php?ruta=admUsuario" class ="btnSalir">SALIR</a>
+                    <a href="admUsuario" class ="btnSalir">SALIR</a>
                 </div>
             </form>
         </div>

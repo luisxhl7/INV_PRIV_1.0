@@ -148,7 +148,7 @@
                 if ($objDaoUsuario == true) {
                     echo'
                         <script>
-                            window.location="index.php?ruta=admUsuario";
+                            window.location="admUsuario";
                         </script>
                     ';
                 }

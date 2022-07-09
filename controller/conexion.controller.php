@@ -7,7 +7,7 @@
             $rest = $objModConextion -> getLogin() -> fetch();
             if (gettype($rest) != "boolean") {   // YES FIND
                 $_SESSION["login"] = true;
-                header("location:index.php");
+                header("location:index");
             }else{
                 echo "<script> 
                     Swal.fire({

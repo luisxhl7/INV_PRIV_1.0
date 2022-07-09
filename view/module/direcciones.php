@@ -1,7 +1,7 @@
 <?php
     if (isset($_GET['ruta'])) {
         switch ($_GET['ruta']) {
-            case 'salida':
+            case 'menuPrincipal':
                 require_once "view/module/MenuPrincipal.php";
                 break;
             case 'soporte':

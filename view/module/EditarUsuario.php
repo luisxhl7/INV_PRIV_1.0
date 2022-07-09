@@ -73,7 +73,7 @@
                 </div>
                 <div class="contBtn">
                     <button type="button" class="btnGuardar" onclick="editarUsuario(txtUserName,txtRol,txtNombre,txtApellido,txtDocumento,txtNacimiento,txtTelefono,txtCorreo,txtPass1,txtPass2)">ACEPTAR</button>
-                    <a href="index.php?ruta=admUsuario" class ="btnSalir">SALIR</a>
+                    <a href="admUsuario" class ="btnSalir">SALIR</a>
                 </div>
             </form>
         </div>

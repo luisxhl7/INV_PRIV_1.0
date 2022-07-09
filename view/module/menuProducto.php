@@ -95,10 +95,10 @@
                 </div> 
         
                 <div class="conBtns">           <!-- MENU DE NAVEGACION -->
-                    <a href="index.php?ruta=crearProducto" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
+                    <a href="crearProducto" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
                     <a href="                    " class="btnprdt" title="Inhabilitar producto"><b>INHABILITAR</b></a>
                     <a href="                    " class="btnprdt" title="Eliminar producto"><b>ELIMINAR</b></a>
-                    <a href="index.php?ruta=editarProducto" class="btnprdt" title="Editar producto"><b> EDITAR</b></a>           
+                    <a href="editarProducto" class="btnprdt" title="Editar producto"><b> EDITAR</b></a>           
                 </div>
             </div>
         </form>

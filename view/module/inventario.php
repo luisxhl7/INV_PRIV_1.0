@@ -13,7 +13,7 @@
             <br>
             <img src="view/img/construc.jpg" >
             <br>
-            <a href="index.php?ruta=salida"><img src="view/img/exit.png" width="100" height="100" alt="SALIR"></a>
+            <a href="menuPrincipal"><img src="view/img/exit.png" width="100" height="100" alt="SALIR"></a>
         </center>
     </body>
 </html>
