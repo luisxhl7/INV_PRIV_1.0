@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="shortcut icon" href="view/img/LOGO INV.PRIV-03.png" type="image/x-icon">
+        <title>INV PRIV</title>
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
         <link rel="stylesheet" href="view/css/EstiloUsuario.css">
         <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
@@ -30,7 +31,7 @@
                     
                     <label for="" class= "txt">ROL:</label>
                         <select name="txtRol" id="txtRol" class="BarraRoles" required>
-                            <option value="<?php echo $datosP[9]; ?>"> Seleccione Rol </option>
+                            <option value="<?php echo $datosP[9]; ?>"> Predeterminado </option>
                             <?php
                                 $objCtrUsuario = new UsuarioController();
                                 $listaUsuario = $objCtrUsuario -> ctrMostrarRol();  
@@ -72,6 +73,7 @@
                 </div>
                 <div class="contBtn">
                     <button type="button" class="btnGuardar" onclick="editarUsuario(txtUserName,txtRol,txtNombre,txtApellido,txtDocumento,txtNacimiento,txtTelefono,txtCorreo,txtPass1,txtPass2)">ACEPTAR</button>
+                    <a href="index.php?ruta=admUsuario" class ="btnSalir">SALIR</a>
                 </div>
             </form>
         </div>

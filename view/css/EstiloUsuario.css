@@ -189,16 +189,37 @@ div.ContData > div{
     height: 70px;
 }
 .btnGuardar{
+    display: block;
     width: 140px;
     height: 40px;
-    margin: 20px 280px;
+    margin: 20px auto;
     border-radius: 15px;
     background-color: yellowgreen;
+    cursor: pointer;
 }
-.btnGuardar:hover{
+.btnGuardar:hover, .btnSalir:hover{
     border: 1px solid greenyellow;
 }
 .btnGuardar:active{
     background-color: chartreuse;
     border-color: chartreuse;
+}
+.btnSalir{
+    display: block;
+    width: 110px;
+    height: 25px;
+    margin: 20px auto;
+    border-radius: 15px;
+    background-color: yellowgreen;
+    cursor: pointer;
+    border: solid 2px black;
+    text-align: center;
+    padding-top: 10px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:visited{
+    color: black;
 }

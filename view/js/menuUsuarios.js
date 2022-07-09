@@ -20,14 +20,26 @@ function eliminar(documento){
       }
     })
   }else{
-    alert("seleccion el usuario que desea eliminar");
+    Swal.fire({
+      position: 'top-end',
+      icon: 'warning',
+      title: 'Seleccione un usuario',
+      showConfirmButton: false,
+      timer: 1500
+    })  
   }
 }
 function editar(documento){
   if(documento.value != 0){
     window.location="index.php?ruta=editarUsuario&documento="+documento.value;
   }else{
-    alert("seleccione el usuario que desea modificar");
+    Swal.fire({
+      position: 'top-end',
+      icon: 'warning',
+      title: 'Seleccione un usuario',
+      showConfirmButton: false,
+      timer: 1500
+    })    
   }
 }
 function editarUsuario(userName,rol,nombre,apellido,documento,nacimiento,telefono,correo,pass1,pass2){
