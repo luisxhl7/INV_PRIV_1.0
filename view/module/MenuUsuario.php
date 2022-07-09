@@ -97,7 +97,6 @@
                 <a href="                      " class="btnprdt" title="Inhabilitar producto"><b>INHABILITAR</b></a>
                 <button type="button" onclick="eliminar(selectDocument)" class="btnprdt" title="Eliminar producto">ELIMINAR</button>
                 <button type="button" onclick="editar(selectDocument)" class="btnprdt" title="Editar producto">EDITAR</button>
-                <!--<a href="" class="btnprdt" <b> EDITAR</b></a>-->           
             </div>
         </form>
         <?php

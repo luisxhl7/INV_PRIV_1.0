@@ -1,6 +1,6 @@
 <?php
     class UsuarioController{
-        public function ctrCrearUsuario($userName,$rol,$nombre,$apellido,$documento,$nacimiento,$telefono,$correo,$pass){
+        public function ctrCrearUsuario($userName,$rol,$nombre,$apellido,$documento,$nacimiento,$telefono,$correo,$pass){ #Controlador de crear usuario
             try {
                 //objeto DTO
                 $objDtoUsuario = new Usuario();
@@ -58,7 +58,7 @@
             }
         }
 
-        public function ctrConsultarUsuario(){
+        public function ctrConsultarUsuario(){ #Controlador de consultar usuario
             $lista = false;
             try {
                 $objDtoUsuario = new Usuario();
@@ -71,7 +71,7 @@
             return $lista;
         }
 
-        public function ctrMostrarRol(){
+        public function ctrMostrarRol(){ #Controlador de mostrar usuario
             $lista = false;
             try {
                 $objDtoUsuario = new Usuario();
@@ -84,7 +84,7 @@
             return $lista;
         }
 
-        public function ctrEliminarUsuario($documento){
+        public function ctrEliminarUsuario($documento){  #Controlador de eliminar usuario
             $objDtoUsuario = new Usuario();
             $objDtoUsuario->setDocumento($documento);
 
@@ -96,7 +96,7 @@
             </script>";
 
         }
-        public function ctrMostrarDatosPModificar($documento){
+        public function ctrMostrarDatosPModificar($documento){ #Controlador de mostrar datos de usuario en la vista de editar usuario
             $lista = false;
             try {
                 $objDtoUsuario = new Usuario();
@@ -128,7 +128,7 @@
             }
             return $datosP;
         }
-        public function ctrModificarUsuario($userName,$rol,$nombre,$apellido,$documento,$nacimiento,$telefono,$correo,$pass){
+        public function ctrModificarUsuario($userName,$rol,$nombre,$apellido,$documento,$nacimiento,$telefono,$correo,$pass){ #Controlador de modificar usuario
             try {
                 //objeto DTO
                 $objDtoUsuario = new Usuario();
@@ -144,45 +144,13 @@
 
                 //objeto DAO 
                 $objDaoUsuario = new ModeloUsuario( $objDtoUsuario );  // <----------- error aqui
-                if ($objDaoUsuario -> mdlModificarUsuario() == true) {
-                    echo "<script> 
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: 'You wont be able to revert this!',
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                      }).then((result) => {
-                        if (result.isConfirmed) {
-                          Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                          )
-                        }
-                      })
-                    </script>";
-
-                }else {
-                    echo "<script> 
-                        Swal.fire({
-                            icon: 'error',
-                            iconColor: 'red',
-                            title: 'ERROR AL GUARDAR',
-                            text: 'NO SE PUDO HP :P.',
-                            background: 'url(view/img/fondo_de_interfacez.png) no-repeat',
-                            confirmButtonText: 'ACEPTAR',
-                            confirmButtonColor: 'rgb(139, 248, 50)',
-                            timer: '7000',            //programar tiempo de visualizacion de la alerta
-                            timerProgressBar: 'true', //visualizar tiempo de la alerta
-                            showCloseButton: 'true',  //boton para cerrar alerta ubi (derecha superior)
-                            customClass: {
-                                popup: 'popup-class'
-                            }
-                        }) 
-                    </script>";
+                $objDaoUsuario -> mdlModificarUsuario();
+                if ($objDaoUsuario == true) {
+                    echo'
+                        <script>
+                            window.location="index.php?ruta=admUsuario";
+                        </script>
+                    ';
                 }
             } catch (Exception $e) {
                 echo "Error en el controlador insertar: ".$e->getMessage();
@@ -200,7 +168,7 @@
 
 
 
-
+        /*                                                                           PENDIENTES                                                                           */
         public function ctrModificarPass($userName, $pass){
             $objDtoUsuario = new Usuario();
             $objDtoUsuario->setUserName($userName);

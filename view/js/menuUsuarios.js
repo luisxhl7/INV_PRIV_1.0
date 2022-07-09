@@ -30,3 +30,19 @@ function editar(documento){
     alert("seleccione el usuario que desea modificar");
   }
 }
+function editarUsuario(userName,rol,nombre,apellido,documento,nacimiento,telefono,correo,pass1,pass2){
+  Swal.fire({
+    title: 'MODIFICAR USUARIO',
+    text: "SEGURO QUE DESEA MODIFICAR EL USUARIO ?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Confirmar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location="index.php?ruta=editarUsuario&documento="+documento.value+"&userName="+userName.value+"&rol="+rol.value+"&nombre="+nombre.value+"&apellido="+apellido.value+"&nacimiento="+nacimiento.value+"&telefono="+telefono.value+"&correo="+correo.value+"&pass1="+pass1.value+"&pass2="+pass2.value;
+    }
+  })
+}
