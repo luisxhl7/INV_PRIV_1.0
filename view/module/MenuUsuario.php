@@ -6,9 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="view/img/LOGO INV.PRIV-03.png" type="image/x-icon">
         <title>INV PRIV</title>
-        <!--              DIRECCIONES CSS               -->
-        <link rel="stylesheet" href="view/css/FondoInterfazes.css">
-        <link rel="stylesheet" href="view/css/EstiloUsuario.css">
+
         <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
         <link rel="stylesheet" href="view/css/sweetalert2.min.css">
         <script src="view/js/sweetalert2.all.min.js"></script>
@@ -19,6 +17,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
         <!-- --------------dataTable css------------- -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+        <!--              DIRECCIONES CSS               -->
+        <link rel="stylesheet" href="view/css/FondoInterfazes.css">
+        <link rel="stylesheet" href="view/css/EstiloUsuario.css">
+
 
     <body class="interfazGeneral">
         <form method="post">
@@ -70,7 +72,6 @@
                                             <td>' . $dato['Telefono'] . '</td>
                                             <td>' . $dato['Correo'] . '</td>
                                             <td>' . $dato['Descripcion'] . '</td>
-
                                         </tr>
                                     ';
                                 }
@@ -85,7 +86,6 @@
                 <a href="                      " class="btnprdt" title="Inhabilitar producto"><b>INHABILITAR</b></a>
                 <button type="button" onclick="eliminar(selectDocument)" class="btnprdt" title="Eliminar producto">ELIMINAR</button>
                 <button type="button" onclick="editar(selectDocument)" class="btnprdt" title="Editar producto">EDITAR</button>
-                <a href="prueba">pise aqui</a>
             </div>
         </form>
         <?php

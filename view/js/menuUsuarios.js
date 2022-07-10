@@ -11,11 +11,6 @@ function eliminar(documento){
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Eliminado',
-          'A partir de ahora este usuario ya no podre utilizar el aplicativo.',
-          'success'
-        )
         window.location="index.php?ruta=admUsuario&documento="+documento.value;
       }
     })

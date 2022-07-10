@@ -89,13 +89,30 @@
             $objDtoUsuario->setDocumento($documento);
 
             $objDaoUsuario = new ModeloUsuario($objDtoUsuario);
-            $objDaoUsuario -> mdlEliminarUsuario();
-            #El siguiente echo le que hace es refrescar la interfaz.
-            echo "<script> 
-                window.location='index.php?ruta=admUsuario';
-            </script>";
+            if ($objDaoUsuario -> mdlEliminarUsuario() == true) {
+                echo"
+                    <script>
+                        Swal.fire({
+                            title: 'Eliminado',
+                            text: 'A partir de ahora este usuario ya no podre utilizar el aplicativo.',
+                            icon: 'success',
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'CONFIRMAR'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location='admUsuario';
+                            }else{
+                                window.location='admUsuario';
+                            }
+                        })
+                    </script>
+                ";
+            }
 
         }
+
         public function ctrMostrarDatosPModificar($documento){ #Controlador de mostrar datos de usuario en la vista de editar usuario
             $lista = false;
             try {
@@ -128,6 +145,7 @@
             }
             return $datosP;
         }
+
         public function ctrModificarUsuario($userName,$rol,$nombre,$apellido,$documento,$nacimiento,$telefono,$correo,$pass){ #Controlador de modificar usuario
             try {
                 //objeto DTO
@@ -144,29 +162,30 @@
 
                 //objeto DAO 
                 $objDaoUsuario = new ModeloUsuario( $objDtoUsuario );  // <----------- error aqui
-                $objDaoUsuario -> mdlModificarUsuario();
-                if ($objDaoUsuario == true) {
-                    echo'
+                if ($objDaoUsuario -> mdlModificarUsuario() == true) {
+                    echo"
                         <script>
-                            window.location="admUsuario";
+                            Swal.fire({
+                                title: 'EXTIO',
+                                text: 'SU USUARIO A SIDO MODIFICADO CON EXITO',
+                                icon: 'success',
+                                showCancelButton: false,
+                                confirmButtonColor: '#3085d6',
+                                confirmButtonText: 'CONFIRMAR'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location='admUsuario';
+                                }else{
+                                    window.location='admUsuario';
+                                }
+                            })
                         </script>
-                    ';
+                    ";
                 }
             } catch (Exception $e) {
                 echo "Error en el controlador insertar: ".$e->getMessage();
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
         /*                                                                           PENDIENTES                                                                           */
         public function ctrModificarPass($userName, $pass){
