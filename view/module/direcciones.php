@@ -1,6 +1,9 @@
 <?php
     if (isset($_GET['ruta'])) {
         switch ($_GET['ruta']) {
+            case 'prueba':
+                require_once "view/module/prueba.php";
+                break;
             case 'menuPrincipal':
                 require_once "view/module/MenuPrincipal.php";
                 break;

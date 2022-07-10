@@ -90,7 +90,17 @@
                         $_POST["txtPass"]
                     );
                 }else{
-                echo"las contraseñas son diferentes";
+                    echo"
+                        <script>
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'warning',
+                                title: 'las contraseñas no son iguales',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })    
+                        </script>
+                    ";
                 }
 
             }
