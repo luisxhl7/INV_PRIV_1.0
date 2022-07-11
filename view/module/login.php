@@ -52,7 +52,7 @@
         <div >                            <!-- CAMPOS DE TEXTO ID Y PASSWORD-->
           <div class="Contenedor-txt">
             <span class= "icono-user"><i class="fa-solid fa-user-shield"></i></span>
-            <input type="text" name="txtUser" id="txtIdUser" class="Txt-login" required placeholder="Ingrese ID "> 
+            <input type="text" name="txtUser" id="txtIdUser" class="Txt-login" required placeholder="Ingrese Username "> 
           </div>
           <div class="Contenedor-txt">
             <span class="icono-unlock"><i class="fa-solid fa-unlock"></i></span>
@@ -93,24 +93,25 @@
     <!--------------------------------------------------RECUPERAR CONTRASEÑA------------------------------------------------->
     <div id="Contenedor-recuperar">
       <h1 class= "titulo">¿DESEAS RECUPERAR TU CONTRASEÑA?</h1>
+
       <div class = "container">                <!--   CUERPO   -->
         <form action="">   
           <div class= "contTexto">             <!-- Contenedor de texto -->
             <P>INGRESA EL ID DE USUARIO Y EL CORREO CON EL CUAL ESTA REGISTRADO PARA ENVIAR LA CONTRASEÑA ACTUAL AL CORREO.</P>
           </div>
-          <div class = "contCampTxt">          <!-- Contenedor de campo de texto ID USUARIO -->
-          <span class= "icono-RC"><i class="fa-solid fa-user-shield"></i></span>
-            <input type="text" name="" id=""  class = "campTxt" placeholder = "Ingrese ID de usuario">
-          </div>
-          <div class = "contCampTxt">          <!-- Contenedor de campo de texto E-MAIL -->
-          <span class= "icono-RC"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" name="" id="" class = "campTxt" placeholder = "Ingrese E-MAIL">
-          </div>
-          <div class = "contBtn">              <!-- Contenedor de boton confirmar -->
-            <input type="button" value="VALIDAR" class = "BtnValida">
-          </div>
-          <div class = "contBtn">              <!-- Contenedor de boton cancelar -->
+          <div class="cont-form">
+            <div class = "contCampTxt">          <!-- Contenedor de campo de texto ID USUARIO -->
+            <div>
+              <span class= "icono-RC1"><i class="fa-solid fa-user-shield"></i></span>
+              <input type="text" name="" id=""  class = "campTxt-recuperarPass" placeholder = "Ingrese ID de usuario">
+            </div>
+              <span class= "icono-RC2"><i class="fa-solid fa-envelope"></i></span>
+              <input type="text" name="" id="" class = "campTxt-recuperarPass" placeholder = "Ingrese E-MAIL">
+            </div>
+            <div class = "contBtn">              <!-- Contenedor de boton confirmar -->
+              <input type="button" value="VALIDAR" class = "BtnValida">
               <input type="button" value="CANCELAR" class = "BtnCancel" id="Btn-Cancel1">
+            </div>
           </div>
         </form>
       </div>

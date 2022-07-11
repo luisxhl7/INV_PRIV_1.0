@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="view/img/LOGO INV.PRIV-03.png" type="image/x-icon">
         <title>INV PRIV</title>
-
+        <!--              DIRECCIONES CSS               -->
+        <link rel="stylesheet" href="view/css/FondoInterfazes.css">
+        <link rel="stylesheet" href="view/css/EstiloUsuario.css">
         <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
         <link rel="stylesheet" href="view/css/sweetalert2.min.css">
         <script src="view/js/sweetalert2.all.min.js"></script>
@@ -15,13 +17,8 @@
         <script src="view/js/sweetalert2.all.min.js"></script>
         <!--                   DIRECCION PARA ESTILOS DE DATA TABLE                  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-        <!-- --------------dataTable css------------- -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
-        <!--              DIRECCIONES CSS               -->
-        <link rel="stylesheet" href="view/css/FondoInterfazes.css">
-        <link rel="stylesheet" href="view/css/EstiloUsuario.css">
-
-
+    </head>
     <body class="interfazGeneral">
         <form method="post">
             <div class= "container1">       <!-- BUSCADOR -->
@@ -42,7 +39,7 @@
             </div>
             <div>                       <!-- TABLA DE USUARIOS -->
                 <div>
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <table id="tabla" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th></th>
@@ -102,7 +99,7 @@
         <script src="cdn.datatables.net/plug-ins/1.12.1/i18n/es-CO.json"></script>
         <script>
             $(document).ready(function () {
-            $('#example').DataTable();
+            $('#tabla').DataTable();
             });
         </script>
     </body>

@@ -103,7 +103,7 @@ tr:hover{                                   /*Reaccion de los 2 tipos de filas d
     width: 1000px;
     height: 70px;
     background-color: rgba(207, 193, 193, 0.589);
-    margin: auto;
+    margin: 30px auto 0px ;
     border-radius: 10px;
     border: solid 3px;
 }
