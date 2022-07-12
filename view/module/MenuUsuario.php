@@ -74,11 +74,16 @@
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-            <script src="cdn.datatables.net/plug-ins/1.12.1/i18n/es-CO.json"></script>
+            <script src="cdn.datatables.net/plug-ins/1.12.1/i18n/in-CO.json"></script>
             <script>
                 $(document).ready(function () {
                 $('#tabla').DataTable();
                 });
+                $('#tabla').DataTable( {
+                    language: {
+                        search: "BUSCADOR:"
+                    }
+                } );
             </script>
     </body>
 </html>
