@@ -21,7 +21,7 @@
             <form method="post" autocomplete="off">
                 <div class="ContUser">
                     <label for="" class ="txt">USERNAME:</label>
-                    <input type="text" name="userName" id="" placeholder= "Ingrese Username" class ="campT ID">
+                    <input type="text" name="userName" id="" placeholder= "Ingrese Username" class ="campT ID" required>
                     
                     <label for="" class ="txt">ROL:</label>
                     <select name="txtRol" id="" class="BarraRoles" required>
@@ -38,34 +38,34 @@
                 <div class="ContData">
                     <div>
                         <label for="" class ="txt">NOMBRE:</label>
-                        <input type="text" name="txtNombre" id="" placeholder= "Ingrese nombre" class ="campT nombre">
+                        <input type="text" name="txtNombre" id="" placeholder= "Ingrese nombre" class ="campT nombre" required>
                         
                         <label for="" class ="txt">APELLIDO:</label>
-                        <input type="text" name="txtApellido" id="" placeholder= "Ingrese apellido" class ="campT apellido">
+                        <input type="text" name="txtApellido" id="" placeholder= "Ingrese apellido" class ="campT apellido" required>
                         
                     </div>
                     <div>
                         <label for="" class ="txt">DOCUMENTO:</label>
-                        <input type="text" name="txtDocumento" id="" placeholder= "Ingrese documento" class ="campT documento">
+                        <input type="text" name="txtDocumento" id="" placeholder= "Ingrese documento" class ="campT documento" required>
                         
                         <label for="" class ="txt">NACIMIENTO:</label>
-                        <input type="date" name="txtNacimiento" id="" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento">
+                        <input type="date" name="txtNacimiento" id="" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento" required>
                         <!--
                         <input type="text" name="txtNacimiento" id="" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento">
                         -->
                     </div>
                     <div>
                         <label for="" class ="txt">TELEFONO:</label>
-                        <input type="text" name="txtTelefono" id="" placeholder= "Ingrese telefono" class ="campT telefono">
+                        <input type="text" name="txtTelefono" id="" placeholder= "Ingrese telefono" class ="campT telefono" required>
                         
                         <label for="" class ="txt">CORREO:</label>
-                        <input type="text" name="txtCorreo" id="" placeholder= "Ingrese correo" class ="campT correo">
+                        <input type="text" name="txtCorreo" id="" placeholder= "Ingrese correo" class ="campT correo" required>
                     </div>
                     <div>
                         <label for="" class ="txt">CONTRASEÑA:</label>
-                        <input type="password" name="txtPass" id="" class="campT password" placeholder="Ingrese contraseña">
+                        <input type="password" name="txtPass" id="" class="campT password" placeholder="Ingrese contraseña" required>
                         <label for="" class ="txt">CONTRASEÑA:</label>
-                        <input type="password" name="txtPass2" id="" class="campT password" placeholder="Ingrese nuevamente contraseña">
+                        <input type="password" name="txtPass2" id="" class="campT password" placeholder="Ingrese nuevamente contraseña" required>
                     </div>
                 </div>
                 <div class="contBtn">

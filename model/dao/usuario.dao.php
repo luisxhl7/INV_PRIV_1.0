@@ -54,10 +54,11 @@
 
                 $this-> estado = true;
 
-            } catch (PDOException $e) {
-                echo "Error al ejecutar la insercion de datos " . $e->getMessage();
+            } catch (PDOException) {
+                return $this -> estado;
             }
             return $this -> estado;
+
         }
         public function mdlEliminarUsuario(){        #Funcion utilizada para eliminar a un usuario puntual
             $sql = "CALL SpEliminarUsuario (?);";  //ELIMINAR

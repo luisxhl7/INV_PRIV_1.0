@@ -5,6 +5,7 @@
 
             $objModConextion = new  ModelConexion($user, $pass, $rol);
             $rest = $objModConextion -> getLogin() -> fetch();
+            
             if (gettype($rest) != "boolean") {   // YES FIND
                 $_SESSION["login"] = true;
                 header("location:index");

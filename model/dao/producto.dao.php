@@ -36,7 +36,7 @@
                 $stmt -> execute();
                 $this-> estado = true;
             
-            }catch (PDOEception $e) {
+            }catch (PDOException $e) {
                 echo "Error al ejecutar la insercion de datos " . $e->getMessage();
             }
             return $this -> estado;

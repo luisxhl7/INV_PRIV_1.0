@@ -87,7 +87,6 @@
           $objCon -> ctrLogin($user, $pass, $rol); 
         } 
       ?>
-
     </div>
     
     <!--------------------------------------------------RECUPERAR CONTRASEÑA------------------------------------------------->
@@ -103,7 +102,7 @@
             <div class = "contCampTxt">          <!-- Contenedor de campo de texto ID USUARIO -->
             <div>
               <span class= "icono-RC1"><i class="fa-solid fa-user-shield"></i></span>
-              <input type="text" name="" id=""  class = "campTxt-recuperarPass" placeholder = "Ingrese ID de usuario">
+              <input type="text" name="" id=""  class = "campTxt-recuperarPass" placeholder = "Ingrese Username">
             </div>
               <span class= "icono-RC2"><i class="fa-solid fa-envelope"></i></span>
               <input type="text" name="" id="" class = "campTxt-recuperarPass" placeholder = "Ingrese E-MAIL">

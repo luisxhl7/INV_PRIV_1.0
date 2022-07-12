@@ -8,7 +8,6 @@
             }else{
                 include_once "view/module/login.php";
             }
-        
         }
     }
 ?>
