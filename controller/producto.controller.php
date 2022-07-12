@@ -68,6 +68,29 @@
             }
             return $lista;
         }
+        public function ctrMostrarGrupos(){
+            $lista = false;
+            try {
+                $objDtoProducto = new Producto();
+                $objDaoProducto = new ModeloProducto( $objDtoProducto );
+                $lista = $objDaoProducto -> mdlMostrarGrupos() -> fetchAll();
 
+            } catch (PDOException $e) {
+                echo "error al consultar producto" . $e -> getMessage();
+            }
+            return $lista;
+        }
+        public function ctrMostrarCategorias(){
+            $lista = false;
+            try {
+                $objDtoProducto = new Producto();
+                $objDaoProducto = new ModeloProducto( $objDtoProducto );
+                $lista = $objDaoProducto -> mdlMostrarCategorias() -> fetchAll();
+
+            } catch (PDOException $e) {
+                echo "error al consultar producto" . $e -> getMessage();
+            }
+            return $lista;
+        }
     }
 ?>

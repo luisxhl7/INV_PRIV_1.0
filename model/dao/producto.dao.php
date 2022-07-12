@@ -42,7 +42,7 @@
             return $this -> estado;
         }
         public function mdlConsultarProducto(){
-            $sql = "CALL spMostrarProducto()";  //Procedimiento almacenado
+            $sql = "CALL SpMostrarProducto()";  //Procedimiento almacenado
 
             try {
                 $con = new Conexion();
@@ -55,7 +55,35 @@
             }
             return $resulset;
         }
-}       
+        public function mdlMostrarGrupos(){
+            $sql = "CALL SpMostrarGrupo()";
+
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> execute();
+                $resulset = $stmt;
+            } catch (PDOException $e) {
+                echo "Error en el metodo mostrar los grupos del producto " . $e -> getMessage();
+            }
+            return $resulset;
+
+        }
+        public function mdlMostrarCategorias(){
+            $sql = "CALL SpMostrarCategorias()";
+
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> execute();
+                $resulset = $stmt;
+            } catch (PDOException $e) {
+                echo "Error en el metodo mostrar los grupos del producto " . $e -> getMessage();
+            }
+            return $resulset;
+
+        }
+    }       
 
 
 ?>

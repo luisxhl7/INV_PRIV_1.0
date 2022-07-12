@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-07-2022 a las 05:07:03
+-- Tiempo de generación: 12-07-2022 a las 20:30:10
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -145,6 +145,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarUsuario` (IN `_username`
                 
 END$$
 
+DROP PROCEDURE IF EXISTS `SpMostrarCategorias`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarCategorias` ()   BEGIN
+	SELECT Cod_Categoria, Descripcion_Categoria FROM categoria;
+END$$
+
 DROP PROCEDURE IF EXISTS `SpMostrarDatos_P`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarDatos_P` (IN `_Documento` INT(11))   BEGIN
 	SELECT *
@@ -158,10 +163,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpmostrarDatos_U` (IN `_Documento` 
     WHERE Documento = _Documento;
 END$$
 
+DROP PROCEDURE IF EXISTS `SpMostrarGrupo`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarGrupo` ()   BEGIN
+	SELECT Cod_Grupo, Descripcion_Grupo FROM grupo;
+END$$
+
 DROP PROCEDURE IF EXISTS `SpMostrarProducto`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarProducto` (IN `_Cod_Producto` INT(10))   BEGIN
-	SELECT * FROM producto WHERE Cod_Producto=_Cod_Producto;
-    
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarProducto` ()   BEGIN
+	SELECT * FROM producto
+    INNER JOIN categoria
+    ON producto.Cod_Categoria = categoria.Cod_categoria
+    INNER JOIN grupo
+    ON producto.Cod_Grupo = grupo.Cod_Grupo;
 END$$
 
 DROP PROCEDURE IF EXISTS `SpMostrarRol`$$
@@ -198,7 +211,7 @@ DELIMITER ;
 DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
   `Cod_categoria` int(10) NOT NULL,
-  `Descripcion` varchar(20) NOT NULL,
+  `Descripcion_Categoria` varchar(20) NOT NULL,
   PRIMARY KEY (`Cod_categoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -206,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`Cod_categoria`, `Descripcion`) VALUES
+INSERT INTO `categoria` (`Cod_categoria`, `Descripcion_Categoria`) VALUES
 (1, 'PECES'),
 (2, 'GATOS'),
 (3, 'PERROS'),
@@ -235,9 +248,13 @@ CREATE TABLE IF NOT EXISTS `datos_p` (
 --
 
 INSERT INTO `datos_p` (`Documento`, `Nombre`, `Apellido`, `Fecha_N`, `Telefono`, `Correo`) VALUES
-(1001, 'LEONEL ANDRES', 'MESSI', '2023-11-29', '10', 'MESSI@GMAIL.COM'),
-(9944, 'pamela', 'pamelo', '2026-05-03', '302', '@@'),
+(0, 'asdasd', 'asdasd', '2020-10-29', 'asdasd', 'asdasd'),
+(123123, 'asdasd', 'asdasd', '2018-09-28', '123123', 'asdasd'),
+(875774, 'alzate', 'ron', '2017-09-28', '37283', 'asda'),
+(887733, 'miami', 'ruiz', '2016-08-30', '304449223', 'miami@gmail.com'),
 (9999999, 'Luis Alfonso', 'Becerra', '1984-03-01', '3333333', 'luisalfonso@misena.edu.co'),
+(44662772, 'reguetonero', 'zip', '2020-10-30', '3330092', 'assdjjasd'),
+(123123123, 'dana', 'lolo', '2020-03-12', '318723172', '1jahsbdjhabsjd'),
 (1022036498, 'Luis Carlos', 'Hernandez Lopez', '1998-10-06', '3043290842', 'luisxhl7@gmail.com'),
 (1042767596, 'Farley Felipe', 'Orrego Villa', '1989-12-03', '3128633688', 'fforrego@misena.edu.co');
 
@@ -250,7 +267,7 @@ INSERT INTO `datos_p` (`Documento`, `Nombre`, `Apellido`, `Fecha_N`, `Telefono`,
 DROP TABLE IF EXISTS `grupo`;
 CREATE TABLE IF NOT EXISTS `grupo` (
   `Cod_Grupo` int(10) NOT NULL,
-  `Descripcion` varchar(20) NOT NULL,
+  `Descripcion_Grupo` varchar(20) NOT NULL,
   PRIMARY KEY (`Cod_Grupo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -258,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `grupo` (
 -- Volcado de datos para la tabla `grupo`
 --
 
-INSERT INTO `grupo` (`Cod_Grupo`, `Descripcion`) VALUES
+INSERT INTO `grupo` (`Cod_Grupo`, `Descripcion_Grupo`) VALUES
 (1, 'ALIMENTO'),
 (2, 'ACCESORIOS');
 
@@ -289,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `movimiento` (
 
 DROP TABLE IF EXISTS `producto`;
 CREATE TABLE IF NOT EXISTS `producto` (
-  `Cod_Producto` int(10) NOT NULL AUTO_INCREMENT,
+  `Cod_Producto` int(4) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
   `Existencia` int(6) NOT NULL,
   `Precio` int(9) NOT NULL,
@@ -300,7 +317,14 @@ CREATE TABLE IF NOT EXISTS `producto` (
   PRIMARY KEY (`Cod_Producto`),
   KEY `Cod_Categoria` (`Cod_Categoria`),
   KEY `Cod_Grupo` (`Cod_Grupo`)
-) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=304 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`Cod_Producto`, `Nombre`, `Existencia`, `Precio`, `Descripcion`, `Imagen`, `Cod_Categoria`, `Cod_Grupo`) VALUES
+(303, 'comida para gato', 50, 10000, 'alimento de carne para gato', '', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -313,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `registro_detallado` (
   `Id_Mov_Detallado` int(10) NOT NULL AUTO_INCREMENT,
   `Cantidad` int(6) NOT NULL,
   `Cod_Consecutivo` int(10) NOT NULL,
-  `Cod_Producto` int(10) NOT NULL,
+  `Cod_Producto` int(4) NOT NULL,
   PRIMARY KEY (`Id_Mov_Detallado`),
   KEY `Cod_Consecutivo` (`Cod_Consecutivo`),
   KEY `Cod_Producto` (`Cod_Producto`)
@@ -330,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `rol` (
   `Cod_Rol` int(10) NOT NULL AUTO_INCREMENT,
   `Descripcion` varchar(20) NOT NULL,
   PRIMARY KEY (`Cod_Rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -380,7 +404,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`Id_Usuario`),
   KEY `Documento` (`Documento`),
   KEY `Cod_Rol` (`Cod_Rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=4467 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4483 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -390,8 +414,12 @@ INSERT INTO `usuario` (`Id_Usuario`, `username`, `Contrasena`, `Documento`, `Cod
 (4449, 'luisxhl7', '123', 1022036498, 1),
 (4450, 'Pipe12', 'Felo', 1042767596, 1),
 (4451, 'IngAlfonso', 'ing123', 9999999, 3),
-(4452, 'pame1212', 'pame123', 9944, 2),
-(4466, 'MESSI', '123', 1001, 1);
+(4474, 'luis', '123', 123123123, 2),
+(4475, 'miami', '123', 887733, 1),
+(4476, 'alzate', '123', 875774, 3),
+(4477, 'asd', '123', 0, 3),
+(4478, 'qwdqasd', '123', 123123, 3),
+(4481, 'amaro', '123', 44662772, 2);
 
 --
 -- Restricciones para tablas volcadas

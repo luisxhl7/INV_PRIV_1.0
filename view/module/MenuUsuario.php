@@ -77,13 +77,13 @@
             <script src="cdn.datatables.net/plug-ins/1.12.1/i18n/in-CO.json"></script>
             <script>
                 $(document).ready(function () {
-                $('#tabla').DataTable();
+                    $('#tabla').DataTable({
+                        language: {
+                            search: "BUSCADOR:",
+                            zeroRecords: "NO EXISTEN RESULTADOS"
+                        }
+                    });
                 });
-                $('#tabla').DataTable( {
-                    language: {
-                        search: "BUSCADOR:"
-                    }
-                } );
             </script>
     </body>
 </html>

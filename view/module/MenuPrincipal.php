@@ -19,7 +19,7 @@
             <div class="contMenu">
                 <div class = "menu">        <!-- Contenedor del menu -->
                     <div>  <!-- Boton modulo producto -->
-                        <a href="producto">
+                        <a href="menuProducto">
                             <input type="button" value="PRODUCTO" class = "boton">
                         </a>
                     </div>

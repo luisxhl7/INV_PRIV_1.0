@@ -1,79 +1,37 @@
-/*--------------------------------------------BUSCADOR------------------------------------------------*/
-nav{                
-    width: 100%;
+
+/*------------------------------------------MENU DE USUARIO-------------------------------------------*/
+
+/*BUSCADOR*/
+.col-md-7, .col-md-5, .dataTables_length { /*Elementos del pluggin innecesario*/
+    display: none;
 }
-.container1{                                /*Contenedor de los buscadores*/
-    margin: 50px auto 20px auto;
-    height: 160px;
-    width: 1160px;
-    position: relative;
+label{                                     /*Texto del buscador*/
+    margin-left: 65px;
 }
-.shearch1{                                  /*Espacio de buscador del producto*/
-    position: absolute;
+.form-control-sm{                          /*Diseño del buscador*/
+    height: 50px;
+    width: 800px;
+    margin: 40px 20px 0px 20px;
+    padding: 0px 10px;
+    border-radius: 7px;
+}
+.dataTables_filter{                        /*Diseño del contenedor del buscador*/
     height: 130px;
-    width: 500px;
+    width: 1021px;
     border: solid 3px;
     background-color: rgba(231, 222, 222, 0.329);    
     display: block;   /*asigna el 100% de un bloque al elemento*/
-    padding: 10px;
+    padding: 10px 0px;
     border-radius: 20px;
+    margin: 70px 0px 30px;
 }
-.shearch2{                                  /*Espacio de datos del producto*/
-    height: 130px;
-    width: 500px;
-    background-color: rgba(231, 222, 222, 0.329);    
-    position: absolute;
-    right: 0px;
-    border: solid 3px;
-    padding: 10px;
-    border-radius: 20px;
-}
-.buscador1{                                 /*Buscador*/
-    height: 40px; 
-    width: 320px;
-    margin: 30px 0px 0px 90px;
-    border-radius: 7px;
-}
-.filtro1, .filtro2{                         /*Filtros de buscador*/
-    margin: 25px 0px 0px 88px;
-    width: 40px;
-    cursor: pointer;
-}
-.shearchRadio{                              /*Respuesta del texto de los filtros*/
-    cursor: pointer;
-}
-.camp1prod{                                 /*Campo de nombre del producto*/
-    height: 30px;
-    width: 440px;
-    margin: 7px 0px 0px 30px;
-    float : left;
-    display: block;
-    border-radius: 7px;
-}
-.camp2prod{                                 /*Campos codigo y tipo*/
-    height: 20px;
-    width: 200px;
-    margin: 15px 0px 15px 30px;
-    float: left;
-    border-radius: 7px;
-    
-}
-.camp3prod{                                 /*Campos categoria y precio*/
-    height: 20px;
-    width: 200px;
-    margin: 0px 0px 0px 30px;
-    float: left;
-    border-radius: 7px;
-}
-.buscador1:hover,.camp1prod:hover,.camp2prod:hover,.camp3prod:hover{ /*Respuesta de los campos de texto*/
+.form-control-sm:hover{
     border-color: rgb(114, 253, 0);
-    ;
 }
 
-/*------------------------------------------TABLAS----------------------------------------------------*/
+/*TABLAS*/
 
-.tablaProdt{                                /*Diseño de la tabla*/
-    margin-bottom: 20px;
+#tabla{                                     /*Diseño de la tabla*/
     display: block;
     margin: 0px auto 15px auto;
     width: 1160px;
@@ -84,20 +42,30 @@ nav{
     border-radius: 7px;
     box-shadow: 0px 1px 10px 0px rgba(47, 51, 44, 0.432);
 }
-.tablaProdt::-webkit-scrollbar{             /*Diseño del campo del scroll*/
+#tabla::-webkit-scrollbar{                  /*Diseño del campo del scroll*/
     background-color: rgb(0, 0, 0);
     width: 12px;
     border-radius: 7px;
 }
-.tablaProdt::-webkit-scrollbar-thumb{       /*Diseño del scroll*/
+#tabla::-webkit-scrollbar-thumb{            /*Diseño del scroll*/
     background-color: rgb(206, 205, 205);
     border-radius: 7px;
 }
-.tablaProdt::-webkit-scrollbar-thumb:hover{ /*Reaccion del scroll*/
+#tabla::-webkit-scrollbar-thumb:hover{      /*Reaccion del scroll*/
     background-color: rgb(139, 248, 50);
 }
 th{                                         /*Diseño de los titulos de la tala*/
     background-color: yellowgreen;
+    height: 30px;
+    border: solid 1px;
+}
+td{
+    width: 123px;
+    height: 50px;
+}
+.selector{
+    width: 20px;
+    padding: 0px 5px;
 }
 tr:nth-child(even){                         /*Diseño a las filas pares*/
     background-color: rgba(104, 104, 119, 0.4);
@@ -110,17 +78,17 @@ tr:hover{                                   /*Reaccion de los 2 tipos de filas d
     cursor: pointer;
 }
 
-/*--------------------------------------------BOTONES-------------------------------------------------*/
+/*BOTONES*/
 
-.conBtns{                                  /*Diseño del contenedor de los botones*/
-    width: 1000px;
+.conBtns{                                   /*Diseño del contenedor de los botones*/
+    width: 1021px;
     height: 70px;
     background-color: rgba(207, 193, 193, 0.589);
-    margin: auto;
+    margin: 30px auto 0px ;
     border-radius: 10px;
     border: solid 3px;
 }
-.btnprdt, .btnprdt:visited{                 /*Diseño de los botones*/
+.btnprdt, .btnprdt:visited{                 /*Diseño de los botones tipo link*/
     border: solid 1px black;
     background-color: rgb(139, 248, 50);
     color: black;
@@ -132,16 +100,30 @@ tr:hover{                                   /*Reaccion de los 2 tipos de filas d
     text-decoration: none;
     float: left;
     display: block;
-    margin: 17px 43px 17px 43px;
+    margin: 17px 43px 17px 70px;
 }
-.btnprdt:hover{                             /*Diseño de la reaccion de los botones*/
+.btnprdt:hover, .btnprdt2:hover{            /*Diseño de la reaccion de los botones*/
 background-color: aqua;
 border-color: aqua;
 }
-.btnprdt:active{                            /*Diseño al interactuar con los botones*/
+.btnprdt:active, .btnprdt2:active{          /*Diseño al interactuar con los botones*/
 background-color: chartreuse;
 border-color: chartreuse;
 }
-
+.btnprdt2{                                  /*Diseño de los botones*/
+    border: solid 1px black;
+    background-color: rgb(139, 248, 50);
+    color: black;
+    width: 152px;
+    height: 38px;
+    text-align: center;
+    border-radius: 20px;
+    text-decoration: none;
+    float: left;
+    display: block;
+    margin: 17px 43px 17px 43px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
 

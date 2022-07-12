@@ -10,7 +10,7 @@
             case 'ayuda':
                 require_once "view/module/ayuda.php";
                 break;
-            case 'producto':
+            case 'menuProducto':
                 require_once "view/module/menuProducto.php";
                 break;
             case 'crearProducto':
@@ -18,9 +18,6 @@
                 break;
             case 'editarProducto':
                 require_once "view/module/editarProducto.php";
-                break;
-            case 'salirMenuProducto':
-                require_once "view/module/menuProducto.php";
                 break;
             case 'inventario':
                 require_once "view/module/inventario.php";

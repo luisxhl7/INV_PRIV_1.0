@@ -26,7 +26,7 @@
 
             <nav>                           <!-- MENU DE NAVEGACION -->
                 <div class= "menu1">
-                    <a href="salirMenuProducto" class ="botonMenu" title="Menu de productos">MENU DE BUSQUEDA</a>
+                    <a href="menuProducto" class ="botonMenu" title="Menu de productos">MENU DE BUSQUEDA</a>
                     <a href="" class ="botonMenu" title="Crear etiqueta">AGREGAR  ETIQUETA</a>
                     <a href="" class ="botonMenu" title="Agregar codigo de barras">AGREGAR CODIGO DE BARRAS</a>
                     <a href="" class ="botonMenu" title="Agregar imagen">AGREGAR IMAGEN</a>
@@ -38,44 +38,50 @@
                     
                     <div class = "container1">
                         <div class = "campo">
-                            <label for="nomPrdt">PRODUCTO:</label>
-                            <input type="text" REQUIRED name="nombreProducto" class="campoTexto" id="nomPrdt" placeholder="Ingrese nombre">
-                            <label for="codigo">CODIGO:</label> 
-                            <input type="text" name="codigo" class="campoCodigo"  id="codigo" placeholder="ASIGNACION AUTOMATICA">
+                            <label for="txtNombre">PRODUCTO:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" class="campoTexto" placeholder="Ingrese nombre" required>
+                            <label for="txtCodigo">CODIGO:</label> 
+                            <input type="text" name="txtCodigo" id="txtCodigo" class="campoCodigo" placeholder="ASIGNACION AUTOMATICA">
                         </div>
                         
                         <div class = "campo">
-                            <label for="cantProdt">CANTIDAD:</label>
-                            <input type="number" REQUIRED name="txtCantidad" class="campoTexto1" id="cantProdt" placeholder="Ingrese cantidad">
-                            <label for="precio">PRECIO:</label>
-                            <input type="number" REQUIRED name="precio" id="precio" class="campoTexto2" placeholder="Ingrese precio">
+                            <label for="txtCantidad">CANTIDAD:</label>
+                            <input type="number" name="txtCantidad" id="txtCantidad" class="campoTexto1" placeholder="Ingrese cantidad"  required>
+                            <label for="txtPrecio">PRECIO:</label>
+                            <input type="number" name="txtPrecio" id="txtPrecio" class="campoTexto2" placeholder="Ingrese precio"  required>
                         </div>
                         <div class = "campo">
-                            <label for="categoria">CATEGORIA:</label>
-                            <select name="categoria" id="categoria" class="barraDesplegable1" >
+                            <label for="txtCategoria">CATEGORIA:</label>
+                            <select name="txtCategoria" id="txtCategoria" class="barraDesplegable1" required>
                                 <option value="0">Seleccione categoria</option>
-                                <option value="alimento">alimento</option>
-                                <option value="aseo">aseo</option>
-                                <option value="juguete">juguetes</option>
-                                <option value="otro">otro</option>
+                                <?php
+                                    $objCtrProducto = new ControllerProductos();
+                                    $listaProducto = $objCtrProducto -> ctrMostrarCategorias();  
+                                    foreach($listaProducto as $dato){
+                                        echo'<option value="'.$dato["Cod_Categoria"].'"> '.$dato["Descripcion_Categoria"].' </option>';
+                                    }
+                                ?>
                             </select>
 
-                            <label for="grupo">GRUPO:</label> 
-                            <select name="grupo" id="grupo" class="barraDesplegable2">
+                            <label for="txtGrupo">GRUPO:</label> 
+                            <select name="txtGrupo" id="txtGrupo" class="barraDesplegable2" required>
                                 <option value="0">Seleccione grupo</option>
-                                <option value="perro">perro</option>
-                                <option value="gato">gato</option>
-                                <option value="pez">pez</option>
-                                <option value="pollo">pollo</option>
+                                <?php
+                                    $objCtrProducto = new ControllerProductos();
+                                    $listaProducto = $objCtrProducto -> ctrMostrarGrupos();  
+                                    foreach($listaProducto as $dato){
+                                        echo'<option value="'.$dato["Cod_Grupo"].'"> '.$dato["Descripcion_Grupo"].' </option>';
+                                    }
+                                ?>
                             </select>
                         </div>
 
                         <div class = "descrip">
-                            <label>DESCRIPCION:</label>
+                            <label for="txtDescripcion">DESCRIPCION:</label>
                         </div>
 
                         <div class = "campo">
-                            <textarea name="descripcion" id="comentario" cols="30" rows="2"class="campoTexto3" placeholder ="INGRESE INFORMACION SOBRE EL PRODUCTO"></textarea>
+                            <textarea name="txtDescripcion" id="txtDescripcion" cols="30" rows="2" class="campoTexto3" placeholder ="INGRESE INFORMACION SOBRE EL PRODUCTO"></textarea>
                         </div>
                     </div>
 
@@ -95,15 +101,17 @@
             </div>
 
             <?php 
-                if (isset($_POST['nombreProducto'])){
+                if (isset($_POST['txtNombre'])){
                     $objCon = new ControllerProductos();
                     $objCon -> ctrCrearProducto(
-                        $_POST['nombreProducto'],
+                        $_POST['txtNombre'],
                         $_POST['grupo'],
                         $_POST['categoria'],
                         $_POST['precio'],
                         $_POST['descripcion'],
-                        $_POST['txtCantidad']           
+                        $_POST['txtCantidad'],
+                        $_POST['txtCantidad'],
+
                     );
                 }
             ?>
