@@ -7,6 +7,7 @@
         private $categoria;
         private $grupo;
         private $descripcion;
+        private $codigo;
         /*private $imagen;*/
 
         public function __construct($objProducto){
@@ -17,6 +18,7 @@
             $this -> grupo = $objProducto -> getGrupo();
             $this -> descripcion = $objProducto -> getDescripcion();
             /*$this -> imagen = $objProducto -> getImagen();*/
+            $this -> codigo = $objProducto -> getCodigo();
         }
         public function mdlCrearProducto(){
             $sql = "INSERT INTO producto(Nombre, Existencia, Precio, Cod_Categoria, Cod_Grupo ,Descripcion) VALUES (?,?,?,?,?,?)";
@@ -53,6 +55,22 @@
                 echo "Error en el metodo consultar Producto " . $e -> getMessage();
             }
             return $resulset;
+        }
+        public function mdlEliminarProducto(){
+            $sql = "CALL SpEliminarProducto (?)";
+            $this -> estado = false;
+
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this -> codigo,PDO::PARAM_INT);
+                $stmt -> execute();
+                $this -> estado = true;
+
+            } catch (PDOException $e) {
+                echo "Error en el metodo eliminar Producto " . $e -> getMessage();
+            }
+            return $this -> estado;
         }
         public function mdlMostrarGrupos(){
             $sql = "CALL SpMostrarGrupo()";

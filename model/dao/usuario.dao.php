@@ -68,12 +68,11 @@
                 $con = new conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
                 $stmt -> bindParam(1, $this->documento, PDO::PARAM_INT);
-
                 $stmt -> execute();
                 $this-> estado = true;
 
             } catch (PDOException $e) {
-                echo "Error al ejecutar mdlEliminarUsuario " . $e->getMessage();
+                echo "Error en el metodo Eliminar Usuario " . $e->getMessage();
             }
             return $this -> estado;
         }

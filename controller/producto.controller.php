@@ -68,6 +68,34 @@
             }
             return $lista;
         }
+        public function ctrEliminarProducto($codigo){  #Controlador de eliminar producto
+            $objDtoProducto = new Producto();
+            $objDtoProducto->setCodigo($codigo);
+
+            $objDaoProducto = new ModeloProducto($objDtoProducto);
+            if ($objDaoProducto -> mdlEliminarProducto() == true) {
+                echo"
+                    <script>
+                        Swal.fire({
+                            title: 'Eliminado',
+                            text: 'A partir de ahora este producto ya no se encuentra disponible en el aplicativo.',
+                            icon: 'success',
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'CONFIRMAR'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location='menuProducto';
+                            }else{
+                                window.location='menuProducto';
+                            }
+                        })
+                    </script>
+                ";
+            }
+
+        }
         public function ctrMostrarGrupos(){
             $lista = false;
             try {

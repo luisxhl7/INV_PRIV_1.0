@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="view/img/LOGO INV.PRIV-03.png" type="image/x-icon">
         <title>INV PRIV</title>
+        <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
+        <link rel="stylesheet" href="view/css/sweetalert2.min.css">
+        <script src="view/js/sweetalert2.all.min.js"></script>
         <!--                    DIRECCION PARA LOGOS EN CLOUDFLARE                    -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
         <!--              DIRECCIONES CSS               -->
@@ -36,18 +39,18 @@
                             $listaProducto = $objCtrProducto -> ctrConsultarProducto();  
                             foreach($listaProducto as $dato){
                                 echo '
-                                <tr>
-                                    <td class="selector"><input type="radio" name="selectUser" id="selectDocument" class="filtro1" value="' . $dato['Cod_Producto'] . '"></td>
-                                    <td>' . $dato['Cod_Producto'] . '</td>
-                                    <td>' . $dato['Nombre'] . '</td>
-                                    <td>' . $dato['Descripcion_Grupo'] . '</td>
-                                    <td>' . $dato['Descripcion_Categoria'] . '</td>
-                                    <td>' . $dato['Descripcion'] . '</td>
-                                    <td>' . $dato['Existencia'] . '</td>
-                                    <td>$ ' . $dato['Precio'] . '</td>
-                                    <td> <i class="fa-solid fa-barcode"></i> </td>
-                                </tr>
-                            ';
+                                    <tr>
+                                        <td class="selector"><input type="radio" name="selectPrdt" id="selectPrdt" class="filtro1" value="' . $dato['Cod_Producto'] . '"></td>
+                                        <td>' . $dato['Cod_Producto'] . '</td>
+                                        <td>' . $dato['Nombre'] . '</td>
+                                        <td>' . $dato['Descripcion_Grupo'] . '</td>
+                                        <td>' . $dato['Descripcion_Categoria'] . '</td>
+                                        <td>' . $dato['Descripcion'] . '</td>
+                                        <td>' . $dato['Existencia'] . '</td>
+                                        <td>$ ' . $dato['Precio'] . '</td>
+                                        <td> <i class="fa-solid fa-barcode"></i> </td>
+                                    </tr>
+                                ';
                             }  
 
                         ?>
@@ -58,17 +61,24 @@
             <div class="conBtns">           <!-- MENU DE NAVEGACION -->
                 <a href="crearProducto" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
                 <button type="button" class="btnprdt2" title="Inhabilitar producto">INHABILITAR</button>
-                <button type="button" onclick="" class="btnprdt2" title="Eliminar producto">ELIMINAR</button>
+                <button type="button" onclick="eliminar(selectPrdt)" class="btnprdt2" title="Eliminar producto">ELIMINAR</button>
                 <button type="button" onclick="" class="btnprdt2" title="Editar producto">EDITAR</button>
             </div>
         </form>
+        <?php  /*PROCEDIMIENTOO PARA ELIMINAR PRODUCTO */
+            if (isset($_GET['codigo'])) {
+                $objProducto = new ControllerProductos();
+                $objProducto -> ctrEliminarProducto(
+                    $_GET['codigo']
+                );                
+            }
+        ?>
 
         <!-----------DIRECCIONES DE JS--------- -->
-            <script src="./view/js/menuUsuarios.js"></script>
+            <script src="./view/js/menuProductos.js"></script>
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-            <script src="cdn.datatables.net/plug-ins/1.12.1/i18n/in-CO.json"></script>
             <script>
                 $(document).ready(function () {
                 $('#tabla').DataTable({

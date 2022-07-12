@@ -8,6 +8,7 @@
         private $descripcion;
         private $cantidad;
         /*private $imagen;*/
+        private $codigo;
 
         public function getNombre(){
             return $this -> nombre;
@@ -32,30 +33,35 @@
             return $this -> imagen;
         }
         */
-
+        public function getCodigo(){
+            return $this -> codigo;
+        }
         public function setNombre($nombre){
-            $this -> nombre = $nombre ;
+            $this -> nombre = $nombre;
         }
         public function setGrupo($grupo){
-            $this -> grupo = $grupo ;
+            $this -> grupo = $grupo;
         }
         public function setCategoria($categoria){
-            $this -> categoria = $categoria ;
+            $this -> categoria = $categoria;
         }
         public function setPrecio($precio){
-            $this -> precio = $precio ;
+            $this -> precio = $precio;
         }
         public function setDescripcion($descripcion){
-            $this -> descripcion = $descripcion ;
+            $this -> descripcion = $descripcion;
         }
         public function setCantidad($cantidad){
-            $this -> cantidad = $cantidad ;
+            $this -> cantidad = $cantidad;
         }
         /*
         public function setImagen($imagen){
-            $this -> imagen = $imagen ;
+            $this -> imagen = $imagen;
         }
         */
+        public function setCodigo($codigo){
+            $this -> codigo = $codigo;
+        }
     }
 
 ?>
