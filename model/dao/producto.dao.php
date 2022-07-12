@@ -1,37 +1,36 @@
 <?php
     class ModeloProducto{
         /*------ATRIBUTOS-------*/
-        private $nombreProducto;
-        private $grupo;
-        private $categoria;
-        private $precio;
-        private $descripcion;
+        private $nombre;
         private $cantidad;
+        private $precio;
+        private $categoria;
+        private $grupo;
+        private $descripcion;
         /*private $imagen;*/
 
         public function __construct($objProducto){
-            $this -> nombreProducto = $objProducto -> getNombreProducto();
-            $this -> grupo = $objProducto -> getGrupo();
-            $this -> categoria = $objProducto -> getCategoria();
-            $this -> precio = $objProducto -> getPrecio();
-            $this -> descripcion = $objProducto -> getDescripcion();
+            $this -> nombre = $objProducto -> getNombre();
             $this -> cantidad = $objProducto -> getCantidad();
+            $this -> precio = $objProducto -> getPrecio();
+            $this -> categoria = $objProducto -> getCategoria();
+            $this -> grupo = $objProducto -> getGrupo();
+            $this -> descripcion = $objProducto -> getDescripcion();
             /*$this -> imagen = $objProducto -> getImagen();*/
         }
-
         public function mdlCrearProducto(){
-            $sql = "INSERT INTO producto(nombre, grupo, categoria, precio, descripcion, cantidad) VALUES (?,?,?,?,?,?)";
+            $sql = "INSERT INTO producto(Nombre, Existencia, Precio, Cod_Categoria, Cod_Grupo ,Descripcion) VALUES (?,?,?,?,?,?)";
             $this -> estado = false;
 
             try {
                 $con = new conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this -> nombreProducto,PDO::PARAM_STR);
-                $stmt -> bindParam(2, $this -> grupo,PDO::PARAM_STR);
-                $stmt -> bindParam(3, $this -> categoria,PDO::PARAM_STR);
-                $stmt -> bindParam(4, $this -> precio,PDO::PARAM_INT);
-                $stmt -> bindParam(5, $this -> descripcion,PDO::PARAM_STR);
-                $stmt -> bindParam(6, $this -> cantidad,PDO::PARAM_INT);
+                $stmt -> bindParam(1, $this -> nombre,PDO::PARAM_STR);
+                $stmt -> bindParam(2, $this -> cantidad,PDO::PARAM_INT);
+                $stmt -> bindParam(3, $this -> precio,PDO::PARAM_INT);
+                $stmt -> bindParam(4, $this -> categoria,PDO::PARAM_INT);
+                $stmt -> bindParam(5, $this -> grupo,PDO::PARAM_INT);
+                $stmt -> bindParam(6, $this -> descripcion,PDO::PARAM_STR);
                 /*$stmt -> bindParam(6, $this -> imagen,PDO::PARAM_LONG);*/
                 $stmt -> execute();
                 $this-> estado = true;

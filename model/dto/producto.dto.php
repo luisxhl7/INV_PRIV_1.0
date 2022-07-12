@@ -1,16 +1,16 @@
 <?php
     class Producto{
         /*------ATRIBUTOS-------*/
-        private $nombreProducto;
+        private $nombre;
         private $grupo;
         private $categoria;
         private $precio;
         private $descripcion;
         private $cantidad;
-        private $imagen;
+        /*private $imagen;*/
 
-        public function getNombreProducto(){
-            return $this -> nombreProducto;
+        public function getNombre(){
+            return $this -> nombre;
         }
         public function getGrupo(){
             return $this -> grupo;
@@ -27,12 +27,14 @@
         public function getCantidad(){
             return $this -> cantidad;
         }
+        /*
         public function getImagen(){
             return $this -> imagen;
         }
+        */
 
-        public function setNombreProducto($nombreProducto){
-            $this -> nombreProducto = $nombreProducto ;
+        public function setNombre($nombre){
+            $this -> nombre = $nombre ;
         }
         public function setGrupo($grupo){
             $this -> grupo = $grupo ;
@@ -49,9 +51,11 @@
         public function setCantidad($cantidad){
             $this -> cantidad = $cantidad ;
         }
+        /*
         public function setImagen($imagen){
             $this -> imagen = $imagen ;
         }
+        */
     }
 
 ?>

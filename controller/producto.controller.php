@@ -1,16 +1,16 @@
 <?php
     class ControllerProductos{
-        public function ctrCrearProducto($nombreProducto, $grupo, $categoria, $precio, $descripcion, $cantidad){
+        public function ctrCrearProducto($nombre, $cantidad, $precio, $categoria, $grupo, $descripcion){
 
             try {
                 //se instacia el Objeto DTO
                 $objDtoProducto = new Producto();
-                $objDtoProducto -> setNombreProducto($nombreProducto);
-                $objDtoProducto -> setGrupo($grupo);
-                $objDtoProducto -> setCategoria($categoria);
-                $objDtoProducto -> setPrecio($precio);
-                $objDtoProducto -> setDescripcion($descripcion);
+                $objDtoProducto -> setNombre($nombre);
                 $objDtoProducto -> setCantidad($cantidad);
+                $objDtoProducto -> setPrecio($precio);
+                $objDtoProducto -> setCategoria($categoria);
+                $objDtoProducto -> setGrupo($grupo);
+                $objDtoProducto -> setDescripcion($descripcion);
                 /*$objDtoProducto -> setImagen($imagen);*/
                 
                 $objDaoProducto = new ModeloProducto($objDtoProducto);

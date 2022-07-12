@@ -87,11 +87,10 @@
 
                     <div class = "container2">
                         <div class = "campImg">
-                            <label for="img">
+                            <label for="txtImg">
                                 <i class="fa-solid fa-image"></i>
-                                <input type="file" name="imagen" id ="img" class="imgFile">
+                                <input type="file" name="txtImg" id ="txtImg" class="imgFile">
                             </label>
-                            <!--<img src="https://cdn-icons-png.flaticon.com/512/16/16410.png" alt="" class="imagen2">-->
                         </div>
                         <div>
                             <input type="submit" value="REGISTRAR" class="boton1" name="guardarPrdt">
@@ -101,17 +100,15 @@
             </div>
 
             <?php 
-                if (isset($_POST['txtNombre'])){
+                if (isset($_POST['txtNombre']) and $_POST['txtNombre'] != null){
                     $objCon = new ControllerProductos();
                     $objCon -> ctrCrearProducto(
                         $_POST['txtNombre'],
-                        $_POST['grupo'],
-                        $_POST['categoria'],
-                        $_POST['precio'],
-                        $_POST['descripcion'],
                         $_POST['txtCantidad'],
-                        $_POST['txtCantidad'],
-
+                        $_POST['txtPrecio'],
+                        $_POST['txtCategoria'],
+                        $_POST['txtGrupo'],
+                        $_POST['txtDescripcion'],
                     );
                 }
             ?>
