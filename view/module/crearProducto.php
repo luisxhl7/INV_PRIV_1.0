@@ -33,7 +33,7 @@
             </nav>
 
             <div class ="formulario1">   <!-- SOLO FALTA QUE EL INPUT DE IMAGEN PERMITA VER LA IMAGEN QUE SE ENVIARA-->
-                <form method ="post" enctype="multipart/form-data">
+                <form method ="post" >
                     
                     <div class = "container1">
                         <div class = "campo">
@@ -86,12 +86,10 @@
                     </div>
 
                     <div class = "container2">
-                        <div class = "campImg">
-                            <label for="txtImg">
-                                <i class="fa-solid fa-image"></i>
-                                <input type="file" name="txtImg" id ="txtImg" class="imgFile">
-                            </label>
+                        <div class = "campImg" id="boton">
+                            <img src="./view/img/image-solid.svg" alt="" id="img-imagen">
                         </div>
+                        <input type="file" name="txtImagen" id ="imagen" class="file" onchange="vista_preliminar(event)" accept=".png">
                         <div>
                             <input type="submit" value="REGISTRAR" class="boton1" name="guardarPrdt">
                         </div>
@@ -109,9 +107,11 @@
                         $_POST['txtCategoria'],
                         $_POST['txtGrupo'],
                         $_POST['txtDescripcion'],
+                        $_POST['txtImagen']
                     );
                 }
             ?>
         </div>
+        <script src="./view/js/menuProductos.js"></script>
     </body>
 </html>

@@ -51,5 +51,23 @@ function editarProducto(nombre, codigo, cantidad, precio, categoria, grupo, desc
         if (result.isConfirmed) {
             window.location="index.php?ruta=editarProducto&codigo="+codigo.value+"&nombre="+nombre.value+"&cantidad="+cantidad.value+"&precio="+precio.value+"&categoria="+categoria.value+"&grupo="+grupo.value+"&descripcion="+descripcion.value;
         }
-      })
+    })
+}
+
+/*FUNCION PARA PREVISUALIZAR IMAGENES */
+const archivo = document.getElementById("imagen");
+const boton = document.getElementById("boton");
+boton.addEventListener("click", () =>{
+    archivo.click();
+});
+
+let vista_preliminar = (event) => {
+    let leer_img = new FileReader();
+    let id_img = document.getElementById('img-imagen');
+    leer_img.onload = () =>{
+        if(leer_img.readyState == 2){
+            id_img.src = leer_img.result;
+        }
+    }
+    leer_img.readAsDataURL(event.target.files[0]);
 }

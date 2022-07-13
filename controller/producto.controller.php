@@ -1,6 +1,6 @@
 <?php
     class ControllerProductos{
-        public function ctrCrearProducto($nombre, $cantidad, $precio, $categoria, $grupo, $descripcion){ #Controlador de crear productos
+        public function ctrCrearProducto($nombre, $cantidad, $precio, $categoria, $grupo, $descripcion, $imagen){ #Controlador de crear productos
 
             try {
                 //se instacia el Objeto DTO
@@ -11,7 +11,7 @@
                 $objDtoProducto -> setCategoria($categoria);
                 $objDtoProducto -> setGrupo($grupo);
                 $objDtoProducto -> setDescripcion($descripcion);
-                /*$objDtoProducto -> setImagen($imagen);*/
+                $objDtoProducto -> setImagen($imagen);
                 
                 $objDaoProducto = new ModeloProducto($objDtoProducto);
                 if ($objDaoProducto -> mdlCrearProducto() == true) {

@@ -7,7 +7,7 @@
         private $precio;
         private $descripcion;
         private $cantidad;
-        /*private $imagen;*/
+        private $imagen;
         private $codigo;
 
         public function getNombre(){
@@ -28,11 +28,9 @@
         public function getCantidad(){
             return $this -> cantidad;
         }
-        /*
         public function getImagen(){
             return $this -> imagen;
         }
-        */
         public function getCodigo(){
             return $this -> codigo;
         }
@@ -55,11 +53,9 @@
         public function setCantidad($cantidad){
             $this -> cantidad = $cantidad;
         }
-        /*
         public function setImagen($imagen){
             $this -> imagen = $imagen;
         }
-        */
         public function setCodigo($codigo){
             $this -> codigo = $codigo;
         }

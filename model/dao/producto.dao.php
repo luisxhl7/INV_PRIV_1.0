@@ -8,7 +8,7 @@
         private $grupo;
         private $descripcion;
         private $codigo;
-        /*private $imagen;*/
+        private $imagen;
 
         public function __construct($objProducto){
             $this -> nombre = $objProducto -> getNombre();
@@ -17,11 +17,11 @@
             $this -> categoria = $objProducto -> getCategoria();
             $this -> grupo = $objProducto -> getGrupo();
             $this -> descripcion = $objProducto -> getDescripcion();
-            /*$this -> imagen = $objProducto -> getImagen();*/
+            $this -> imagen = $objProducto -> getImagen();
             $this -> codigo = $objProducto -> getCodigo();
         }
         public function mdlCrearProducto(){
-            $sql = "INSERT INTO producto(Nombre, Existencia, Precio, Cod_Categoria, Cod_Grupo ,Descripcion) VALUES (?,?,?,?,?,?)";
+            $sql = "INSERT INTO producto(Nombre, Existencia, Precio, Cod_Categoria, Cod_Grupo ,Descripcion,Imagen) VALUES (?,?,?,?,?,?,?)";
             $this -> estado = false;
 
             try {
@@ -33,7 +33,7 @@
                 $stmt -> bindParam(4, $this -> categoria,PDO::PARAM_INT);
                 $stmt -> bindParam(5, $this -> grupo,PDO::PARAM_INT);
                 $stmt -> bindParam(6, $this -> descripcion,PDO::PARAM_STR);
-                /*$stmt -> bindParam(6, $this -> imagen,PDO::PARAM_LONG);*/
+                $stmt -> bindParam(7, $this -> imagen,PDO::PARAM_LOB);
                 $stmt -> execute();
                 $this-> estado = true;
             
