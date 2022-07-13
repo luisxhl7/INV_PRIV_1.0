@@ -114,7 +114,6 @@
         }
 
         public function ctrMostrarDatosPModificar($documento){ #Controlador de mostrar datos de usuario en la vista de editar usuario
-            $lista = false;
             try {
                 $objDtoUsuario = new Usuario();
                 $objDtoUsuario->setDocumento($documento);

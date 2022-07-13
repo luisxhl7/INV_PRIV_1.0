@@ -36,6 +36,7 @@
         public function getCodigo(){
             return $this -> codigo;
         }
+        
         public function setNombre($nombre){
             $this -> nombre = $nombre;
         }

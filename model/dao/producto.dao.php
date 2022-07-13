@@ -72,6 +72,27 @@
             }
             return $this -> estado;
         }
+        public function mdlModificarProducto(){
+            $sql = "CALL SpModificarProducto(?,?,?,?,?,?,?)";
+            $this-> estado = false;
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this -> codigo,PDO::PARAM_INT);
+                $stmt -> bindParam(2, $this -> nombre,PDO::PARAM_STR);
+                $stmt -> bindParam(3, $this -> cantidad,PDO::PARAM_INT);
+                $stmt -> bindParam(4, $this -> precio,PDO::PARAM_INT);
+                $stmt -> bindParam(5, $this -> descripcion,PDO::PARAM_STR);
+                $stmt -> bindParam(6, $this -> categoria,PDO::PARAM_INT);
+                $stmt -> bindParam(7, $this -> grupo,PDO::PARAM_INT);
+                $stmt -> execute();
+                $this-> estado = true;
+
+            } catch (PDOException $e) {
+                echo "error en el modelo de modificar producto". $e -> getMessage();
+            }
+            return $this -> estado;
+        }
         public function mdlMostrarGrupos(){
             $sql = "CALL SpMostrarGrupo()";
 
@@ -99,6 +120,20 @@
             }
             return $resulset;
 
+        }
+        public function mdlMostrarDatosProducto(){
+            $sql = "CALL SpMostrarDatosProducto(?)";
+
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this -> codigo,PDO::PARAM_INT);
+                $stmt -> execute();
+                $resulset = $stmt;
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            return $resulset;
         }
     }       
 

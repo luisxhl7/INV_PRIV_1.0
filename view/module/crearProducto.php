@@ -29,12 +29,11 @@
                     <a href="menuProducto" class ="botonMenu" title="Menu de productos">MENU DE BUSQUEDA</a>
                     <a href="" class ="botonMenu" title="Crear etiqueta">AGREGAR  ETIQUETA</a>
                     <a href="" class ="botonMenu" title="Agregar codigo de barras">AGREGAR CODIGO DE BARRAS</a>
-                    <a href="" class ="botonMenu" title="Agregar imagen">AGREGAR IMAGEN</a>
                 </div>
             </nav>
 
             <div class ="formulario1">   <!-- SOLO FALTA QUE EL INPUT DE IMAGEN PERMITA VER LA IMAGEN QUE SE ENVIARA-->
-                <form action="" method ="post" enctype="multipart/form-data">
+                <form method ="post" enctype="multipart/form-data">
                     
                     <div class = "container1">
                         <div class = "campo">
@@ -50,6 +49,7 @@
                             <label for="txtPrecio">PRECIO:</label>
                             <input type="number" name="txtPrecio" id="txtPrecio" class="campoTexto2" placeholder="Ingrese precio"  required>
                         </div>
+                        
                         <div class = "campo">
                             <label for="txtCategoria">CATEGORIA:</label>
                             <select name="txtCategoria" id="txtCategoria" class="barraDesplegable1" required>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2022 a las 20:30:10
+-- Tiempo de generación: 13-07-2022 a las 03:51:07
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -121,16 +121,15 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarPass` (IN `_UserName` VA
 END$$
 
 DROP PROCEDURE IF EXISTS `SpModificarProducto`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarProducto` (IN `_Cod_Producto` INT(10), IN `_Nombre` VARCHAR(100), IN `_Existencia` INT(6), IN `_Precio` INT(11), IN `Descripcion` TEXT, IN `_Imagen` LONGBLOB, IN `_Cod_Categoria` INT(10), IN `_Cod_Grupo` INT(10))   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpModificarProducto` (IN `_Cod_Producto` INT(10), IN `_Nombre` VARCHAR(100), IN `_Existencia` INT(6), IN `_Precio` INT(11), IN `_Descripcion` VARCHAR(500), IN `_Cod_Categoria` INT(10), IN `_Cod_Grupo` INT(10))   BEGIN
 
         UPDATE producto SET
                              Nombre=_Nombre,
                              Existencia=_Existencia,
                              Precio=_Precio,
                              Descripcion=_Descripcion,
-                             Imagen=_Imagen,
                              Cod_Categoria=_Cod_Categoria,
-                             Cod_Grupo=_Cod_Grup
+                             Cod_Grupo=_Cod_Grupo
                       WHERE  Cod_Producto=_Cod_Producto;
 
 END$$
@@ -148,6 +147,11 @@ END$$
 DROP PROCEDURE IF EXISTS `SpMostrarCategorias`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarCategorias` ()   BEGIN
 	SELECT Cod_Categoria, Descripcion_Categoria FROM categoria;
+END$$
+
+DROP PROCEDURE IF EXISTS `SpMostrarDatosProducto`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SpMostrarDatosProducto` (IN `_Cod_Producto` INT(4))   BEGIN
+	 SELECT * FROM producto WHERE Cod_Producto = Cod_Producto;
 END$$
 
 DROP PROCEDURE IF EXISTS `SpMostrarDatos_P`$$
@@ -317,14 +321,14 @@ CREATE TABLE IF NOT EXISTS `producto` (
   PRIMARY KEY (`Cod_Producto`),
   KEY `Cod_Categoria` (`Cod_Categoria`),
   KEY `Cod_Grupo` (`Cod_Grupo`)
-) ENGINE=InnoDB AUTO_INCREMENT=304 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=310 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`Cod_Producto`, `Nombre`, `Existencia`, `Precio`, `Descripcion`, `Imagen`, `Cod_Categoria`, `Cod_Grupo`) VALUES
-(303, 'comida para gato', 50, 10000, 'alimento de carne para gato', '', 2, 1);
+(307, 'LEONEL ANDRES', 123123, 123123, 'asdasd', '', 2, 2);
 
 -- --------------------------------------------------------
 

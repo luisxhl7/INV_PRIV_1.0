@@ -1,6 +1,6 @@
 <?php
     class ControllerProductos{
-        public function ctrCrearProducto($nombre, $cantidad, $precio, $categoria, $grupo, $descripcion){
+        public function ctrCrearProducto($nombre, $cantidad, $precio, $categoria, $grupo, $descripcion){ #Controlador de crear productos
 
             try {
                 //se instacia el Objeto DTO
@@ -56,7 +56,7 @@
             }
                 
         }
-        public function ctrConsultarProducto(){
+        public function ctrConsultarProducto(){        #Controlador de mostrar productos
             $lista = false;
             try {
                 $objDtoProducto = new Producto();
@@ -68,7 +68,7 @@
             }
             return $lista;
         }
-        public function ctrEliminarProducto($codigo){  #Controlador de eliminar producto
+        public function ctrEliminarProducto($codigo){  #Controlador de eliminar productos
             $objDtoProducto = new Producto();
             $objDtoProducto->setCodigo($codigo);
 
@@ -96,7 +96,46 @@
             }
 
         }
-        public function ctrMostrarGrupos(){
+        public function ctrModificarProducto($nombre, $codigo, $cantidad, $precio, $categoria, $grupo, $descripcion){        #Controlador de modificar productos
+            try {
+                //objeto DTO
+                $objDtoProducto = new Producto();
+                $objDtoProducto->setNombre($nombre);
+                $objDtoProducto->setCodigo($codigo);
+                $objDtoProducto->setCantidad($cantidad);
+                $objDtoProducto->setPrecio($precio);
+                $objDtoProducto->setCategoria($categoria);
+                $objDtoProducto->setGrupo($grupo);  
+                $objDtoProducto->setDescripcion($descripcion);
+
+                //objeto DAO 
+                $objDaoProducto = new ModeloProducto( $objDtoProducto );
+                if ($objDaoProducto -> mdlModificarProducto() == true) {
+                    echo"
+                        <script>
+                            Swal.fire({
+                                title: 'EXTIO',
+                                text: 'PRODUCTO MODIFICADO CON EXITO',
+                                icon: 'success',
+                                showCancelButton: false,
+                                confirmButtonColor: '#3085d6',
+                                confirmButtonText: 'CONFIRMAR'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location='menuProducto';
+                                }else{
+                                    window.location='menuProducto';
+                                }
+                            })
+                        </script>
+                    ";
+                }
+            } catch (Exception $e) {
+                echo "<script>alert('asdasd');</script>";
+                echo "Error en el controlador insertar: ".$e->getMessage();
+            }        
+        }
+        public function ctrMostrarGrupos(){            #Controlador de mostrar los grupos de los productos
             $lista = false;
             try {
                 $objDtoProducto = new Producto();
@@ -107,8 +146,8 @@
                 echo "error al consultar producto" . $e -> getMessage();
             }
             return $lista;
-        }
-        public function ctrMostrarCategorias(){
+        }    
+        public function ctrMostrarCategorias(){        #Controlador de mostrar las categorias de los productos
             $lista = false;
             try {
                 $objDtoProducto = new Producto();
@@ -119,6 +158,30 @@
                 echo "error al consultar producto" . $e -> getMessage();
             }
             return $lista;
+        }
+        public function ctrMostrarProductoModificar($codigo){
+            try {
+                $objDtoProducto = new Producto();
+                $objDtoProducto -> setCodigo($codigo);
+    
+                $objDaoProducto = new ModeloProducto($objDtoProducto);
+                $lista = $objDaoProducto -> mdlMostrarDatosProducto() -> fetchAll();
+            
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            foreach ($lista as $datos) {
+                $datos[0] = ''.$datos['Cod_Producto'].'';
+                $datos[1] = ''.$datos['Nombre'].'';
+                $datos[2] = ''.$datos['Existencia'].'';
+                $datos[3] = ''.$datos['Precio'].'';
+                $datos[4] = ''.$datos['Descripcion'].'';
+                $datos[5] = ''.$datos['Imagen'].'';
+                $datos[6] = ''.$datos['Cod_Categoria'].'';
+                $datos[7] = ''.$datos['Cod_Grupo'].'';
+            }
+            return $datos;
+
         }
     }
 ?>
