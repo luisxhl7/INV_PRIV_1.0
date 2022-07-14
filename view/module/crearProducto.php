@@ -33,7 +33,7 @@
             </nav>
 
             <div class ="formulario1">   <!-- SOLO FALTA QUE EL INPUT DE IMAGEN PERMITA VER LA IMAGEN QUE SE ENVIARA-->
-                <form method ="post" >
+                <form method ="post" enctype="multipart/form-data"> <!--Se requiere el contenido de el enctype para poder subir la imagen-->
                     
                     <div class = "container1">
                         <div class = "campo">
@@ -89,7 +89,7 @@
                         <div class = "campImg" id="boton">
                             <img src="./view/img/image-solid.svg" alt="" id="img-imagen">
                         </div>
-                        <input type="file" name="txtImagen" id ="imagen" class="file" onchange="vista_preliminar(event)" accept=".png">
+                        <input type="file" name="imagen" id ="imagen" class="file" onchange="vista_preliminar(event)" accept=".png"> <!--Elemento invisible-->
                         <div>
                             <input type="submit" value="REGISTRAR" class="boton1" name="guardarPrdt">
                         </div>
@@ -107,7 +107,7 @@
                         $_POST['txtCategoria'],
                         $_POST['txtGrupo'],
                         $_POST['txtDescripcion'],
-                        $_POST['txtImagen']
+                        addslashes(file_get_contents($_FILES['imagen']['tmp_name']))
                     );
                 }
             ?>

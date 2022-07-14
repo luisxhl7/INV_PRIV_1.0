@@ -17,7 +17,7 @@
     </head>
 
     <body class="interfazGeneral">
-    <form method="post">
+        <form method="post">
             <div>                       <!-- TABLA DE USUARIOS -->
                 <table id="tabla" class="table table-striped table-bordered" style="width:100%">
                     <thead>

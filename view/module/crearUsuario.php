@@ -50,9 +50,6 @@
                         
                         <label for="" class ="txt">NACIMIENTO:</label>
                         <input type="date" name="txtNacimiento" id="" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento" required>
-                        <!--
-                        <input type="text" name="txtNacimiento" id="" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento">
-                        -->
                     </div>
                     <div>
                         <label for="" class ="txt">TELEFONO:</label>
