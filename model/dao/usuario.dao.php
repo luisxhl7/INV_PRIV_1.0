@@ -49,8 +49,8 @@
 
                 $this-> estado = true;
 
-            } catch (PDOException) {
-                return $this -> estado;
+            } catch (PDOException $e) {
+                echo "Error en el metodo crear Usuario " . $e->getMessage();
             }
             return $this -> estado;
 

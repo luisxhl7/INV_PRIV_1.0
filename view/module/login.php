@@ -94,7 +94,7 @@
       <h1 class= "titulo">¿DESEAS RECUPERAR TU CONTRASEÑA?</h1>
 
       <div class = "container">                <!--   CUERPO   -->
-        <form action="">   
+        <form method="post">   
           <div class= "contTexto">             <!-- Contenedor de texto -->
             <P>INGRESA EL ID DE USUARIO Y EL CORREO CON EL CUAL ESTA REGISTRADO PARA ENVIAR LA CONTRASEÑA ACTUAL AL CORREO.</P>
           </div>
@@ -102,17 +102,23 @@
             <div class = "contCampTxt">          <!-- Contenedor de campo de texto ID USUARIO -->
             <div>
               <span class= "icono-RC1"><i class="fa-solid fa-user-shield"></i></span>
-              <input type="text" name="" id=""  class = "campTxt-recuperarPass" placeholder = "Ingrese Username">
+              <input type="number" name="txtDocumento" id="txtDocumento"  class = "campTxt-recuperarPass" placeholder = "Ingrese Documento" required>
             </div>
               <span class= "icono-RC2"><i class="fa-solid fa-envelope"></i></span>
-              <input type="text" name="" id="" class = "campTxt-recuperarPass" placeholder = "Ingrese E-MAIL">
+              <input type="email" name="txtCorreo" id="txtCorreo" class = "campTxt-recuperarPass" placeholder = "Ingrese E-MAIL" required>
             </div>
             <div class = "contBtn">              <!-- Contenedor de boton confirmar -->
-              <input type="button" value="VALIDAR" class = "BtnValida">
+              <input type="submit" value="VALIDAR" class = "BtnValida">
               <input type="button" value="CANCELAR" class = "BtnCancel" id="Btn-Cancel1">
             </div>
           </div>
         </form>
+        <?php
+          if(isset($_POST["txtDocumento"]) and $_POST["txtDocumento"] != null){
+
+          }
+        ?>
+          
       </div>
     </div>
 

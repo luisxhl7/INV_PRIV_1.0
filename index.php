@@ -4,6 +4,8 @@
     require_once "controller/plantilla.controller.php";
     require_once "controller/usuario.controller.php";
     require_once "controller/producto.controller.php";
+    /*require_once "controller/clsMail.php";*/
+
     
     /*-----------------------------------------------------MODELOS-----------------------------------------------------*/
     require_once "model/conexion.php";
