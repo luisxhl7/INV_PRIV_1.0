@@ -66,7 +66,7 @@
                     <div class="contBotones">
                         <div class ="contBtn">
                             <label for="push1">
-                                <i class="fa-solid fa-floppy-disk"></i>
+                                <i class="fa-solid fa-floppy-disk"><p style="font-size: 15px;">GUARDAR</p></i>
                                 <input type="submit" value="GUARDAR" class="boton1" name ="push1" id = "push1">
                             </label>
                         </div>
