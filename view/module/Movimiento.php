@@ -45,35 +45,22 @@
                     </div>
                     <div class="conForm">               <!-- estilo no terminado-->
                         <div>
-                            <label for="" class="label1">
-                                NOMBRE
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
-                            <label for="" class="label1">
-                                CODIGO
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
+                            <label for="txtNombre" class="text-label">NOMBRE:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" class="txt-Camp" placeholder="automatico">
+                            <label for="txtCodigo" class="text-label">CODIGO:</label>
+                            <input type="text" name="txtCodigo" id="txtCodigo" class="txt-Camp" placeholder="automatico">
                         </div>
                         <div>
-                            <label for="" class="label3">
-                                CATEGORIA
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
-                            <label for="" class="label3">
-                                GRUPO
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
-        
+                            <label for="txtCategoria" class="text-label">CATEGORIA:</label>
+                            <input type="text" name="txtCategoria" id="txtCategoria" class="txt-Camp" placeholder="automatico">
+                            <label for="txtGrupo" class="text-label">GRUPO:</label>
+                            <input type="text" name="txtGrupo" id="txtGrupo" class="txt-Camp" placeholder="automatico">
                         </div>
                         <div>
-                            <label for="" class="label4">
-                                VALOR UNIDAD
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
-                            <label for="" class="label4">
-                                VALOR
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
+                            <label for="txtPrecio" class="text-label">PRECIO:</label>
+                            <input type="text" name="txtPrecio" id="txtPrecio" class="txt-Camp" placeholder="automatico">
+                            <label for="txtTotal" class="text-label">TOTAL:</label>
+                            <input type="text" name="txtTotal" id="txtTotal" class="txt-Camp" placeholder="automatico">
                         </div>
                     </div>
                     <div class="contBotones">
