@@ -34,31 +34,31 @@
             <?php
                 if (isset($_GET['codigo'])) {
                     $objProducto = new ControllerProductos();
-                    $datosProducto = $objProducto -> ctrMostrarProductoModificar($_GET['codigo']);
-                }
+                    $listaDatos = $objProducto -> ctrMostrarProductoModificar($_GET['codigo']);
+                    foreach($listaDatos as $datos){
             ?>
             <div class ="formulario1">   <!-- SOLO FALTA QUE EL INPUT DE IMAGEN PERMITA VER LA IMAGEN QUE SE ENVIARA-->
-                <form method ="post" enctype="multipart/form-data">
+                <form method ="post">
                     
                     <div class = "container1">
                         <div class = "campo">
                             <label for="txtNombre">PRODUCTO:</label>
-                            <input type="text" name="txtNombre" id="txtNombre" class="campoTexto" placeholder="Ingrese nombre" value="<?php echo $datosProducto[1]; ?>" required>
+                            <input type="text" name="txtNombre" id="txtNombre" class="campoTexto" placeholder="Ingrese nombre" value="<?php echo $datos['Nombre']; ?>" required>
                             <label for="txtCodigo">CODIGO:</label> 
-                            <input type="text" name="txtCodigo" id="txtCodigo" class="campoCodigo" value="<?php echo $datosProducto[0]; ?>" readonly="true" disabled ="true" required>
+                            <input type="text" name="txtCodigo" id="txtCodigo" class="campoCodigo" value="<?php echo $datos['Cod_Producto']; ?>" readonly="true" disabled ="true" required>
                         </div>
                         
                         <div class = "campo">
                             <label for="txtCantidad">CANTIDAD:</label>
-                            <input type="text" name="txtCantidad" id="txtCantidad" class="campoTexto1" value="<?php echo $datosProducto[2]; ?>" readonly="true" disabled ="true" required>
+                            <input type="text" name="txtCantidad" id="txtCantidad" class="campoTexto1" value="<?php echo $datos['Existencia']; ?>" readonly="true" disabled ="true" required>
                             <label for="txtPrecio">PRECIO:</label>
-                            <input type="number" name="txtPrecio" id="txtPrecio" class="campoTexto2" placeholder="Ingrese precio" value="<?php echo $datosProducto[3]; ?>" required>
+                            <input type="number" name="txtPrecio" id="txtPrecio" class="campoTexto2" placeholder="Ingrese precio" value="<?php echo $datos['Precio']; ?>" required>
                         </div>
 
                         <div class = "campo">
                             <label for="txtCategoria">CATEGORIA:</label>
                             <select name="txtCategoria" id="txtCategoria" class="barraDesplegable1" >
-                                <option value="<?php echo $datosProducto[6]; ?>">Predeterminado</option>
+                                <option value="<?php echo $datos['Cod_Categoria']; ?>">Predeterminado</option>
                                 <?php
                                     $objCtrProducto = new ControllerProductos();
                                     $listaProducto = $objCtrProducto -> ctrMostrarCategorias();  
@@ -70,7 +70,7 @@
 
                             <label for="txtGrupo">GRUPO:</label> 
                             <select name="txtGrupo" id="txtGrupo" class="barraDesplegable2">
-                                <option value="<?php echo $datosProducto[7]; ?>">Predeterminado</option>
+                                <option value="<?php echo $datos['Cod_Grupo']; ?>">Predeterminado</option>
                                 <?php
                                     $objCtrProducto = new ControllerProductos();
                                     $listaProducto = $objCtrProducto -> ctrMostrarGrupos();  
@@ -86,17 +86,17 @@
                         </div>
 
                         <div class = "campo">
-                            <textarea name="txtDescripcion" id="txtDescripcion" cols="30" rows="2" class="campoTexto3" placeholder ="INGRESE INFORMACION SOBRE EL PRODUCTO" value="<?php echo $datosProducto[4]; ?>"><?php echo $datosProducto[4]; ?></textarea>
+                            <textarea name="txtDescripcion" id="txtDescripcion" cols="30" rows="2" class="campoTexto3" placeholder ="INGRESE INFORMACION SOBRE EL PRODUCTO" value="<?php echo $datos['Descripcion']; ?>"><?php echo $datos['Descripcion']; ?></textarea>
                         </div>
                     </div>
 
                     <div class = "container2">
-                        <div class = "campImg">
-                            <label for="img">
-                                <i class="fa-solid fa-image"></i>
-                                <input type="file" name="imagen" id ="img" class="imgFile">
-                            </label>
+                        <div class = "campImg" id="boton">
+
+                            <img src="data:image/png;base64,<?php echo base64_encode($datos['Imagen']); ?>" alt="" id="img-imagen">
                         </div>
+                            <?php }}  /*FINAL DEL FOREACH*/ ?>
+                        <input type="file" name="imagen" id ="imagen" class="file" onchange="vista_preliminar(event)" accept=".png"> <!--Elemento invisible-->
                         <div>
                             <button type="button" class="boton1" onclick="editarProducto(txtNombre,txtCodigo,txtCantidad,txtPrecio,txtCategoria,txtGrupo,txtDescripcion)">CONFIRMAR</button>
                         </div>

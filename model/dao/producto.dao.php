@@ -130,8 +130,8 @@
                 $stmt -> bindParam(1, $this -> codigo,PDO::PARAM_INT);
                 $stmt -> execute();
                 $resulset = $stmt;
-            } catch (\Throwable $th) {
-                //throw $th;
+            } catch (PDOException $e) {
+                echo "Error en el metodo mostrar los datos del producto al modificar" . $e -> getMessage();
             }
             return $resulset;
         }

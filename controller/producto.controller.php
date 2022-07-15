@@ -1,6 +1,7 @@
 <?php
     class ControllerProductos{
-        public function ctrCrearProducto($nombre, $cantidad, $precio, $categoria, $grupo, $descripcion, $imagen){ #Controlador de crear productos
+        
+        public function ctrCrearProducto($nombre, $cantidad, $precio, $categoria, $grupo, $descripcion, $imagen){           #Controlador de crear productos
 
             try {
                 //se instacia el Objeto DTO
@@ -52,11 +53,11 @@
                     </script>";
                 }
             } catch (Exception $e) {
-                echo "Error en el controlador insertar: ".$e->getMessage();
+                echo "Error en el controlador ctrCrearProducto : ".$e->getMessage();
             }
                 
         }
-        public function ctrConsultarProducto(){        #Controlador de mostrar productos
+        public function ctrConsultarProducto(){               #Controlador de mostrar todos los productos
             $lista = false;
             try {
                 $objDtoProducto = new Producto();
@@ -64,35 +65,39 @@
                 $lista = $objDaoProducto -> mdlConsultarProducto() -> fetchAll();
 
             } catch (PDOException $e) {
-                echo "error al consultar producto" . $e -> getMessage();
+                echo "Error en el controlador ctrConsultarProducto : ".$e->getMessage();
             }
             return $lista;
         }
-        public function ctrEliminarProducto($codigo){  #Controlador de eliminar productos
-            $objDtoProducto = new Producto();
-            $objDtoProducto->setCodigo($codigo);
-
-            $objDaoProducto = new ModeloProducto($objDtoProducto);
-            if ($objDaoProducto -> mdlEliminarProducto() == true) {
-                echo"
-                    <script>
-                        Swal.fire({
-                            title: 'Eliminado',
-                            text: 'A partir de ahora este producto ya no se encuentra disponible en el aplicativo.',
-                            icon: 'success',
-                            showCancelButton: false,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'CONFIRMAR'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location='menuProducto';
-                            }else{
-                                window.location='menuProducto';
-                            }
-                        })
-                    </script>
-                ";
+        public function ctrEliminarProducto($codigo){         #Controlador de eliminar productos
+            try {
+                $objDtoProducto = new Producto();
+                $objDtoProducto->setCodigo($codigo);
+    
+                $objDaoProducto = new ModeloProducto($objDtoProducto);
+                if ($objDaoProducto -> mdlEliminarProducto() == true) {
+                    echo"
+                        <script>
+                            Swal.fire({
+                                title: 'Eliminado',
+                                text: 'A partir de ahora este producto ya no se encuentra disponible en el aplicativo.',
+                                icon: 'success',
+                                showCancelButton: false,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'CONFIRMAR'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location='menuProducto';
+                                }else{
+                                    window.location='menuProducto';
+                                }
+                            })
+                        </script>
+                    ";
+                }
+            } catch (Exception $e) {
+                echo "Error en el controlador ctrEliminarProducto : ".$e->getMessage();
             }
 
         }
@@ -131,11 +136,10 @@
                     ";
                 }
             } catch (Exception $e) {
-                echo "<script>alert('asdasd');</script>";
-                echo "Error en el controlador insertar: ".$e->getMessage();
+                echo "Error en el controlador ctrModificarProducto : ".$e->getMessage();
             }        
         }
-        public function ctrMostrarGrupos(){            #Controlador de mostrar los grupos de los productos
+        public function ctrMostrarGrupos(){                   #Controlador de mostrar los grupos de los productos
             $lista = false;
             try {
                 $objDtoProducto = new Producto();
@@ -143,11 +147,11 @@
                 $lista = $objDaoProducto -> mdlMostrarGrupos() -> fetchAll();
 
             } catch (PDOException $e) {
-                echo "error al consultar producto" . $e -> getMessage();
+                echo "Error en el controlador ctrMostrarGrupos : ".$e->getMessage();
             }
             return $lista;
-        }    
-        public function ctrMostrarCategorias(){        #Controlador de mostrar las categorias de los productos
+        }
+        public function ctrMostrarCategorias(){               #Controlador de mostrar las categorias de los productos
             $lista = false;
             try {
                 $objDtoProducto = new Producto();
@@ -155,33 +159,22 @@
                 $lista = $objDaoProducto -> mdlMostrarCategorias() -> fetchAll();
 
             } catch (PDOException $e) {
-                echo "error al consultar producto" . $e -> getMessage();
+                echo "Error en el controlador ctrMostrarCategorias : ".$e->getMessage();
             }
             return $lista;
         }
-        public function ctrMostrarProductoModificar($codigo){
+        public function ctrMostrarProductoModificar($codigo){ #Controlador de la vista de los datos del producto a modificar
             try {
                 $objDtoProducto = new Producto();
                 $objDtoProducto -> setCodigo($codigo);
     
                 $objDaoProducto = new ModeloProducto($objDtoProducto);
-                $lista = $objDaoProducto -> mdlMostrarDatosProducto() -> fetchAll();
+                $datos = $objDaoProducto -> mdlMostrarDatosProducto() -> fetchAll();
             
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
-            foreach ($lista as $datos) {
-                $datos[0] = ''.$datos['Cod_Producto'].'';
-                $datos[1] = ''.$datos['Nombre'].'';
-                $datos[2] = ''.$datos['Existencia'].'';
-                $datos[3] = ''.$datos['Precio'].'';
-                $datos[4] = ''.$datos['Descripcion'].'';
-                $datos[5] = ''.$datos['Imagen'].'';
-                $datos[6] = ''.$datos['Cod_Categoria'].'';
-                $datos[7] = ''.$datos['Cod_Grupo'].'';
+            } catch (PDOException $e) {
+                echo "Error en el controlador ctrMostrarProductoModificar: ".$e->getMessage();
             }
             return $datos;
-
         }
     }
 ?>

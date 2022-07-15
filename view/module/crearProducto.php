@@ -99,7 +99,7 @@
 
             <?php 
                 if (isset($_POST['txtNombre']) and $_POST['txtNombre'] != null){
-                    $objCon = new ControllerProductos();
+                    $objCon = new ControllerProductos();                    
                     $objCon -> ctrCrearProducto(
                         $_POST['txtNombre'],
                         $_POST['txtCantidad'],

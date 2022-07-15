@@ -139,7 +139,7 @@
                 $datosP[6] = ''.$datos['Id_Usuario'].'';
                 $datosP[7] = ''.$datos['username'].'';
                 $datosP[8] = ''.$datos['Contrasena'].'';
-                $datosP[9] = ''.$datos['Cod_Rol'].'';
+                $datosP[9] = ''.$datos['Fk_Cod_Rol'].'';
 
             }
             return $datosP;
