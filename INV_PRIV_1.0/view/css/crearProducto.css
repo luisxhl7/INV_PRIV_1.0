@@ -1,0 +1,152 @@
+.titulo1{                            /*Diseño del titulo*/
+    width: 100%;
+    text-align: center;
+}
+
+/*---------------------------------------------- MENU -------------------------------------------------*/
+
+.menu1{                              /*Espacio del menu*/
+    height: 37px;
+    width: 1100px;
+    margin: 1px auto; 
+}
+.botonMenu, .botonMenu:visited{      /*Diseño de los botones*/
+    background-color: rgb(139, 248, 50);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+    float: left;
+    text-align: center;
+    margin: 0px 4px 0px 0px; 
+    padding: 10px 44px 10px 44px;
+    border-radius: 10px 10px 0px 0px;
+}
+.botonMenu:hover{                    /*Diseño de la Reaccion de los botones*/
+    background-color: rgba(91, 88, 95, 0.644);
+}
+.botonMenu:active{                   /*Diseño al interactuar con los botones*/
+    background-color: rgba(95, 88, 88, 0.589);
+    color: rgb(255, 255, 255);
+}
+
+/*---------------------------------------- FORMULARIO CONTAINER 1---------------------------------------*/
+
+.formulario1{                        /*Diseño del area de la interfaz*/
+    height: 550px;
+    width: 1100px;
+    margin: 1px auto;
+    border-radius: 0px 40px 1cm 1cm;
+    background-color: rgba(95, 88, 88, 0.644);
+    border-style: solid black;
+    position: relative;
+}
+.container1{
+    height: 550px;
+    width: 715px;
+    position: absolute;
+}
+.campo{
+    margin: 0px 30px;
+}
+.campoTexto{                         /*campo de texto nombre producto*/
+    width: 210px;
+    height: 28px;
+    margin: 80px 25px 30px 5px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.campoCodigo{                        /*campo de texto codigo producto*/
+    width: 210px;
+    height: 28px;
+    margin: 80px 0px 30px 9px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.campoTexto1{                        /*campo de texto cantidad producto*/
+    width: 210px;
+    height: 30px;
+    margin: 30px 30px 30px 7px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.campoTexto2{                        /*campo de numerico precio producto*/
+    width: 210px;
+    height: 30px;
+    margin: 30px 0px 30px 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.campoTexto:hover,.campoTexto1:hover,.campoTexto2:hover,.campoTexto3:hover{/*Diseño de la reaccion de los campos de texto*/
+    border: 1px solid rgb(114, 253, 0);
+}
+.barraDesplegable1{                  /*Diseño de barra desplegable de categoria*/
+    background-color: rgb(139, 248, 50);
+    margin: 20px 30px 20px 0px;
+    width: 218px;
+    height: 35px;
+    border-radius: 7px 7px;      
+    cursor: pointer;
+}
+.barraDesplegable2{                  /*Diseño de barra desplegable de grupo*/
+    background-color: rgb(139, 248, 50);
+    margin: 20px 0px 20px 10px;
+    width: 218px;
+    height: 35px;
+    border-radius: 7px 7px;      
+    cursor: pointer;
+}
+.barraDesplegable1:hover, .barraDesplegable2:hover{    /*Diseño de reaccion de las barras desplegables*/
+    border-color:  rgb(114, 253, 0);
+}
+.descrip{                            /*Diseño del texto de descripcicon*/
+    width: 110px;
+    margin: 40px 30px 0px;
+    background-color: rgb(139, 248, 50);
+    border-radius: 0px 10px 0px 0px;
+}
+.campoTexto3{                        /*Diseño del campo de texto descripcion*/
+    width: 635px;
+    height: 130px;
+    margin-bottom: 1px;
+    pad: 5px;
+    border-radius: 0px 10px 10px 10px;
+}
+
+/*---------------------------------------- FORMULARIO CONTAINER 2---------------------------------------*/
+
+.container2{
+    height: 550px;
+    width: 385px;
+    right: 0px;
+    position: absolute;
+}
+.campImg{                           /*Espacio de la imagen*/
+    height: 340px;
+    margin-bottom: 50px;
+}
+.fa-image{                           /*Tamaño de la imagen*/
+    display: inline-block;
+    margin: 60px 42px 0px 42px;
+    font-size: 300px;
+    cursor: pointer;
+}
+.fa-image:hover{
+    color: greenyellow;
+}
+.boton1{                            /*Diseño del boton de guardar y editar*/
+    display: block;
+    height: 70px;
+    width: 180px;
+    margin: auto;
+    border-color:black;
+    background-color: rgb(139, 248, 50);
+    border-radius: 30px;
+    cursor: pointer;
+}
+.boton1:hover{                      /*Diseño de la reaccion del boton de guardar y editar*/
+    border-color: rgb(139, 248, 50);
+}
+.imgFile{
+    display: none;
+}
+

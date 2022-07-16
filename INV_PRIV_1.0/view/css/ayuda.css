@@ -1,0 +1,101 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{                                  /* Contenedor principal*/
+    width: 1560px;
+    height: 720px;
+    position: relative;
+}
+.menu{                                       /* Diseño del contenedor del menu*/
+    position: absolute;
+    display: block;
+    width: 250px;
+    height: 630px;
+    margin: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.459);
+    border-radius: 20px;
+    bottom: 0px;
+}
+.Btn{                                        /* Diseño de los botones del menu*/
+    width: 150px;
+    height: 30px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 10px;
+    color: rgb(0, 0, 0);
+    background-color: greenyellow;
+    border: solid 1px;
+    border-radius: 10px;
+    display: block;
+    margin: 50px auto;
+    cursor: pointer;
+}
+.ContTitle{                                  /* Diseño del contenedor de titulo*/
+    position: absolute;
+    width: 1200px;
+    height: 140px;
+    right: 0px;
+    margin: auto;
+}
+.titulo{                                     /* Diseño del titulo*/
+    margin-top: 50px;
+    text-align: center;
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+}
+.txt{                                        /* Diseño del texto*/
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+.ContInfo{                                   /* Diseño del contenedor de la informacion*/
+    position: absolute;
+    display: block;
+    width: 1200px;
+    height: 550px;
+    right: 10px;
+    bottom: 0px;
+    margin: auto;
+}
+.info{                                       /* Diseño del espacio de la informacion*/
+    display: block;
+    width: 96%;
+    height: 95%;
+    overflow: auto;
+    margin: 10px auto 10px;
+}
+.ContHelp::-webkit-scrollbar{                /* Diseño del campo del scroll*/
+    background-color: rgb(0, 0, 0);
+    width: 12px;
+    border-radius: 7px;
+}
+.ContHelp::-webkit-scrollbar-thumb{          /* Diseño del scroll*/
+    background-color: rgb(206, 205, 205);
+    border-radius: 7px;
+}
+.ContHelp::-webkit-scrollbar-thumb:hover{    /* Reaccion del scroll*/
+    background-color: rgb(139, 248, 50);
+}
+.icono1{                                     /* Diseño boton de menu */
+    position: absolute;
+    display: block;
+    left: 119px;
+    top: 13px;
+    width: 45px;
+    height: 40px;
+}
+.home{                                       /* Diseño del texto del boton de menu*/
+    position: absolute;
+    top: 54px;
+    left: 118px;
+    cursor: pointer;
+}
+
+/*                                            */
+
+.ContInfo{                                   /* Diseño de los body de las informaciones*/
+    background-color: rgba(0, 0, 0, 0.267);
+}
+h1{                                          /* Diseño de los titulos de las informaciones*/
+    text-align: center;
+}

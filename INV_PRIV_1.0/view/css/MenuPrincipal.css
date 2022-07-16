@@ -1,0 +1,240 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    position: relative;
+    margin: auto;
+    width: 1560px;
+    height: 720px;
+}
+.menu{                    /* Diseño del contenedor del menu */
+    background-color: rgba(0, 0, 0, 0.637);
+    margin: 20px 0px 20px 20px ;
+    padding-top: 10px;
+    height: 680px;
+    width: 359px;
+    border-radius: 3cm;
+    position: absolute;
+    display: block;
+    left: 0px;    
+}
+a{                        /* Diseño de los links */
+    text-decoration: none;
+}
+.boton{                   /* Diseño de los botones normales del menu */
+    display: block;
+    color: rgb(255, 255, 255);
+    margin: 50px auto 0px auto;
+    border:1px solid rgb(0, 0, 0);
+    padding:5px;
+    border-radius:20px;
+    text-align:center;
+    background-color: rgb(139, 248, 50);
+    width: 200px;
+    height: 35px;
+    cursor: pointer;
+}
+.boton:hover{             /* Diseño de la reaccion de los botones normales del menu */
+    background-color: rgb(139, 248, 50);
+    border:1px solid rgb(139, 248, 50);
+    box-shadow:0px 0px 20px rgb(0, 185, 0);
+}
+.divLogo{                 /* Contenedor del logo */
+    display: block;
+    right: 0px;
+    height: 720px;
+    width: 1180px;
+    position: absolute;
+}
+.logo{                    /* Ajustes del logo */
+    display: block;
+    margin: 20px auto 0px auto;
+    height: 300px;
+    width: 300px;
+}
+h1{                       /* Diseño de los titulos */
+    text-align: center;
+    margin-top: -45px;
+}
+.icono1{                  /* Diseño boton de soporte */
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 50px auto 0px auto ;
+}
+.icono2{                  /* Diseño boton de ayuda */
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 80px auto 0px auto ;
+    text-align: center;
+}
+.icono3{                  /* Diseño boton de cerrar sesion */
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 36px;
+    bottom: 19px;
+    cursor: pointer;
+}
+p{                        /* Diseño de los textos */
+    margin-top: -15px;
+    text-align: center;
+    color: white;
+}
+.exit{                    /* Diseño del texto de boton cerrar sesion */
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+
+/*---------------------------------------DISEÑO DE CREAR PRODUCTO Y ELIMINAR PODUCTO---------------------------------------*/
+
+
+.titulo1{                            /*Diseño del titulo*/
+    width: 100%;
+    text-align: center;
+}
+
+/*MENU*/
+.menu1{                              /*Espacio del menu*/
+    height: 37px;
+    width: 1000px;
+    margin: 1px auto; 
+}
+.botonMenu, .botonMenu:visited{      /*Diseño de los botones*/
+    background-color: rgb(139, 248, 50);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+    float: left;
+    text-align: center;
+    margin: 0px 4px 0px 0px; 
+    padding: 10px 31px 10px 31px;
+    border-radius: 10px 10px 0px 0px;
+}
+.botonMenu:hover{                    /*Diseño de la Reaccion de los botones*/
+    background-color: rgba(91, 88, 95, 0.644);
+}
+.botonMenu:active{                   /*Diseño al interactuar con los botones*/
+    background-color: rgba(95, 88, 88, 0.589);
+    color: rgb(255, 255, 255);
+}
+
+/*FORMULARIO CONTAINER 1*/
+
+.formulario1{                        /*Diseño del area de la interfaz*/
+    height: 550px;
+    width: 1000px;
+    margin: 0px auto;
+    border-radius: 0px 40px 1cm 1cm;
+    background-color: rgba(95, 88, 88, 0.644);
+    border-style: solid black;
+    position: relative;
+}
+.container1{
+    height: 550px;
+    width: 60%;
+    position: absolute;
+}
+.campo{
+    margin: 0px 30px;
+}
+.campoTexto{                         /*campo de texto nombre producto*/
+    width: 430px;
+    height: 28px;
+    margin: 80px 0px 30px 5px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.campoTexto1{                        /*campo de texto codigo producto*/
+    width: 160px;
+    height: 30px;
+    margin: 30px 30px 30px 28px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.campoTexto2{                        /*campo de numerico precio producto*/
+    width: 160px;
+    height: 30px;
+    margin: 30px 0px 30px 3px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.campoTexto:hover,.campoTexto1:hover,.campoTexto2:hover,.campoTexto3:hover{/*Diseño de la reaccion de los campos de texto*/
+    border: 1px solid rgb(114, 253, 0);
+}
+.barraDesplegable1{                  /*Diseño de barra desplegable de categoria*/
+    background-color: rgb(139, 248, 50);
+    margin: 20px 30px 20px 0px;
+    width: 168px;
+    height: 35px;
+    border-radius: 7px 7px;      
+    cursor: pointer;
+}
+.barraDesplegable2{                  /*Diseño de barra desplegable de grupo*/
+    background-color: rgb(139, 248, 50);
+    margin: 20px 0px 20px 5px;
+    width: 168px;
+    height: 35px;
+    border-radius: 7px 7px;      
+    cursor: pointer;
+}
+.barraDesplegable1:hover, .barraDesplegable2:hover{    /*Diseño de reaccion de las barras desplegables*/
+    border-color:  rgb(114, 253, 0);
+}
+.descrip{                            /*Diseño del texto de descripcicon*/
+    width: 110px;
+    margin: 40px 30px 0px;
+    background-color: rgb(139, 248, 50);
+    border-radius: 0px 10px 0px 0px;
+}
+.campoTexto3{                        /*Diseño del campo de texto descripcion*/
+    width: 525px;
+    height: 130px;
+    margin-bottom: 1px;
+    pad: 5px;
+    border-radius: 0px 10px 10px 10px;
+}
+
+/*FORMULARIO CONTAINER 2*/
+
+.container2{
+    height: 550px;
+    width: 40%;
+    right: 0px;
+    position: absolute;
+}
+.campImg{                           /*Espacio de la imagen*/
+    height: 340px;
+}
+.imagen2{                           /*Tamaño de la imagen*/
+    display: block;
+    margin: 70px auto 0px auto;
+    width: 340px;
+    height: 280px;
+    cursor: pointer;
+}
+.boton1{                            /*Diseño del boton de guardar y editar*/
+    display: block;
+    height: 70px;
+    width: 180px;
+    margin: auto;
+    border-color:black;
+    background-color: rgb(139, 248, 50);
+    border-radius: 30px;
+    cursor: pointer;
+}
+.boton1:hover{                      /*Diseño de la reaccion del boton de guardar y editar*/
+    border-color: rgb(139, 248, 50);
+}
+#img{
+    visibility: hidden;
+
+}
