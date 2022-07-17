@@ -126,7 +126,7 @@
     <div id="Contenedor-cambiar">
       <h1 class ="titulo2">¿DESEAS CAMBIAR TU CONTRASEÑA?</h1>
       <div class = "container2">
-        <form action="">
+        <form method="post">
           <div class = "contDts">                              <!-- CONTENEDOR DE DATOS DE USUARIO--> 
             <fieldset class = "al">
               <legend class ="titulos">DATOS DE USUARIO</legend>
@@ -134,14 +134,14 @@
                 <label for="" > 
                   <p class = "txtCamp">USER NAME:</p><br>
                   <span class= "icono-CC"><i class="fa-solid fa-user-shield"></i></span>
-                  <input type="text" name="txtUserName" id="" class = "campTxt2" required>
+                  <input type="text" name="txtUserName" id="txtUserName" class = "campTxt2" required >
                 </label>    
               </div>
               <div class = "conDato">
                 <label for="contrasenaAct">
                   <p class = "txtCamp">CONTRASEÑA ACTUAL:</p><br>
                   <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="txtPassOrg" id="contrasenaAct" class = "campTxt2" required>
+                  <input type="password" name="txtPassOrg" id="txtPassOrg" class = "campTxt2" required>
                 </label>
               </div> 
             </fieldset>
@@ -154,14 +154,14 @@
                 <label for="">
                   <p class = "txtCamp">NUEVA CONTRASEÑA:</p><br>
                   <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="txtPass1" id="" class = "campTxt2" required>    
+                  <input type="password" name="txtPass1" id="txtPass1" class = "campTxt2" required>    
                 </label>
               </div>
               <div class = "conDato">
                 <label for="">
-                  <p class = "txtCamp">NUEVA CONTRASEÑA:</p><br>
+                  <p class = "txtCamp">CONFIRMAR CONTRASEÑA:</p><br>
                   <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="txtPass2" id="" class = "campTxt2" required>
+                  <input type="password" name="txtPass2" id="txtPass2" class = "campTxt2" required>
                 </label>
               </div> 
             </fieldset>
@@ -175,32 +175,20 @@
           </div>
         </form>
         <?php
-          if (isset($_POST["txtUserName"]) and $_POST["txtUserName"] != NULL) {
-              $userName = $_POST["txtUserName"];
-              $pass = $_POST["txtPass"];
-              $objCon = new UsuarioController();
-              $objCon -> ctrModificarPass($userName, $pass); 
+            /* Si existe el Campo de texto txtpassorg-contraseña original  y este campo tiene un valor diferente a l Null 
+            se debe comparar la contraseña uno con la dos si se cumple con la condicion se instancia la clase usuarioController y se ejecuta la funcion validar usuario finalmente son enviados los parametros */
+            if(isset($_POST["txtPassOrg"]) and $_POST["txtPassOrg"] !=NULL){
+              if($_POST["txtPass1"]== $_POST["txtPass2"]){
+              $objcambioPass = new UsuarioController();
+              $objcambioPass -> ctrValidarUsuario($_POST["txtUserName"],$_POST["txtPassOrg"],$_POST["txtPass1"]);
+            
+              }else{
+                echo "<script>alert('Las contranseñas no son iguales')</script>";
+              }
             }
+              
         ?>
-      </div>
-
-      <?php
-      /*
-        if(isset($_POST["idUser"]) and $_POST["idUser"] != NULL){
-          $id = $_POST["idUser"]
-          $passOrg = $_POST["passOrg"]
-          $pass1 = $_POST["pass1"]
-          $pass2 = $_POST["pass2"]
-          if ($pass1 == $pass2) {
-            $objCon = new UsuarioController();
-            $objCon -> cambiarPass($idUser, $passOrg, $pass1); 
-          }else{
-            echo("las contraseñas nuevas no son iguales")
-          }
-
-        }
-        */
-      ?>
+      </div> 
     </div>
     
     <!-----------------------------------------------------DIRECCIONES JS---------------------------------------------------->

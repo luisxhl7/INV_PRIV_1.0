@@ -163,20 +163,43 @@
 
         /*------------------------------------------------- MODIFICAR A PARTIR DE AQUI ----------------------------------------------------*/
 
-        public function mdlModificarPass(){
-            $sql = "CALL SpValidarUsuario (?,?)";  //MODIFICAR
+        
+        public function mdlValidarUser(){
+                $resultSet = false;
+    
+                $sql = " CALL SpValidarUsuario(?,?);";
+    
+                try {
+                    $con = new Conexion();
+                    $stmt = $con -> conexion() -> prepare($sql);
+                    $stmt -> bindParam(1, $this -> username, PDO::PARAM_STR);
+                    $stmt -> bindParam(2, $this -> pass, PDO::PARAM_STR);
+                    
+    
+                    $stmt -> execute();
+                    $resultSet = $stmt;
+    
+                } catch (PDOException $e) {
+                    echo "Error al buscar password" . $e -> getMessage();
+                    echo "<script>alert('tiene fallas el dao')</script>";
+                }
+                return $resultSet;
+        }
+        public function mdlCambiarPass(){
+            $sql = "CALL SpModificarPass (?,?)";  //MODIFICAR
             $this -> estado = false;
             
             try {
                 $con = new conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
-                $stmt -> bindParam(1, $this->userName, PDO::PARAM_STR);
+                $stmt -> bindParam(1, $this->username, PDO::PARAM_STR);
                 $stmt -> bindParam(2, $this->pass, PDO::PARAM_STR);
                 $stmt -> execute();
+
                 $this-> estado = true;
 
             } catch (PDOException $e) {
-                echo "Error al ejecutar la moificacion de datos " . $e->getMessage();
+                echo "Error al ejecutar cambio de contraseña " . $e->getMessage();
             }
             return $this -> estado;
         }

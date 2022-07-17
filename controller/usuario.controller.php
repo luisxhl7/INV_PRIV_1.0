@@ -185,34 +185,34 @@
                 echo "Error en el controlador insertar: ".$e->getMessage();
             }
         }
-
-        /*                                                                           PENDIENTES                                                                           */
-        public function ctrModificarPass($userName, $pass){
-            $objDtoUsuario = new Usuario();
-            $objDtoUsuario->setUserName($userName);
-            $objDtoUsuario->setPass($pass);
-
-            $objDaoUsuario = new ModeloUsuario( $objDtoUsuario );
-            if ($objDaoUsuario -> mdlModificarPass() == true) {
-                echo "<script> 
-                    Swal.fire({
-                        icon: 'success',
-                        iconColor: 'green',
-                        title: 'EXITO AL REGISTRAR',
-                        text: 'SI SE PUDO HP :P.',
-                        background: 'url(view/img/fondo_de_interfacez.png) no-repeat',
-                        confirmButtonText: 'ACEPTAR',
-                        confirmButtonColor: 'rgb(139, 248, 50)',
-                        timer: '7000',            //programar tiempo de visualizacion de la alerta
-                        timerProgressBar: 'true', //visualizar tiempo de la alerta
-                        showCloseButton: 'true',  //boton para cerrar alerta ubi (derecha superior)
-                        customClass: {
-                            popup: 'popup-class'
-                        }
-                    }) 
-                </script>";
+        
+        public function ctrValidarUsuario($userName,$pass,$newpass){
+            /* Se crea  la funcion Validar Usuario, Se le asignan las variables, se instancia la clase usuario y se hace el procedimiento
+            Se hace la validacion de usuario y se llama al modeloUsuario  */   
+            try {
+                $objDtoUsuario = new Usuario();
+                $objDtoUsuario->setUserName($userName);
+                $objDtoUsuario->setPass($pass);
+                $objValidarUser = new ModeloUsuario($objDtoUsuario);
+                $rest = $objValidarUser -> mdlValidarUser() -> fetch();
+                
+                if (gettype($rest) != "boolean") {
+                    $objDtoUsuario = new Usuario();
+                    $objDtoUsuario->setUserName($userName);
+                    $objDtoUsuario->setPass($newpass);
+                    $objCambiarPass = new ModeloUsuario($objDtoUsuario);
+                    if ( $objCambiarPass -> mdlCambiarPass() == true) {
+                        echo "<script>alert('Existo en el cambio de contraseña')</script>";
+                    }
+                    
+                }else{
+                    echo "<script>alert('El usuario no existe')</script>";
+                }
+                
+            } catch (\Throwable $th) {
+                echo "<script>alert('no funciona el controlador')</script>";
             }
-
+            
         }
     }
     
