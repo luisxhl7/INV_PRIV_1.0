@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MENU USUARIO</title>
+        <link rel="shortcut icon" href="view/img/LOGO INV.PRIV-03.png" type="image/x-icon">
+        <title>INV PRIV</title>
         <!--                    DIRECCION PARA LOGOS EN CLOUDFLARE                    -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 
@@ -44,41 +45,28 @@
                     </div>
                     <div class="conForm">               <!-- estilo no terminado-->
                         <div>
-                            <label for="" class="label1">
-                                NOMBRE
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
-                            <label for="" class="label1">
-                                CODIGO
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
+                            <label for="txtNombre" class="text-label">NOMBRE:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" class="txt-Camp" placeholder="automatico">
+                            <label for="txtCodigo" class="text-label">CODIGO:</label>
+                            <input type="text" name="txtCodigo" id="txtCodigo" class="txt-Camp" placeholder="automatico">
                         </div>
                         <div>
-                            <label for="" class="label3">
-                                CATEGORIA
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
-                            <label for="" class="label3">
-                                GRUPO
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
-        
+                            <label for="txtCategoria" class="text-label">CATEGORIA:</label>
+                            <input type="text" name="txtCategoria" id="txtCategoria" class="txt-Camp" placeholder="automatico">
+                            <label for="txtGrupo" class="text-label">GRUPO:</label>
+                            <input type="text" name="txtGrupo" id="txtGrupo" class="txt-Camp" placeholder="automatico">
                         </div>
                         <div>
-                            <label for="" class="label4">
-                                VALOR UNIDAD
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
-                            <label for="" class="label4">
-                                VALOR
-                                <input type="text" name="" id="" placeholder="">
-                            </label>
+                            <label for="txtPrecio" class="text-label">PRECIO:</label>
+                            <input type="text" name="txtPrecio" id="txtPrecio" class="txt-Camp" placeholder="automatico">
+                            <label for="txtTotal" class="text-label">TOTAL:</label>
+                            <input type="text" name="txtTotal" id="txtTotal" class="txt-Camp" placeholder="automatico">
                         </div>
                     </div>
                     <div class="contBotones">
                         <div class ="contBtn">
                             <label for="push1">
-                                <i class="fa-solid fa-floppy-disk"></i>
+                                <i class="fa-solid fa-floppy-disk"><p style="font-size: 15px;">GUARDAR</p></i>
                                 <input type="submit" value="GUARDAR" class="boton1" name ="push1" id = "push1">
                             </label>
                         </div>

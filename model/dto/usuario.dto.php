@@ -1,6 +1,7 @@
 <?php
     class Usuario{
         /*-----------PROPIEDADES------*/
+        private $userName;
         private $rol;
         private $nombre;
         private $apellido;
@@ -11,6 +12,9 @@
         private $pass;
         /*-----------METODOS------*/
         /*    incio de los gets    */
+        public function getUserName(){
+            return $this -> userName;
+        }
         public function getRol(){
             return $this -> rol;
         }
@@ -36,7 +40,9 @@
             return $this -> pass;
         }
         /*    incio de los sets    */
-
+        public function setUserName($userName){
+            $this -> userName = $userName;
+        }
         public function setRol($rol){
             $this -> rol = $rol;
         }

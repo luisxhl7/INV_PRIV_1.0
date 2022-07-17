@@ -14,7 +14,7 @@
         public function getLogin(){
             $resultSet = false;
 
-            $sql = "SELECT CLAVE FROM USUARIO WHERE USUARIO = ? AND CLAVE = ? AND ROL = ?";
+            $sql = " CALL SpIniciarSesion(?,?,?);";
 
             try {
                 $con = new Conexion();

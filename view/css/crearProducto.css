@@ -120,9 +120,20 @@
     right: 0px;
     position: absolute;
 }
+.file{
+    display: none;
+}
 .campImg{                           /*Espacio de la imagen*/
-    height: 340px;
-    margin-bottom: 50px;
+    width: 300px;
+    height: 300px;
+    margin: 52px auto 40px;
+    border-radius: 15px;
+}
+#img-imagen{
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    cursor: pointer;
 }
 .fa-image{                           /*Tamaño de la imagen*/
     display: inline-block;

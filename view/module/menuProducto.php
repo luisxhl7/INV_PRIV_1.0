@@ -1,75 +1,93 @@
 <!DOCTYPE html>
-    <html lang="es">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>menu productos</title>
+        <link rel="shortcut icon" href="view/img/LOGO INV.PRIV-03.png" type="image/x-icon">
+        <title>INV PRIV</title>
+        <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
+        <link rel="stylesheet" href="view/css/sweetalert2.min.css">
+        <script src="view/js/sweetalert2.all.min.js"></script>
+        <!--                    DIRECCION PARA LOGOS EN CLOUDFLARE                    -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
         <!--              DIRECCIONES CSS               -->
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
         <link rel="stylesheet" href="view/css/menuProducto.css">
     </head>
 
     <body class="interfazGeneral">
-        <div>
-
-            <nav>                           <!-- BUSCADOR -->
-                <div class= "container1">
-                    <div class="shearch1">
-                        <input type="search" name="" id="" class="buscador1" placeholder="Buscar producto" title="buscador">
-                        <label for="radioCodigo" class="shearchRadio">
-                            <input type="radio" name="shearchRadio1" id="radioCodigo" class="filtro1">
-                            CODIGO
-                        </label>
-                        <label for="radioNombre" class="shearchRadio">
-                            <input type="radio" name="shearchRadio1" id="radioNombre" class="filtro2">
-                            NOMBRE
-                        </label>
-                    </div>
-                    <div class="shearch2">
-                        <input type="text" name="" id="" class="camp1prod" placeholder="NOMBRE PRODUCTO">
-                        <input type="text" name="" id="" class="camp2prod" placeholder="CODIGO">
-                        <input type="text" name="" id="" class="camp2prod" placeholder="TIPO">
-                        <input type="text" name="" id="" class="camp3prod" placeholder="CATEGRIA">
-                        <input type="text" name="" id="" class="camp3prod" placeholder="PRECIO">
-                    </div>
-                </div>
-            </nav>
-    
-            <div>                       <!-- TABLA DE PRODUCTOS -->
-                <div>
-                    <table border="1" class="tablaProdt">
-                        <tr style="width: 200px;">
-                            <th style="width: 150px;">CODIGO</th>
-                            <th style="width: 150px;">NOMBRE</th>
-                            <th style="width: 150px;">GRUPO</th>
-                            <th style="width: 150px;">CATEGORIA</th>
-                            <th style="width: 150px;">DESCRIPCION</th>
-                            <th style="width: 150px;">UNIDADES</th>
-                            <th style="width: 150px;">PRECIO</th>
-                            <th style="width: 150px;">C.BARRAS</th>
-                        </tr>
+        <form method="post">
+            <div>                       <!-- TABLA DE USUARIOS -->
+                <table id="tabla" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <th class="selector"><input type="radio" name="selectPrdt" id="selectPrdt" class="filtro1" value="0" checked style="display: none;"></th>
+                            <th>CODIGO</th>
+                            <th>NOMBRE</th>
+                            <th>GRUPO</th>
+                            <th>CATEGORIA</th>
+                            <th>DESCRIPCION</th>
+                            <th>EXISTENCIAS</th>
+                            <th>PRECIO</th>
+                            <th>C.BARRAS</th>
                         </tr>
-                    </table>
-                </div>
-            
-            </div> 
-    
-            <div class="conBtns">           <!-- MENU DE NAVEGACION -->
-                <a href="index.php?ruta=crearProducto" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
-                <a href="                    " class="btnprdt" title="Inhabilitar producto"><b>INHABILITAR</b></a>
-                <a href="                    " class="btnprdt" title="Eliminar producto"><b>ELIMINAR</b></a>
-                <a href="index.php?ruta=editarProducto" class="btnprdt" title="Editar producto"><b> EDITAR</b></a>           
+                    </thead>
+                    <tbody>
+                        <?php
+                            $objCtrProducto = new ControllerProductos();
+                            $listaProducto = $objCtrProducto -> ctrConsultarProducto();  
+                            foreach($listaProducto as $dato){
+                                echo '
+                                    <tr>
+                                        <td class="selector"><input type="radio" name="selectPrdt" id="selectPrdt" class="filtro1" value="' . $dato['Cod_Producto'] . '"></td>
+                                        <td>' . $dato['Cod_Producto'] . '</td>
+                                        <td>' . $dato['Nombre'] . '</td>
+                                        <td>' . $dato['Descripcion_Grupo'] . '</td>
+                                        <td>' . $dato['Descripcion_Categoria'] . '</td>
+                                        <td>' . $dato['Descripcion'] . '</td>
+                                        <td>' . $dato['Existencia'] . '</td>
+                                        <td>$ ' . $dato['Precio'] . '</td>
+                                        <td> <i class="fa-solid fa-barcode"></i> </td>
+                                    </tr>
+                                ';
+                            }  
+
+                        ?>
+                    </tbody>
+                </table>
             </div>
-        </div>
+
+            <div class="conBtns">           <!-- MENU DE NAVEGACION -->
+                <a href="crearProducto" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
+                <button type="button" class="btnprdt2" title="Inhabilitar producto">INHABILITAR</button>
+                <button type="button" onclick="eliminar(selectPrdt)" class="btnprdt2" title="Eliminar producto">ELIMINAR</button>
+                <button type="button" onclick="editar(selectPrdt)" class="btnprdt2" title="Editar producto">EDITAR</button>
+            </div>
+        </form>
+        <?php  /*PROCEDIMIENTOO PARA ELIMINAR PRODUCTO */
+            if (isset($_GET['codigo'])) {
+                $objProducto = new ControllerProductos();
+                $objProducto -> ctrEliminarProducto(
+                    $_GET['codigo']
+                );                
+            }
+        ?>
+
+        <!-----------DIRECCIONES DE JS--------- -->
+            <script src="./view/js/menuProductos.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                $('#tabla').DataTable({
+                    language: {
+                        search:         "BUSCADOR:",
+                        zeroRecords:    "NO EXISTEN RESULTADOS"
+                    }
+                });
+                });
+            </script>
     </body>
 </html>

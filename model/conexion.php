@@ -15,7 +15,7 @@
             $this -> driver = "mysql";
             $this -> usuario = "root";
             $this -> clave = "";
-            $this -> base = "inpriv"; 
+            $this -> base = "invpriv"; 
             $this -> url = $this -> driver.":host=".
             $this -> host.";dbname=". $this -> base;
             $this -> charSet = "UTF8";

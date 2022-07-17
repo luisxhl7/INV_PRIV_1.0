@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>registro de producto</title>
+        <link rel="shortcut icon" href="view/img/LOGO INV.PRIV-03.png" type="image/x-icon">
+        <title>INV PRIV</title>
                     <!-- DIRECCIONES CSS -->
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
         <link rel="stylesheet" href="view/css/crearProducto.css">
@@ -25,73 +26,98 @@
 
             <nav>                           <!-- MENU DE NAVEGACION -->
                 <div class= "menu1">
-                    <a href="index.php?ruta=salirMenuProducto" class ="botonMenu" title="Menu de productos">MENU DE BUSQUEDA</a>
+                    <a href="menuProducto" class ="botonMenu" title="Menu de productos">MENU DE BUSQUEDA</a>
                     <a href="" class ="botonMenu" title="Editar etiqueta">EDITAR  ETIQUETA</a>
                     <a href="" class ="botonMenu" title="Editar codigo de barras">EDITAR CODIGO DE BARRAS</a>
-                    <a href="" class ="botonMenu" title="Editar imagen">EDITAR IMAGEN</a>
                 </div>
             </nav>
-
+            <?php
+                if (isset($_GET['codigo'])) {
+                    $objProducto = new ControllerProductos();
+                    $listaDatos = $objProducto -> ctrMostrarProductoModificar($_GET['codigo']);
+                    foreach($listaDatos as $datos){
+            ?>
             <div class ="formulario1">   <!-- SOLO FALTA QUE EL INPUT DE IMAGEN PERMITA VER LA IMAGEN QUE SE ENVIARA-->
-                <form action="" method ="post" enctype="multipart/form-data">
+                <form method ="post">
                     
                     <div class = "container1">
                         <div class = "campo">
-                            <label for="nomPrdt">PRODUCTO:</label>
-                            <input type="text" REQUIRED name="nombreProducto" class="campoTexto" id="nomPrdt" placeholder="Ingrese nombre">
-                            <label for="codigo">CODIGO:</label> 
-                            <input type="text" name="codigo" class="campoCodigo"  id="codigo" placeholder="ASIGNACION AUTOMATICA">
+                            <label for="txtNombre">PRODUCTO:</label>
+                            <input type="text" name="txtNombre" id="txtNombre" class="campoTexto" placeholder="Ingrese nombre" value="<?php echo $datos['Nombre']; ?>" required>
+                            <label for="txtCodigo">CODIGO:</label> 
+                            <input type="text" name="txtCodigo" id="txtCodigo" class="campoCodigo" value="<?php echo $datos['Cod_Producto']; ?>" readonly="true" disabled ="true" required>
                         </div>
                         
                         <div class = "campo">
-                            <label for="cantProdt">CANTIDAD:</label>
-                            <input type="text" REQUIRED name="txtCantidad" class="campoTexto1" id="cantProdt" placeholder="Ingrese cantidad">
-                            <label for="precio">PRECIO:</label>
-                            <input type="number" REQUIRED name="precio" id="precio" class="campoTexto2" placeholder="Ingrese precio">
+                            <label for="txtCantidad">CANTIDAD:</label>
+                            <input type="text" name="txtCantidad" id="txtCantidad" class="campoTexto1" value="<?php echo $datos['Existencia']; ?>" readonly="true" disabled ="true" required>
+                            <label for="txtPrecio">PRECIO:</label>
+                            <input type="number" name="txtPrecio" id="txtPrecio" class="campoTexto2" placeholder="Ingrese precio" value="<?php echo $datos['Precio']; ?>" required>
                         </div>
+
                         <div class = "campo">
-                            <label for="categoria">CATEGORIA:</label>
-                            <select name="categoria" id="categoria" class="barraDesplegable1" >
-                                <option value="0">Seleccione categoria</option>
-                                <option value="alimento">alimento</option>
-                                <option value="aseo">aseo</option>
-                                <option value="juguete">juguetes</option>
-                                <option value="otro">otro</option>
+                            <label for="txtCategoria">CATEGORIA:</label>
+                            <select name="txtCategoria" id="txtCategoria" class="barraDesplegable1" >
+                                <option value="<?php echo $datos['Cod_Categoria']; ?>">Predeterminado</option>
+                                <?php
+                                    $objCtrProducto = new ControllerProductos();
+                                    $listaProducto = $objCtrProducto -> ctrMostrarCategorias();  
+                                    foreach($listaProducto as $dato){
+                                        echo'<option value="'.$dato["Cod_Categoria"].'"> '.$dato["Descripcion_Categoria"].' </option>';
+                                    }
+                                ?>
                             </select>
 
-                            <label for="grupo">GRUPO:</label> 
-                            <select name="grupo" id="grupo" class="barraDesplegable2">
-                                <option value="0">Seleccione grupo</option>
-                                <option value="perro">perro</option>
-                                <option value="gato">gato</option>
-                                <option value="pez">pez</option>
-                                <option value="pollo">pollo</option>
+                            <label for="txtGrupo">GRUPO:</label> 
+                            <select name="txtGrupo" id="txtGrupo" class="barraDesplegable2">
+                                <option value="<?php echo $datos['Cod_Grupo']; ?>">Predeterminado</option>
+                                <?php
+                                    $objCtrProducto = new ControllerProductos();
+                                    $listaProducto = $objCtrProducto -> ctrMostrarGrupos();  
+                                    foreach($listaProducto as $dato){
+                                        echo'<option value="'.$dato["Cod_Grupo"].'"> '.$dato["Descripcion_Grupo"].' </option>';
+                                    }
+                                ?>
                             </select>
                         </div>
 
                         <div class = "descrip">
-                            <label>DESCRIPCION:</label>
+                            <label for="txtDescripcion">DESCRIPCION:</label>
                         </div>
 
                         <div class = "campo">
-                            <textarea name="descripcion" id="comentario" cols="30" rows="2"class="campoTexto3" placeholder ="INGRESE INFORMACION SOBRE EL PRODUCTO"></textarea>
+                            <textarea name="txtDescripcion" id="txtDescripcion" cols="30" rows="2" class="campoTexto3" placeholder ="INGRESE INFORMACION SOBRE EL PRODUCTO" value="<?php echo $datos['Descripcion']; ?>"><?php echo $datos['Descripcion']; ?></textarea>
                         </div>
                     </div>
 
                     <div class = "container2">
-                        <div class = "campImg">
-                            <label for="img">
-                                <i class="fa-solid fa-image"></i>
-                                <input type="file" name="imagen" id ="img" class="imgFile">
-                            </label>
-                            <!--<img src="https://cdn-icons-png.flaticon.com/512/16/16410.png" alt="" class="imagen2">-->
+                        <div class = "campImg" id="boton">
+
+                            <img src="data:image/png;base64,<?php echo base64_encode($datos['Imagen']); ?>" alt="" id="img-imagen">
                         </div>
+                            <?php }}  /*FINAL DEL FOREACH*/ ?>
+                        <input type="file" name="imagen" id ="imagen" class="file" onchange="vista_preliminar(event)" accept=".png"> <!--Elemento invisible-->
                         <div>
-                            <input type="submit" value="REGISTRAR" class="boton1" name="guardarPrdt">
+                            <button type="button" class="boton1" onclick="editarProducto(txtNombre,txtCodigo,txtCantidad,txtPrecio,txtCategoria,txtGrupo,txtDescripcion)">CONFIRMAR</button>
                         </div>
                     </div>
                 </form>
+                <?php
+                    if (isset($_GET["nombre"]) and $_GET["nombre"] != NULL) {
+                        $objProducto = new ControllerProductos();
+                        $objProducto -> ctrModificarProducto(
+                            $_GET["nombre"],
+                            $_GET["codigo"],
+                            $_GET["cantidad"],
+                            $_GET["precio"],
+                            $_GET["categoria"],
+                            $_GET["grupo"],
+                            $_GET["descripcion"]
+                        );
+                    }
+                ?>
             </div>
         </div>
+        <script src="./view/js/menuProductos.js"></script>
     </body>
 </html>

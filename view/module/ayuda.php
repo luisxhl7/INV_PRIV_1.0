@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AYUDA</title>
+        <link rel="shortcut icon" href="view/img/LOGO INV.PRIV-03.png" type="image/x-icon">
+        <title>INV PRIV</title>
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
         <link rel="stylesheet" href="view/css/ayuda.css">
     </head>
@@ -14,7 +15,7 @@
 
             <div class = "ContIcono">
                 <label for="home" class="home">MENU</label>
-            <a href="index.php?ruta=salida"><img src="view/img/home2.png" class="icono1" id= "home"></a>
+            <a href="menuPrincipal"><img src="view/img/home2.png" class="icono1" id= "home"></a>
             </div>
 
             <div class="menu">

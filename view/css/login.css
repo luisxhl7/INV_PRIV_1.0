@@ -190,16 +190,26 @@ P{                                                  /* Diseño del parrafo */
     color: black;
     font-size: 20px;
 }
+.cont-form{
+    display: block;
+    margin: auto;
+    width: 360px;
+    height: 370px;
+    background-color: rgba(2, 2, 2, 0.479);
+    box-shadow: 10px 10px 30px #000;
+    border-radius: 15px;
+}
 .contCampTxt{                                       /* Diseño de contenedor de los campos de texto */
     position: relative;
-    height: 90px;
+    padding-top: 15px;
+    height: 195px;
     width: 100%;
 }
-.campTxt{                                           /* Diseño de los campos del texto ID USUARIO Y E-MAIL */
+.campTxt-recuperarPass{                                           /* Diseño de los campos del texto ID USUARIO Y E-MAIL */
     display: block;
     width: 270px;
     height: 40px;
-    margin: 25px auto;
+    margin: 35px auto;
     padding: 0px 31px 0px 28px;
     border-style: none;
     border-radius: 7px;
@@ -215,23 +225,29 @@ P{                                                  /* Diseño del parrafo */
     background-color: transparent;
     box-shadow: 2px 2px 2px 2px greenyellow;
 }
-.icono-RC{
+.icono-RC1{
     position: absolute;
     font-size: 18px;
-    left: 284px;
-    top: 5px;
+    left: 50px;
+    top: 56px;
+}
+.icono-RC2{
+    position: absolute;
+    font-size: 18px;
+    left: 50px;
+    top: 132px;
 }
 .contBtn{                                           /* Diseño de los contenedores de botones */
-    height: 90px;
-    width: 100%;
+    height: 145px;
 }
 .BtnValida{                                         /* Diseño de boton de validar */
     height: 50px;
     width: 180px;
     border-radius: 25px;
-    margin: 20px 335px;
+    margin: 20px auto;
     background-color: rgb(0, 183, 255);
     border-color: rgba(0, 0, 0, 0);
+    display: block;
     color: white;
     cursor: pointer;
 }
@@ -239,9 +255,10 @@ P{                                                  /* Diseño del parrafo */
     height: 50px;
     width: 150px;
     border-radius: 25px;
-    margin: 20px 350px;
+    margin: 20px auto;
     background-color: rgb(0, 183, 255);
     border-color: rgba(0, 0, 0, 0);
+    display: block;
     color: white;
     cursor: pointer;
 ;

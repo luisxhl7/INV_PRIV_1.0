@@ -5,62 +5,36 @@
 /*------------------------------------------MENU DE USUARIO-------------------------------------------*/
 
 /*BUSCADOR*/
-nav{                
-    width: 100%;
+.col-md-7, .col-md-5, .dataTables_length { /*Elementos del pluggin innecesario*/
+    display: none;
 }
-.container1{                                /*Contenedor del buscadores*/
-    margin: 50px auto 20px auto;
-    height: 160px;
-    width: 1160px;
-    position: relative;
+label{                                     /*Texto del buscador*/
+    margin-left: 65px;
 }
-.shearch1{                                  /*Espacio de buscador del usuario*/
-    position: absolute;
+.form-control-sm{                          /*Diseño del buscador*/
+    height: 50px;
+    width: 800px;
+    margin: 40px 20px 0px 20px;
+    padding: 0px 10px;
+    border-radius: 7px;
+}
+.dataTables_filter{                        /*Diseño del contenedor del buscador*/
     height: 130px;
-    width: 1155px;
+    width: 1021px;
     border: solid 3px;
     background-color: rgba(231, 222, 222, 0.329);    
     display: block;   /*asigna el 100% de un bloque al elemento*/
     padding: 10px 0px;
     border-radius: 20px;
+    margin: 70px 0px 30px;
 }
-.buscador1{                                 /*Buscador*/
-    display: inline-block;
-    height: 50px;
-    width: 800px;
-    margin: 20px 0px 0px 0px;
-    padding: 0px 10px;
-    border-radius: 7px;
-}
-.Confiltros{                                /*Contenedor de filtros*/
-    margin: auto;
-    width: 270px;
-    height: 50px;
-}
-.filtro1, .filtro2{                         /*Filtros de buscador*/
-    display: inline-block;
-    margin: 10px auto 0px auto;
-    width: 40px;
-    cursor: pointer;
-}
-.shearchRadio{                              /*Respuesta del texto de los filtros*/
-    cursor: pointer;
-}
-.buscador1:hover,.camp1prod:hover,.camp2prod:hover,.camp3prod:hover{ /*Respuesta de los campos de texto*/
+.form-control-sm:hover{
     border-color: rgb(114, 253, 0);
-}
-.busqueda{
-    display: inline-block;
-    height: 50px; 
-    margin: 20px 0px 0px 125px;
-    padding: 0px 10px;
-    border-radius: 7px;
 }
 
 /*TABLAS*/
 
-.tablaProdt{                                /*Diseño de la tabla*/
-    margin-bottom: 20px;
+#tabla{                                     /*Diseño de la tabla*/
     display: block;
     margin: 0px auto 15px auto;
     width: 1160px;
@@ -71,20 +45,30 @@ nav{
     border-radius: 7px;
     box-shadow: 0px 1px 10px 0px rgba(47, 51, 44, 0.432);
 }
-.tablaProdt::-webkit-scrollbar{             /*Diseño del campo del scroll*/
+#tabla::-webkit-scrollbar{                  /*Diseño del campo del scroll*/
     background-color: rgb(0, 0, 0);
     width: 12px;
     border-radius: 7px;
 }
-.tablaProdt::-webkit-scrollbar-thumb{       /*Diseño del scroll*/
+#tabla::-webkit-scrollbar-thumb{            /*Diseño del scroll*/
     background-color: rgb(206, 205, 205);
     border-radius: 7px;
 }
-.tablaProdt::-webkit-scrollbar-thumb:hover{ /*Reaccion del scroll*/
+#tabla::-webkit-scrollbar-thumb:hover{      /*Reaccion del scroll*/
     background-color: rgb(139, 248, 50);
 }
 th{                                         /*Diseño de los titulos de la tala*/
     background-color: yellowgreen;
+    height: 30px;
+    border: solid 1px;
+}
+td{
+    width: 115px;
+    height: 50px;
+}
+.selector{
+    width: 20px;
+    padding: 0px 5px;
 }
 tr:nth-child(even){                         /*Diseño a las filas pares*/
     background-color: rgba(104, 104, 119, 0.4);
@@ -100,14 +84,14 @@ tr:hover{                                   /*Reaccion de los 2 tipos de filas d
 /*BOTONES*/
 
 .conBtns{                                   /*Diseño del contenedor de los botones*/
-    width: 1000px;
+    width: 1021px;
     height: 70px;
     background-color: rgba(207, 193, 193, 0.589);
-    margin: auto;
+    margin: 30px auto 0px ;
     border-radius: 10px;
     border: solid 3px;
 }
-.btnprdt, .btnprdt:visited{                 /*Diseño de los botones*/
+.btnprdt, .btnprdt:visited{                 /*Diseño de los botones tipo link*/
     border: solid 1px black;
     background-color: rgb(139, 248, 50);
     color: black;
@@ -119,16 +103,32 @@ tr:hover{                                   /*Reaccion de los 2 tipos de filas d
     text-decoration: none;
     float: left;
     display: block;
-    margin: 17px 43px 17px 43px;
+    margin: 17px 43px 17px 70px;
 }
-.btnprdt:hover{                             /*Diseño de la reaccion de los botones*/
+.btnprdt:hover, .btnprdt2:hover{            /*Diseño de la reaccion de los botones*/
 background-color: aqua;
 border-color: aqua;
 }
-.btnprdt:active{                            /*Diseño al interactuar con los botones*/
+.btnprdt:active, .btnprdt2:active{          /*Diseño al interactuar con los botones*/
 background-color: chartreuse;
 border-color: chartreuse;
 }
+.btnprdt2{                                  /*Diseño de los botones*/
+    border: solid 1px black;
+    background-color: rgb(139, 248, 50);
+    color: black;
+    width: 152px;
+    height: 38px;
+    text-align: center;
+    border-radius: 20px;
+    text-decoration: none;
+    float: left;
+    display: block;
+    margin: 17px 43px 17px 43px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 
 /*---------------------------------------CREAR Y EDITAR USUARIO---------------------------------------*/
 
@@ -189,16 +189,37 @@ div.ContData > div{
     height: 70px;
 }
 .btnGuardar{
+    display: block;
     width: 140px;
     height: 40px;
-    margin: 20px 280px;
+    margin: 20px auto;
     border-radius: 15px;
     background-color: yellowgreen;
+    cursor: pointer;
 }
-.btnGuardar:hover{
+.btnGuardar:hover, .btnSalir:hover{
     border: 1px solid greenyellow;
 }
 .btnGuardar:active{
     background-color: chartreuse;
     border-color: chartreuse;
+}
+.btnSalir{
+    display: block;
+    width: 110px;
+    height: 25px;
+    margin: 20px auto;
+    border-radius: 15px;
+    background-color: yellowgreen;
+    cursor: pointer;
+    border: solid 2px black;
+    text-align: center;
+    padding-top: 10px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:visited{
+    color: black;
 }
