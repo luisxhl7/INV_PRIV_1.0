@@ -204,6 +204,28 @@
             return $this -> estado;
         }
 
+        /*------------------------------------------------- Validar E-mail ----------------------------------------------------*/
+
+        public function mdlValidarEmail(){
+            $resulset = false;
+            $sql = "CALL SpValidarCorreo (?,?)";  //MODIFICAR
+            
+            try {
+                $con = new conexion();
+                $stmt = $con -> conexion() -> prepare($sql);
+                $stmt -> bindParam(1, $this->documento, PDO::PARAM_INT);
+                $stmt -> bindParam(2, $this->correo, PDO::PARAM_STR);
+                $stmt -> execute();
+                $resulset = $stmt;
+
+            } catch (PDOException $e) {
+                echo "Error al ejecutar la validacion datos " . $e->getMessage();
+            }
+            return $resulset;
+        }
+
+        /*------------------------------------------------- MODIFICAR A PARTIR DE AQUI ----------------------------------------------------*/
+
     }
 
 ?>
