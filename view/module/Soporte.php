@@ -9,6 +9,10 @@
         <!--                         DIRECCIONES DE CSS                         -->
         <link rel="stylesheet" href="view/css/soporte.css">
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
+
+        <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
+        <link rel="stylesheet" href="view/css/sweetalert2.min.css">
+        <script src="view/js/sweetalert2.all.min.js"></script>
     </head>
     
     <body class = "interfazSoporte">
@@ -21,7 +25,7 @@
         </div>
 
         <div class = "container">
-            <form action="https://formsubmit.co/soporte.invpriv@gmail.com" method="post">
+            <form action="https://formsubmit.co/soporte.invpriv@gmail.com" method="post" name="formulario" id="formulario">
                 <div class = "cajon">  <!-- Contenedor del formulario -->
                     <div>              <!-- Campo de texto nombre -->
                         <label for=""><p class = "TxtInput">Nombre</p>
@@ -61,13 +65,16 @@
                         </div>
                         <div class = "container3">     <!-- Contenedor de boton de enviar -->
                             <label for="">             <!--Boton de enviar -->
-                                <input type="submit" value="ENVIAR" class = "BtnEnviar">
+                                <input type="hidden" name="_next" value="http://localhost/INV_PRIV_1.0/">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="submit" style="display: none;">
+                                <input type="button" value="ENVIAR" class = "BtnEnviar" onclick="enviarCorreo();">
                             </label>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-
+        <script src="view/js/soporte.js"></script>
     </body>
 </html>
