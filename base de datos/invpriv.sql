@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-07-2022 a las 05:57:40
+-- Tiempo de generación: 27-07-2022 a las 22:47:11
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -252,12 +252,12 @@ CREATE TABLE IF NOT EXISTS `datos_p` (
 
 INSERT INTO `datos_p` (`Documento`, `Nombre`, `Apellido`, `Fecha_N`, `Telefono`, `Correo`) VALUES
 (0, 'asdasd', 'asdasd', '2020-10-29', 'asdasd', 'asdasd'),
-(875774, 'alzate', 'ron', '2017-09-28', '37283', 'asda'),
+(123789, 'steven', 'marrugo', '2022-07-03', '7777777', 'Samarrugo3@misena.edu.co'),
 (887733, 'miami', 'ruiz', '2016-08-30', '304449223', 'miami@gmail.com'),
 (9999999, 'Luis Alfonso', 'Becerra', '1984-03-01', '3333333', 'luisalfonso@misena.edu.co'),
-(10102020, 'mariana', 'lopez', '2000-02-02', '20202020', 'mariana20@gmail.com'),
 (1001540042, 'jhon edison', 'moreno ', '2001-07-12', '3168786451', 'jhonedisonnacional1@gmail.com'),
 (1022035498, 'juan22', 'cho22', '2222-02-22', '2200022', 'juancho22@.com'),
+(1022036448, 'carlos', 'hernandez', '2020-09-25', '3221224', 'luisxhl7@gmail.com'),
 (1022036498, 'Luis Carlos', 'Hernandez Lopez', '1998-10-06', '3043290842', 'luisxhl7@gmail.com'),
 (1042767596, 'Farley Felipe', 'Orrego Villa', '1989-12-03', '3128633688', 'fforrego@misena.edu.co');
 
@@ -419,22 +419,21 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`Id_Usuario`),
   KEY `Documento` (`Fk_Documento`),
   KEY `Cod_Rol` (`Fk_Cod_Rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=4487 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4490 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`Id_Usuario`, `username`, `Contrasena`, `Fk_Documento`, `Fk_Cod_Rol`) VALUES
-(4449, 'luisxhl7', 'lucho777', 1022036498, 1),
+(4449, 'luisxhl7', '123', 1022036498, 1),
 (4450, 'Pipe12', 'Felo', 1042767596, 1),
 (4451, 'IngAlfonso', 'ing123', 9999999, 3),
 (4475, 'miami', '123', 887733, 1),
-(4476, 'alzate', '123', 875774, 3),
-(4477, 'asd', '123', 0, 3),
-(4483, 'mariana20', '0099', 10102020, 3),
 (4485, 'juancho22', '222', 1022035498, 3),
-(4486, 'edison1207', '1001540042', 1001540042, 1);
+(4486, 'edison1207', '1001540042', 1001540042, 1),
+(4487, 'stivin', 'nolesirvepa', 123789, 1),
+(4488, 'carlosxhl7', '1234', 1022036448, 2);
 
 --
 -- Restricciones para tablas volcadas

@@ -21,8 +21,8 @@
                         Swal.fire({
                             icon: 'success',
                             iconColor: 'green',
-                            title: 'EXITO AL REGISTRAR',
-                            text: 'SI SE PUDO HP :P.',
+                            title: 'EXITO',
+                            text: 'El usuario a sido registrado con exito',
                             background: 'url(view/img/fondo_de_interfacez.png) no-repeat',
                             confirmButtonText: 'ACEPTAR',
                             confirmButtonColor: 'rgb(139, 248, 50)',
@@ -39,8 +39,8 @@
                         Swal.fire({
                             icon: 'error',
                             iconColor: 'red',
-                            title: 'ERROR AL GUARDAR',
-                            text: 'NO SE PUDO HP :P.',
+                            title: 'ERROR',
+                            text: 'El usuario no se registro con exito',
                             background: 'url(view/img/fondo_de_interfacez.png) no-repeat',
                             confirmButtonText: 'ACEPTAR',
                             confirmButtonColor: 'rgb(139, 248, 50)',
