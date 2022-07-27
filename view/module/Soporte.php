@@ -21,26 +21,26 @@
         </div>
 
         <div class = "container">
-            <form action="">
+            <form action="https://formsubmit.co/soporte.invpriv@gmail.com" method="post">
                 <div class = "cajon">  <!-- Contenedor del formulario -->
                     <div>              <!-- Campo de texto nombre -->
                         <label for=""><p class = "TxtInput">Nombre</p>
-                            <input type="text" name="" id="" class = "campoTex">
+                            <input type="text" name="Nombre" id="" class = "campoTex" required>
                         </label>
                     </div>
                     <div>              <!-- Campo de texto E-MAIL -->
                         <label for=""><p class = "TxtInput">E-mail</p>
-                            <input type="email" name="" id="" class = "campoTex">
+                            <input type="email" name="Email" id="" class = "campoTex" required>
                         </label>
                     </div>
                     <div>              <!-- Campo de texto asunto -->
                         <label for=""><p class = "TxtInput">Asunto</p>
-                            <input type="text" name="" id="" class = "campoTex">
+                            <input type="text" name="Asunto" id="" class = "campoTex">
                         </label>
                     </div>
                     <div>              <!-- Campo de texto mensaje  -->
                         <label for=""><p class = "TxtInput">Mensaje</p>
-                            <input type="text" name="" id="" class = "campoTexM">
+                            <input type="text" name="Mensaje" id="" class = "campoTexM">
                         </label>
                     </div>
                     <div>              <!-- Texto -->
@@ -54,14 +54,14 @@
                                 <br>
                                 <small>Medellin - Antioquia - Colombia </small>
                                 <br><br>
-                                <small>Soporteinvpriv@gmail.com </small>
+                                <small>soporte.invpriv@gmail.com </small>
                                 <br>
                                 <small>CEL:301 492 43 91 </small>
                             </div>
                         </div>
                         <div class = "container3">     <!-- Contenedor de boton de enviar -->
                             <label for="">             <!--Boton de enviar -->
-                                <input type="button" value="ENVIAR" class = "BtnEnviar">
+                                <input type="submit" value="ENVIAR" class = "BtnEnviar">
                             </label>
                         </div>
                     </div>
