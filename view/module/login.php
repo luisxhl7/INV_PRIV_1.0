@@ -102,25 +102,25 @@
             <div class = "contCampTxt">          <!-- Contenedor de campo de texto ID USUARIO -->
             <div>
               <span class= "icono-RC1"><i class="fa-solid fa-user-shield"></i></span>
-              <input type="number" name="txtDocumento" id="txtDocumento"  class = "campTxt-recuperarPass" placeholder = "Ingrese Documento" required>
+              <input type="number" name="txtDocumento" id=""  class = "campTxt-recuperarPass" placeholder = "Ingrese Documento" required>
             </div>
               <span class= "icono-RC2"><i class="fa-solid fa-envelope"></i></span>
-              <input type="email" name="txtCorreo" id="txtCorreo" class = "campTxt-recuperarPass" placeholder = "Ingrese E-MAIL" required>
+              <input type="email" name="txtCorreo" id="" class = "campTxt-recuperarPass" placeholder = "Ingrese E-MAIL" required>
             </div>
             <div class = "contBtn">              <!-- Contenedor de boton confirmar -->
               <input type="submit" value="VALIDAR" class = "BtnValida">
               <input type="button" value="CANCELAR" class = "BtnCancel" id="Btn-Cancel1">
             </div>
           </div>
-        </form>
-        <?php
-          if(isset($_POST["txtDocumento"]) and $_POST["txtDocumento"] != null){
-
-          }
-        ?>
-          
+        </form>  
       </div>
     </div>
+    <?php                              /* CAPTURA DE DATOS PARA VALIDAR */
+        if (isset($_POST["txtDocumento"]) and $_POST["txtDocumento"] != NULL) {
+          $objMail = new UsuarioController();
+          $objMail -> validarDatos($_POST["txtDocumento"],$_POST["txtCorreo"]); 
+        } 
+    ?>
 
     <!---------------------------------------------------CAMBIAR CONTRASEÑA-------------------------------------------------->
     <div id="Contenedor-cambiar">

@@ -214,6 +214,83 @@
             }
             
         }
+
+        public function validarDatos($Documento,$Correo){
+       
+            try {
+                $objDtoUsuario = new Usuario();
+                $objDtoUsuario->setDocumento($Documento);
+                $objDtoUsuario->setCorreo($Correo);
+               
+                $objDaoUsuario = new ModeloUsuario( $objDtoUsuario );
+                $rest = $objDaoUsuario -> mdlValidarEmail() -> fetch();
+    
+                if (gettype($rest) != "boolean") {
+                    
+                        $mailSend = new clsMail();
+                        $objPass = new ModeloUsuario($objDtoUsuario);
+                        $lista1= $objPass->mdlMostrarDatosUModificar()->fetchAll();
+                        $lista2 = $objPass->mdlMostrarDatosPModificar()->fetchAll();
+
+                        foreach($lista1 as $dato){
+                            $datoP[0] = ''.$dato['Contrasena'].'';
+                        }
+
+                        foreach($lista2 as $dato){
+                            $datoP[1] = ''.$dato['Nombre'].'';
+                            $datoP[2] = ''.$dato['Apellido'].'';
+                        }
+                        
+                        $titulo ="INV_PRIV";
+                        $asunto ="Recordar Contraseña";  
+                        
+                        $bodyHTML = '
+                            <h1>
+                               <em> INV_PRIV </em>
+                            </h1>
+                            <hr>
+                                <h2>
+                                    Hola, 
+                                 </h2>
+                                 <h2>
+                                    <b> Sñr@, '.$datoP[1].' '.$datoP[2].'</b>, 
+                                 <h2> 
+                                    Haz olvidado la contraseña,<i> ¡No te preocupes!</i>,
+                                 </h2>
+                                </h2>
+                                 <h2> 
+                                    A continuación te la recordamos.
+                                </h2>
+                            <br>
+                            <h2>CONTRASEÑA: <b>( '.$datoP[0].' )</b></h2>
+                            <br>
+                            <hr>
+                            <mark>
+                                <h2>
+                                    Gracias,
+                                </h2>
+                                <h2>
+                                    El equipo de INV_PRIV
+                                </h2>
+                            </mark>';
+    
+                        $enviado = $mailSend->metEnviar($titulo,$Correo,$asunto,$bodyHTML);
+    
+                        if($enviado){
+                            echo "<script>alert('Enviado');</script>";
+                        }else{
+                            echo "<script>alert('No se envió correo');</script>";
+                        }       
+                    
+                }else{
+                    echo "<script>alert('Correo y usuario no coinciden');</script>"; 
+                }
+    
+            } catch (PDOException $e) {
+                echo "error al validar datos" . $e -> getMessage();
+            } 
+            
+        }
     }
     
 ?>
