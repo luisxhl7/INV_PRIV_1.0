@@ -63,7 +63,7 @@
                                 <input type="text" name="txtDocumento" id="txtDocumento" placeholder= "Ingrese documento" class ="campT documento" required>
                                 <i class="iconoDeError fas fa-times-circle"></i>
                             </div>
-                            <p class="error">El documento debe contener de 4 a 50 carapteres</p>
+                            <p class="error">El documento debe contener de 7 a 11 digitos</p>
                         </div>
                         <div class="form-groun" id="grupoTelefono">
                             <div class="negacion">

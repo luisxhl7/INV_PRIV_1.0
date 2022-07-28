@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="view/css/EstiloUsuario.css">
     </head>
     <body class="interfazGeneral">
-        <form method="post">
+        <form method="post" action="editarUsuario" id="form" name="form">
             <div>                       <!-- TABLA DE USUARIOS -->
                 <table id="tabla" class="table table-striped table-bordered" style="width:100%">
                     <thead>
@@ -58,7 +58,7 @@
                 <a href="registrarUsuario" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
                 <button type="button" class="btnprdt2" title="Inhabilitar producto">INHABILITAR</button>
                 <button type="button" onclick="eliminar(selectDocument)" class="btnprdt2" title="Eliminar producto">ELIMINAR</button>
-                <button type="button" onclick="editar(selectDocument)" class="btnprdt2" title="Editar producto">EDITAR</button>
+                <input type="submit" value="EDITAR" class="btnprdt2" title="Editar producto">
             </div>
         </form>
 
@@ -70,7 +70,7 @@
         ?>
 
         <!-----------DIRECCIONES DE JS--------- -->
-            <script src="./view/js/menuUsuarios.js"></script>
+            <script src="view/js/menuUsuarios.js"></script>
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
