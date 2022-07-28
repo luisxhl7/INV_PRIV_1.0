@@ -21,7 +21,7 @@
             $this -> codigo = $objProducto -> getCodigo();
         }
         public function mdlCrearProducto(){
-            $sql = "INSERT INTO producto(Nombre, Existencia, Precio, Cod_Categoria, Cod_Grupo ,Descripcion,Imagen) VALUES (?,?,?,?,?,?,?)";
+            $sql = "CALL SpInsertarProducto(?,?,?,?,?,?,?)";
             $this -> estado = false;
 
             try {
@@ -30,10 +30,10 @@
                 $stmt -> bindParam(1, $this -> nombre,PDO::PARAM_STR);
                 $stmt -> bindParam(2, $this -> cantidad,PDO::PARAM_INT);
                 $stmt -> bindParam(3, $this -> precio,PDO::PARAM_INT);
-                $stmt -> bindParam(4, $this -> categoria,PDO::PARAM_INT);
-                $stmt -> bindParam(5, $this -> grupo,PDO::PARAM_INT);
-                $stmt -> bindParam(6, $this -> descripcion,PDO::PARAM_STR);
-                $stmt -> bindParam(7, $this -> imagen,PDO::PARAM_LOB);
+                $stmt -> bindParam(4, $this -> descripcion,PDO::PARAM_STR);
+                $stmt -> bindParam(5, $this -> imagen,PDO::PARAM_LOB);
+                $stmt -> bindParam(6, $this -> categoria,PDO::PARAM_INT);
+                $stmt -> bindParam(7, $this -> grupo,PDO::PARAM_INT);
                 $stmt -> execute();
                 $this-> estado = true;
             

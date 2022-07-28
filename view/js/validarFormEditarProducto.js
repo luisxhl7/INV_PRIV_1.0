@@ -1,30 +1,3 @@
-function eliminar(CodProducto) {
-    if (CodProducto.value != 0 ) {
-        Swal.fire({
-            title: 'ELIMINAR PRODUCTO',
-            text: "Si eliminas el producto se perderan su datos por completo",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Confirmar',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location="index.php?ruta=menuProducto&codigo="+CodProducto.value;
-            }
-        })
-    }else{
-        Swal.fire({
-            position: 'top-end',
-            icon: 'warning',
-            title: 'Seleccione un producto',
-            showConfirmButton: false,
-            timer: 1500
-        })  
-    }
-}
-
 /*FUNCION PARA PREVISUALIZAR IMAGENES */
 const archivo = document.getElementById("imagen");
 const boton = document.getElementById("boton");
@@ -53,9 +26,9 @@ const expresiones = {
   precio: /^\d{2,9}$/, // 7 a 11 numeros.
 }
 const campos = {
-  Nombre: false,
-  Cantidad: false,
-  Precio: false,
+  Nombre: true,
+  Cantidad: true,
+  Precio: true,
 }
 
 const validarFormulario = (e) => {
@@ -97,7 +70,20 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     if (campos.Nombre && campos.Cantidad && campos.Precio) {
-      formulario.submit();
+        Swal.fire({
+            title: 'MODIFICAR PRODUCTO',
+            text: "SEGURO QUE DESEA MODIFICAR EL PRODUCTO ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                formulario.submit();
+            }
+        })
     }else {
       Swal.fire({
         position: 'top-end',

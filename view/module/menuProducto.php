@@ -17,12 +17,12 @@
     </head>
 
     <body class="interfazGeneral">
-        <form method="post">
+        <form method="post" action="editarProducto">
             <div>                       <!-- TABLA DE USUARIOS -->
                 <table id="tabla" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th class="selector"><input type="radio" name="selectPrdt" id="selectPrdt" class="filtro1" value="0" checked style="display: none;"></th>
+                            <th class="selector"></th>
                             <th>CODIGO</th>
                             <th>NOMBRE</th>
                             <th>GRUPO</th>
@@ -62,7 +62,7 @@
                 <a href="crearProducto" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
                 <button type="button" class="btnprdt2" title="Inhabilitar producto">INHABILITAR</button>
                 <button type="button" onclick="eliminar(selectPrdt)" class="btnprdt2" title="Eliminar producto">ELIMINAR</button>
-                <button type="button" onclick="editar(selectPrdt)" class="btnprdt2" title="Editar producto">EDITAR</button>
+                <button type="submit" class="btnprdt2" title="Editar producto">EDITAR</button>
             </div>
         </form>
         <?php  /*PROCEDIMIENTOO PARA ELIMINAR PRODUCTO */

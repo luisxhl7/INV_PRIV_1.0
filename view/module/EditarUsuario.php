@@ -27,7 +27,7 @@
                         echo "<script>
                             Swal.fire({
                                 title: 'Error',
-                                text: 'debe seleccionar un Usuario para poder modificarlos',
+                                text: 'debe seleccionar un Usuario para poder modificarlo',
                                 icon: 'error',
                                 showCancelButton: false,
                                 confirmButtonColor: '#3085d6',
