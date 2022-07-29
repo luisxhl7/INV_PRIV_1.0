@@ -1,5 +1,6 @@
 <?php
     class Conexion{
+        /*============================================= ATRIBUTOS =============================================*/
         private $host;
         private $driver;
         private $usuario;
@@ -9,7 +10,7 @@
         private $charSet;
         private $con;
 
-        /* CREAMOS EL CONSTRUCTOR */
+        /*================ CREACION DEL CONSTRUCTOR: Es donde se inicializan todos los atributos ================*/
         public function __construct(){
             $this -> host = "localhost";
             $this -> driver = "mysql";
@@ -41,12 +42,14 @@
     }//FIN CLASE
 
 
-    /*try {
+    /*procedimiento para ver si la conexion funcion correctamente
+    try {
         $c = new Conexion();
         $conex = $c -> conexion();
         var_dump($conex);
         //echo "conexion exitosa";
     } catch (Exception $e) {
         echo "Error";
-    }*/
+    }
+    */
 ?>

@@ -10,8 +10,9 @@
         private $telefono;
         private $correo;
         private $pass;
-        /*-----------METODOS------*/
-        /*    incio de los gets    */
+
+        /*===================== LAS FUNNCIONES TIPO GET PERMITEN VISUALIZAR LOS DATOS DE SER REQUERIDOS =====================*/
+
         public function getUserName(){
             return $this -> userName;
         }
@@ -39,7 +40,9 @@
         public function getPass(){
             return $this -> pass;
         }
-        /*    incio de los sets    */
+
+        /*=============================== LAS FUNNCIONES TIPO SET PERMITEN CAPTURAR LOS DATOS ===============================*/
+        
         public function setUserName($userName){
             $this -> userName = $userName;
         }
