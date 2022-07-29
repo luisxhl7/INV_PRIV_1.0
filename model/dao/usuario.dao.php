@@ -1,11 +1,7 @@
 <?php
 
     class ModeloUsuario{
-<<<<<<< HEAD
-        /*------ATRIBUTOS-------*/
-=======
         /*=================================================== ATRIBUTOS ===================================================*/
->>>>>>> luis
         private $username;
         private $rol;
         private $nombre;
@@ -284,15 +280,9 @@
             } catch (PDOException $e) {
                 echo "Error en el modelo mdlCambiarPass " . $e->getMessage();
             }
-<<<<<<< HEAD
-            return $this -> estado;
-        }
-        /*------------------------------------------------- Validar E-mail ----------------------------------------------------*/
-=======
             return $resultSet;
 
         }//FIN DE LA FUNCION mdlCambiarPass
->>>>>>> luis
 
         public function mdlValidarEmail(){           #Funcion utilizada para validar que el correo si pertenece al usuario registrado
             /*==================DOCUMENTACION================== 
