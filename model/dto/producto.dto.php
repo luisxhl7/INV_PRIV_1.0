@@ -1,6 +1,6 @@
 <?php
     class Producto{
-        /*------ATRIBUTOS-------*/
+        /*=================================================== ATRIBUTOS ===================================================*/
         private $nombre;
         private $grupo;
         private $categoria;
@@ -10,6 +10,8 @@
         private $imagen;
         private $codigo;
 
+        /*===================== LAS FUNNCIONES TIPO GET PERMITEN VISUALIZAR LOS DATOS DE SER REQUERIDOS =====================*/
+        
         public function getNombre(){
             return $this -> nombre;
         }
@@ -34,6 +36,8 @@
         public function getCodigo(){
             return $this -> codigo;
         }
+
+        /*=============================== LAS FUNNCIONES TIPO SET PERMITEN CAPTURAR LOS DATOS ===============================*/
         
         public function setNombre($nombre){
             $this -> nombre = $nombre;

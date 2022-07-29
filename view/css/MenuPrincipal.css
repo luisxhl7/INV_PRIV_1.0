@@ -19,6 +19,7 @@
     height: 680px;
     width: 360px;
     border-radius: 3cm;
+    box-shadow: 10px 10px 30px #000;
     display: block;
 }
 a{                                /* Diseño de los links */

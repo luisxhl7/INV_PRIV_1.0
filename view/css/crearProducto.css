@@ -44,30 +44,42 @@
     height: 550px;
     width: 715px;
     position: absolute;
+    display: flex;
+    flex-direction: column;
 }
 .campo{
-    margin: 0px 30px;
+    margin: 15px 30px 0px;
+    display: flex;
 }
 .campoTexto{                         /*campo de texto nombre producto*/
     width: 210px;
     height: 28px;
-    margin: 80px 25px 30px 5px;
+    margin: 30px 7px 30px 5px;
     border: 1px solid transparent;
     border-radius: 10px;
+    outline: none;
 }
 .campoCodigo{                        /*campo de texto codigo producto*/
     width: 210px;
     height: 28px;
-    margin: 80px 0px 30px 9px;
+    margin: 30px 0px 30px 9px;
     border: 1px solid transparent;
     border-radius: 10px;
+    outline: none;
 }
 .campoTexto1{                        /*campo de texto cantidad producto*/
     width: 210px;
     height: 30px;
-    margin: 30px 30px 30px 7px;
+    margin: 30px 7px 30px 7px;
     border: 1px solid transparent;
     border-radius: 10px;
+    outline: none;
+}
+.codigo{
+    margin: 0px 0px 0px 11px;
+}
+.precio{
+    margin: 0px 0px 0px 18px;
 }
 .campoTexto2{                        /*campo de numerico precio producto*/
     width: 210px;
@@ -75,6 +87,7 @@
     margin: 30px 0px 30px 10px;
     border: 1px solid transparent;
     border-radius: 10px;
+    outline: none;
 }
 .campoTexto:hover,.campoTexto1:hover,.campoTexto2:hover,.campoTexto3:hover{/*Diseño de la reaccion de los campos de texto*/
     border: 1px solid rgb(114, 253, 0);
@@ -110,6 +123,7 @@
     margin-bottom: 1px;
     pad: 5px;
     border-radius: 0px 10px 10px 10px;
+    outline: none;
 }
 
 /*---------------------------------------- FORMULARIO CONTAINER 2---------------------------------------*/
@@ -130,10 +144,16 @@
     border-radius: 15px;
 }
 #img-imagen{
-    width: 300px;
-    height: 300px;
+    margin: auto;
+    width: 280px;
+    height: 280px;
     border-radius: 15px;
     cursor: pointer;
+    display: block;
+}
+#img-imagen:hover{
+    width: 300px;
+    height: 300px;
 }
 .fa-image{                           /*Tamaño de la imagen*/
     display: inline-block;
@@ -161,3 +181,53 @@
     display: none;
 }
 
+/*-----------------------------------------------------------*/
+.form-groun{
+    width: 350px;
+}
+.negacion{  
+    position: relative;
+    height: 72px;
+}
+.iconoDeError{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+
+}
+.error{
+    font-size: 15px;
+	margin-bottom: 0;
+    visibility: hidden;
+    text-align: center;
+    margin-top: 5px;
+    color: #bb2929;
+}
+.error-activo{
+    visibility: visible;
+}
+.form-groun-correcto .iconoDeError{
+    color: #1ed12d;
+    opacity: 1;
+}
+.form-groun-correcto .campT{
+    border: 3px solid #1ed12d ;
+}
+.form-groun-incorrecto .iconoDeError{
+    color: #bb2929;
+    opacity: 1;
+}
+.form-groun-incorrecto .campT{
+    border: 3px solid #bb2929 ;
+}
+.fa-check-circle:before,.fa-times-circle:before {
+    position: absolute;
+    left: -28px;
+    top: -22px;
+}
+.posicion-rol{
+    margin: 30px auto;
+}

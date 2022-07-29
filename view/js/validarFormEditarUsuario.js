@@ -1,31 +1,4 @@
-function eliminar(documento){
-  if (documento.value != 0 ) {
-    Swal.fire({
-      title: 'ELIMINAR USUARIO',
-      text: "Si eliminas el usuario se perderan su datos por completo",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Confirmar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location="index.php?ruta=admUsuario&documento="+documento.value;
-      }
-    })
-  }else{
-    Swal.fire({
-      position: 'top-end',
-      icon: 'warning',
-      title: 'Seleccione un usuario',
-      showConfirmButton: false,
-      timer: 1500
-    })  
-  }
-}
-
-/*-------------------------------------------------------VALIDACION DE CAMPOS DE TEXTO DE REGISTRAR USUARIO-------------------------------------------------------*/
+/*-----------------------------------------------------------VALIDACION DE CAMPOS DE TEXTO DE EDITAR USUARIO-------------------------------------------------------------*/
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
@@ -39,13 +12,13 @@ const expresiones = {
   password: /^[a-zA-Z0-9\_\-]{4,20}$/, // Letras, numeros, guion y guion_bajo
 }
 const campos = {
-  UserName: false,
-  Nombre: false,
-  Apellido: false,
-  Documento: false,
-  Telefono: false,
-  Correo: false,
-  Password: false
+  UserName: true,
+  Nombre: true,
+  Apellido: true,
+  Documento: true,
+  Telefono: true,
+  Correo: true,
+  Password: true
 }
 
 const validarFormulario = (e) => {
@@ -123,7 +96,20 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     if (campos.UserName && campos.Nombre && campos.Apellido && campos.Documento && campos.Telefono && campos.Correo && campos.Password) {
-      formulario.submit();
+      Swal.fire({
+        title: 'MODIFICAR USUARIO',
+        text: "SEGURO QUE DESEA MODIFICAR EL USUARIO ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          formulario.submit();
+        }
+      })
     }else {
       Swal.fire({
         position: 'top-end',
@@ -135,6 +121,3 @@ formulario.addEventListener('submit', (e) => {
       })
     }
 })
-
-
-

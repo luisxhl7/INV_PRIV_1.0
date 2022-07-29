@@ -14,6 +14,11 @@ label{                                     /*Texto del buscador*/
     margin: 40px 20px 0px 20px;
     padding: 0px 10px;
     border-radius: 7px;
+    outline: none;
+    padding: 0px 20px;
+}
+.form-control-sm:hover{
+    border-color: greenyellow;
 }
 .dataTables_filter{                        /*Diseño del contenedor del buscador*/
     height: 130px;

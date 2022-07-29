@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .unidades-faltan{
+            background-color: red;
+        }
+        .unidades-sobran{
+            background-color: rgb(255, 238, 0);
+        }
+        .unidades-perfectas{
+            background-color: rgb(51, 255, 0);
+        }
+    </style>
+    <h1>PRUEBAS</h1>
+        <table border="1">
+            <tr>
+                <th>producto</th>
+                <th>teorico</th>
+                <th>fisico</th>
+                <th>diferencia</th>
+
+
+            </tr>
+            <tr>
+                <td>cuido</td>
+                <td><input type="number" name="" id="unidadesTeoricas" oninput="calcular()" value="30" readonly="true"></td>
+                <td><input type="number" name="" id="unidadesFisicas" oninput="calcular()"></td>
+                <th><input type="number"  name="" id="diferencia" readonly="true"></th>
+            </tr>
+            <tr>
+                <td>cuido</td>
+                <td><input type="number" name="" id="unidadesTeoricas" oninput="calcular()" value="30" readonly="true"></td>
+                <td><input type="number" name="" id="unidadesFisicas" oninput="calcular()"></td>
+                <th><input type="number"  name="" id="diferencia" readonly="true"></th>
+                <button >COMPARAR</button>
+            </tr>
+
+        </table>
+        <script>
+            const a = parseFloat(document.getElementById("unidadesTeoricas").value) || 0;
+            const b = parseFloat(document.getElementById("unidadesFisicas").value) || 0;
+
+
+        </script>
+    <script>
+        const calcular = ()=>{
+            try {
+                var a = parseFloat(document.getElementById("unidadesTeoricas").value) || 0,
+                b = parseFloat(document.getElementById("unidadesFisicas").value) || 0;
+
+                document.getElementById("diferencia").value = a - b;
+
+                if (document.getElementById("diferencia").value < 0) {
+                    document.getElementById("diferencia").classList.remove('unidades-perfectas');
+                    document.getElementById("diferencia").classList.remove('unidades-sobran');
+                    document.getElementById("diferencia").classList.add('unidades-faltan');
+
+                }if(document.getElementById("diferencia").value == 0) {
+                    document.getElementById("diferencia").classList.remove('unidades-sobran');
+                    document.getElementById("diferencia").classList.remove('unidades-faltan');
+                    document.getElementById("diferencia").classList.add('unidades-perfectas');
+
+                }if (document.getElementById("diferencia").value > 0) {
+                    document.getElementById("diferencia").classList.remove('unidades-perfectas');
+                    document.getElementById("diferencia").classList.remove('unidades-faltan');
+                    document.getElementById("diferencia").classList.add('unidades-sobran');
+                }
+            }catch(e){  
+            }
+        }
+    </script>
+    
+</body>
+</html>

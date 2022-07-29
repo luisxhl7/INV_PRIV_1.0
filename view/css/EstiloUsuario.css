@@ -17,6 +17,8 @@ label{                                     /*Texto del buscador*/
     margin: 40px 20px 0px 20px;
     padding: 0px 10px;
     border-radius: 7px;
+    outline: none;
+    padding: 0px 20px;
 }
 .dataTables_filter{                        /*Diseño del contenedor del buscador*/
     height: 130px;
@@ -149,11 +151,14 @@ border-color: chartreuse;
     height: 100px;
     margin: 30px auto;
     border-radius: 30px;
+    display: flex;
 }
 .ContData{
     background-color: rgba(0, 0, 0, 0.308);
     height: 400px;
+    width: 700px;
     border-radius: 30px;
+    display: flex;
 }
 .campT{
     width: 180px;
@@ -162,12 +167,14 @@ border-color: chartreuse;
     margin: 32px 30px 32px 0px ;
     padding: 0px 5px;
     border: 2px solid transparent;
+    outline: none;
 }
 .campT:hover{
     border: 2px solid greenyellow;
 }
+
 .BarraRoles{
-    width: 184px;
+    width: 195px;
     height: 40px;
     border-radius: 15px;
     margin: auto;
@@ -222,4 +229,55 @@ a{
 }
 a:visited{
     color: black;
+}
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+.form-groun{
+    width: 350px;
+}
+.negacion{  
+    position: relative;
+    height: 72px;
+}
+.iconoDeError{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+
+}
+.error{
+    font-size: 15px;
+	margin-bottom: 0;
+    visibility: hidden;
+    text-align: center;
+    margin-top: 5px;
+    color: #bb2929;
+}
+.error-activo{
+    visibility: visible;
+}
+.form-groun-correcto .iconoDeError{
+    color: #1ed12d;
+    opacity: 1;
+}
+.form-groun-correcto .campT{
+    border: 3px solid #1ed12d ;
+}
+.form-groun-incorrecto .iconoDeError{
+    color: #bb2929;
+    opacity: 1;
+}
+.form-groun-incorrecto .campT{
+    border: 3px solid #bb2929 ;
+}
+.fa-check-circle:before,.fa-times-circle:before {
+    position: absolute;
+    left: -58px;
+    top: -16px;
+}
+.posicion-rol{
+    margin: 30px auto;
 }

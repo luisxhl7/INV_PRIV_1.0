@@ -18,51 +18,104 @@
             <div class="titulo">
                 <h1>REGISTRAR  USUARIO</h1>
             </div>
-            <form method="post" autocomplete="off">
+            <form method="post" autocomplete="off" name="formulario" id="formulario">
                 <div class="ContUser">
-                    <label for="" class ="txt">USERNAME:</label>
-                    <input type="text" name="userName" id="" placeholder= "Ingrese Username" class ="campT ID" required>
-                    
-                    <label for="" class ="txt">ROL:</label>
-                    <select name="txtRol" id="" class="BarraRoles" required>
-                        <option value=""> Seleccione Rol </option>
-                        <?php
-                            $objCtrUsuario = new UsuarioController();
-                            $listaUsuario = $objCtrUsuario -> ctrMostrarRol();  
-                            foreach($listaUsuario as $dato){
-                                echo'<option value="'.$dato["Cod_Rol"].'"> '.$dato["Descripcion"].' </option>';
-                            }
-                        ?>
-                    </select>
+                    <div class="form-groun" id="grupoUserName">
+                        <div class="negacion">
+                            <label for="txtUserName" class="txt">USERNAME:</label>
+                            <input type="text" name="txtUserName" id="txtUserName" placeholder= "Ingrese Username" class ="campT ID" required>
+                            <i class="iconoDeError fas fa-times-circle"></i>
+                            
+                        </div>
+                        <p class="error">El Username debe contener de 4 a 20 carapteres</p>
+                    </div>
+                    <div class="form-groun" id="grupoRol">
+                        <div class="posicion-rol">
+                            <label for="txtRol" class ="txt">ROL:</label>
+                            <select name="txtRol" id="txtRol" class="BarraRoles" required>
+                                <option value=""> Seleccione Rol </option>
+                                <?php
+                                    $objCtrUsuario = new UsuarioController();
+                                    $listaUsuario = $objCtrUsuario -> ctrMostrarRol();  
+                                    foreach($listaUsuario as $dato){
+                                        echo'<option value="'.$dato["Cod_Rol"].'"> '.$dato["Descripcion"].' </option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="ContData">
                     <div>
-                        <label for="" class ="txt">NOMBRE:</label>
-                        <input type="text" name="txtNombre" id="" placeholder= "Ingrese nombre" class ="campT nombre" required>
-                        
-                        <label for="" class ="txt">APELLIDO:</label>
-                        <input type="text" name="txtApellido" id="" placeholder= "Ingrese apellido" class ="campT apellido" required>
-                        
+                        <div class="form-groun" id="grupoNombre">
+                            <div class="negacion">
+                                <label for="txtNombre" class ="txt">NOMBRE:</label>
+                                <input type="text" name="txtNombre" id="txtNombre" placeholder= "Ingrese nombre" class ="campT nombre" required>
+                                <i class="iconoDeError fas fa-times-circle"></i>
+                            </div>
+                            <p class="error">El nombre solo puede contener letras y espacios</p>
+                        </div>
+
+                        <div class="form-groun" id="grupoDocumento">
+                            <div class="negacion">
+                                <label for="txtDocumento" class ="txt">DOCUMENTO:</label>
+                                <input type="text" name="txtDocumento" id="txtDocumento" placeholder= "Ingrese documento" class ="campT documento" required>
+                                <i class="iconoDeError fas fa-times-circle"></i>
+                            </div>
+                            <p class="error">El documento debe contener de 7 a 11 digitos</p>
+                        </div>
+                        <div class="form-groun" id="grupoTelefono">
+                            <div class="negacion">
+                                <label for="txtTelefono" class ="txt">TELEFONO:</label>
+                                <input type="text" name="txtTelefono" id="txtTelefono" placeholder= "Ingrese telefono" class ="campT telefono" required>
+                                <i class="iconoDeError fas fa-times-circle"></i>
+                            </div>
+                            <p class="error">solo puede contener numeros de 8 a 10 digitos</p>
+                        </div>
+                        <div class="form-groun" id="grupoPassword">
+                            <div class="negacion">
+                            <label for="txtPass" class ="txt">CONTRASEÑA:</label>
+                            <input type="password" name="txtPass" id="txtPass" class="campT password" placeholder="Ingrese contraseña" required>
+                            <i class="iconoDeError fas fa-times-circle"></i>
+                            </div>
+                            <p class="error">Ambas contraseñas deben ser iguales</p>
+                        </div>
                     </div>
+
                     <div>
-                        <label for="" class ="txt">DOCUMENTO:</label>
-                        <input type="text" name="txtDocumento" id="" placeholder= "Ingrese documento" class ="campT documento" required>
-                        
-                        <label for="" class ="txt">NACIMIENTO:</label>
-                        <input type="date" name="txtNacimiento" id="" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento" required>
-                    </div>
-                    <div>
-                        <label for="" class ="txt">TELEFONO:</label>
-                        <input type="text" name="txtTelefono" id="" placeholder= "Ingrese telefono" class ="campT telefono" required>
-                        
-                        <label for="" class ="txt">CORREO:</label>
-                        <input type="text" name="txtCorreo" id="" placeholder= "Ingrese correo" class ="campT correo" required>
-                    </div>
-                    <div>
-                        <label for="" class ="txt">CONTRASEÑA:</label>
-                        <input type="password" name="txtPass" id="" class="campT password" placeholder="Ingrese contraseña" required>
-                        <label for="" class ="txt">CONTRASEÑA:</label>
-                        <input type="password" name="txtPass2" id="" class="campT password" placeholder="Ingrese nuevamente contraseña" required>
+                        <div class="form-groun" id="grupoApellido">
+                            <div class="negacion">
+                                <label for="txtApellido" class ="txt">APELLIDO:</label>
+                                <input type="text" name="txtApellido" id="txtApellido" placeholder= "Ingrese apellido" class ="campT apellido" required>
+                                <i class="iconoDeError fas fa-times-circle"></i>
+                            </div>
+                            <p class="error">El apellido solo puede contener letras y espacios</p>
+                        </div>
+                        <div class="form-groun" id="grupoNacimiento">
+                            <div class="negacion">
+                                <label for="txtNacimiento" class ="txt">NACIMIENTO:</label>
+                                <input type="date" name="txtNacimiento" id="txtNacimiento" placeholder= "Ingrese fecha de nacimiento" class ="campT fechaNacimiento" required>
+                                <i class="iconoDeError fas fa-times-circle"></i>
+                            </div>
+                            <p class="error">datos malos</p>
+                        </div>
+                        <div class="form-groun" id="grupoCorreo">
+                            <div class="negacion">
+                            <label for="txtCorreo" class ="txt">CORREO:</label>
+                            <input type="text" name="txtCorreo" id="txtCorreo" placeholder= "Ingrese correo" class ="campT correo" required>
+                            <i class="iconoDeError fas fa-times-circle"></i>
+                            </div>
+                            <p class="error">Correo invalido</p>
+                        </div>
+                        <div class="form-groun" id="grupoPassword2">
+                            <div class="negacion">
+                            <label for="txtPass2" class ="txt">CONTRASEÑA:</label>
+                            <input type="password" name="txtPass2" id="txtPass2" class="campT password" placeholder="Repetir contraseña" required>
+                            <i class="iconoDeError fas fa-times-circle"></i>
+                            </div>
+                            <p class="error">Ambas contraseñas deben ser iguales</p>
+                        </div>
                     </div>
                 </div>
                 <div class="contBtn">
@@ -76,7 +129,7 @@
                 if ($_POST["txtPass"] == $_POST["txtPass2"]) {
                     $objCon = new UsuarioController();
                     $objCon -> ctrCrearUsuario(
-                        $_POST["userName"],
+                        $_POST["txtUserName"],
                         $_POST["txtRol"],
                         $_POST["txtNombre"],
                         $_POST["txtApellido"],
@@ -102,5 +155,7 @@
 
             }
         ?>
+        <script src="view/js/menuUsuarios.js"></script>
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     </body>
 </html>
