@@ -233,6 +233,7 @@
                 echo "Error en el controlador ctrMostrarProductoModificar: ".$e->getMessage();
             }
             return $datos;
+            
         }//fin de la funcion ctrMostrarProductoModificar
     }
 ?>

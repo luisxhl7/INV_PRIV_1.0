@@ -27,10 +27,13 @@
                             <label for="txtTipoMovimiento" class="label1">TIPO MOVIMIENTOS</label>
                             <select name="" id="txtTipoMovimiento" class="txt-tipo-movimiento">
                                 <option value="">seleccione tipo</option>
-                                <option value="">salida</option>
-                                <option value="">entrada</option>
-                                <option value="">salida ajuste</option>
-                                <option value="">entrada ajuste</option>
+                                <?php
+                                    $objCtrMovimiento = new MovimientoController();
+                                    $listaMovimiento = $objCtrMovimiento -> ctrListarTipoMovimiento();  
+                                    foreach($listaMovimiento as $dato){
+                                        echo'<option value="'.$dato["Cod_Mov"].'"> '.$dato["Descripcion"].' </option>';
+                                    }
+                                ?>
                             </select>
 
                             <label for="txtCodigo" class="cont0"><i class="fa-solid fa-barcode"></i></label>

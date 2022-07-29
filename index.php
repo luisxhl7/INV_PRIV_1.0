@@ -4,6 +4,7 @@
     require_once "controller/plantilla.controller.php";
     require_once "controller/usuario.controller.php";
     require_once "controller/producto.controller.php";
+    require_once "controller/movimiento.controller.php";
     require_once "controller/clsMail.php";
 
     /*-----------------------------------------------------MODELOS-----------------------------------------------------*/
@@ -17,6 +18,7 @@
     require_once "model/dao/conexion.dao.php";
     require_once "model/dao/usuario.dao.php";
     require_once "model/dao/producto.dao.php";
+    require_once "model/dao/movimiento.dao.php";
     
     /*-----------------------COMPLEMENTOS PARA PODER ENVIAR CORREO CON LA CONTRASEÑA DEL USUARIO-----------------------*/
     require 'view/PHPMailer/Exception.php';
