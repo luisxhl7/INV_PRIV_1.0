@@ -43,6 +43,7 @@
                 text-align: center;
             }
         </style>
+        
             <div>                       <!-- TABLA DE USUARIOS -->
                 <table>
                     <thead>

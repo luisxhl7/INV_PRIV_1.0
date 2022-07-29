@@ -77,12 +77,9 @@
         
     } //Fin Clase
 
-    /* INSTANCIACION */
+    /* prueba de funcionalidad */
     //$objUsuario = new Usuario();
     //$objUsuario -> setNombre("luis");
     //$objUsuario -> setPass("123456");
     //$objUsuario -> setRol("Administrador");
-
-
-
 ?>

@@ -64,6 +64,7 @@
             }
                 
         }//fin de la funcion ctrCrearProducto
+
         public function ctrConsultarProducto(){               #Controlador de mostrar todos los productos
             /*=================DOCUMENTACION================== 
                 se crea una variable llamada lista con un estado false luego se crea un objeto DTO y se instancia la clase producto
@@ -83,6 +84,7 @@
             }
             return $lista;
         }//fin de la funcion ctrConsultarProducto
+
         public function ctrEliminarProducto($codigo){         #Controlador de eliminar productos
             /*==========DOCUMENTACION================
                 una vez capturado el dato de la vista se crea un objeto DTO y a su vez se instancia la clase de producto para
@@ -123,6 +125,7 @@
             }
 
         }//fin de la funcion ctrEliminarProducto
+
         public function ctrModificarProducto($nombre, $codigo, $cantidad, $precio, $categoria, $grupo, $descripcion){        #Controlador de modificar productos
             /*==========DOCUMENTACION================
                 una vez capturados todos los datos de la vista se crea un objeto DTO y a su vez se instancia la clase de producto para
@@ -169,6 +172,7 @@
                 echo "Error en el controlador ctrModificarProducto : ".$e->getMessage();
             }        
         }//fin de la funcion ctrModificarProducto
+
         public function ctrMostrarGrupos(){                   #Controlador de mostrar los grupos de los productos
             /*=================DOCUMENTACION================== 
                 se crea una variable llamada lista con un estado false luego se crea un objeto DTO y se instancia la clase producto
@@ -188,6 +192,7 @@
             }
             return $lista;
         }//fin de la funcion ctrMostrarGrupos
+
         public function ctrMostrarCategorias(){               #Controlador de mostrar las categorias de los productos
             /*=================DOCUMENTACION================== 
                 se crea una variable llamada lista con un estado false luego se crea un objeto DTO y se instancia la clase producto
@@ -207,6 +212,7 @@
             }
             return $lista;
         }//fin de la funcion ctrMostrarCategorias
+        
         public function ctrMostrarProductoModificar($codigo){ #Controlador de la vista de los datos del producto a modificar
             /*==========DOCUMENTACION================
                 una vez capturado el dato de la vista se crea un objeto DTO y a su vez se instancia la clase de producto para

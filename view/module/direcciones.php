@@ -2,10 +2,10 @@
     if (isset($_GET['ruta'])) {
         switch ($_GET['ruta']) {
             case 'menuPrincipal':
-                require_once "view/module/MenuPrincipal.php";
+                require_once "view/module/menuPrincipal.php";
                 break;
             case 'soporte':
-                require_once "view/module/Soporte.php";
+                require_once "view/module/soporte.php";
                 break;
             case 'ayuda':
                 require_once "view/module/ayuda.php";
@@ -26,20 +26,20 @@
                 require_once "view/module/movimiento.php";
                 break;
             case 'admUsuario':
-                require_once "view/module/MenuUsuario.php";    
+                require_once "view/module/menuUsuario.php";    
                 break;
             case 'registrarUsuario':
                 require_once "view/module/crearUsuario.php";    
                 break;  
             case 'editarUsuario':
-                require_once "view/module/EditarUsuario.php";    
+                require_once "view/module/editarUsuario.php";    
                 break;                 
             default:
-                require_once "view/module/MenuPrincipal.php";
+                require_once "view/module/menuPrincipal.php";
                 break;
         }
     }else {
-        require_once "view/module/MenuPrincipal.php";
+        require_once "view/module/menuPrincipal.php";
     }
 
 ?>
