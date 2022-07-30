@@ -24,6 +24,7 @@
     require 'view/PHPMailer/Exception.php';
     require 'view/PHPMailer/PHPMailer.php';
     require 'view/PHPMailer/SMTP.php';
+    require "view/complementos/dompdf/autoload.inc.php";
     
     /*------------------------------------------------OBJETO DE ARRNAQUE-----------------------------------------------*/
     /*==============================================

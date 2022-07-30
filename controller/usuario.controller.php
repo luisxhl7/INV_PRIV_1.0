@@ -61,7 +61,7 @@
                         }) 
                     </script>";
                 }
-            } catch (Exception $e) {
+            } catch (PDOException $e) {
                 echo "Error en controlador ctrCrearUsuario ".$e->getMessage();
             }
 

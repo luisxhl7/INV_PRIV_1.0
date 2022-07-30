@@ -89,7 +89,7 @@
       ?>
     </div>
     
-    <!--------------------------------------------------RECUPERAR CONTRASEÑA------------------------------------------------->
+    <!--------------------------------------------------RECORDAR CONTRASEÑA------------------------------------------------->
     <div id="Contenedor-recuperar">
       <h1 class= "titulo">¿DESEAS RECUPERAR TU CONTRASEÑA?</h1>
 
@@ -114,13 +114,16 @@
           </div>
         </form>  
       </div>
-    </div>
-    <?php                              /* CAPTURA DE DATOS PARA VALIDAR */
+      <?php                              /* CAPTURA DE DATOS PARA VALIDAR */
         if (isset($_POST["txtDocumento"]) and $_POST["txtDocumento"] != NULL) {
-          $objMail = new UsuarioController();
-          $objMail -> validarDatos($_POST["txtDocumento"],$_POST["txtCorreo"]); 
+          $objUsuario = new UsuarioController();
+          $objUsuario -> validarDatos(
+            $_POST["txtDocumento"],
+            $_POST["txtCorreo"]
+          ); 
         } 
-    ?>
+      ?>
+    </div>
 
     <!---------------------------------------------------CAMBIAR CONTRASEÑA-------------------------------------------------->
     <div id="Contenedor-cambiar">
@@ -175,18 +178,20 @@
           </div>
         </form>
         <?php
-            /* Si existe el Campo de texto txtpassorg-contraseña original  y este campo tiene un valor diferente a l Null 
-            se debe comparar la contraseña uno con la dos si se cumple con la condicion se instancia la clase usuarioController y se ejecuta la funcion validar usuario finalmente son enviados los parametros */
-            if(isset($_POST["txtPassOrg"]) and $_POST["txtPassOrg"] !=NULL){
-              if($_POST["txtPass1"]== $_POST["txtPass2"]){
-              $objcambioPass = new UsuarioController();
-              $objcambioPass -> ctrValidarUsuario($_POST["txtUserName"],$_POST["txtPassOrg"],$_POST["txtPass1"]);
-            
-              }else{
-                echo "<script>alert('Las contranseñas no son iguales')</script>";
-              }
+          /* Si existe el Campo de texto txtpassorg-contraseña original  y este campo tiene un valor diferente a l Null 
+          se debe comparar la contraseña uno con la dos si se cumple con la condicion se instancia la clase usuarioController y se ejecuta la funcion validar usuario finalmente son enviados los parametros */
+          if(isset($_POST["txtPassOrg"]) and $_POST["txtPassOrg"] !=NULL){
+            if($_POST["txtPass1"]== $_POST["txtPass2"]){
+              $objUsuario = new UsuarioController();
+              $objUsuario -> ctrValidarUsuario(
+                $_POST["txtUserName"],
+                $_POST["txtPassOrg"],
+                $_POST["txtPass1"]
+              );
+            }else{
+              echo "<script>alert('Las contranseñas no son iguales')</script>";
             }
-              
+          }
         ?>
       </div> 
     </div>

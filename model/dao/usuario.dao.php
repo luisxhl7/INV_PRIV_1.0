@@ -39,7 +39,7 @@
                 el procedimiento almacenado, si no se presentan errores la variable "resultSet" cambiara a estar true y se retornara
                 esta variable al controlador que llamo la funcion
             =================================================*/
-            $sql = "CALL SpInsertarUsuario  (?,?,?,?,?,?,?,?,?,?)";
+            $sql = "CALL SpInsertarUsuario(?,?,?,?,?,?,?,?,?,?)";
             $resultSet = false;
 
             try {
@@ -55,7 +55,6 @@
                 $stmt -> bindParam(8, $this->pass, PDO::PARAM_STR);
                 $stmt -> bindParam(9, $this->documento, PDO::PARAM_INT);
                 $stmt -> bindParam(10, $this->rol, PDO::PARAM_INT);
-
                 $stmt -> execute();
 
                 $resultSet = true;

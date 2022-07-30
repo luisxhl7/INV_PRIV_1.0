@@ -22,6 +22,9 @@
             case 'inventario':
                 require_once "view/module/inventario.php";
                 break;
+            case 'inventarioComparativo':
+                require_once "view/module/inventarioComparativo.php";
+                break;
             case 'movimiento':
                 require_once "view/module/movimiento.php";
                 break;
@@ -33,6 +36,12 @@
                 break;  
             case 'editarUsuario':
                 require_once "view/module/editarUsuario.php";    
+                break;
+            case 'reporteExcel':
+                require_once "view/complementos/reporteExcel.php";    
+                break;
+            case 'reportePdf':
+                require_once "view/complementos/reportePdf.php";    
                 break;                 
             default:
                 require_once "view/module/menuPrincipal.php";
