@@ -16,7 +16,9 @@
         <div class="contenedorP">
             <img src="http://<?php $_SERVER['HTTP_HOST'];?>/INV_PRIV_1.0/img/LOGO INV.PRIV-03.png" alt="">
             <div class="contInventario">
-                <table id="tabla" class="tabla" style="width:100%">
+                <img src="view/img/LOGO INV.PRIV-03.png" alt="" id="Logo" class="Logo">
+
+                <table style="border: 1px;">
                     <thead>
                         <tr>
                             <th>CODIGO</th>
@@ -26,7 +28,6 @@
                             <th>EXISTENCIAS</th>
                             <th>PRECIO UNIDAD</th>
                             <th>PRECIO TOTAL</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -64,10 +65,7 @@
     $dompdf -> setOptions($options);
     $dompdf -> loadHtml($html);
     $dompdf -> setPaper('letter');
-    //$dompdf -> setPaper('A4','landscape');
+    //$dompdf -> setPaper('A4','landscape'); crea las hojas del pdf de forma horizontal
     $dompdf -> render();
-    $dompdf -> stream("inventario.pdf", array("Attachment" => false));
-
-
-
+    $dompdf -> stream("inventario.pdf", array("Attachment" => true));
 ?>

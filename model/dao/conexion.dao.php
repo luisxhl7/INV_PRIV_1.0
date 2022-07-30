@@ -27,14 +27,14 @@
             =================================================*/
             $resultSet = false;
 
-            $sql = " CALL SpIniciarSesion(?,?,?)";
+            $sql = "CALL SpIniciarSesion(?,?,?)";
 
             try {
                 $con = new Conexion();
                 $stmt = $con -> conexion() -> prepare($sql);
                 $stmt -> bindParam(1, $this -> user, PDO::PARAM_STR);
                 $stmt -> bindParam(2, $this -> pass, PDO::PARAM_STR);
-                $stmt -> bindParam(3, $this -> rol, PDO::PARAM_STR);
+                $stmt -> bindParam(3, $this -> rol, PDO::PARAM_INT);
 
                 $stmt -> execute();
                 $resultSet = $stmt;
