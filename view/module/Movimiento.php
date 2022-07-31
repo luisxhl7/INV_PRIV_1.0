@@ -38,6 +38,7 @@
 
                             <label for="txtCodigo" class="cont0"><i class="fa-solid fa-barcode"></i></label>
                             <input type="text" name="" id="txtCodigo" class="txt-Camp" placeholder="ingrese codigo">
+
                         </div>
                         <div class="cont-Unidades">                 <!-- estilo no terminado-->
                             <label for="" class="label2">
@@ -49,21 +50,22 @@
                             <div>
                                 <label for="txtNombre" class="text-label">NOMBRE:</label>
                                 <input type="text" name="txtNombre" id="txtNombre" class="txt-Camp" placeholder="automatico">
-                                <label for="txtCodigo" class="text-label">CODIGO:</label>
+                                <label for="txtCodigo" class="text-label">PRECIO:</label>
                                 <input type="text" name="txtCodigo" id="txtCodigo" class="txt-Camp" placeholder="automatico">
                             </div>
                             <div>
-                                <label for="txtCategoria" class="text-label">CATEGORIA:</label>
-                                <input type="text" name="txtCategoria" id="txtCategoria" class="txt-Camp" placeholder="automatico">
-                                <label for="txtGrupo" class="text-label">GRUPO:</label>
-                                <input type="text" name="txtGrupo" id="txtGrupo" class="txt-Camp" placeholder="automatico">
-                            </div>
-                            <div>
-                                <label for="txtPrecio" class="text-label">PRECIO:</label>
+                                <label for="txtPrecio" class="text-label">GRUPO:</label>
                                 <input type="text" name="txtPrecio" id="txtPrecio" class="txt-Camp" placeholder="automatico">
-                                <label for="txtTotal" class="text-label">TOTAL:</label>
+                                <label for="txtTotal" class="text-label">CATEGORIA:</label>
                                 <input type="text" name="txtTotal" id="txtTotal" class="txt-Camp" placeholder="automatico">
                             </div>
+                            <div>
+                                <label for="txtCategoria" class="text-label">DESCRIP.:</label>
+                                <input type="text" name="txtCategoria" id="txtCategoria" class="txt-Camp" placeholder="automatico">
+                                <label for="txtGrupo" class="text-label">EXISTENCIA:</label>
+                                <input type="text" name="txtGrupo" id="txtGrupo" class="txt-Camp" placeholder="automatico">
+                            </div>
+                            
                         </div>
                         <div class="contBotones">
                             <div class ="contBtn">
