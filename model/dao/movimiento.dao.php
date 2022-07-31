@@ -71,5 +71,6 @@
             return $resulset;
 
         }//FIN DE LA FUNCION mdlListarMovimiento
+
     }
 ?>
