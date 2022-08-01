@@ -205,7 +205,7 @@ P{                                                  /* Diseño del parrafo */
     height: 195px;
     width: 100%;
 }
-.campTxt-recuperarPass{                                           /* Diseño de los campos del texto ID USUARIO Y E-MAIL */
+.campTxt-recuperarPass{                             /* Diseño de los campos del texto Documento Y E-MAIL */
     display: block;
     width: 270px;
     height: 40px;
@@ -215,10 +215,10 @@ P{                                                  /* Diseño del parrafo */
     border-radius: 7px;
     border-bottom: 2px solid rgb(0, 0, 0);
     background-color: transparent;
-    color: rgb(0, 0, 0);
+    color: white;
     outline: none;
 }
-.campTxt:hover, .campTxt:focus{                   /* Diseño de reaccion de los campos de texto */
+.campTxt-recuperarPass:hover, .campTxt-recuperarPass:focus{                     /* Diseño de reaccion de los campos de texto */
     border-style: none;
     border-bottom: 2px solid rgb(139, 248, 50);
     border-radius: 7px;  
@@ -275,23 +275,18 @@ P{                                                  /* Diseño del parrafo */
     margin: 50px auto 10px auto;
 }
 #Contenedor-cambiar{
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     width: 1400px;
     height: 600px;
-    margin: auto;
+    margin: 0px auto;
     display: none;
 }
 .container2{                                        /* Diseño del contenedor del formulario */
     width: 1200px;
-    height: 500px;
+    height: 340px;
     margin: auto;
-    position: relative;
+    display: flex;
 }
 .contDts{                                           /* Diseño del contenedor de datos del usuario */
-    position: absolute;
     width: 500px;
     height: 250px;
     margin: 30px 66px;
@@ -299,8 +294,6 @@ P{                                                  /* Diseño del parrafo */
 .contPassword{                                      /* Diseño del contenedor de las nuevas contraseñas */
     width: 500px;
     height: 250px;
-    position: absolute;
-    right: 0px;
     margin: 30px 66px;
 }
 .titulos{                                           /* Diseño del titulo del contenedor de datos de usuario */
@@ -345,33 +338,39 @@ P{                                                  /* Diseño del parrafo */
 .conDato{                                           /* Diseño de los contenedores de campos de texto*/
     position: relative;
     display: block;
-    margin: 44px auto;
+    margin: 46px auto;
 }
-.icono-CC{                                          /* Diseño del boton icono candado */                                   
+.icono-CC{                                          /* Posision de los iconos */                                   
     position: absolute;
     font-size: 18px;
-    left: 118px;
-    top: 36px;
+    left: 104px;
+    top: 40px;
+}
+.icono-CCN{                                          /* Posision de los iconos */                                   
+    position: absolute;
+    font-size: 18px;
+    left: -12px;
+    top: 68px;
 }
 div.conDato > label{
     display: block;
     margin: auto;
 }
+.cont-btn-CC{
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
 .conBtn1{                                           /* Diseño del contenedor del boton confirmr*/
-    display: block;
     width: 200px;
     height: 100px;
-    margin: -22px 500px;
-    position: absolute;   
-    bottom: 100px; 
-
+    margin: auto;
 }
 .conBtn2{                                           /* Diseño del contenedor de boton cancelar*/
     width: 200px;
     height: 100px;
-    margin: -10px 500px;
-    position: absolute;
-    bottom: 0px; 
+    margin: auto;
 }
 .btnConfirmar{                                      /* Diseño del boton confirmar */
     width: 150px;
@@ -393,4 +392,58 @@ div.conDato > label{
 }
 .btnConfirmar:hover, .btnCancel:hover{              /* Diseño de reaccion de los botones confirmar y cancelar */
     border-color: rgb(139, 248, 50);   
+}
+
+
+.form-groun{
+    position: relative;
+    margin: 15px auto;
+}
+.negacion{  
+    position: relative;
+    height: 72px;
+    width: 271px;
+    margin: auto;
+}
+.icono{
+	position: absolute;
+    right: -33px;
+    bottom: 6px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 100;
+    visibility: visible;
+}
+.error{
+    font-size: 17px;
+	margin-bottom: 0;
+    visibility: hidden;
+    text-align: center;
+    margin-top: 5px;
+    color: #bb2929;
+}
+.error-activo{
+    visibility: visible;
+}
+.form-groun-correcto .icono{
+    color: #1ed12d;
+    opacity: 1;
+}
+.form-groun-correcto .campT{
+    border: 3px solid #1ed12d ;
+}
+.form-groun-incorrecto .icono{
+    color: #bb2929;
+    opacity: 1;
+}
+.form-groun-incorrecto .campT{
+    border: 3px solid #bb2929 ;
+}
+.fa-solid-fa-unlock:before {
+    position: absolute;
+    left: -58px;
+    top: -16px;
+}
+.posicion-rol{
+    margin: 30px auto;
 }

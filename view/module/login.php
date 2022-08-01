@@ -128,78 +128,88 @@
     <!---------------------------------------------------CAMBIAR CONTRASEÑA-------------------------------------------------->
     <div id="Contenedor-cambiar">
       <h1 class ="titulo2">¿DESEAS CAMBIAR TU CONTRASEÑA?</h1>
-      <div class = "container2">
-        <form method="post">
+      <form method="post" id="formCambiarPass">
+        <div class = "container2">
           <div class = "contDts">                              <!-- CONTENEDOR DE DATOS DE USUARIO--> 
-            <fieldset class = "al">
-              <legend class ="titulos">DATOS DE USUARIO</legend>
-              <div class = "conDato">
-                <label for="" > 
-                  <p class = "txtCamp">USER NAME:</p><br>
-                  <span class= "icono-CC"><i class="fa-solid fa-user-shield"></i></span>
-                  <input type="text" name="txtUserName" id="txtUserName" class = "campTxt2" required >
-                </label>    
-              </div>
-              <div class = "conDato">
-                <label for="contrasenaAct">
-                  <p class = "txtCamp">CONTRASEÑA ACTUAL:</p><br>
-                  <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="txtPassOrg" id="txtPassOrg" class = "campTxt2" required>
-                </label>
-              </div> 
-            </fieldset>
+              <fieldset class = "al">
+                <legend class ="titulos">DATOS DE USUARIO</legend>
+                <div class = "conDato">
+                  <label for="txtUserName" > 
+                    <p class = "txtCamp">USER NAME:</p><br>
+                    <span class= "icono-CC"><i class="fa-solid fa-user-shield"></i></span>
+                    <input type="text" name="txtUserName" id="txtUserName" class = "campTxt2" required >
+                  </label>    
+                </div>
+                <div class = "conDato">
+                  <label for="txtPassOrg">
+                    <p class = "txtCamp">CONTRASEÑA ACTUAL:</p><br>
+                    <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
+                    <input type="password" name="txtPassOrg" id="txtPassOrg" class = "campTxt2" required>
+                  </label>
+                </div> 
+              </fieldset>
           </div>     
 
           <div class = "contPassword">                         <!-- CONTENEDOR DE NUEVA CONTRASEÑA -->
-            <fieldset class = "al">
-              <legend class ="titulos">NUEVA CONTRASEÑA</legend>
-              <div class = "conDato">
-                <label for="">
-                  <p class = "txtCamp">NUEVA CONTRASEÑA:</p><br>
-                  <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="txtPass1" id="txtPass1" class = "campTxt2" required>    
-                </label>
-              </div>
-              <div class = "conDato">
-                <label for="">
-                  <p class = "txtCamp">CONFIRMAR CONTRASEÑA:</p><br>
-                  <span class="icono-CC"><i class="fa-solid fa-unlock"></i></span>
-                  <input type="password" name="txtPass2" id="txtPass2" class = "campTxt2" required>
-                </label>
-              </div> 
-            </fieldset>
+              <fieldset class = "al">
+                <legend class ="titulos">NUEVA CONTRASEÑA</legend>
+                <div class="form-groun" id="grupoPassword">
+                  <div class="negacion">
+                    <label for="txtPass1">
+                      <p class = "txtCamp">NUEVA CONTRASEÑA:</p><br>
+                      <input type="password" name="txtPass1" id="txtPass1" class = "campTxt2" required>    
+                    </label>
+                    <span class="icono-CCN"><i class="icono fa-solid fa-unlock"></i></span>
+                  </div>
+                  <p class="error">El Password debe contener entre 4 a 20 carapteres</p>
+                </div>
+
+                <div class="form-groun" id="grupoPassword2">
+                  <div class="negacion">
+                    <label for="txtPass2">
+                      <p class = "txtCamp">NUEVA CONTRASEÑA:</p><br>
+                      <input type="password" name="txtPass2" id="txtPass2" class = "campTxt2" required>    
+                    </label>
+                    <span class="icono-CCN"><i class="icono fa-solid fa-unlock"></i></span>
+                  </div>
+                  <p class="error">Ambas contraseñas deben ser iguales</p>
+                </div>
+              </fieldset>
           </div>
-          
+        </div>
+        <div class="cont-btn-CC">
           <div class = "conBtn1">                              <!-- CONTENEDOR DE BOTON CONFIRMAR -->
             <input type="submit" value="CONFIRMAR" class = "btnConfirmar">
           </div>
+
           <div class = "conBtn2">                              <!-- CONTENEDOR DE BOTON CANCELAR -->
             <input type="button" value="CANCELAR" class = "btnCancel" id="Btn-Cancel2">
           </div>
-        </form>
-        <?php
-          /* Si existe el Campo de texto txtpassorg-contraseña original  y este campo tiene un valor diferente a l Null 
-          se debe comparar la contraseña uno con la dos si se cumple con la condicion se instancia la clase usuarioController y se ejecuta la funcion validar usuario finalmente son enviados los parametros */
-          if(isset($_POST["txtPassOrg"]) and $_POST["txtPassOrg"] !=NULL){
-            if($_POST["txtPass1"]== $_POST["txtPass2"]){
-              $objUsuario = new UsuarioController();
-              $objUsuario -> ctrValidarUsuario(
-                $_POST["txtUserName"],
-                $_POST["txtPassOrg"],
-                $_POST["txtPass1"]
-              );
-            }else{
-              echo "<script>alert('Las contranseñas no son iguales')</script>";
-            }
+        </div>
+      </form>
+      <?php
+        /* Si existe el Campo de texto txtpassorg-contraseña original  y este campo tiene un valor diferente a l Null 
+        se debe comparar la contraseña uno con la dos si se cumple con la condicion se instancia la clase usuarioController y se ejecuta la funcion validar usuario finalmente son enviados los parametros */
+        if(isset($_POST["txtPassOrg"]) and $_POST["txtPassOrg"] !=NULL){
+          if($_POST["txtPass1"]== $_POST["txtPass2"]){
+            $objUsuario = new UsuarioController();
+            $objUsuario -> ctrValidarUsuario(
+              $_POST["txtUserName"],
+              $_POST["txtPassOrg"],
+              $_POST["txtPass1"]
+            );
+          }else{
+            echo "<script>alert('Las contranseñas no son iguales')</script>";
           }
-        ?>
-      </div> 
+        }
+      ?>
     </div>
     
     <!-----------------------------------------------------DIRECCIONES JS---------------------------------------------------->
       <script src="view/js/jquery-3.6.0.min.js"></script>
       <script src="view/js/TweenMax.min.js"></script>
       <script src="view/js/login.js"></script>
-    
+      <script src="view/js/validarCambarPass.js"></script>
+      <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
   </body>
 </html>

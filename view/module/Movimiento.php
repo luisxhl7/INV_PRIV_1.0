@@ -37,8 +37,7 @@
                             </select>
 
                             <label for="txtCodigo" class="cont0"><i class="fa-solid fa-barcode"></i></label>
-                            <input type="text" name="Cod_Producto" id="Cod_Producto" class="form-control" placeholder="ingrese codigo" onblur="buscar_datos();">
-
+                            <input type="text" name="" id="txtCodigo" class="txt-Camp" placeholder="ingrese codigo">
                         </div>
                         <div class="cont-Unidades">                 <!-- estilo no terminado-->
                             <label for="" class="label2">
@@ -70,8 +69,8 @@
                         <div class="contBotones">
                             <div class ="contBtn">
                                 <label for="push1">
-                                    <i class="fa-solid fa-floppy-disk"><p class="txt-btm">GUARDAR</p></i>
-                                    <button class="boton1" name ="push1" id = "push1">GUARDAR</button>
+                                    <i class="fa-solid fa-circle-plus"><p class="txt-btm">AÑADIR</p></i>
+                                    <button class="boton1" name ="push1" id = "push1">AÑADIR</button>
                                 </label>
                             </div>
                             <div class ="contBtn">
@@ -89,7 +88,7 @@
                             </label>
                         </div>
                         <div class="cont-titulo-imagen">
-                            <h2 class="titulo">TITULO</h2>
+                            <h2 class="titulo"></h2>
                         </div>
                         <div class="cont-imagen">
                             <div class="imagen">
@@ -97,177 +96,68 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div id="cont-validar"> <!---------------------------------- CONTENEDOR DE VALIDACION  ---------------------------------->
-                    <div>                       <!-- TABLA DE VALIDACION DE MOVIMIENTO -->
-                        <div>
-                            <br><br>
-                            <b>PROCEDIMIENTO : SALIDA</b>
-                            <b>FECHA : 01/01/2022</b>
-                            <b>HORA : 9:00 AM</b>
-                            <b>ID USUARIO : LUISCHL7</b>
-                            <br><br>
+                    <div>
+                        <div class="cont-info-mov">
+                            <label for="">PROCEDIMIENTO:
+                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="">
+                            </label>
+                            <label for="">FECHA:
+                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="">
+                            </label>
+                            <label for="">HORA:
+                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="">
+                            </label>
+                            <label for="">ID USUARIO:
+                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="">
+                            </label>
                         </div>
                         <div>
                             <table border="1" class="tabla">
-                            <tr>
-                                <th style="width: 150px;">CODIGO</th>
-                                <th style="width: 150px;">NOMBRE</th>
-                                <th style="width: 150px;">GRUPO</th>
-                                <th style="width: 150px;">CATEGORIA</th>
-                                <th style="width: 150px;">DESCRIPCION</th>
-                                <th style="width: 150px;">UNIDADES</th>
-                                <th style="width: 150px;">VALOR</th>
-                            </tr>
-                            <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>
-                            <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>                        <tr>
-                                <td>99991</td>
-                                <td>dog show</td>
-                                <td>comida</td>
-                                <td>canino</td>
-                                <td>alimento para cachorros</td>
-                                <td>2</td>
-                                <td>$15.500</td>
-                            </tr>
-                            <tr>
-                                <td colspan="5"></td>
-                                <td>VALOR TOTAL</td>
-                                <td>$15.500</td>
-                            </tr>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 150px;">CODIGO</th>
+                                        <th style="width: 150px;">NOMBRE</th>
+                                        <th style="width: 150px;">GRUPO</th>
+                                        <th style="width: 150px;">CATEGORIA</th>
+                                        <th style="width: 150px;">DESCRIPCION</th>
+                                        <th style="width: 150px;">UNIDADES</th>
+                                        <th style="width: 150px;">VALOR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>99991</td>
+                                        <td>dog show</td>
+                                        <td>comida</td>
+                                        <td>canino</td>
+                                        <td>alimento para cachorros</td>
+                                        <td>2</td>
+                                        <td>$15.500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>99991</td>
+                                        <td>dog show</td>
+                                        <td>comida</td>
+                                        <td>canino</td>
+                                        <td>alimento para cachorros</td>
+                                        <td>2</td>
+                                        <td>$15.500</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="5"></td>
+                                        <td>VALOR TOTAL</td>
+                                        <td>$15.500</td>
+                                    </tr>
+                                </tfoot>
                         </table>
                     </div>
                     <div class="contBtnEnviar">
-                        <i class="fa-solid fa-person-rifle"></i>
-                        <input type="button" value="enviar" class="btnEnviar">
+                        <input type="button" value="GUARDAR" class="btnEnviar">
+                        <input type="button" value="ELIMINAR" class="btnEnviar">
                     </div>
                 </div>
             </form>
