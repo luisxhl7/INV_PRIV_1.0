@@ -25,7 +25,7 @@
     require 'view/PHPMailer/PHPMailer.php';
     require 'view/PHPMailer/SMTP.php';
     require "view/complementos/dompdf/autoload.inc.php";
-    
+  
     /*------------------------------------------------OBJETO DE ARRNAQUE-----------------------------------------------*/
     /*==============================================
     una vez que el usuario es validado se crea un objeto y se instancia la plantillaController y se ejecuta la funcion ctrPlantilla
