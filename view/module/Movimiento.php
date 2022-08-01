@@ -20,7 +20,7 @@
                 <span class = "btnMenu" id ="boton-movimiento">MOVIMIENTOS</span>
                 <span class = "btnMenu" id ="boton-validar">VALIDAR</span>
             </div>
-            <form method="post">
+            <form>
                 <div id="cont-movimiento" class="cont-movimiento"><!---------------------------------- CONTENEDOR DEL FORMULARIO  ---------------------------------->
                     <div class="contIzq">   
                         <div class="cont1">                 <!-- estilo no terminado-->
@@ -48,21 +48,21 @@
                         <div class="conForm">               <!-- estilo no terminado-->
                             <div>
                                 <label for="txtNombre" class="text-label">NOMBRE:</label>
-                                <input type="text" name="txtNombre" id="txtNombre" class="txt-Camp" placeholder="automatico">
+                                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="automatico">
                                 <label for="txtCodigo" class="text-label">PRECIO:</label>
-                                <input type="text" name="txtCodigo" id="txtCodigo" class="txt-Camp" placeholder="automatico">
+                                <input type="text" name="txtPrecio" id="txtPrecio" class="form-control" placeholder="automatico">
                             </div>
                             <div>
                                 <label for="txtPrecio" class="text-label">GRUPO:</label>
-                                <input type="text" name="txtPrecio" id="txtPrecio" class="txt-Camp" placeholder="automatico">
+                                <input type="text" name="txtGrupo" id="txtGrupo" class="form-control" placeholder="automatico">
                                 <label for="txtTotal" class="text-label">CATEGORIA:</label>
-                                <input type="text" name="txtTotal" id="txtTotal" class="txt-Camp" placeholder="automatico">
+                                <input type="text" name="txtCategoria" id="txtCategoria" class="form-control" placeholder="automatico">
                             </div>
                             <div>
                                 <label for="txtCategoria" class="text-label">DESCRIP.:</label>
-                                <input type="text" name="txtCategoria" id="txtCategoria" class="txt-Camp" placeholder="automatico">
+                                <input type="text" name="txtCategoria" id="txtCategoria" class="form-control" placeholder="automatico">
                                 <label for="txtGrupo" class="text-label">EXISTENCIA:</label>
-                                <input type="text" name="txtGrupo" id="txtGrupo" class="txt-Camp" placeholder="automatico">
+                                <input type="text" name="txtExistencia" id="txtExistencia" class="form-control" placeholder="automatico">
                             </div>
                             
                         </div>
@@ -162,9 +162,7 @@
                 </div>
             </form>
         </div>
-
-
-
+       
             <!-----------------------------------------------------DIRECCIONES JS---------------------------------------------------->
         <script src="view/js/jquery-3.6.0.min.js"></script>
         <script src="view/js/TweenMax.min.js"></script>
