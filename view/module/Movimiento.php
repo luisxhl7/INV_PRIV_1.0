@@ -38,7 +38,6 @@
 
                             <label for="txtCodigo" class="cont0"><i class="fa-solid fa-barcode"></i></label>
                             <input type="text" name="" id="txtCodigo" class="txt-Camp" placeholder="ingrese codigo">
-
                         </div>
                         <div class="cont-Unidades">                 <!-- estilo no terminado-->
                             <label for="" class="label2">
@@ -97,7 +96,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div id="cont-validar"> <!---------------------------------- CONTENEDOR DE VALIDACION  ---------------------------------->
                     <div>                       <!-- TABLA DE VALIDACION DE MOVIMIENTO -->
