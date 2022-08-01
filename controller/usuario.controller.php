@@ -376,7 +376,16 @@
                     $enviado = $mailSend->metEnviar($titulo,$Correo,$asunto,$bodyHTML);
     
                     if($enviado){
-                        echo "<script>alert('Enviado');</script>";
+                        echo"<script>
+                            Swal.fire({
+                                title: 'ENVIADO',
+                                text: 'se acaba de enviar tu contraseña al correo de: ".$Correo."',
+                                icon: 'success',
+                                showCancelButton: false,
+                                confirmButtonColor: '#3085d6',
+                                confirmButtonText: 'Aceptar'
+                            })
+                        </script>";
                     }else{
                         echo "<script>alert('No se envió correo');</script>";
                     }       

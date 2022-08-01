@@ -205,7 +205,7 @@ P{                                                  /* Diseño del parrafo */
     height: 195px;
     width: 100%;
 }
-.campTxt-recuperarPass{                                           /* Diseño de los campos del texto ID USUARIO Y E-MAIL */
+.campTxt-recuperarPass{                             /* Diseño de los campos del texto Documento Y E-MAIL */
     display: block;
     width: 270px;
     height: 40px;
@@ -215,10 +215,10 @@ P{                                                  /* Diseño del parrafo */
     border-radius: 7px;
     border-bottom: 2px solid rgb(0, 0, 0);
     background-color: transparent;
-    color: rgb(0, 0, 0);
+    color: white;
     outline: none;
 }
-.campTxt:hover, .campTxt:focus{                   /* Diseño de reaccion de los campos de texto */
+.campTxt-recuperarPass:hover, .campTxt-recuperarPass:focus{                     /* Diseño de reaccion de los campos de texto */
     border-style: none;
     border-bottom: 2px solid rgb(139, 248, 50);
     border-radius: 7px;  
