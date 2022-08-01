@@ -94,10 +94,10 @@
       <h1 class= "titulo">¿DESEAS RECUPERAR TU CONTRASEÑA?</h1>
 
       <div class = "container">                <!--   CUERPO   -->
+        <div class= "contTexto">             <!-- Contenedor de texto -->
+          <P>INGRESA EL DOCUMENTO Y EL CORREO CON EL CUAL ESTA REGISTRADO PARA ENVIAR LA CONTRASEÑA ACTUAL AL CORREO.</P>
+        </div>
         <form method="post">   
-          <div class= "contTexto">             <!-- Contenedor de texto -->
-            <P>INGRESA EL ID DE USUARIO Y EL CORREO CON EL CUAL ESTA REGISTRADO PARA ENVIAR LA CONTRASEÑA ACTUAL AL CORREO.</P>
-          </div>
           <div class="cont-form">
             <div class = "contCampTxt">          <!-- Contenedor de campo de texto ID USUARIO -->
             <div>

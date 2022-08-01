@@ -160,14 +160,7 @@ img{                                               /* Condiciones de las imagene
 /*---------------------------------------------------RECUPERAR CONTRASEÑA---------------------------------------------------*/
 
 #Contenedor-recuperar{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     margin: auto;
-    width: 850px;
-    height: 500px;
     margin: auto;
     padding-top: 1px;
     display: none;
@@ -179,11 +172,12 @@ img{                                               /* Condiciones de las imagene
 .titulo{                                            /* Diseño del titulo */
     color: rgb(255, 255, 255);
     text-align: center;
+    font-size: calc(1.375rem + 1.5vw);
 }
 .contTexto{                                         /* Diseño del contenedor del texto */
     height: 70px;
-    width: 700px;
-    margin: 0px auto;
+    max-width: 600px;
+    margin: 0px auto 30px;
 }
 P{                                                  /* Diseño del parrafo */
     text-align: center;
@@ -191,7 +185,6 @@ P{                                                  /* Diseño del parrafo */
     font-size: 20px;
 }
 .cont-form{
-    display: block;
     margin: auto;
     width: 360px;
     height: 370px;
@@ -446,4 +439,12 @@ div.conDato > label{
 }
 .posicion-rol{
     margin: 30px auto;
+}
+
+/*-------------------------------------------------------------- RESPONSE ---------------------------------------------------------------*/
+
+@media screen and (max-width: 426px) {
+    p{
+        font-size: 17px;
+    }
 }

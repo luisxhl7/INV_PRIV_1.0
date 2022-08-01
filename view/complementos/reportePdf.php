@@ -1,5 +1,10 @@
 <?php
-    ob_start();
+    date_default_timezone_set('America/Bogota');    
+    $fecha = date('m-d-Y', time());
+    $hora = date('h:i:s a', time());
+    $nombreImagen = "view/img/LOGO INV.PRIV-03.png";
+    $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nombreImagen));
+    ob_start(); //inicio de la captura del html
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,20 +19,27 @@
     </head>
     <body class="interfazGeneral">
         <div class="contenedorP">
-            <img src="http://<?php $_SERVER['HTTP_HOST'];?>/INV_PRIV_1.0/img/LOGO INV.PRIV-03.png" alt="">
             <div class="contInventario">
-                <img src="view/img/LOGO INV.PRIV-03.png" alt="" id="Logo" class="Logo">
-
-                <table style="border: 1px;">
+                <table border="2" style="border-style: solid;">
                     <thead>
+                        <tr> <th></th>
+                            <th rowspan="2"><img src="http://<?php $_SERVER['HTTP_HOST'];?>/INV_PRIV_1.0/view/img/fondo.jpg" alt=""></th>
+                            <th colspan="4" rowspan="2">INV PRIV</th>
+                            <th>FECHA</th>
+                            <th>HORA</th>
+                        </tr>
                         <tr>
-                            <th>CODIGO</th>
-                            <th>NOMBRE</th>
-                            <th>GRUPO</th>
-                            <th>CATEGORIA</th>
-                            <th>EXISTENCIAS</th>
-                            <th>PRECIO UNIDAD</th>
-                            <th>PRECIO TOTAL</th>
+                            <th><?php echo $fecha;?></th>
+                            <th><?php echo $hora;?></th>
+                        </tr>
+                        <tr>
+                            <th bgcolor="greenyellow">CODIGO</th>
+                            <th bgcolor="greenyellow">NOMBRE</th>
+                            <th bgcolor="greenyellow">GRUPO</th>
+                            <th bgcolor="greenyellow">CATEGORIA</th>
+                            <th bgcolor="greenyellow">EXISTENCIAS</th>
+                            <th bgcolor="greenyellow">PRECIO UNIDAD</th>
+                            <th bgcolor="greenyellow">PRECIO TOTAL</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +67,7 @@
     </body>
 </html>
 <?php
-    $html = ob_get_clean();
+    $html = ob_get_clean(); //final de la captura del html
     //echo $html;
     use Dompdf\Dompdf;
     
