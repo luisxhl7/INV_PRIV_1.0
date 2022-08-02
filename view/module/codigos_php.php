@@ -16,7 +16,7 @@
 		  	$valores['Precio'] = $consulta['Precio'];
 		  	$valores['Grupo'] = $consulta['Cod_Grupo'];	
             $valores['Categoria'] = $consulta['Cod_Categoria'];
-		  	$valores['Existencia'] = $consulta['Existencia'];	    
+		  	$valores['Existencia'] = $consulta['Existencia'];    
 		}
 
 		sleep(1);

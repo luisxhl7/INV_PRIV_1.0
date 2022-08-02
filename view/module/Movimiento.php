@@ -23,7 +23,7 @@
                 <span class = "btnMenu" id ="boton-movimiento">MOVIMIENTOS</span>
                 <span class = "btnMenu" id ="boton-validar">VALIDAR</span>
             </div>
-            <form method="post">
+            <form method="post" autocomplete="off" enctype="multipart/form-data">
                 <div id="cont-movimiento" class="cont-movimiento"><!---------------------------------- CONTENEDOR DEL FORMULARIO  ---------------------------------->
                     <div class="contIzq">   
                         <div class="cont1">                 <!-- estilo no terminado-->
@@ -40,9 +40,9 @@
                             </select>
 
                             <label for="txtCodigo" class="cont0"><i class="fa-solid fa-barcode"></i></label>
-                            <input type="text" name="Cod_Producto" id="Cod_Producto" class="form-control" placeholder="ingrese codigo" onblur="buscar_datos();">
+                            <input type="text" name="Cod_Producto" id="Cod_Producto" class="txt-Camp" placeholder="ingrese codigo" onblur="buscar_datos();">
                         </div>
-                        <div class="cont-Unidades">                 <!-- estilo no terminado-->
+                        <div class="cont-Unidades">          <!-- estilo no terminado-->
                             <label for="" class="label2">
                                 N unidades
                                 <input type="text" name="txtUnidades" id="txtUnidades" class="txt-Camp" placeholder="Ingrese unidades">
@@ -51,23 +51,22 @@
                         <div class="conForm">               <!-- estilo no terminado-->
                             <div>
                                 <label for="txtNombre" class="text-label">NOMBRE:</label>
-                                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="automatico" readonly="true">
+                                <input type="text" name="txtNombre" id="txtNombre" class="camp-txt-auto" placeholder="automatico" readonly="true">
                                 <label for="txtCodigo" class="text-label">PRECIO:</label>
-                                <input type="text" name="txtPrecio" id="txtPrecio" class="form-control" placeholder="automatico" readonly="true">
+                                <input type="text" name="txtPrecio" id="txtPrecio" class="camp-txt-auto" placeholder="automatico" readonly="true">
                             </div>
                             <div>
                                 <label for="txtPrecio" class="text-label">GRUPO:</label>
-                                <input type="text" name="txtGrupo" id="txtGrupo" class="form-control" placeholder="automatico" readonly="true">
+                                <input type="text" name="txtGrupo" id="txtGrupo" class="camp-txt-auto" placeholder="automatico" readonly="true">
                                 <label for="txtTotal" class="text-label">CATEGORIA:</label>
-                                <input type="text" name="txtCategoria" id="txtCategoria" class="form-control" placeholder="automatico" readonly="true">
+                                <input type="text" name="txtCategoria" id="txtCategoria" class="camp-txt-auto" placeholder="automatico" readonly="true">
                             </div>
                             <div>
                                 <label for="txtCategoria" class="text-label">DESCRIP.:</label>
-                                <input type="text" name="txtCategoria" id="txtCategoria" class="form-control" placeholder="automatico" readonly="true">
+                                <input type="text" name="txtCategoria" id="txtCategoria" class="camp-txt-auto" placeholder="automatico" readonly="true">
                                 <label for="txtGrupo" class="text-label">DISPONIBLE:</label>
-                                <input type="text" name="txtExistencia" id="txtExistencia" class="form-control" placeholder="automatico" readonly="true">
-                            </div>
-                            
+                                <input type="text" name="txtExistencia" id="txtExistencia" class="camp-txt-auto" placeholder="automatico" readonly="true">
+                            </div>            
                         </div>
                         <div class="contBotones">
                             <div class ="contBtn">
@@ -86,15 +85,18 @@
                     </div>
                     <div class="contDrc">
                         <div class="contFecha">
-                        <h2 id="HoraActual" name="HoraActual"></h2>
+                            <h2 id="HoraActual" name="HoraActual"></h2>
                             <input type="time" name="" class="txt-time" style="display: none;">
                         </div>
                         <div class="cont-titulo-imagen">
-                            <h2 class="titulo"></h2>
+                        <input type="text" name="txtNombre" id="txtTitulo" class="camp-titulo" readonly="true">
                         </div>
                         <div class="cont-imagen">
                             <div class="imagen">
-                                <img src="https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/kraken_generic_max_width_600/public/Purina%C2%AE%20Dog%20Chow%C2%AE%20Adultos%20Minis%20y%20Peque%C3%B1os.png?itok=DzlBKoLl" alt="" srcset="" class="img">
+                                <?php /*echo'
+                                    <img src="data:image/png;base64,'.base64_encode($datos['Imagen']).'" alt="" id="img-imagen">
+                                ' */?>
+                                <img src="" alt="" srcset="" class="img" id="txtImg">
                             </div>
                         </div>
                     </div>

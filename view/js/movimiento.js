@@ -132,6 +132,7 @@ function buscar_datos(){ //busca el producto por medio del codigo del producto y
       //console.log(texto);
       if(valores.existe=="1"){
         $("#txtNombre").val(valores.Nombre);
+        $("#txtTitulo").val(valores.Nombre);
         $("#txtPrecio").val(valores.Precio);
         $("#txtGrupo").val(valores.Grupo);
         $("#txtCategoria").val(valores.Categoria);
@@ -144,11 +145,13 @@ function buscar_datos(){ //busca el producto por medio del codigo del producto y
 }
 
 function limpiar(){ // una vez enviado capturado los datos en la tabla permite limpiar el formulario
-  $("#txtNombre").val("");
+  $("##Cod_Producto").val("");
+  $("#txt.Nombre").val("");
   $("#txtPrecio").val("");
   $("#txtGrupo").val("");
-  $("#txtCategoria").val("");
-  $("#txtExistencia").val(valores.Existencia);
+  $("#txtGrupo").val("");
+  $("#txtExistencia").val("");
+  alert("se limpio");
 }
 
 function guardar(){ //captura los datos en la tabla
@@ -179,6 +182,6 @@ function guardar(){ //captura los datos en la tabla
     success:  function (mensaje) {
       $('.resultados').html(mensaje);
     }
-  }) 
+  })
   limpiar();
 }

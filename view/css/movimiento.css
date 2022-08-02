@@ -30,13 +30,13 @@
     height: 630px;
     border: 5px solid greenyellow;
     overflow: hidden;
+    border-radius: 0px 100px 100px 100px;
 }
 .contIzq{
     height: 630px;
     width: 700px;
     display: flex;
     flex-direction: column;
-
 }
 .contDrc{
     height: 630px;
@@ -58,22 +58,62 @@
     margin: 0px 5px 0px 0px;
 }
 .txt-tipo-movimiento{
-    width: 150px;
-    border-radius: 10px;
-    height: 30px;
-    padding: 0px 10px;
+    border-radius: 7px;
+    height: 35px;
+    border-style: none none solid;
+    border-color: greenyellow;
+    background-color: rgba(0, 0, 0, 0.541);
+    color: white;
+    text-align: center;
+    width: 160px;
     outline: none;
     cursor: pointer;
+}
+.txt-tipo-movimiento:hover, .txt-tipo-movimiento:focus,
+.camp-txt-auto:hover, .camp-txt-auto:focus,                 /* Diseño de reaccion del campo de texto ID y contraseña */
+.txt-Camp:hover, .txt-Camp:focus{
+    border-style: none;
+    border-bottom: 2px solid rgb(139, 248, 50);
+    box-shadow: 2px 2px 2px 2px greenyellow;
 }
 .cont0{
     margin-left: 19px;
 }
 .txt-Camp{
-    width: 150px;
-    border-radius: 10px;
-    height: 30px;
-    padding: 0px 10px;
+    border-radius: 7px;
+    height: 29px;
+    border-style: none none solid;
+    border-color: greenyellow;
+    background-color: rgba(0, 0, 0, 0.541);
+    color: white;
+    text-align: center;
+    width: 160px;
     outline: none;
+}
+.camp-txt-auto{
+    border-radius: 7px;
+    height: 29px;
+    border-style: none none solid;
+    border-color: greenyellow;
+    background: transparent;
+    color: white;
+    text-align: center;
+    width: 160px;
+    outline: none;
+    margin-right: 18px;
+}
+.txt-Camp::-webkit-input-placeholder, .camp-txt-auto::-webkit-input-placeholder{                        /*Diseño del placeholder*/
+    color: #ddd;
+}
+.camp-titulo{
+    color: black;
+    background-color: transparent;
+    height: 50px;
+    width: 291px;
+    text-align: center;
+    font-size: 25px;
+    outline: none;
+    border: none;
 }
 .label1{
     margin: 0px 8px;
@@ -96,6 +136,7 @@
     width: 95px;
     height: 20px;
     text-align: center;
+    color: #ddd;
 }
 .conForm{
     height: 330px;
@@ -199,10 +240,15 @@ img{                                               /* Condiciones de las imagene
     font-size: 36px;
     color: greenyellow;
 }
+.fa-circle-plus:active, .fa-circle-chevron-right:active{
+    font-size: 36px;
+    color: aqua;
+}
 .txt-btm:hover{
     font-size: 16px;
     color: greenyellow;
 }
+
 
 /*------------------------------------------------------------------------- TABLAS -----------------------------------------------------------------------------------*/
 .cont-info-mov{
