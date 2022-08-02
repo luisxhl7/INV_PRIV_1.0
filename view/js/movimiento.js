@@ -103,7 +103,7 @@ $(document).ready(function(){
   $('.cargando').hide();
 });  
 
-function buscar_datos(){
+function buscar_datos(){ //busca el producto por medio del codigo del producto y enseña los datos solicitados
   Cod_Producto = $("#Cod_Producto").val();
   console.log(Cod_Producto);
 
@@ -143,7 +143,7 @@ function buscar_datos(){
   })
 }
 
-function limpiar(){
+function limpiar(){ // una vez enviado capturado los datos en la tabla permite limpiar el formulario
   $("#txtNombre").val("");
   $("#txtPrecio").val("");
   $("#txtGrupo").val("");
@@ -151,7 +151,7 @@ function limpiar(){
   $("#txtExistencia").val(valores.Existencia);
 }
 
-function guardar(){
+function guardar(){ //captura los datos en la tabla
   var parametros ={
     "guardar": "1",
     "Cod_Producto" : $("#Cod_Producto").val(),
