@@ -22,7 +22,7 @@
             <div class="contInventario">
                 <table border="2" style="border-style: solid;">
                     <thead>
-                        <tr> <th></th>
+                        <tr>
                             <th rowspan="2"><img src="http://<?php $_SERVER['HTTP_HOST'];?>/INV_PRIV_1.0/view/img/fondo.jpg" alt=""></th>
                             <th colspan="4" rowspan="2">INV PRIV</th>
                             <th>FECHA</th>
