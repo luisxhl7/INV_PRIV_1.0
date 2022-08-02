@@ -51,21 +51,21 @@
                         <div class="conForm">               <!-- estilo no terminado-->
                             <div>
                                 <label for="txtNombre" class="text-label">NOMBRE:</label>
-                                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="automatico">
+                                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="automatico" readonly="true">
                                 <label for="txtCodigo" class="text-label">PRECIO:</label>
-                                <input type="text" name="txtPrecio" id="txtPrecio" class="form-control" placeholder="automatico">
+                                <input type="text" name="txtPrecio" id="txtPrecio" class="form-control" placeholder="automatico" readonly="true">
                             </div>
                             <div>
                                 <label for="txtPrecio" class="text-label">GRUPO:</label>
-                                <input type="text" name="txtGrupo" id="txtGrupo" class="form-control" placeholder="automatico">
+                                <input type="text" name="txtGrupo" id="txtGrupo" class="form-control" placeholder="automatico" readonly="true">
                                 <label for="txtTotal" class="text-label">CATEGORIA:</label>
-                                <input type="text" name="txtCategoria" id="txtCategoria" class="form-control" placeholder="automatico">
+                                <input type="text" name="txtCategoria" id="txtCategoria" class="form-control" placeholder="automatico" readonly="true">
                             </div>
                             <div>
                                 <label for="txtCategoria" class="text-label">DESCRIP.:</label>
-                                <input type="text" name="txtCategoria" id="txtCategoria" class="form-control" placeholder="automatico">
-                                <label for="txtGrupo" class="text-label">EXISTENCIA:</label>
-                                <input type="text" name="txtExistencia" id="txtExistencia" class="form-control" placeholder="automatico">
+                                <input type="text" name="txtCategoria" id="txtCategoria" class="form-control" placeholder="automatico" readonly="true">
+                                <label for="txtGrupo" class="text-label">DISPONIBLE:</label>
+                                <input type="text" name="txtExistencia" id="txtExistencia" class="form-control" placeholder="automatico" readonly="true">
                             </div>
                             
                         </div>
@@ -79,16 +79,15 @@
                             <div class ="contBtn">
                                 <label for="push2">
                                     <i class="fa-solid fa-circle-chevron-right"><P class="txt-btm">VALIDAR</P></i>
-                                    <button class="boton2" name ="push2" id = "push2">VALIDAR</button>
+                                    <button type="button" class="boton2" name ="push2" id = "push2">VALIDAR</button>
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="contDrc">
                         <div class="contFecha">
-                            <label for="" class="fecha">fecha
-                                <input type="time" name="" id="" class="txt-time">
-                            </label>
+                        <h2 id="HoraActual" name="HoraActual"></h2>
+                            <input type="time" name="" class="txt-time" style="display: none;">
                         </div>
                         <div class="cont-titulo-imagen">
                             <h2 class="titulo"></h2>
@@ -101,16 +100,21 @@
                     </div>
                 </div>
                 <div id="cont-validar"> <!---------------------------------- CONTENEDOR DE VALIDACION  ---------------------------------->
+                    <?php
+                        date_default_timezone_set('America/Bogota');    
+                        $fecha = date('m-d-Y', time());
+                        $hora = date('h:i:s a', time()); 
+                    ?>
                     <div>
                         <div class="cont-info-mov">
                             <label for="">PROCEDIMIENTO:
                                 <input type="text" class="txtinfo" name="" id="" readonly="true" value="">
                             </label>
                             <label for="">FECHA:
-                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="">
+                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="<?php echo $fecha; ?>">
                             </label>
                             <label for="">HORA:
-                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="">
+                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="<?php echo $hora; ?>">
                             </label>
                             <label for="">ID USUARIO:
                                 <input type="text" class="txtinfo" name="" id="" readonly="true" value="">

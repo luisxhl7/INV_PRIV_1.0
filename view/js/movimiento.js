@@ -1,5 +1,20 @@
+/*================================================== RELOJ ======================================================*/
+showTime();
+function showTime(){
+  myDate = new Date();
+  hours = myDate.getHours();
+  minutes = myDate.getMinutes();
+  seconds = myDate.getSeconds();
+  if (hours < 10) hours = 0 + hours;
+
+  if (minutes < 10) minutes = "0" + minutes;
+
+  if (seconds < 10) seconds = "0" + seconds;
+
+  $("#HoraActual").text(hours+ ":" +minutes+ ":" +seconds);
+  setTimeout("showTime()", 1000);
+}
 /*Funcion para ir a validar */
-$('#cont-validar').hide(0);
 
 $('#boton-validar').click(function(){
     $("#cont-movimiento").fadeOut(function(){
@@ -8,9 +23,14 @@ $('#boton-validar').click(function(){
 });
 
 $('#boton-movimiento').click(function(){
-    $('#cont-validar').fadeOut(function(){
-        $("#cont-movimiento").fadeIn(1000);
-    });
+  $('#cont-validar').fadeOut(function(){
+    $("#cont-movimiento").fadeIn(1000);
+  });
+});
+$('#push2').click(function(){
+  $("#cont-movimiento").fadeOut(function(){
+      $("#cont-validar").fadeIn(1000);
+  });
 });
 
 /*==================================FUNCION DE AGREGAR LOS PRODUCTOS EN LA TABLA======================================*/
