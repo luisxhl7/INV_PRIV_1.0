@@ -1,5 +1,5 @@
 <?php
-	include("/view/module/bd/abrir_conexion.php");
+	include("./bd/abrir_conexion.php");
 	 
 	 	if(isset($_POST['buscar']))
     { 
@@ -8,7 +8,9 @@
     	$valores['existe'] = "0";
 
     	//CONSULTAR
-		  $resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1 WHERE Cod_Producto = 'Cod_Producto'");
+			$sql = "SELECT * FROM ".$tabla_db1." WHERE Cod_Producto = '".$Cod_Producto."'";
+			$resultados = mysqli_query($conexion, $sql);
+		  //$resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1 WHERE Cod_Producto = 'Cod_Producto'");
 		  while($consulta = mysqli_fetch_array($resultados))
 		  {
 		  	$valores['existe'] = "1"; //Esta variable no la usamos en el vídeo (se me olvido, lo siento xD). Aqui la uso en la linea 97 de registro.php
@@ -63,5 +65,5 @@
 
     }
 	
-  include("/view/module/bd/cerrar_conexion.php");
+  include("./bd/cerrar_conexion.php");
 ?>

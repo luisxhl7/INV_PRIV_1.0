@@ -172,7 +172,7 @@
 
   function buscar_datos()
   {
-    Cod_Producto = $("Cod_Producto").val();
+    Cod_Producto = $("#Cod_Producto").val();
     console.log(Cod_Producto)
     
     
@@ -186,7 +186,7 @@
     {
       data:  parametros,
       dataType: 'json',
-      url:   'codigos_php.php',
+      url:   'http://localhost/INV_PRIV_1.0/view/module/codigos_php.php',
       type:  'post',
       beforeSend: function() 
       {
@@ -204,6 +204,7 @@
       },
       success:  function (valores) 
       {
+        //console.log(texto);
         if(valores.existe=="1") //Aqui usamos la variable que NO use en el vídeo
         {
           $("#txtNombre").val(valores.Nombre);
