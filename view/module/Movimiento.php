@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
         <link rel="stylesheet" href="view/css/movimiento.css">
 
+                            <!-- ajax llenar campos automaticamente  -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     </head>
 
     <body class="interfazGeneral">
@@ -37,7 +40,7 @@
                             </select>
 
                             <label for="txtCodigo" class="cont0"><i class="fa-solid fa-barcode"></i></label>
-                            <input type="text" name="" id="txtCodigo" class="txt-Camp" placeholder="ingrese codigo">
+                            <input type="text" name="Cod_Producto" id="Cod_Producto" class="form-control" placeholder="ingrese codigo" onblur="buscar_datos();">
                         </div>
                         <div class="cont-Unidades">                 <!-- estilo no terminado-->
                             <label for="" class="label2">
@@ -162,6 +165,108 @@
                 </div>
             </form>
         </div>
+        <script type="text/javascript">
+  $(document).ready(function(){
+        $('.cargando').hide();
+      });  
+
+  function buscar_datos()
+  {
+    Cod_Producto = $("Cod_Producto").val();
+    console.log(Cod_Producto)
+    
+    
+    var parametros = 
+    {
+      "buscar": "1",
+      "Cod_Producto" : Cod_Producto
+    };
+    
+    $.ajax(
+    {
+      data:  parametros,
+      dataType: 'json',
+      url:   'codigos_php.php',
+      type:  'post',
+      beforeSend: function() 
+      {
+        $('.formulario').hide();
+        $('.cargando').show();
+        
+      }, 
+      error: function()
+      {alert("Error");},
+      complete: function() 
+      {
+        $('.formulario').show();
+        $('.cargando').hide();
+       
+      },
+      success:  function (valores) 
+      {
+        if(valores.existe=="1") //Aqui usamos la variable que NO use en el vídeo
+        {
+          $("#txtNombre").val(valores.Nombre);
+          $("#txtPrecio").val(valores.Precio);
+          $("#txtGrupo").val(valores.Grupo);
+          $("#txtCategoria").val(valores.Categoria);
+          $("#txtExistencia").val(valores.Existencia);
+        }
+        else
+        {
+          alert("El producto no existe, ¡Crealo!")
+        }
+
+      }
+    }) 
+  }
+
+  function limpiar()
+  {
+    $("#txtNombre").val("");
+    $("#txtPrecio").val("");
+    $("#txtGrupo").val("");
+    $("#txtCategoria").val("");
+    $("#txtExistencia").val(valores.Existencia);
+  }
+
+  function guardar()
+  {
+    var parametros = 
+    {
+      "guardar": "1",
+      "Cod_Producto" : $("#Cod_Producto").val(),
+      "Nombre" : $("#txt.Nombre").val(),
+      "Precio" : $("#txtPrecio").val(),
+      "Grupo" : $("#txtGrupo").val(),
+      "Categoria" : $("#txtCategoria").val(),
+      "Existencia" : $("#txtExistencia").val()
+    };
+    $.ajax(
+    {
+      data:  parametros,
+      url:   'codigos_php.php',
+      type:  'post',
+      beforeSend: function() 
+      {
+        $('.formulario').hide();
+        $('.cargando').show();
+        
+      }, 
+      error: function()
+      {alert("Error");},
+      complete: function() 
+      {
+        $('.formulario').show();
+        $('.cargando').hide();
+       
+      },
+      success:  function (mensaje) 
+      {$('.resultados').html(mensaje);}
+    }) 
+    limpiar();
+  }
+</script>
        
             <!-----------------------------------------------------DIRECCIONES JS---------------------------------------------------->
         <script src="view/js/jquery-3.6.0.min.js"></script>
