@@ -8,13 +8,12 @@
         <title>INV PRIV</title>
         <!--                    DIRECCION PARA LOGOS EN CLOUDFLARE                    -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+        <!--                   DIRECCION PARA ESTILOS EN SWEETALERT2                  -->
+        <link rel="stylesheet" href="view/css/sweetalert2.min.css">
+        <script src="view/js/sweetalert2.all.min.js"></script>
 
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
         <link rel="stylesheet" href="view/css/movimiento.css">
-
-                        <!-- ajax llenar campos automaticamente  -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
     </head>
 
     <body class="interfazGeneral">
@@ -40,7 +39,7 @@
                             </select>
 
                             <label for="txtCodigo" class="cont0"><i class="fa-solid fa-barcode"></i></label>
-                            <input type="text" name="Cod_Producto" id="Cod_Producto" class="txt-Camp" placeholder="ingrese codigo" onblur="buscar_datos();">
+                            <input type="text" name="Cod_Producto" id="Cod_Producto" class="txt-Camp" placeholder="ingrese codigo" oninput="buscar_datos();">
                         </div>
                         <div class="cont-Unidades">          <!-- estilo no terminado-->
                             <label for="" class="label2">
@@ -96,7 +95,7 @@
                                 <?php /*echo'
                                     <img src="data:image/png;base64,'.base64_encode($datos['Imagen']).'" alt="" id="img-imagen">
                                 ' */?>
-                                <img src="" alt="" srcset="" class="img" id="txtImg">
+                                <img src="view/img/LOGO INV.PRIV-03.png" alt="" id="imagenprdt" class="Logo">
                             </div>
                         </div>
                     </div>

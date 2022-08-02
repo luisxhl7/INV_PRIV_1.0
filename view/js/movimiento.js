@@ -122,7 +122,13 @@ function buscar_datos(){ //busca el producto por medio del codigo del producto y
       $('.cargando').show();
     }, 
     error: function(){
-      alert("Error al buscar el producto");
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Por favor ingrese el codigo del producto',
+        showConfirmButton: false,
+        timer: 1500
+      });
     },
     complete: function(){
       $('.formulario').show();
@@ -138,18 +144,24 @@ function buscar_datos(){ //busca el producto por medio del codigo del producto y
         $("#txtCategoria").val(valores.Categoria);
         $("#txtExistencia").val(valores.Existencia);
       }else{
-        alert("El producto no existe, ¡Crealo!");
+        $("#txtNombre").val("");
+        $("#txtTitulo").val("Producto no existente");
+        $("#txtPrecio").val("0");
+        $("#txtGrupo").val("");
+        $("#txtCategoria").val("");
+        $("#txtExistencia").val("0");
       }
     }
   })
 }
 
-function limpiar(){ // una vez enviado capturado los datos en la tabla permite limpiar el formulario
-  $("##Cod_Producto").val("");
-  $("#txt.Nombre").val("");
+function borrar(){ // una vez enviado capturado los datos en la tabla permite borrar el formulario
+  $("#Cod_Producto").val("");
+  $("#txtNombre").val("");
+  $("#txtTitulo").val("");
   $("#txtPrecio").val("");
   $("#txtGrupo").val("");
-  $("#txtGrupo").val("");
+  $("#txtCategoria").val("");
   $("#txtExistencia").val("");
   alert("se limpio");
 }
@@ -183,5 +195,5 @@ function guardar(){ //captura los datos en la tabla
       $('.resultados').html(mensaje);
     }
   })
-  limpiar();
+  borrar();
 }

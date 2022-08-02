@@ -61,6 +61,8 @@
                     document.getElementById("diferencia").classList.remove('unidades-perfectas');
                     document.getElementById("diferencia").classList.remove('unidades-sobran');
                     document.getElementById("diferencia").classList.add('unidades-faltan');
+                    //window.print("asdas"); imprime en pdf lo que se ve en la pantalla
+                    document.write(document.getElementById("diferencia").value )
 
                 }if(document.getElementById("diferencia").value == 0) {
                     document.getElementById("diferencia").classList.remove('unidades-sobran');
