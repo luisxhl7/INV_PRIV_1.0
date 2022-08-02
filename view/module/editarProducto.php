@@ -125,7 +125,10 @@
 
                     <div class = "container2">
                         <div class = "campImg" id="boton">
-                            <img src="data:image/png;base64,<?php echo base64_encode($datos['Imagen']); ?>" alt="" id="img-imagen">
+                            <?php echo'
+                            <img src="data:image/png;base64,'.base64_encode($datos['Imagen']).'" alt="" id="img-imagen">
+                            '
+                            ?>
                             <input type="file" name="imagen" id ="imagen" class="file" onchange="vista_preliminar(event)" accept=".png"> <!--Elemento invisible-->
                         </div>
                         <div>
