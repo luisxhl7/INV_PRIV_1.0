@@ -23,7 +23,7 @@
                 <span class = "btnMenu" id ="boton-movimiento">MOVIMIENTOS</span>
                 <span class = "btnMenu" id ="boton-validar">VALIDAR</span>
             </div>
-            <form>
+            <form method="post">
                 <div id="cont-movimiento" class="cont-movimiento"><!---------------------------------- CONTENEDOR DEL FORMULARIO  ---------------------------------->
                     <div class="contIzq">   
                         <div class="cont1">                 <!-- estilo no terminado-->
@@ -45,7 +45,7 @@
                         <div class="cont-Unidades">                 <!-- estilo no terminado-->
                             <label for="" class="label2">
                                 N unidades
-                                <input type="text" name="" id="" class="txt-Camp" placeholder="Ingrese unidades">
+                                <input type="text" name="txtUnidades" id="txtUnidades" class="txt-Camp" placeholder="Ingrese unidades">
                             </label>
                         </div>
                         <div class="conForm">               <!-- estilo no terminado-->
@@ -73,7 +73,7 @@
                             <div class ="contBtn">
                                 <label for="push1">
                                     <i class="fa-solid fa-circle-plus"><p class="txt-btm">AÑADIR</p></i>
-                                    <button class="boton1" name ="push1" id = "push1">AÑADIR</button>
+                                    <button type="button" class="boton1" name ="push1" id = "push1" onclick="agregarProducto();">AÑADIR</button>
                                 </label>
                             </div>
                             <div class ="contBtn">
@@ -117,56 +117,104 @@
                             </label>
                         </div>
                         <div>
-                            <table border="1" class="tabla">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 150px;">CODIGO</th>
-                                        <th style="width: 150px;">NOMBRE</th>
-                                        <th style="width: 150px;">GRUPO</th>
-                                        <th style="width: 150px;">CATEGORIA</th>
-                                        <th style="width: 150px;">DESCRIPCION</th>
-                                        <th style="width: 150px;">UNIDADES</th>
-                                        <th style="width: 150px;">VALOR</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>99991</td>
-                                        <td>dog show</td>
-                                        <td>comida</td>
-                                        <td>canino</td>
-                                        <td>alimento para cachorros</td>
-                                        <td>2</td>
-                                        <td>$15.500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>99991</td>
-                                        <td>dog show</td>
-                                        <td>comida</td>
-                                        <td>canino</td>
-                                        <td>alimento para cachorros</td>
-                                        <td>2</td>
-                                        <td>$15.500</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="5"></td>
-                                        <td>VALOR TOTAL</td>
-                                        <td>$15.500</td>
-                                    </tr>
-                                </tfoot>
+                        <table border="1" class="tabla">
+                            <thead>
+                                <tr>
+                                    <th style="width: 150px;">CODIGO</th>
+                                    <th style="width: 150px;">NOMBRE</th>
+                                    <th style="width: 150px;">GRUPO</th>
+                                    <th style="width: 150px;">CATEGORIA</th>
+                                    <th style="width: 150px;">DESCRIPCION</th>
+                                    <th style="width: 150px;">UNIDADES</th>
+                                    <th style="width: 150px;">VALOR</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contenidoProductos">
+                            </tbody>
                         </table>
                     </div>
                     <div class="contBtnEnviar">
-                        <input type="button" value="GUARDAR" class="btnEnviar">
+                        <input type="button" value="GUARDAR" class="btnEnviar" onclick="guardarCambios()">
                         <input type="button" value="ELIMINAR" class="btnEnviar">
                     </div>
                 </div>
             </form>
         </div>
+
+        <script> //funcion para agregar los productos a la tabla
+            var productos = []
+            function agregarProducto() {
+            productoNombre = $("#txtNombre").val();
+                productoPrecio = $("#txtPrecio").val();
+                productoGrupo = $("#txtGrupo").val();
+                productoCategoria = $("#txtCategoria").val();
+                productoExistencia = $("#txtExistencia").val();
+                productoUnidades = $("#txtUnidades").val();
+                productoCodigo = $("#Cod_Producto").val();
+                
+
+            productos.push({
+                nombre: productoNombre,
+                precio: productoPrecio,
+                grupo: productoGrupo,
+                categoria: productoCategoria,
+                existencia: productoExistencia,
+                unidades: productoUnidades,
+                codigo: productoCodigo
+                });
+            $("#contenidoProductos").append( 
+                    "<tr>" + 
+                    "    <td>" + productoCodigo + "</td>" + 
+                    "    <td>" + productoNombre + "</td>" + 
+                    "    <td>" + productoGrupo + "</td>" + 
+                    "    <td>" + productoCategoria + "</td>" + 
+                    "    <td>" + productoNombre + "</td>" + 
+                    "    <td>" + productoUnidades + "</td>" + 
+                    "    <td>" + productoUnidades * productoPrecio + "</td>" + 
+                    "</tr>"
+                );
+            }
+        </script>
+
+        <script> //funcion para modificar las cantidades "vender" de los productos
+            function guardarCambios(){
+                
+                var parametros = {
+                    "fecha": new Date(),
+                    "productos": productos
+                };
+                
+                $.ajax(
+                {
+                data:  parametros,
+                dataType: 'json',
+                url:   'http://localhost/INV_PRIV_1.0/view/module/movimientoProducto.php',
+                type:  'post',
+                beforeSend: function() 
+                {
+                    $('.formulario').hide();
+                    $('.cargando').show();
+                    
+                }, 
+                error: function(err)
+                {alert("Error al guardar cambios");
+                console.log(err);},
+                complete: function() 
+                {
+                    $('.formulario').show();
+                    $('.cargando').hide();
+                
+                },
+                success:  function (valores) 
+                {
+                    console.log(valores);
+                }
+                }) 
+            } //fin de la funcion
+        </script>
+
         <script type="text/javascript">
-  $(document).ready(function(){
+    $(document).ready(function(){
         $('.cargando').hide();
       });  
 
