@@ -208,5 +208,5 @@ function clonar() {
     }
     if(movimiento == 3){
       document.getElementById("txtProcedimiento").value = "AJUSTE"; 
-    } 
-}
+    }
+  }

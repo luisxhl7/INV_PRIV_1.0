@@ -46,7 +46,7 @@
                             <div class="form-groun" id="grupoNombre">
                                 <div class="negacion">
                                     <label for="txtCodigo" class="codigo">CODIGO:</label> 
-                                    <input type="text" name="txtCodigo" id="txtCodigo" class="campoCodigo" placeholder="ASIGNACION AUTOMATICA">
+                                    <input type="text" name="txtCodigo" id="txtCodigo" class="campoCodigo" placeholder="ASIGNACION AUTOMATICA" disabled="true">
                                     <i class="iconoDeError fas fa-times-circle"></i>
                                 </div>
                                 <p class="error">error con el codigo</p>
