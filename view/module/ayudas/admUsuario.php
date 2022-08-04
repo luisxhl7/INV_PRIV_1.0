@@ -14,7 +14,7 @@
     <section>
 
         <center>
-            <img src="http://localhost/INV_PRIV_1.0/view/img/usuario.jpg" width="700px" height="500px" />
+            <img src="http://localhost/INV_PRIV_1.0/view/img/menuUsuario.PNG" width="700px" height="500px" />
         </center>
         <p>
         <br><ul><h2>Interfaz Módulo Usuario: </h2></ul><br>

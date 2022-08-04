@@ -62,7 +62,6 @@
 
             <div class="conBtns">           <!-- MENU DE NAVEGACION -->
                 <a href="crearProducto" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
-                <button type="button" class="btnprdt2" title="Inhabilitar producto">INHABILITAR</button>
                 <button type="button" onclick="eliminar(selectPrdt)" class="btnprdt2" title="Eliminar producto">ELIMINAR</button>
                 <button type="submit" class="btnprdt2" title="Editar producto">EDITAR</button>
             </div>
@@ -77,19 +76,19 @@
         ?>
 
         <!-----------DIRECCIONES DE JS--------- -->
-            <script src="./view/js/menuProductos.js"></script>
-            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-            <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-            <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-            <script>
-                $(document).ready(function () {
-                $('#tabla').DataTable({
-                    language: {
-                        search:         "BUSCADOR:",
-                        zeroRecords:    "NO EXISTEN RESULTADOS"
-                    }
-                });
-                });
-            </script>
+        <script src="./view/js/menuProductos.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+            $('#tabla').DataTable({
+                language: {
+                    search:         "BUSCADOR:",
+                    zeroRecords:    "NO EXISTEN RESULTADOS"
+                }
+            });
+            });
+        </script>
     </body>
 </html>

@@ -57,7 +57,7 @@ const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
   //por medio de las expresiones se decide que tipo de datos son validos en cada campo
-  nombre: /^[a-zA-ZÀ-ÿ\s]{1,50}$/, // Letras y espacios, pueden llevar acentos.
+  nombre: /^[a-zA-ZÀ-ÿ\s]{1,100}$/, // Letras y espacios, pueden llevar acentos.
   cantidad: /^\d{1,6}$/, // 7 a 11 numeros.
   precio: /^\d{2,9}$/, // 7 a 11 numeros.
 }

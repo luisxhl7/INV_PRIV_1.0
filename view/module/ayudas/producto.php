@@ -14,7 +14,7 @@
     <section>
 
         <center>
-            <img src="http://localhost/INV_PRIV_1.0/view/img/producto.jpg" width="700px" height="500px" />
+            <img src="http://localhost/INV_PRIV_1.0/view/img/menuProductos.PNG" width="700px" height="500px" />
         </center>
         <p>
         <br><ul><h2>Interfaz Módulo Producto: </h2></ul><br>

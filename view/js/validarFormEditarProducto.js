@@ -21,7 +21,7 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-  nombre: /^[a-zA-Z0-9\_\-]{4,20}$/, // Letras, numeros, guion y guion_bajo
+  nombre: /^[a-zA-ZÀ-ÿ\s]{4,100}$/, // Letras y espacios, pueden llevar acentos.
   cantidad: /^\d{1,6}$/, // 7 a 11 numeros.
   precio: /^\d{2,9}$/, // 7 a 11 numeros.
 }

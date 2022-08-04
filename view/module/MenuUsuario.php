@@ -61,7 +61,6 @@
 
             <div class="conBtns">           <!-- MENU DE NAVEGACION -->
                 <a href="registrarUsuario" class="btnprdt" title="Registrar producto"><b>REGISTRAR</b></a>
-                <button type="button" class="btnprdt2" title="Inhabilitar producto">INHABILITAR</button>
                 <button type="button" onclick="eliminar(selectDocument)" class="btnprdt2" title="Eliminar producto">ELIMINAR</button>
                 <input type="submit" value="EDITAR" class="btnprdt2" title="Editar producto">
             </div>

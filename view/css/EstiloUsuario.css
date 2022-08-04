@@ -117,12 +117,16 @@ tr:hover{                                   /*Reaccion de los 2 tipos de filas d
     margin: 30px auto 0px ;
     border-radius: 10px;
     border: solid 3px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
 }
 .btnprdt, .btnprdt:visited{                 /*Diseño de los botones tipo link*/
     border: solid 1px black;
     background-color: rgb(139, 248, 50);
     color: black;
-    width: 150px;
+    width: 190px;
     height: 27px;
     padding: 9px 0px 0px 0px;
     text-align: center;
@@ -130,7 +134,6 @@ tr:hover{                                   /*Reaccion de los 2 tipos de filas d
     text-decoration: none;
     float: left;
     display: block;
-    margin: 17px 43px 17px 70px;
 }
 .btnprdt:hover, .btnprdt2:hover{            /*Diseño de la reaccion de los botones*/
 background-color: aqua;
@@ -144,14 +147,13 @@ border-color: chartreuse;
     border: solid 1px black;
     background-color: rgb(139, 248, 50);
     color: black;
-    width: 152px;
+    width: 190px;
     height: 38px;
     text-align: center;
     border-radius: 20px;
     text-decoration: none;
     float: left;
     display: block;
-    margin: 17px 43px 17px 43px;
     cursor: pointer;
     font-weight: bold;
 }

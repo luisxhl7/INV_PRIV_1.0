@@ -5,17 +5,19 @@
 .container{                                  /* Contenedor principal*/
     width: 1560px;
     height: 720px;
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    align-content: space-around;
 }
 .menu{                                       /* Diseño del contenedor del menu*/
-    position: absolute;
     display: block;
     width: 250px;
-    height: 630px;
+    height: 600px;
     margin: 10px 20px;
     background-color: rgba(0, 0, 0, 0.459);
     border-radius: 20px;
-    bottom: 0px;
+    padding: 10px 0px;
 }
 .Btn{                                        /* Diseño de los botones del menu*/
     width: 150px;
@@ -28,14 +30,26 @@
     border: solid 1px;
     border-radius: 10px;
     display: block;
-    margin: 50px auto;
+    margin: 60px auto;
     cursor: pointer;
 }
+.Btn:hover{                     /* Diseño de la reaccion de los botones normales del menu */
+    background-color: rgb(139, 248, 50);
+    border:1px solid rgb(139, 248, 50);
+    box-shadow:0px 0px 20px rgb(0, 185, 0);
+}
+.cont-icono{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 45px;
+}
 .ContTitle{                                  /* Diseño del contenedor de titulo*/
-    position: absolute;
     width: 1200px;
-    height: 140px;
-    right: 0px;
+    height: 115px;
     margin: auto;
 }
 .titulo{                                     /* Diseño del titulo*/
@@ -49,13 +63,10 @@
     color: rgb(0, 0, 0);
 }
 .ContInfo{                                   /* Diseño del contenedor de la informacion*/
-    position: absolute;
     display: block;
     width: 1200px;
     height: 550px;
-    right: 10px;
-    bottom: 0px;
-    margin: auto;
+    margin: 10px auto;
 }
 .info{                                       /* Diseño del espacio de la informacion*/
     display: block;
@@ -77,22 +88,17 @@
     background-color: rgb(139, 248, 50);
 }
 .icono1{                                     /* Diseño boton de menu */
-    position: absolute;
     display: block;
-    left: 119px;
-    top: 13px;
     width: 45px;
     height: 40px;
 }
-.home{                                       /* Diseño del texto del boton de menu*/
-    position: absolute;
-    top: 54px;
-    left: 118px;
-    cursor: pointer;
+.icono1:hover{
+    width: 50px;
+    height: 45px; 
 }
-
 .ContInfo{                                   /* Diseño de los body de las informaciones*/
     background-color: rgba(0, 0, 0, 0.267);
+    border-radius: 20px;
 }
 h1{                                          /* Diseño de los titulos de las informaciones*/
     text-align: center;
