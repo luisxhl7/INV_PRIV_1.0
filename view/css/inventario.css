@@ -111,3 +111,29 @@ img:hover{
     width: 100%;
     height: 100%;
 }
+
+/*MODIFICACION DE LOS CAMPOS CON JS*/
+.unidades-faltan{
+    background-color: red;
+    border: none;
+    height: 100%;
+    text-align: center;
+}
+.unidades-sobran{
+    background-color: rgb(255, 238, 0);
+    border: none;
+    height: 100%;
+    text-align: center;
+}
+.unidades-perfectas{
+    background-color: rgb(51, 255, 0);
+    border: none;
+    height: 100%;
+    text-align: center;
+}
+.campoNum{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    text-align: center;
+}

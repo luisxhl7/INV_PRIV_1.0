@@ -1,5 +1,7 @@
 /*----------------------------------------------------------------- CONTENEDOR DEL MENU -----------------------------------------------------------------*/
-
+.cont-menu{
+    margin-top: 40px;
+}
 .btnMenu, .btnMenu:visited{
     text-decoration: none;
     background-color: greenyellow;
@@ -12,6 +14,10 @@
     border-radius: 15px 10px 0px 0px;
     margin: 0px -4px 0px 0px;
     cursor: pointer;
+}
+a, a:visited{
+    text-decoration: none;
+    color: black;
 }
 .btnMenu:hover{
     background-color: rgba(0, 0, 0, 0.397);

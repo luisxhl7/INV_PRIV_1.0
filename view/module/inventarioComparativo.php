@@ -14,37 +14,20 @@
         <!--              DIRECCIONES CSS               -->
         <link rel="stylesheet" href="view/css/FondoInterfazes.css">
         <link rel="stylesheet" href="view/css/menuProducto.css">
+        <link rel="stylesheet" href="view/css/inventario.css">
     </head>
 
     <body class="interfazGeneral">
-        <style>
-            .unidades-faltan{
-                background-color: red;
-                border: none;
-                height: 100%;
-                text-align: center;
-            }
-            .unidades-sobran{
-                background-color: rgb(255, 238, 0);
-                border: none;
-                height: 100%;
-                text-align: center;
-            }
-            .unidades-perfectas{
-                background-color: rgb(51, 255, 0);
-                border: none;
-                height: 100%;
-                text-align: center;
-            }
-            .campoNum{
-                background-color: transparent;
-                border: none;
-                height: 100%;
-                text-align: center;
-            }
-        </style>
-        
-            <div>                       <!-- TABLA DE USUARIOS -->
+        <div>
+            <div>
+                <div class="contMenu">
+                    <a href="menuPrincipal" class="boton-menu">MENU PRINCIPAL</a>
+                    <a href="inventarioComparativo" class="boton-menu">COMPARAR INVENTARIO</a>
+                    <a href="" class="boton-menu">CONSULTAR MOVIMIENTOS</a>
+                </div>
+            </div>
+            <div>
+                <!-- TABLA DE USUARIOS -->
                 <table>
                     <thead>
                         <tr>
@@ -54,56 +37,29 @@
                             <th>INVENTARIO FISICO</th>
                             <th>DIFERENCIAS</th>
                         </tr>
+
                     </thead>
-                    
+    
                     <tbody>
                         <?php
-                            $objCtrProducto = new ControllerProductos();
-                            $listaProducto = $objCtrProducto -> ctrConsultarProducto();  
-                            foreach($listaProducto as $dato){
-                                echo '
-                                    <tr>
-                                        <td>' . $dato['Cod_Producto'] . '</td>
-                                        <td>' . $dato['Nombre'] . '</td>
-                                        <td><input type="number" name="" class="campoNum" oninput="calcular()" id="unidadesTeoricas" value="'. $dato['Existencia'] .'" readonly="true"></td>
-                                        <td><input type="number" name="" class="campoNum" oninput="calcular()" id="unidadesFisicas" ></td>
-                                        <td><input type="number" name="" class="campoNum" id="diferencia" readonly="true"></td>
-                                    </tr>
-                                ';
-                            }  
+                        $objCtrProducto = new ControllerProductos();
+                        $listaProducto = $objCtrProducto->ctrConsultarProducto();
+                        foreach ($listaProducto as $dato) {
+                            echo '
+                                <tr>
+                                    <td>' . $dato['Cod_Producto'] . '</td>
+                                    <td>' . $dato['Nombre'] . '</td>
+                                    <td><input type="text" name="" class="campoNum" oninput="calcular()" id="unidadesTeoricas" value="' . $dato['Existencia'] . '" readonly="true"></td>
+                                    <td><input type="text" name="" class="campoNum" oninput="clonar()" id="unidadesFisicas" ></td>
+                                    <td><input type="text" name="" class="campoNum" id="diferencia" readonly="true"></td>
+                                </tr>
+                            ';
+                        }
                         ?>
                     </tbody>
                 </table>
             </div>
-        <script>
-            const calcular = () => {
-                try {
-                    const undTeoricas = parseFloat(document.querySelector("#unidadesTeoricas").value) || 0;
-                    const undFisicas = parseFloat(document.querySelector("#unidadesFisicas").value) || 0;
-
-                    document.getElementById("diferencia").value = undTeoricas - undFisicas;
-
-                    if (document.getElementById("diferencia").value < 0) {
-                        document.getElementById("diferencia").classList.remove('campoNum');
-                        document.getElementById("diferencia").classList.remove('unidades-perfectas');
-                        document.getElementById("diferencia").classList.remove('unidades-sobran');
-                        document.getElementById("diferencia").classList.add('unidades-faltan');
-
-                    }if(document.getElementById("diferencia").value == 0) {
-                        document.getElementById("diferencia").classList.remove('campoNum');
-                        document.getElementById("diferencia").classList.remove('unidades-sobran');
-                        document.getElementById("diferencia").classList.remove('unidades-faltan');
-                        document.getElementById("diferencia").classList.add('unidades-perfectas');
-
-                    }if (document.getElementById("diferencia").value > 0) {
-                        document.getElementById("diferencia").classList.remove('campoNum');
-                        document.getElementById("diferencia").classList.remove('unidades-perfectas');
-                        document.getElementById("diferencia").classList.remove('unidades-faltan');
-                        document.getElementById("diferencia").classList.add('unidades-sobran');
-                    }
-                }catch(e){  
-                }
-            }
-        </script>          
+        </div>
+        <script src="view/js/inventario.js"></script>
     </body>
 </html>

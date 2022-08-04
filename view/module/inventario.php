@@ -13,9 +13,8 @@
         <div class="contenedorP">
             <div class="contMenu">
                 <a href="menuPrincipal" class="boton-menu">MENU PRINCIPAL</a>
-                <a href="inventario" class="boton-menu">CONSULTAR INVENTARIO</a>
-                <a href="" class="boton-menu">CONSULTAR MOVIMIENTOS</a>
                 <a href="inventarioComparativo" class="boton-menu">COMPARAR INVENTARIO</a>
+                <a href="" class="boton-menu">CONSULTAR MOVIMIENTOS</a>
             </div>
             <div class="contOpciones">
                 <button class="btn-formato"><a href="reporteExcel"><img src="view/img/excel.png" alt=""></a></button>

@@ -1,6 +1,28 @@
 
 /*------------------------------------------MENU DE USUARIO-------------------------------------------*/
-
+.menu1{                              /*Espacio del menu*/
+    height: 37px;
+    width: 995px;
+    margin: 30px auto 2px; 
+}
+.botonMenu, .botonMenu:visited{      /*Diseño de los botones*/
+    background-color: rgb(139, 248, 50);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+    float: left;
+    text-align: center;
+    margin: 0px 4px 0px 0px; 
+    padding: 10px 44px 10px 44px;
+    border-radius: 10px 10px 0px 0px;
+}
+.botonMenu:hover{                    /*Diseño de la Reaccion de los botones*/
+    background-color: rgba(91, 88, 95, 0.644);
+}
+.botonMenu:active{                   /*Diseño al interactuar con los botones*/
+    background-color: rgba(95, 88, 88, 0.589);
+    color: rgb(255, 255, 255);
+}
 /*BUSCADOR*/
 .col-md-7, .col-md-5, .dataTables_length { /*Elementos del pluggin innecesario*/
     display: none;
@@ -28,7 +50,7 @@ label{                                     /*Texto del buscador*/
     display: block;   /*asigna el 100% de un bloque al elemento*/
     padding: 10px 0px;
     border-radius: 20px;
-    margin: 70px 0px 30px;
+    margin: 00px 0px 30px;
 }
 .form-control-sm:hover{
     border-color: rgb(114, 253, 0);
@@ -65,7 +87,7 @@ th{                                         /*Diseño de los titulos de la tala*
     border: solid 1px;
 }
 td{
-    width: 123px;
+    width: 138px;
     height: 50px;
     text-align: center;
 }

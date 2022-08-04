@@ -16,6 +16,11 @@
     <body class="interfazGeneral">
         <form method="post" action="editarUsuario" id="form" name="form">
             <div>                       <!-- TABLA DE USUARIOS -->
+                <div>
+                    <div class= "menu-usuario">
+                        <a href="menuPrincipal" class ="boton-menu-usuario" title="Menu de productos">MENU PRINCIPAL</a>
+                    </div>
+                </div>
                 <table id="tabla" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>

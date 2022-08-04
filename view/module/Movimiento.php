@@ -18,7 +18,8 @@
 
     <body class="interfazGeneral">
         <div>
-            <div>
+            <div class="cont-menu">
+                <span class = "btnMenu"><a href="menuPrincipal" class ="boton-menu-usuario" title="Menu de productos">MENU PRINCIPAL</a></span>
                 <span class = "btnMenu" id ="boton-movimiento">MOVIMIENTOS</span>
                 <span class = "btnMenu" id ="boton-validar">VALIDAR</span>
             </div>
@@ -27,13 +28,13 @@
                     <div class="contIzq">   
                         <div class="cont1">                 <!-- estilo no terminado-->
                             <label for="txtTipoMovimiento" class="label1">TIPO MOVIMIENTOS</label>
-                            <select name="" id="txtTipoMovimiento" class="txt-tipo-movimiento">
+                            <select name="" id="txtTipoMovimiento" class="txt-tipo-movimiento" oninput="clonar()">
                                 <option value="">seleccione tipo</option>
                                 <?php
                                     $objCtrMovimiento = new MovimientoController();
                                     $listaMovimiento = $objCtrMovimiento -> ctrListarTipoMovimiento();  
                                     foreach($listaMovimiento as $dato){
-                                        echo'<option value="'.$dato["Cod_Mov"].'"> '.$dato["Descripcion"].' </option>';
+                                        echo'<option value="'.$dato["Cod_Mov"].'" id="txtTipoMovimiento"> '.$dato["Descripcion"].' </option>';
                                     }
                                 ?>
                             </select>
@@ -109,7 +110,7 @@
                     <div>
                         <div class="cont-info-mov">
                             <label for="">PROCEDIMIENTO:
-                                <input type="text" class="txtinfo" name="" id="" readonly="true" value="">
+                                <input type="text" class="txtinfo" name="" id="txtProcedimiento" readonly="true" value="">
                             </label>
                             <label for="">FECHA:
                                 <input type="text" class="txtinfo" name="" id="" readonly="true" value="<?php echo $fecha; ?>">
@@ -122,21 +123,22 @@
                             </label>
                         </div>
                         <div>
-                        <table border="1" class="tabla">
-                            <thead>
-                                <tr>
-                                    <th style="width: 150px;">CODIGO</th>
-                                    <th style="width: 150px;">NOMBRE</th>
-                                    <th style="width: 150px;">GRUPO</th>
-                                    <th style="width: 150px;">CATEGORIA</th>
-                                    <th style="width: 150px;">DESCRIPCION</th>
-                                    <th style="width: 150px;">UNIDADES</th>
-                                    <th style="width: 150px;">VALOR</th>
-                                </tr>
-                            </thead>
-                            <tbody id="contenidoProductos">
-                            </tbody>
-                        </table>
+                            <table border="1" class="tabla">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 150px;">CODIGO</th>
+                                        <th style="width: 150px;">NOMBRE</th>
+                                        <th style="width: 150px;">GRUPO</th>
+                                        <th style="width: 150px;">CATEGORIA</th>
+                                        <th style="width: 150px;">DESCRIPCION</th>
+                                        <th style="width: 150px;">UNIDADES</th>
+                                        <th style="width: 150px;">VALOR</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="contenidoProductos">
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="contBtnEnviar">
                         <input type="button" value="GUARDAR" class="btnEnviar" onclick="guardarCambios()">
@@ -151,3 +153,6 @@
         <script src="view/js/movimiento.js"></script>
     </body>
 </html>
+
+
+

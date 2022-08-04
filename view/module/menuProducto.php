@@ -18,6 +18,11 @@
 
     <body class="interfazGeneral">
         <form method="post" action="editarProducto">
+            <div>
+                <div class= "menu1">
+                    <a href="menuPrincipal" class ="botonMenu" title="Menu de productos">MENU PRINCIPAL</a>
+                </div>
+            </div>
             <div>                       <!-- TABLA DE USUARIOS -->
                 <table id="tabla" class="table table-striped table-bordered" style="width:100%">
                     <thead>
@@ -30,7 +35,6 @@
                             <th>DESCRIPCION</th>
                             <th>EXISTENCIAS</th>
                             <th>PRECIO</th>
-                            <th>C.BARRAS</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,13 +50,11 @@
                                         <td>' . $dato['Descripcion_Grupo'] . '</td>
                                         <td>' . $dato['Descripcion_Categoria'] . '</td>
                                         <td>' . $dato['Descripcion'] . '</td>
-                                        <td>' . $dato['Existencia'] . '</td>
-                                        <td>$ ' . $dato['Precio'] . '</td>
-                                        <td> <i class="fa-solid fa-barcode"></i> </td>
+                                        <td>' . number_format($dato['Existencia']) . '</td>
+                                        <td>$ ' . number_format($dato['Precio'])  . '</td>
                                     </tr>
                                 ';
-                            }  
-
+                            }
                         ?>
                     </tbody>
                 </table>

@@ -197,3 +197,9 @@ function guardar(){ //captura los datos en la tabla
   })
   borrar();
 }
+/*se clona el campo de texto de tipo de movimiento*/
+function clonar() {
+  let movimiento = document.getElementById("txtTipoMovimiento").value;
+  //Se actualiza en municipio inm
+  document.getElementById("txtProcedimiento").value = movimiento;
+}

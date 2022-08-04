@@ -27,8 +27,6 @@
             <nav>                           <!-- MENU DE NAVEGACION -->
                 <div class= "menu1">
                     <a href="menuProducto" class ="botonMenu" title="Menu de productos">MENU DE BUSQUEDA</a>
-                    <a href="" class ="botonMenu" title="Crear etiqueta">AGREGAR  ETIQUETA</a>
-                    <a href="" class ="botonMenu" title="Agregar codigo de barras">AGREGAR CODIGO DE BARRAS</a>
                 </div>
             </nav>
 
@@ -126,8 +124,6 @@
 
             <?php 
                 if (isset($_POST['txtNombre']) and $_POST['txtNombre'] != null){
-                    $imagenprdt = ($_FILES['imagen']['tmp_name']);
-                    $imgprdt = fopen($imagenprdt, 'rb');
                     $objCon = new ControllerProductos();                    
                     $objCon -> ctrCrearProducto(
                         $_POST['txtNombre'],
@@ -136,7 +132,7 @@
                         $_POST['txtCategoria'],
                         $_POST['txtGrupo'],
                         $_POST['txtDescripcion'],
-                        $imgprdt
+                        addslashes(file_get_contents($_FILES['imagen']['tmp_name']))
                     );
                 }
             ?>
