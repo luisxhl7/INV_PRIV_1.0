@@ -23,7 +23,7 @@
                 <a href="view/module/ayudas/inventario.php" class="Btn" target="Info">INVENTARIO</a>
                 <a href="view/module/ayudas/movimientos.php" class="Btn" target="Info">MOVIMIENTOS</a>
                 <a href="view/module/ayudas/admUsuario.php" class="Btn" target="Info">ADM USUARIO</a>
-                <a href="view/module/ayudas/registro.php" class="Btn" target="Info">REGISTRO</a>
+                <a href="view/module/ayudas/producto.php" class="Btn" target="Info">PRODUCTO</a>
             </div>
 
             <div class ="ContTitle">
