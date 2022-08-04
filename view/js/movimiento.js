@@ -212,6 +212,5 @@ function clonar() {
       document.getElementById("txtProcedimiento").value = tipMov[2];    
       break;
   }
-
   document.getElementById("txtProcedimiento").value = movimiento;
 }
