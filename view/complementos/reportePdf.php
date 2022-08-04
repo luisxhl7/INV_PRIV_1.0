@@ -1,7 +1,9 @@
 <?php
+    /*Por medio de este procedimiento se capturan el tiempo real*/
     date_default_timezone_set('America/Bogota');    
     $fecha = date('m-d-Y', time());
     $hora = date('h:i:s a', time());
+    /*fin del procedimiento*/
     $nombreImagen = "view/img/LOGO INV.PRIV-03.png";
     $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nombreImagen));
     ob_start(); //inicio de la captura del html

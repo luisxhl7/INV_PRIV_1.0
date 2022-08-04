@@ -67,7 +67,7 @@ const validarCampo = (expresion, input, campo) => {
     campos[campo] = false;
   }
 }
-const validarPassword2 = () =>{
+const validarPassword2 = () => {
   const inputPassword1 = document.getElementById("txtPass");
   const inputPassword2 = document.getElementById("txtPass2");
   if (inputPassword1.value !== inputPassword2.value) {
@@ -77,7 +77,7 @@ const validarPassword2 = () =>{
     document.querySelector(`#grupoPassword2 i`).classList.remove('fa-check-circle');
     document.querySelector(`#grupoPassword2 .error`).classList.add('error-activo');
     campos[Password] = false;
-  }else{
+  } else {
     document.getElementById(`grupoPassword2`).classList.remove('form-groun-incorrecto');
     document.getElementById(`grupoPassword2`).classList.add('form-groun-correcto');
     document.querySelector(`#grupoPassword2 i`).classList.add('fa-check-circle');
@@ -88,36 +88,36 @@ const validarPassword2 = () =>{
 }
 
 inputs.forEach((input) => {
-    input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur', validarFormulario);
+  input.addEventListener('keyup', validarFormulario);
+  input.addEventListener('blur', validarFormulario);
 
 })
 
 formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (campos.UserName && campos.Nombre && campos.Apellido && campos.Documento && campos.Telefono && campos.Correo && campos.Password) {
-      Swal.fire({
-        title: 'MODIFICAR USUARIO',
-        text: "SEGURO QUE DESEA MODIFICAR EL USUARIO ?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Confirmar',
-        cancelButtonText: 'Cancelar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          formulario.submit();
-        }
-      })
-    }else {
-      Swal.fire({
-        position: 'top-end',
-        icon: 'error',
-        title: 'Datos incompletos',
-        text:'Verifica los campos',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }
+  e.preventDefault();
+  if (campos.UserName && campos.Nombre && campos.Apellido && campos.Documento && campos.Telefono && campos.Correo && campos.Password) {
+    Swal.fire({
+      title: 'MODIFICAR USUARIO',
+      text: "SEGURO QUE DESEA MODIFICAR EL USUARIO ?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        formulario.submit();
+      }
+    })
+  } else {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Datos incompletos',
+      text: 'Verifica los campos',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 })

@@ -61,6 +61,7 @@ $('#Btn-Cancel1').click(function () {
         });
     });
 });
+
 $('#Btn-Cancel2').click(function () {
     /*===============DOCUMENTACION=======================
         Se crea una funcion tipo flecha en la cual al darle click en el boton cancelar desaparecera el contenedor de cambiar contraseña

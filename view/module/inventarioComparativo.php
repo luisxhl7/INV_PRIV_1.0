@@ -23,7 +23,7 @@
                 <div class="contMenu">
                     <a href="menuPrincipal" class="boton-menu">MENU PRINCIPAL</a>
                     <a href="inventarioComparativo" class="boton-menu">COMPARAR INVENTARIO</a>
-                    <a href="inventario" class="boton-menu">CONSULTAR MOVIMIENTOS</a>
+                    <a href="inventario" class="boton-menu">INVENTARIO</a>
                 </div>
             </div>
             <div>

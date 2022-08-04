@@ -1,6 +1,9 @@
 <?php
+    /*al momento de solicitar la direccion de este archivo sera descargado un archivo tipo excel con
+    la estructura html que se encuentra en el*/
     header("Content-Type: application/xls");
     header("Content-Disposition: attachment; filename= inventario.xls");
+    /*Por medio del siguiente procedimiento se puede optener la hora en tiempo real */
     date_default_timezone_set('America/Bogota');    
     $fecha = date('m-d-Y', time());
     $hora = date('h:i:s a', time()); 

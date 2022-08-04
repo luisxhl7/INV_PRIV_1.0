@@ -1,11 +1,11 @@
 
 /*------------------------------------------MENU DE USUARIO-------------------------------------------*/
-.menu1{                              /*Espacio del menu*/
+.menu1{                                    /*Espacio del menu*/
     height: 37px;
     width: 995px;
     margin: 30px auto 2px; 
 }
-.botonMenu, .botonMenu:visited{      /*Diseño de los botones*/
+.botonMenu, .botonMenu:visited{            /*Diseño de los botones*/
     background-color: rgb(139, 248, 50);
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -16,14 +16,14 @@
     padding: 10px 44px 10px 44px;
     border-radius: 10px 10px 0px 0px;
 }
-.botonMenu:hover{                    /*Diseño de la Reaccion de los botones*/
+.botonMenu:hover{                          /*Diseño de la Reaccion de los botones*/
     background-color: rgba(91, 88, 95, 0.644);
 }
-.botonMenu:active{                   /*Diseño al interactuar con los botones*/
+.botonMenu:active{                         /*Diseño al interactuar con los botones*/
     background-color: rgba(95, 88, 88, 0.589);
     color: rgb(255, 255, 255);
 }
-/*BUSCADOR*/
+/*-----------------------------------------------BUSCADOR-----------------------------------------------*/
 .col-md-7, .col-md-5, .dataTables_length { /*Elementos del pluggin innecesario*/
     display: none;
 }
@@ -39,7 +39,7 @@ label{                                     /*Texto del buscador*/
     outline: none;
     padding: 0px 20px;
 }
-.form-control-sm:hover{
+.form-control-sm:hover{                    /*Diseño de la reaccion del buscador*/
     border-color: greenyellow;
 }
 .dataTables_filter{                        /*Diseño del contenedor del buscador*/
@@ -52,11 +52,8 @@ label{                                     /*Texto del buscador*/
     border-radius: 20px;
     margin: 00px 0px 30px;
 }
-.form-control-sm:hover{
-    border-color: rgb(114, 253, 0);
-}
 
-/*TABLAS*/
+/*------------------------------------------------TABLAS------------------------------------------------*/
 
 #tabla{                                     /*Diseño de la tabla*/
     display: block;
@@ -86,12 +83,12 @@ th{                                         /*Diseño de los titulos de la tala*
     height: 30px;
     border: solid 1px;
 }
-td{
+td{                                         /*Diseño de los td de la tala*/
     width: 138px;
     height: 50px;
     text-align: center;
 }
-.selector{
+.selector{                                  /*Diseño de los selectores de la tabla*/
     width: 20px;
     padding: 0px 5px;
 }

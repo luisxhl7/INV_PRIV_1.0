@@ -21,14 +21,14 @@ img{                                               /* Condiciones de las imagene
     opacity: 0.8;
     box-shadow: 10px 10px 30px #000;
 }
-#Boton-inicio:hover{
+#Boton-inicio:hover{                               /*Diseño de la reaccion del boton de inicio*/
     background-color: rgba(0, 0, 0, 0.918);
     box-shadow: 10px 10px 30px rgb(139, 248, 50);
 }
 
 /*-----------------------------------------------------INICIO DE SESION-----------------------------------------------------*/
 
-#Contenedor-login{
+#Contenedor-login{                                 /*Diseño del contendor del login*/
     position: absolute;
     top: 0;
     left: 0;
@@ -42,12 +42,12 @@ img{                                               /* Condiciones de las imagene
     box-shadow: 10px 10px 30px #000;
     display: none;
 }
-.Logo{
+.Logo{                                             /*Diseño de el logo*/
     max-width: 290px;
     max-height: 250px;
     margin: 10px auto 5px;
 }
-.close-btn{
+.close-btn{                                        /*Diseño del boton de cerrar login*/
     position: absolute;
     cursor: pointer;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -64,7 +64,7 @@ img{                                               /* Condiciones de las imagene
     -o-transition: all 2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-.close-btn:hover{
+.close-btn:hover{                                  /*Diseño de la reaccion del boton de cerrar login*/
     opacity: .5;
 }
 .btn-outline3{                                      /* Diseño de barra desplegable usuario */
@@ -142,7 +142,7 @@ img{                                               /* Condiciones de las imagene
     cursor: pointer;
 }
 #olvid-pass:hover, #Cambiar-pass:hover,
-.Recordar:hover , .inoco-ojo:hover{
+.Recordar:hover , .inoco-ojo:hover{                 /* Diseño de reaccion iconos y texto tipo link*/
     color: rgb(139, 248, 50);
 }
 .btn-outline1{                                      /* Diseño de boton inicio sesion */
@@ -159,7 +159,7 @@ img{                                               /* Condiciones de las imagene
 
 /*---------------------------------------------------RECUPERAR CONTRASEÑA---------------------------------------------------*/
 
-#Contenedor-recuperar{
+#Contenedor-recuperar{                              /* Diseño del contenedor de recordar contraseña*/
     margin: auto;
     margin: auto;
     padding-top: 1px;
@@ -184,7 +184,7 @@ P{                                                  /* Diseño del parrafo */
     color: black;
     font-size: 20px;
 }
-.cont-form{
+.cont-form{                                         /* Contenedor del formulario de recordar contraseña*/
     margin: auto;
     width: 360px;
     height: 370px;
@@ -218,13 +218,13 @@ P{                                                  /* Diseño del parrafo */
     background-color: transparent;
     box-shadow: 2px 2px 2px 2px greenyellow;
 }
-.icono-RC1{
+.icono-RC1{                                         /* Diseño de contenedor de icono*/
     position: absolute;
     font-size: 18px;
     left: 50px;
     top: 56px;
 }
-.icono-RC2{
+.icono-RC2{                                         /* Diseño de contenedor de icono*/
     position: absolute;
     font-size: 18px;
     left: 50px;
@@ -267,7 +267,7 @@ P{                                                  /* Diseño del parrafo */
     text-align: center;
     margin: 50px auto 10px auto;
 }
-#Contenedor-cambiar{
+#Contenedor-cambiar{                                /* Diseño decontenedor de cambiar contraseña*/
     width: 1400px;
     height: 600px;
     margin: 0px auto;
@@ -339,17 +339,17 @@ P{                                                  /* Diseño del parrafo */
     left: 104px;
     top: 40px;
 }
-.icono-CCN{                                          /* Posision de los iconos */                                   
+.icono-CCN{                                         /* Posision de los iconos */                                   
     position: absolute;
     font-size: 18px;
     left: -12px;
     top: 68px;
 }
-div.conDato > label{
+div.conDato > label{                                /* Diseño de los label hijo del div conDato*/ 
     display: block;
     margin: auto;
 }
-.cont-btn-CC{
+.cont-btn-CC{                                       /* Diseño de el contenedor de los botones */
     width: 1200px;
     display: flex;
     flex-direction: column;
@@ -387,7 +387,7 @@ div.conDato > label{
     border-color: rgb(139, 248, 50);   
 }
 
-
+/*------------------------------------------- CONFIGURACION DE JS -------------------------------------------*/
 .form-groun{
     position: relative;
     margin: 15px auto;

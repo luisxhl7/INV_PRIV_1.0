@@ -1,19 +1,19 @@
 /*FUNCION PARA PREVISUALIZAR IMAGENES */
 const archivo = document.getElementById("imagen");
 const boton = document.getElementById("boton");
-boton.addEventListener("click", () =>{
-    archivo.click();
+boton.addEventListener("click", () => {
+  archivo.click();
 });
 
 let vista_preliminar = (event) => {
-    let leer_img = new FileReader();
-    let id_img = document.getElementById('img-imagen');
-    leer_img.onload = () =>{
-        if(leer_img.readyState == 2){
-            id_img.src = leer_img.result;
-        }
+  let leer_img = new FileReader();
+  let id_img = document.getElementById('img-imagen');
+  leer_img.onload = () => {
+    if (leer_img.readyState == 2) {
+      id_img.src = leer_img.result;
     }
-    leer_img.readAsDataURL(event.target.files[0]);
+  }
+  leer_img.readAsDataURL(event.target.files[0]);
 }
 
 /*-------------------------------------------------------VALIDACION DE CAMPOS DE TEXTO DE REGISTRAR USUARIO-------------------------------------------------------*/
@@ -63,35 +63,35 @@ const validarCampo = (expresion, input, campo) => {
 }
 
 inputs.forEach((input) => {
-    input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur', validarFormulario);
+  input.addEventListener('keyup', validarFormulario);
+  input.addEventListener('blur', validarFormulario);
 
 })
 formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (campos.Nombre && campos.Cantidad && campos.Precio) {
-        Swal.fire({
-            title: 'MODIFICAR PRODUCTO',
-            text: "SEGURO QUE DESEA MODIFICAR EL PRODUCTO ?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Confirmar',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                formulario.submit();
-            }
-        })
-    }else {
-      Swal.fire({
-        position: 'top-end',
-        icon: 'error',
-        title: 'Datos incompletos',
-        text:'Verifica los campos',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }
+  e.preventDefault();
+  if (campos.Nombre && campos.Cantidad && campos.Precio) {
+    Swal.fire({
+      title: 'MODIFICAR PRODUCTO',
+      text: "SEGURO QUE DESEA MODIFICAR EL PRODUCTO ?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        formulario.submit();
+      }
+    })
+  } else {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Datos incompletos',
+      text: 'Verifica los campos',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 })

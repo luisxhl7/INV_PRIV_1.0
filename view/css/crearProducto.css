@@ -1,16 +1,16 @@
-.titulo1{                            /*Diseño del titulo*/
+.titulo1{                                /*Diseño del titulo*/
     width: 100%;
     text-align: center;
 }
 
 /*---------------------------------------------- MENU -------------------------------------------------*/
 
-.menu1{                              /*Espacio del menu*/
+.menu1{                                  /*Espacio del menu*/
     height: 37px;
     width: 1100px;
     margin: 1px auto; 
 }
-.botonMenu, .botonMenu:visited{      /*Diseño de los botones*/
+.botonMenu, .botonMenu:visited{          /*Diseño de los botones*/
     background-color: rgb(139, 248, 50);
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -21,17 +21,17 @@
     padding: 10px 44px 10px 44px;
     border-radius: 10px 10px 0px 0px;
 }
-.botonMenu:hover{                    /*Diseño de la Reaccion de los botones*/
+.botonMenu:hover{                        /*Diseño de la Reaccion de los botones*/
     background-color: rgba(91, 88, 95, 0.644);
 }
-.botonMenu:active{                   /*Diseño al interactuar con los botones*/
+.botonMenu:active{                       /*Diseño al interactuar con los botones*/
     background-color: rgba(95, 88, 88, 0.589);
     color: rgb(255, 255, 255);
 }
 
 /*---------------------------------------- FORMULARIO CONTAINER 1---------------------------------------*/
 
-.formulario1{                        /*Diseño del area de la interfaz*/
+.formulario1{                            /*Diseño del area de la interfaz*/
     height: 550px;
     width: 1100px;
     margin: 1px auto;
@@ -40,18 +40,18 @@
     border-style: solid black;
     position: relative;
 }
-.container1{
+.container1{                             /*Diseño del contenedor derecho*/
     height: 550px;
     width: 715px;
     position: absolute;
     display: flex;
     flex-direction: column;
 }
-.campo{
+.campo{                                  /*Diseño de el primer div de los input*/
     margin: 15px 30px 0px;
     display: flex;
 }
-.campoTexto{                         /*campo de texto nombre producto*/
+.campoTexto{                             /*Diseño del campo de texto nombre producto*/
     width: 210px;
     height: 28px;
     margin: 30px 7px 30px 5px;
@@ -59,7 +59,7 @@
     border-radius: 10px;
     outline: none;
 }
-.campoCodigo{                        /*campo de texto codigo producto*/
+.campoCodigo{                            /*Diseño del campo de texto codigo producto*/
     width: 210px;
     height: 28px;
     margin: 30px 0px 30px 9px;
@@ -67,7 +67,7 @@
     border-radius: 10px;
     outline: none;
 }
-.campoTexto1{                        /*campo de texto cantidad producto*/
+.campoTexto1{                            /*Diseño del campo de texto cantidad producto*/
     width: 210px;
     height: 30px;
     margin: 30px 7px 30px 7px;
@@ -75,13 +75,13 @@
     border-radius: 10px;
     outline: none;
 }
-.codigo{
+.codigo{                                 /*Diseño de el label codigo*/
     margin: 0px 0px 0px 11px;
 }
-.precio{
+.precio{                                 /*Diseño de el label precio*/
     margin: 0px 0px 0px 18px;
 }
-.campoTexto2{                        /*campo de numerico precio producto*/
+.campoTexto2{                            /*campo de numerico precio producto*/
     width: 210px;
     height: 30px;
     margin: 30px 0px 30px 10px;
@@ -89,10 +89,11 @@
     border-radius: 10px;
     outline: none;
 }
-.campoTexto:hover,.campoTexto1:hover,.campoTexto2:hover,.campoTexto3:hover{/*Diseño de la reaccion de los campos de texto*/
+.campoTexto:hover,.campoTexto1:hover,
+.campoTexto2:hover,.campoTexto3:hover{   /*Diseño de la reaccion de los campos de texto*/
     border: 1px solid rgb(114, 253, 0);
 }
-.barraDesplegable1{                  /*Diseño de barra desplegable de categoria*/
+.barraDesplegable1{                      /*Diseño de barra desplegable de categoria*/
     background-color: rgb(139, 248, 50);
     margin: 20px 30px 20px 0px;
     width: 218px;
@@ -100,7 +101,7 @@
     border-radius: 7px 7px;      
     cursor: pointer;
 }
-.barraDesplegable2{                  /*Diseño de barra desplegable de grupo*/
+.barraDesplegable2{                      /*Diseño de barra desplegable de grupo*/
     background-color: rgb(139, 248, 50);
     margin: 20px 0px 20px 10px;
     width: 218px;
@@ -108,16 +109,17 @@
     border-radius: 7px 7px;      
     cursor: pointer;
 }
-.barraDesplegable1:hover, .barraDesplegable2:hover{    /*Diseño de reaccion de las barras desplegables*/
+.barraDesplegable1:hover, 
+.barraDesplegable2:hover{                /*Diseño de reaccion de las barras desplegables*/
     border-color:  rgb(114, 253, 0);
 }
-.descrip{                            /*Diseño del texto de descripcicon*/
+.descrip{                                /*Diseño del texto de descripcicon*/
     width: 110px;
     margin: 40px 30px 0px;
     background-color: rgb(139, 248, 50);
     border-radius: 0px 10px 0px 0px;
 }
-.campoTexto3{                        /*Diseño del campo de texto descripcion*/
+.campoTexto3{                            /*Diseño del campo de texto descripcion*/
     width: 635px;
     height: 130px;
     margin-bottom: 1px;
@@ -128,22 +130,22 @@
 
 /*---------------------------------------- FORMULARIO CONTAINER 2---------------------------------------*/
 
-.container2{
+.container2{                             /*Diseño del contenedor de la parte derecha*/
     height: 550px;
     width: 385px;
     right: 0px;
     position: absolute;
 }
-.file{
+.file{                                   /*Diseño de el input typo file*/
     display: none;
 }
-.campImg{                           /*Espacio de la imagen*/
+.campImg{                                /*Espacio de la imagen*/
     width: 300px;
     height: 300px;
     margin: 52px auto 40px;
     border-radius: 15px;
 }
-#img-imagen{
+#img-imagen{                             /*diseño de la imagen*/
     margin: auto;
     width: 280px;
     height: 280px;
@@ -151,20 +153,11 @@
     cursor: pointer;
     display: block;
 }
-#img-imagen:hover{
+#img-imagen:hover{                       /*diseño de reaccion de la imagen*/
     width: 300px;
     height: 300px;
 }
-.fa-image{                           /*Tamaño de la imagen*/
-    display: inline-block;
-    margin: 60px 42px 0px 42px;
-    font-size: 300px;
-    cursor: pointer;
-}
-.fa-image:hover{
-    color: greenyellow;
-}
-.boton1{                            /*Diseño del boton de guardar y editar*/
+.boton1{                                 /*Diseño del boton de guardar y editar*/
     display: block;
     height: 70px;
     width: 180px;
@@ -174,14 +167,11 @@
     border-radius: 30px;
     cursor: pointer;
 }
-.boton1:hover{                      /*Diseño de la reaccion del boton de guardar y editar*/
+.boton1:hover{                           /*Diseño de la reaccion del boton de guardar y editar*/
     border-color: rgb(139, 248, 50);
 }
-.imgFile{
-    display: none;
-}
 
-/*-----------------------------------------------------------*/
+/*---------------------------- CONFIGURACION DE LAS VALIDACIONES -------------------------------*/
 .form-groun{
     width: 350px;
 }
