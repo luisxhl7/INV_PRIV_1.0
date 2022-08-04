@@ -200,18 +200,13 @@ function guardar(){ //captura los datos en la tabla
 /*se clona el campo de texto de tipo de movimiento*/
 function clonar() {
   let movimiento = document.getElementById("txtTipoMovimiento").value;
-  let tipMov = ["SALIDA", "ENTRADA","AJUSTE"];
-  switch (movimiento) {
-    case 1:
-      document.getElementById("txtProcedimiento").value = tipMov[0];    
-      break;
-    case 2:
-      document.getElementById("txtProcedimiento").value = tipMov[1];    
-      break;
-    case 3:
-      document.getElementById("txtProcedimiento").value = tipMov[2];    
-      break;
-  }
-
-  document.getElementById("txtProcedimiento").value = movimiento;
+    if(movimiento == 1){
+      document.getElementById("txtProcedimiento").value = "SALIDA"; 
+    }
+    if(movimiento == 2){
+      document.getElementById("txtProcedimiento").value = "ENTRADA"; 
+    }
+    if(movimiento == 3){
+      document.getElementById("txtProcedimiento").value = "AJUSTE"; 
+    } 
 }
