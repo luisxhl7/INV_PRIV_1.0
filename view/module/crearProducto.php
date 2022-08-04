@@ -113,7 +113,7 @@
                     <div class = "container2">
                         <div class = "campImg" id="boton">
                             <img src="./view/img/image-solid.svg" alt="" id="img-imagen" title="AGREGAR UNA IMAGEN">
-                            <input type="file" name="imagen" id ="imagen" class="file" onchange="vista_preliminar(event)" accept=".png, .jpg, .jpeg"> <!--Elemento invisible-->
+                            <input type="file" name="imagen" id ="imagen" class="file" onchange="vista_preliminar(event)" accept=".png, .jpg, .jpeg" required> <!--Elemento invisible-->
                         </div>
                         <div>
                             <input type="submit" value="REGISTRAR" class="boton1" name="guardarPrdt">

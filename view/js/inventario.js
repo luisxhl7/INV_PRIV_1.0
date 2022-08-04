@@ -1,4 +1,5 @@
 const calcular = () => {
+    //esta funcion permite comparar el valor del inventario fisico con el teorico y reflejar su estado
     try {
         const undTeoricas = parseFloat(document.querySelector("#unidadesTeoricas").value) || 0;
         const undFisicas = parseFloat(document.querySelector("#unidadesFisicas").value) || 0;
@@ -28,6 +29,7 @@ const calcular = () => {
 }
 
 const clonar = () => {
+    //esta funcion permite agregar el valor seleccionado a un input diferente en la interfaz de validar
     const undFisicas = parseFloat(document.querySelector("#unidadesFisicas").value);
     document.getElementById("diferencia").value = undFisicas;
 }

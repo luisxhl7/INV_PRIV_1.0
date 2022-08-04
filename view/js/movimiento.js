@@ -201,10 +201,10 @@ function guardar(){ //captura los datos en la tabla
 function clonar() {
   let movimiento = document.getElementById("txtTipoMovimiento").value;
     if(movimiento == 1){
-      document.getElementById("txtProcedimiento").value = "SALIDA"; 
+      document.getElementById("txtProcedimiento").value = "ENTRADA"; 
     }
     if(movimiento == 2){
-      document.getElementById("txtProcedimiento").value = "ENTRADA"; 
+      document.getElementById("txtProcedimiento").value = "SALIDA"; 
     }
     if(movimiento == 3){
       document.getElementById("txtProcedimiento").value = "AJUSTE"; 

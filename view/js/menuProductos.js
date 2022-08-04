@@ -54,11 +54,13 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-  nombre: /^[a-zA-Z0-9\_\-]{4,20}$/, // Letras, numeros, guion y guion_bajo
+  //por medio de las expresiones se decide que tipo de datos son validos en cada campo
+  nombre: /^[a-zA-ZÀ-ÿ\s]{1,50}$/, // Letras y espacios, pueden llevar acentos.
   cantidad: /^\d{1,6}$/, // 7 a 11 numeros.
   precio: /^\d{2,9}$/, // 7 a 11 numeros.
 }
 const campos = {
+  //se asignan estados iniciales en cada uno de los input, en caso de que cumplan con las expresiones seran cambiados
   Nombre: false,
   Cantidad: false,
   Precio: false,
