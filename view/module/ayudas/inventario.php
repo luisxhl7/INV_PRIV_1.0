@@ -9,7 +9,7 @@
 </head>
 <body class ="ContHelp">
     <header>
-        <h1>USO DEL MODULO INVENTARIO</h1>
+        <center><h1>USO DEL MODULO INVENTARIO</h1></center>
     </header>
     <section>
 
@@ -18,9 +18,9 @@
         </center>
         <p>
         <br><ul><h2>Interfaz Módulo Inventario: </h2></ul><br>
-        <h3><ul><ul><li>Primer paso, seleccionar el tipo de movimiento.</li></ul></ul></h3>
-        <h3><ul><ul><li>Segundo paso, ingresar el codigo del producto seguido de la tecla tabular.</li></ul></ul></h3>
-        <h3><ul><ul><li>Tercer paso, click en añadir ó validar segun sea el caso.</li></ul></ul></h3>
+        <h3><ul><ul><li>Primer paso, interacción con la tabla de productos.</li></ul></ul></h3>
+        <h3><ul><ul><li>Segundo paso, descargar inventario en formato excel o pdf segun el caso.</li></ul></ul></h3>
+        <h3><ul><ul><li>Tercer paso, interaccion con las demás pestañas.</li></ul></ul></h3>
         <em><b><h3>
         <br>
         </p>
@@ -31,9 +31,9 @@
         </center>
         <p>
         <br><ul><h2>Interfaz Comparar Módulo Inventario: </h2></ul><br>
-        <h3><ul><ul><li>Primer paso, validar la informacion contenida en la tabla.</li></ul></ul></h3>
-        <h3><ul><ul><li>Segundo paso, si desea agregar mas produtos ir a la pestaña movimientos.</li></ul></ul></h3>
-        <h3><ul><ul><li>Tercer paso, click en el boton guardar o eliminar según el caso.</li></ul></ul></h3>
+        <h3><ul><ul><li>Primer paso, ingresar las unidades de inventario físico.</li></ul></ul></h3>
+        <h3><ul><ul><li>Segundo paso, el sistema realiza el comparativo de las unidades teóricas vs las fisicas.</li></ul></ul></h3>
+        <h3><ul><ul><li>Tercer paso, interaccion con las demás pestañas.</li></ul></ul></h3>
         <em><b><h3>
         <br>
         </p>

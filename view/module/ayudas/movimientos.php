@@ -9,7 +9,7 @@
 </head>
 <body class ="ContHelp">
     <header>
-        <h1>USO DEL MODULO DE MOVIMIENTOS</h1>
+        <center><h1>USO DEL MODULO DE MOVIMIENTOS</h1></center>
     </header>
     <section>
 

@@ -9,7 +9,7 @@
 </head>
 <body class ="ContHelp">
     <header>
-        <center> <h1>USO DEL MODULO DE PRODUCTOS</h1></center>
+        <center><h1>USO DEL MODULO DE PRODUCTOS</h1></center>
     </header>
     <section>
 
