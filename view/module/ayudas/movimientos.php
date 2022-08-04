@@ -21,7 +21,6 @@
         <h3><ul><ul><li>Primer paso, seleccionar el tipo de movimiento.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso, ingresar el codigo del producto seguido de la tecla tabular.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso, click en añadir ó validar segun sea el caso.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
@@ -34,7 +33,6 @@
         <h3><ul><ul><li>Primer paso, validar la informacion contenida en la tabla.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso, si desea agregar mas produtos ir a la pestaña movimientos.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso, click en el boton guardar o eliminar según el caso.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================

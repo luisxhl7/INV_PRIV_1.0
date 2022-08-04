@@ -19,7 +19,7 @@
             </div>
 
             <div class="menu">
-                <a href="view/module/ayudas/version.php" class="Btn" target="Info">VERSION</a>
+                <a href="view/module/ayudas/version.php" class="Btn" target="Info">INTRODUCCION</a>
                 <a href="view/module/ayudas/inventario.php" class="Btn" target="Info">INVENTARIO</a>
                 <a href="view/module/ayudas/movimientos.php" class="Btn" target="Info">MOVIMIENTOS</a>
                 <a href="view/module/ayudas/admUsuario.php" class="Btn" target="Info">ADM USUARIO</a>

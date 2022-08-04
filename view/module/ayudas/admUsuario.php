@@ -21,7 +21,6 @@
         <h3><ul><ul><li>Primer paso, interacción con la lista de usuarios.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso, interacción con la barra de búsqueda.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso, seleccionar la opción deseada.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
@@ -34,7 +33,6 @@
         <h3><ul><ul><li>Primer paso, ingresar username y escoger el rol.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso, llenar el formulario.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso, click en el boton guardar o salir según el caso.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
@@ -47,7 +45,6 @@
         <h3><ul><ul><li>Primer paso, seleccionar usuario.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso, click en el boton eliminar.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso, click en confirmar o cancelar.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
@@ -61,7 +58,6 @@
         <h3><ul><ul><li>Segundo paso, click en el boton editar.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso, llenar el formulario.</li></ul></ul></h3>
         <h3><ul><ul><li>Cuarto paso, click en el boton aceptar o salir según el caso.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================

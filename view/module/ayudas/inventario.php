@@ -21,7 +21,6 @@
         <h3><ul><ul><li>Primer paso, interacción con la tabla de productos.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso, descargar inventario en formato excel o pdf segun el caso.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso, interaccion con las demás pestañas.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
@@ -34,7 +33,6 @@
         <h3><ul><ul><li>Primer paso, ingresar las unidades de inventario físico.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso, el sistema realiza el comparativo de las unidades teóricas vs las fisicas.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso, interaccion con las demás pestañas.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================

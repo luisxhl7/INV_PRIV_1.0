@@ -21,7 +21,6 @@
         <h3><ul><ul><li>Primer paso interacción con la lista de productos.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso interacción con la barra de búsqueda.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso seleccionar la opción deseada.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
@@ -34,7 +33,6 @@
         <h3><ul><ul><li>Primer paso llenar el formulario.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso seleccionar imágen dando click en el icono de imágen.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso click en el boton registrar.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
@@ -47,7 +45,6 @@
         <h3><ul><ul><li>Primer paso seleccionar producto.</li></ul></ul></h3>
         <h3><ul><ul><li>Segundo paso click en el boton eliminar.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso click en confirmar o cancelar.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
@@ -61,7 +58,6 @@
         <h3><ul><ul><li>Segundo paso click en el boton editar.</li></ul></ul></h3>
         <h3><ul><ul><li>Tercer paso llenar el formulario.</li></ul></ul></h3>
         <h3><ul><ul><li>Cuarto paso click en el boton confirmar.</li></ul></ul></h3>
-        <em><b><h3>
         <br>
         </p>
         ==================================================================================================
