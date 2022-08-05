@@ -4,10 +4,9 @@
     header("Content-Type: application/xls");
     header("Content-Disposition: attachment; filename= inventario.xls");
     /*Por medio del siguiente procedimiento se puede optener la hora en tiempo real */
-    date_default_timezone_set('America/Bogota');    
+    date_default_timezone_set('America/Bogota');
     $fecha = date('m-d-Y', time());
-    $hora = date('h:i:s a', time()); 
-
+    $hora = date('h:i:s a', time());
 ?>
 <table border="2">
     <thead>

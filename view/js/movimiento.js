@@ -56,13 +56,6 @@ function buscar_datos(){ //busca el producto por medio del codigo del producto y
       $('.cargando').show();
     }, 
     error: function(){
-      Swal.fire({
-        position: 'top-end',
-        icon: 'error',
-        title: 'Por favor ingrese el codigo del producto',
-        showConfirmButton: false,
-        timer: 1500
-      });
     },
     complete: function(){
       $('.formulario').show();
@@ -110,28 +103,45 @@ function agregarProducto() { //captura los datos en la tabla
   productoExistencia = $("#txtExistencia").val();
   productoUnidades = $("#txtUnidades").val();
   productoCodigo = $("#Cod_Producto").val();
-
-  productos.push({
-    nombre: productoNombre,
-    precio: productoPrecio,
-    grupo: productoGrupo,
-    categoria: productoCategoria,
-    existencia: productoExistencia,
-    unidades: productoUnidades,
-    codigo: productoCodigo
-  });
-  $("#contenidoProductos").append( 
-    "<tr>" + 
-      "<td>" + productoCodigo + "</td>" + 
-      "<td>" + productoNombre + "</td>" + 
-      "<td>" + productoGrupo + "</td>" + 
-      "<td>" + productoCategoria + "</td>" + 
-      "<td>" + productoNombre + "</td>" + 
-      "<td>" + productoUnidades + "</td>" + 
-      "<td>" + productoUnidades * productoPrecio + "</td>" + 
-    "</tr>"
-  );
-  limpiarFormulario();
+  if (productoCodigo.length != 0 & productoUnidades.length != 0 & productoNombre.length != 0) {
+    productos.push({
+      nombre: productoNombre,
+      precio: productoPrecio,
+      grupo: productoGrupo,
+      categoria: productoCategoria,
+      existencia: productoExistencia,
+      unidades: productoUnidades,
+      codigo: productoCodigo
+    });
+    $("#contenidoProductos").append( 
+      "<tr>" + 
+        "<td><input type='radio' name='posicion' id='posicion' value='"+ productoCodigo +"'></td>" + 
+        "<td>" + productoCodigo + "</td>" + 
+        "<td>" + productoNombre + "</td>" + 
+        "<td>" + productoGrupo + "</td>" + 
+        "<td>" + productoCategoria + "</td>" + 
+        "<td>" + productoNombre + "</td>" + 
+        "<td>" + productoUnidades + "</td>" + 
+        "<td>" + productoUnidades * productoPrecio + "</td>" + 
+      "</tr>"
+      );
+    limpiarFormulario();
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'AÑADIDO',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }else{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'DATOS ERRONEOS, POR FAVOR VALIDE',
+      showConfirmButton: false,
+      timer: 1500
+    })  
+  }
 }
 
 /*==================================FUNCION PARA GUARDAR LOS CAMBIOS EN LA BASE DE DATOS======================================*/
@@ -145,28 +155,40 @@ function guardarCambios(){
   $.ajax({
     data:  parametros,
     dataType: 'json',
-    url:   'http://localhost/INV_PRIV_1.0/view/module/movimientoProducto.php',
+    url:   'view/module/movimientoProducto.php',
     type:  'post',
     beforeSend: function(){
       $('.formulario').hide();
       $('.cargando').show();    
-    }
-    ,error: function(err){
-      alert("Error al guardar cambios");
+    },
+    error: function(err){
+      alert("Error al guardar cambios")
       console.log(err);
     },
-    complete: function() 
-    {
+    complete: function(){
       $('.formulario').show();
       $('.cargando').hide();
     },
-    success:  function (valores) 
-    {
+    success:  function (valores){
       console.log(valores);
+      Swal.fire({
+        title: 'EXITO',
+        text: 'Movimiento exitoso',
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'CONFIRMAR'
+        }).then((result) => {
+        if (result.isConfirmed) {
+          window.location='movimiento';
+        }else{
+          window.location='movimiento';
+        }
+      })
     }
   }) 
 } //fin de la funcion
-
 /*se clona el campo de texto de tipo de movimiento*/
 function clonar() {
   let movimiento = document.getElementById("txtTipoMovimiento").value;

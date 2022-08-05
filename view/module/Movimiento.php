@@ -40,18 +40,18 @@
                             </select>
 
                             <label for="txtCodigo" class="cont0"><i class="fa-solid fa-barcode"></i></label>
-                            <input type="text" name="Cod_Producto" id="Cod_Producto" class="txt-Camp" placeholder="ingrese codigo" oninput="buscar_datos();">
+                            <input type="number" name="Cod_Producto" id="Cod_Producto" class="txt-Camp" placeholder="ingrese codigo" oninput="buscar_datos();">
                         </div>
                         <div class="cont-Unidades">          <!-- estilo no terminado-->
                             <label for="" class="label2">
                                 N unidades
-                                <input type="text" name="txtUnidades" id="txtUnidades" class="txt-Camp" placeholder="Ingrese unidades">
+                                <input type="number" name="txtUnidades" id="txtUnidades" class="txt-Camp" placeholder="Ingrese unidades">
                             </label>
                         </div>
                         <div class="conForm">               <!-- estilo no terminado-->
                             <div>
                                 <label for="txtNombre" class="text-label">NOMBRE:</label>
-                                <input type="text" name="txtNombre" id="txtNombre" class="camp-txt-auto" placeholder="automatico" readonly="true">
+                                <input type="text" name="txtNombre" id="txtNombre" class="camp-txt-auto" placeholder="automatico" readonly="true" accesskey=”H″>
                                 <label for="txtCodigo" class="text-label">PRECIO:</label>
                                 <input type="text" name="txtPrecio" id="txtPrecio" class="camp-txt-auto" placeholder="automatico" readonly="true">
                             </div>
@@ -126,6 +126,7 @@
                             <table border="1" class="tabla">
                                 <thead>
                                     <tr>
+                                        <th style="width: 50px;"></th>
                                         <th style="width: 150px;">CODIGO</th>
                                         <th style="width: 150px;">NOMBRE</th>
                                         <th style="width: 150px;">GRUPO</th>
