@@ -198,8 +198,6 @@
               $_POST["txtPassOrg"],
               $_POST["txtPass1"]
             );
-          }else{
-            echo "<script>alert('Las contranseñas no son iguales')</script>";
           }
         }
       ?>

@@ -32,72 +32,6 @@ $('#push2').click(function(){
   });
 });
 
-/*==================================FUNCION DE AGREGAR LOS PRODUCTOS EN LA TABLA======================================*/
-var productos = []
-function agregarProducto() {
-  productoNombre = $("#txtNombre").val();
-  productoPrecio = $("#txtPrecio").val();
-  productoGrupo = $("#txtGrupo").val();
-  productoCategoria = $("#txtCategoria").val();
-  productoExistencia = $("#txtExistencia").val();
-  productoUnidades = $("#txtUnidades").val();
-  productoCodigo = $("#Cod_Producto").val();
-
-  productos.push({
-    nombre: productoNombre,
-    precio: productoPrecio,
-    grupo: productoGrupo,
-    categoria: productoCategoria,
-    existencia: productoExistencia,
-    unidades: productoUnidades,
-    codigo: productoCodigo
-  });
-  $("#contenidoProductos").append( 
-    "<tr>" + 
-    "<td>" + productoCodigo + "</td>" + 
-    "<td>" + productoNombre + "</td>" + 
-    "<td>" + productoGrupo + "</td>" + 
-    "<td>" + productoCategoria + "</td>" + 
-    "<td>" + productoNombre + "</td>" + 
-    "<td>" + productoUnidades + "</td>" + 
-    "<td>" + productoUnidades * productoPrecio + "</td>" + 
-    "</tr>"
-  );
-}
-
-/*==================================FUNCION PARA GUARDAR LOS CAMBIOS EN LA BASE DE DATOS======================================*/
-function guardarCambios(){
-                
-  var parametros = {
-    "fecha": new Date(),
-    "productos": productos
-  };
-    
-  $.ajax({
-    data:  parametros,
-    dataType: 'json',
-    url:   'http://localhost/INV_PRIV_1.0/view/module/movimientoProducto.php',
-    type:  'post',
-    beforeSend: function(){
-      $('.formulario').hide();
-      $('.cargando').show();    
-    }
-    ,error: function(err){
-      alert("Error al guardar cambios");
-      console.log(err);
-    },
-    complete: function() 
-    {
-      $('.formulario').show();
-      $('.cargando').hide();
-    },
-    success:  function (valores) 
-    {
-      console.log(valores);
-    }
-  }) 
-} //fin de la funcion
-
 /************************************FUNCION PARA BUSCAR LOS DATOS DEL PRODUCTO*********************************************** */
 $(document).ready(function(){
   $('.cargando').hide();
@@ -115,7 +49,7 @@ function buscar_datos(){ //busca el producto por medio del codigo del producto y
   $.ajax({
     data:  parametros,
     dataType: 'json',
-    url:   'http://localhost/INV_PRIV_1.0/view/module/codigos_php.php',
+    url:   'view/module/codigos_php.php',
     type:  'post',
     beforeSend: function(){
       $('.formulario').hide();
@@ -155,7 +89,7 @@ function buscar_datos(){ //busca el producto por medio del codigo del producto y
   })
 }
 
-function borrar(){ // una vez enviado capturado los datos en la tabla permite borrar el formulario
+function limpiarFormulario(){ // una vez enviado capturado los datos en la tabla permite limpiar el formulario
   $("#Cod_Producto").val("");
   $("#txtNombre").val("");
   $("#txtTitulo").val("");
@@ -163,40 +97,76 @@ function borrar(){ // una vez enviado capturado los datos en la tabla permite bo
   $("#txtGrupo").val("");
   $("#txtCategoria").val("");
   $("#txtExistencia").val("");
-  alert("se limpio");
+  $("#txtUnidades").val("");
 }
 
-function guardar(){ //captura los datos en la tabla
-  var parametros ={
-    "guardar": "1",
-    "Cod_Producto" : $("#Cod_Producto").val(),
-    "Nombre" : $("#txt.Nombre").val(),
-    "Precio" : $("#txtPrecio").val(),
-    "Grupo" : $("#txtGrupo").val(),
-    "Categoria" : $("#txtCategoria").val(),
-    "Existencia" : $("#txtExistencia").val()
+/*==================================FUNCION DE AGREGAR LOS PRODUCTOS EN LA TABLA======================================*/
+var productos = []
+function agregarProducto() { //captura los datos en la tabla
+  productoNombre = $("#txtNombre").val();
+  productoPrecio = $("#txtPrecio").val();
+  productoGrupo = $("#txtGrupo").val();
+  productoCategoria = $("#txtCategoria").val();
+  productoExistencia = $("#txtExistencia").val();
+  productoUnidades = $("#txtUnidades").val();
+  productoCodigo = $("#Cod_Producto").val();
+
+  productos.push({
+    nombre: productoNombre,
+    precio: productoPrecio,
+    grupo: productoGrupo,
+    categoria: productoCategoria,
+    existencia: productoExistencia,
+    unidades: productoUnidades,
+    codigo: productoCodigo
+  });
+  $("#contenidoProductos").append( 
+    "<tr>" + 
+      "<td>" + productoCodigo + "</td>" + 
+      "<td>" + productoNombre + "</td>" + 
+      "<td>" + productoGrupo + "</td>" + 
+      "<td>" + productoCategoria + "</td>" + 
+      "<td>" + productoNombre + "</td>" + 
+      "<td>" + productoUnidades + "</td>" + 
+      "<td>" + productoUnidades * productoPrecio + "</td>" + 
+    "</tr>"
+  );
+  limpiarFormulario();
+}
+
+/*==================================FUNCION PARA GUARDAR LOS CAMBIOS EN LA BASE DE DATOS======================================*/
+function guardarCambios(){
+                
+  var parametros = {
+    "fecha": new Date(),
+    "productos": productos
   };
+    
   $.ajax({
     data:  parametros,
-    url:   'codigos_php.php',
+    dataType: 'json',
+    url:   'http://localhost/INV_PRIV_1.0/view/module/movimientoProducto.php',
     type:  'post',
     beforeSend: function(){
       $('.formulario').hide();
-      $('.cargando').show();
-    }, 
-    error: function(){
-      alert("Error");
-    },
-    complete: function(){
-      $('.formulario').show();
-      $('.cargando').hide(); 
-    },
-    success:  function (mensaje) {
-      $('.resultados').html(mensaje);
+      $('.cargando').show();    
     }
-  })
-  borrar();
-}
+    ,error: function(err){
+      alert("Error al guardar cambios");
+      console.log(err);
+    },
+    complete: function() 
+    {
+      $('.formulario').show();
+      $('.cargando').hide();
+    },
+    success:  function (valores) 
+    {
+      console.log(valores);
+    }
+  }) 
+} //fin de la funcion
+
 /*se clona el campo de texto de tipo de movimiento*/
 function clonar() {
   let movimiento = document.getElementById("txtTipoMovimiento").value;
@@ -209,4 +179,4 @@ function clonar() {
     if(movimiento == 3){
       document.getElementById("txtProcedimiento").value = "AJUSTE"; 
     }
-  }
+}
