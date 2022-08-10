@@ -68,7 +68,7 @@
             $this -> correo = $correo;
         }
         public function setPass($pass){
-            $this -> pass = $pass;
+            $this -> pass = md5($pass,false);
         }
 
         public function toString(){

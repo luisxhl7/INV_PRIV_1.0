@@ -11,7 +11,7 @@
                 Se capturan los datos en los ($this-> xx) para poder manipularlos en las funciones
             ========================================================*/
             $this -> user = $user;
-            $this -> pass = $pass;
+            $this -> pass = md5($pass,false);
             $this -> rol = $rol;
         } //FIN DEL CONSTRUCTOR
 
