@@ -3,12 +3,15 @@
 
     $fecha = $_POST["fecha"];
     $productos = $_POST["productos"];
+    $codigo = $producto["codigo"];
+    $unidades = $producto["unidades"];
+
+
     $resultado = array();
     foreach ($productos as $producto) {
+        $sql = "UPDATE producto SET Existencia = ".$unidades." WHERE Cod_Producto = '".$codigo."'";
+            
         try {
-            $codigo = $producto["codigo"];
-            $unidades = $producto["unidades"];
-            $sql = "UPDATE ".$tabla_db1." SET Existencia = ".$unidades." WHERE Cod_Producto = '".$codigo."'";
             $resultados = mysqli_query($conexion, $sql);
             $rowsAffected = mysqli_affected_rows($conexion);
             $producto["vendido"] = $rowsAffected > 0? "si": "no";

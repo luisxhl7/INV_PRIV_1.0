@@ -18,11 +18,17 @@
         <div class = "container">
             <div class="contMenu">
                 <div class = "menu">        <!-- Contenedor del menu -->
-                    <div>  <!-- Boton modulo producto -->
+                <?php
+                if ($_SESSION["rol"] == 1) {
+                ?>    
+                <div>  <!-- Boton modulo producto -->
                         <a href="menuProducto">
                             <input type="button" value="PRODUCTO" class = "boton">
                         </a>
                     </div>
+                <?php
+                }
+                ?>
                     <div>  <!-- Boton modulo inventario -->
                         <a href="inventario">
                             <input type="button" value="INVENTARIO" class="boton">
@@ -33,11 +39,17 @@
                             <input type="button" value="MOVIMIENTOS" class="boton">
                         </a>
                     </div>
+                    <?php
+                    if ($_SESSION["rol"] == 1) {
+                    ?>
                     <div>  <!-- Boton modulo ADM usuario -->
                         <a href="admUsuario">
                             <input type="button" value="ADM USUARIO" class="boton">
                         </a>
                     </div>
+                    <?php
+                    }
+                    ?>
                     <div class="contInfo">
                         <label for="support">  <!-- Boton con icono de soporte -->
                             <a href="soporte"><i class="fa-solid fa-headset" id= "support"><p>SOPORTE</p></i></a>

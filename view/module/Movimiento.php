@@ -34,7 +34,10 @@
                                     $objCtrMovimiento = new MovimientoController();
                                     $listaMovimiento = $objCtrMovimiento -> ctrListarTipoMovimiento();  
                                     foreach($listaMovimiento as $dato){
-                                        echo'<option value="'.$dato["Cod_Mov"].'" id="txtTipoMovimiento"> '.$dato["Descripcion"].' </option>';
+
+                                        if ($_SESSION["rol"] == 2 && $dato["Cod_Mov"] != 3) {
+                                            echo'<option value="'.$dato["Cod_Mov"].'" id="txtTipoMovimiento"> '.$dato["Descripcion"].' </option>';
+                                        }
                                     }
                                 ?>
                             </select>

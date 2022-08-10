@@ -12,6 +12,7 @@
                 
                 if (gettype($rest) != "boolean") {
                     $_SESSION["login"] = true;
+                    $_SESSION["rol"] = $rest["ROL"];
                     header("location:index");
                 }else{
                     echo "<script> 
