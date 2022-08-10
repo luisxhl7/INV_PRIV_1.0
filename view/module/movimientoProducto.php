@@ -5,6 +5,7 @@
     $productos = $_POST["productos"];
     $codigo = $producto["codigo"];
     $unidades = $producto["unidades"];
+    echo "<script>alert('probando si entra al modulo');</script>"; 
 
 
     $resultado = array();
