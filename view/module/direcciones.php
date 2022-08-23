@@ -80,6 +80,34 @@
                     break;
             }
         }
+        if ($_SESSION["rol"] == 3) {
+            switch ($_GET['ruta']) {
+                case 'menuPrincipal':
+                    require_once "view/module/menuPrincipal.php";
+                    break;
+                case 'soporte':
+                    require_once "view/module/soporte.php";
+                    break;
+                case 'ayuda':
+                    require_once "view/module/ayuda.php";
+                    break;
+                case 'inventario':
+                    require_once "view/module/inventario.php";
+                    break;
+                case 'inventarioComparativo':
+                    require_once "view/module/inventarioComparativo.php";
+                    break;
+                case 'reporteExcel':
+                    require_once "view/complementos/reporteExcel.php";    
+                    break;
+                case 'reportePdf':
+                    require_once "view/complementos/reportePdf.php";    
+                    break;                 
+                default:
+                    require_once "view/module/menuPrincipal.php";
+                    break;
+            }
+        }
         
     }else {
         require_once "view/module/menuPrincipal.php";

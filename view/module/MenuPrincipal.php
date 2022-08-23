@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,71 +13,94 @@
         <!--                    DIRECCION PARA LOGOS EN CLOUDFLARE                    -->
         <script src="https://kit.fontawesome.com/57868abadd.js" crossorigin="anonymous"></script>
     </head>
-    
+
     <body class="interfazGeneral">
 
-        <div class = "container">
+        <div class="container">
             <div class="contMenu">
-                <div class = "menu">        <!-- Contenedor del menu -->
-                <?php
-                if ($_SESSION["rol"] == 1) {
-                ?>    
-                <div>  <!-- Boton modulo producto -->
-                        <a href="menuProducto">
-                            <input type="button" value="PRODUCTO" class = "boton">
-                        </a>
-                    </div>
-                <?php
-                }
-                ?>
-                    <div>  <!-- Boton modulo inventario -->
+                <div class="menu">
+                    <!-- Contenedor del menu -->
+                    <?php
+                    if ($_SESSION["rol"] == 1) {
+                    ?>
+                        <div>
+                            <!-- Boton modulo producto -->
+                            <a href="menuProducto">
+                                <input type="button" value="PRODUCTO" class="boton">
+                            </a>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <div>
+                        <!-- Boton modulo inventario -->
                         <a href="inventario">
                             <input type="button" value="INVENTARIO" class="boton">
                         </a>
                     </div>
-                    <div>  <!-- Boton modulo movimientos -->
-                        <a href="movimiento">
-                            <input type="button" value="MOVIMIENTOS" class="boton">
-                        </a>
-                    </div>
+                    <?php
+                    if ($_SESSION["rol"] == 1 or $_SESSION["rol"] == 2) {
+                    ?>
+                        <div>
+                            <!-- Boton modulo movimientos -->
+                            <a href="movimiento">
+                                <input type="button" value="MOVIMIENTOS" class="boton">
+                            </a>
+                        </div>
+                    <?php
+                    }
+                    ?>
                     <?php
                     if ($_SESSION["rol"] == 1) {
                     ?>
-                    <div>  <!-- Boton modulo ADM usuario -->
-                        <a href="admUsuario">
-                            <input type="button" value="ADM USUARIO" class="boton">
-                        </a>
-                    </div>
+                        <div>
+                            <!-- Boton modulo ADM usuario -->
+                            <a href="admUsuario">
+                                <input type="button" value="ADM USUARIO" class="boton">
+                            </a>
+                        </div>
                     <?php
                     }
                     ?>
                     <div class="contInfo">
-                        <label for="support">  <!-- Boton con icono de soporte -->
-                            <a href="soporte"><i class="fa-solid fa-headset" id= "support"><p>SOPORTE</p></i></a>
+                        <label for="support">
+                            <!-- Boton con icono de soporte -->
+                            <a href="soporte"><i class="fa-solid fa-headset" id="support">
+                                    <p>SOPORTE</p>
+                                </i></a>
                         </label>
-                        <label for="help">     <!-- Boton con icono de ayuda -->
-                            <a href="ayuda"><i class="fa-solid fa-circle-question" id= "help"><p>AYUDA</p></i></a>
+                        <label for="help">
+                            <!-- Boton con icono de ayuda -->
+                            <a href="ayuda"><i class="fa-solid fa-circle-question" id="help">
+                                    <p>AYUDA</p>
+                                </i></a>
                         </label>
                     </div>
                 </div>
             </div>
 
-            <div class ="divLogo">      <!-- Contenedor fuera del menu -->
+            <div class="divLogo">
+                <!-- Contenedor fuera del menu -->
 
-                <div>                   <!-- Logo INV_PRIV -->
-                    <img src="view/IMG/LOGO INV.PRIV-03.png" alt="" class = "logo">
+                <div>
+                    <!-- Logo INV_PRIV -->
+                    <img src="view/IMG/LOGO INV.PRIV-03.png" alt="" class="logo">
                 </div>
-                <h1><em><b>             <!-- TEXTO -->
-                    Sistema para la gestión y control de inventario
-                </b></em></h1>
+                <h1><em><b>
+                            <!-- TEXTO -->
+                            Sistema para la gestión y control de inventario
+                        </b></em></h1>
 
                 <div class="contExit">
                     <label for="exit">
-                        <a href="view/module/cerrarSesion.php" class="exit" name ="exit" id ="exit"><i class="fa-solid fa-right-from-bracket"><p>cerrar sesion</p></i>   </a>                                        
+                        <a href="view/module/cerrarSesion.php" class="exit" name="exit" id="exit"><i class="fa-solid fa-right-from-bracket">
+                                <p>cerrar sesion</p>
+                            </i> </a>
                     </label>
                 </div>
             </div>
         </div>
-        
+
     </body>
+
 </html>
